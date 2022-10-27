@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/0.Scenes/PopCorn.unity
+    path: Assets/0.Scenes/PopCorn_temp.unity
     guid: 9637e4b5cb97a4980b981c89ee3aaae3
   m_configObjects: {}

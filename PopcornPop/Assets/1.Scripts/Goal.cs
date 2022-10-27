@@ -35,7 +35,8 @@ public class Goal : MonoBehaviour
 
             //GameManager.instance.Money += (System.Numerics.BigInteger)other.GetComponent<Popcorn>().Price;
             Popcorn _corn = other.GetComponent<Popcorn>();
-            GameManager.instance.ManagerAddMoney(_corn.Price, _corn.Price_Index);
+            GameManager.instance.ManagerAddMoney(GameManager.instance.Up_Income[GameManager.instance.Income_Level], GameManager.instance.Income_Index);
+            //GameManager.instance.ManagerAddMoney(_corn.Price, _corn.Price_Index);
             Current_Count++;
 
             if (GameManager.instance.Floating_Waiting_Pool.childCount <= 0)
@@ -48,8 +49,8 @@ public class Goal : MonoBehaviour
             _floating.transform.position = other.transform.position + Vector3.up * 1f;
             _floating.localScale = Vector3.one * 0.01f;
             _floating.gameObject.SetActive(true);
-            _floating.GetChild(0).GetComponent<Text>().text = string.Format("{0}{1}", _corn.Price
-                , GameManager.instance.Price_Unit[_corn.Price_Index]);
+            _floating.GetChild(0).GetComponent<Text>().text = string.Format("{0}{1}", /*_corn.Price*/ GameManager.instance.Up_Income[GameManager.instance.Income_Level]
+                , GameManager.instance.Price_Unit[/*_corn.Price_Index*/GameManager.instance.Income_Index]);
 
             Color _color = _floating.GetChild(0).GetComponent<Text>().color;
 

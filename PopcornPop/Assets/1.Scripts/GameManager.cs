@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
 
-            Application.targetFrameRate = 60;
+            // Application.targetFrameRate = 60;
         }
 
         SetButton();
@@ -137,6 +137,16 @@ public class GameManager : MonoBehaviour
             DataManager.instance.Save_Data();
         }
 
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Off_Object[2].SetActive(false);
+            Off_Object[3].SetActive(true);
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Off_Object[2].SetActive(true);
+            Off_Object[3].SetActive(false);
+        }
 
     }
 
@@ -437,7 +447,7 @@ public class GameManager : MonoBehaviour
                 Auto_Button.interactable = false;
                 DOTween.To(() => _fever_time, x => _fever_time = x, 0, 20f).SetEase(Ease.Linear);
 
-            }).AppendInterval(30f)
+            }).AppendInterval(20f)
         .OnComplete(() => _spawner.isFever = false);
 
     }
