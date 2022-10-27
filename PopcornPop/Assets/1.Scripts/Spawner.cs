@@ -32,8 +32,10 @@ public class Spawner : MonoBehaviour
     [SerializeField] Transform Spawn_Pos;
     [SerializeField] Vector3 Shoot_Dir;
     [SerializeField] int Current_popcorn_count;
-    [SerializeField] float Fever_Current_Time;
-    [SerializeField] float Fever_Interval = 0.1f;
+    public float Fever_Current_Time;
+    public float Fever_Interval = 0.2f;
+    public int Fever_Count = 5;
+
 
 
     //////////////////// ////////
@@ -80,12 +82,12 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             if (Current_Tap_Time >= Tap_Limit_Interval)
             {
                 Current_Tap_Time = 0f;
-                Spawn_Popcorn(Tap_Spawn_Count + GameManager.instance.Increase_Popcorn_Level);
+                Spawn_Popcorn(Tap_Spawn_Count);
                 MMVibrationManager.Haptic(HapticTypes.LightImpact);
                 if (isFever == false)
                     GameManager.instance._fever_time++;
@@ -97,15 +99,15 @@ public class Spawner : MonoBehaviour
             if (Fever_Current_Time >= Fever_Interval)
             {
                 Fever_Current_Time = 0f;
-                Spawn_Popcorn(10);
+                Spawn_Popcorn(Fever_Count);
             }
             Fever_Current_Time += Time.deltaTime;
         }
 
-        //else if (Input.GetMouseButton(1))
-        //{
-        //    Spawn_Popcorn(Spawn_Count + GameManager.instance.Increase_Popcorn_Level + 10);
-        //}
+        else if (Input.GetMouseButton(1))
+        {
+            Spawn_Popcorn(15);
+        }
     }
 
 
@@ -148,8 +150,8 @@ public class Spawner : MonoBehaviour
             //_popcorn.GetComponent<Popcorn>().Price = GameManager.instance.SetPrice();
             Popcorn _corn = _popcorn.GetComponent<Popcorn>();
 
-            _corn.Price = GameManager.instance.Up_Income[GameManager.instance.Income_Level];
-            _corn.Price_Index = GameManager.instance.Income_Index;
+            //_corn.Price = GameManager.instance.Up_Income[GameManager.instance.Income_Level];
+            //_corn.Price_Index = GameManager.instance.Income_Index;
 
             //Debug.Log(GameManager.instance.Up_Income[GameManager.instance.Income_Index]);
             //GameManager.instance.SetPopcorn_Price(ref _corn.Price, ref _corn.Price_Index);
@@ -158,7 +160,7 @@ public class Spawner : MonoBehaviour
 
             Spawn_Pos.rotation = Quaternion.Euler(Default_Dir.x, Default_Dir.y * _num, Default_Dir.z);
             Shoot_Dir = Spawn_Pos.forward.normalized;
-
+            _popcorn.AddTorque(Shoot_Dir * Power);
             _popcorn.AddForce(Shoot_Dir * Power);
         }
     }

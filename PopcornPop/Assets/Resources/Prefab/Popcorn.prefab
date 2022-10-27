@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5397150425517142725}
   - component: {fileID: 5397150425517142745}
   - component: {fileID: 5397150425517142744}
-  - component: {fileID: 5672906261948366815}
   m_Layer: 0
   m_Name: Popcorn
   m_TagString: Popcorn
@@ -44,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5397150425517142722}
-  m_Mesh: {fileID: 2534964839176971238, guid: ce8b7174ad69644a3b04c9a8299785c4, type: 3}
+  m_Mesh: {fileID: 1878168672877299918, guid: 553550a08eb914f9a8b7b05b8c53b27e, type: 3}
 --- !u!23 &5397150425517142724
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -98,8 +97,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.56
-  m_Center: {x: 0.004707516, y: 0.028701771, z: -0.02455173}
+  m_Radius: 0.68
+  m_Center: {x: -0.0053973496, y: 0.03291136, z: 0.028152434}
 --- !u!54 &5397150425517142745
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -115,7 +114,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!75 &5397150425517142744
 ConstantForce:
   m_ObjectHideFlags: 0
@@ -128,17 +127,3 @@ ConstantForce:
   m_RelativeForce: {x: 0, y: 0, z: 0}
   m_Torque: {x: 0, y: 0, z: 0}
   m_RelativeTorque: {x: 0, y: 0, z: 0}
---- !u!114 &5672906261948366815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5397150425517142722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d8f8c57224f94f75a1fdbe1213365bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Price: 0
-  Price_Index: 0
