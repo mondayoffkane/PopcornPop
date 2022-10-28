@@ -18,6 +18,7 @@ public class Fan : MonoBehaviour
         if (other.CompareTag("Popcorn"))
         {
             other.GetComponent<Rigidbody>().AddForce(transform.forward * Speed);
+            //other.GetComponent<Rigidbody>().velocity = transform.forward * Speed*0.1f;
         }
     }
 

@@ -10,7 +10,9 @@ public class TweenMove : MonoBehaviour
     public enum State
     {
         Up_down_move,
-        Left_Right_move
+        Left_Right_move,
+        ToThrow,
+        None
     }
     public State _state;
 
@@ -26,12 +28,12 @@ public class TweenMove : MonoBehaviour
         switch (_state)
         {
             case State.Up_down_move:
-                transform.DOMoveY( Move_y, Move_time)
+                transform.DOMoveY(Move_y, Move_time)
            .SetEase(Ease.Linear).SetRelative(true).SetLoops(-1, LoopType.Yoyo);
                 break;
 
             case State.Left_Right_move:
-                transform.DOMoveX( Move_x, Move_time)
+                transform.DOMoveX(Move_x, Move_time)
         .SetEase(Ease.Linear).SetRelative(true).SetLoops(-1, LoopType.Yoyo);
                 break;
 
@@ -40,6 +42,18 @@ public class TweenMove : MonoBehaviour
         }
 
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (_state == State.ToThrow)
+        {
+            if (other.CompareTag("Popcorn"))
+            {
+                DOTween.Sequence().Append(other.transform.DOMove(transform.GetChild(0).transform.position, 0.5f).SetEase(Ease.Linear))
+                    .OnComplete(() => other.GetComponent<Rigidbody>().velocity = Vector3.up*10f);
+            }
+        }
     }
 
 

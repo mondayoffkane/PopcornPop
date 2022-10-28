@@ -22,6 +22,7 @@ public class Spawner : MonoBehaviour
 
     public int Start_Pool_Size = 300;
     public int Add_Pool_Size = 100;
+    public int Max_Pool_Size = 1000;
 
     public bool isFever = false;
     // //////////////////////////////
@@ -31,11 +32,14 @@ public class Spawner : MonoBehaviour
     [SerializeField] Vector3 Default_Dir = new Vector3(-70f, 36f, 0f);
     [SerializeField] Transform Spawn_Pos;
     [SerializeField] Vector3 Shoot_Dir;
-    [SerializeField] int Current_popcorn_count;
     public float Fever_Current_Time;
     public float Fever_Interval = 0.2f;
     public int Fever_Count = 5;
 
+    [SerializeField] int Current_popcorn_count;
+    [SerializeField] bool isMax = false;
+    [SerializeField] int Waiting_Pool_Count;
+    [SerializeField] int Using_Pool_Count;
 
 
     //////////////////// ////////
@@ -104,10 +108,15 @@ public class Spawner : MonoBehaviour
             Fever_Current_Time += Time.deltaTime;
         }
 
-        else if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1))
         {
             Spawn_Popcorn(15);
+            if (isFever == false)
+                GameManager.instance._fever_time++;
         }
+
+        Waiting_Pool_Count = Waiting_Pool.childCount;
+        Using_Pool_Count = Using_Pool.childCount;
     }
 
 
@@ -141,39 +150,52 @@ public class Spawner : MonoBehaviour
             {
                 Add_Pool(Add_Pool_Size);
             }
+            if (Waiting_Pool.childCount > 0)
+            {
 
-            Rigidbody _popcorn = Waiting_Pool.GetChild(0).GetComponent<Rigidbody>();
-            _popcorn.transform.SetParent(Using_Pool);
-            _popcorn.transform.position = Spawn_Pos.position;
-            _popcorn.transform.rotation = Quaternion.Euler(new Vector3(Random.Range(0, 360f), Random.Range(0, 360f), Random.Range(0, 360f)));
-            _popcorn.gameObject.SetActive(true);
-            //_popcorn.GetComponent<Popcorn>().Price = GameManager.instance.SetPrice();
-            Popcorn _corn = _popcorn.GetComponent<Popcorn>();
+                Rigidbody _popcorn = Waiting_Pool.GetChild(0).GetComponent<Rigidbody>();
+                _popcorn.transform.SetParent(Using_Pool);
+                _popcorn.transform.position = Spawn_Pos.position;
+                _popcorn.transform.rotation = Quaternion.Euler(new Vector3(Random.Range(0, 360f), Random.Range(0, 360f), Random.Range(0, 360f)));
+                _popcorn.gameObject.SetActive(true);
+                //_popcorn.GetComponent<Popcorn>().Price = GameManager.instance.SetPrice();
+                Popcorn _corn = _popcorn.GetComponent<Popcorn>();
 
-            //_corn.Price = GameManager.instance.Up_Income[GameManager.instance.Income_Level];
-            //_corn.Price_Index = GameManager.instance.Income_Index;
+                //_corn.Price = GameManager.instance.Up_Income[GameManager.instance.Income_Level];
+                //_corn.Price_Index = GameManager.instance.Income_Index;
 
-            //Debug.Log(GameManager.instance.Up_Income[GameManager.instance.Income_Index]);
-            //GameManager.instance.SetPopcorn_Price(ref _corn.Price, ref _corn.Price_Index);
+                //Debug.Log(GameManager.instance.Up_Income[GameManager.instance.Income_Index]);
+                //GameManager.instance.SetPopcorn_Price(ref _corn.Price, ref _corn.Price_Index);
 
-            int _num = Random.Range(0, 10);
+                int _num = Random.Range(0, 10);
 
-            Spawn_Pos.rotation = Quaternion.Euler(Default_Dir.x, Default_Dir.y * _num, Default_Dir.z);
-            Shoot_Dir = Spawn_Pos.forward.normalized;
-            _popcorn.AddTorque(Shoot_Dir * Power);
-            _popcorn.AddForce(Shoot_Dir * Power);
+                Spawn_Pos.rotation = Quaternion.Euler(Default_Dir.x, Default_Dir.y * _num, Default_Dir.z);
+                Shoot_Dir = Spawn_Pos.forward.normalized;
+                _popcorn.AddTorque(Shoot_Dir * Power);
+                _popcorn.AddForce(Shoot_Dir * Power);
+            }
         }
     }
 
     void Add_Pool(int _count)
     {
-        for (int i = 0; i < _count; i++)
+        if (isMax == false)
         {
-            GameObject _popcorn = Instantiate(Resources.Load("Prefab/Popcorn") as GameObject);
-            _popcorn.transform.SetParent(Waiting_Pool);
-            _popcorn.transform.position = Spawn_Pos.position;
-            _popcorn.SetActive(false);
-            Current_popcorn_count++;
+            for (int i = 0; i < _count; i++)
+            {
+                if (Current_popcorn_count < Max_Pool_Size)
+                {
+                    GameObject _popcorn = Instantiate(Resources.Load("Prefab/Popcorn") as GameObject);
+                    _popcorn.transform.SetParent(Waiting_Pool);
+                    _popcorn.transform.position = Spawn_Pos.position;
+                    _popcorn.SetActive(false);
+                    Current_popcorn_count++;
+                }
+                else
+                {
+                    isMax = true;
+                }
+            }
         }
     }
 
