@@ -1,19 +1,21 @@
 ﻿<Properties StartupConfiguration="{C031E835-6EEA-F012-B4FC-D2BC791B3F1D}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/1.Scripts/Fan.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/1.Scripts/Conveyer.cs">
     <Files>
-      <File FileName="Assets/1.Scripts/GameManager.cs" Line="213" Column="17" />
-      <File FileName="Assets/1.Scripts/Spawner.cs" Line="164" Column="6" />
+      <File FileName="Assets/1.Scripts/GameManager.cs" Line="145" Column="43" />
+      <File FileName="Assets/1.Scripts/Spawner.cs" Line="101" Column="16" />
+      <File FileName="Assets/1.Scripts/TweenMove.cs" Line="53" Column="111" />
+      <File FileName="Assets/1.Scripts/Conveyer.cs" Line="18" Column="69" />
       <File FileName="Assets/1.Scripts/Popcorn.cs" Line="28" Column="57" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/Goal.cs" Line="53" Column="108" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/RotObj.cs" Line="44" Column="25" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/ColorChanger.cs" Line="41" Column="1" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/Limit_Floor.cs" Line="24" Column="1" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/Fan.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/Goal.cs" Line="127" Column="14" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/RotObj.cs" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/ColorChanger.cs" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/Limit_Floor.cs" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/Fan.cs" Line="8" Column="1" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="ff93828d-243f-4955-a05e-e9d5f76f0fc2" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="96c83469-cc1d-4a99-bfc0-8479626d2223" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

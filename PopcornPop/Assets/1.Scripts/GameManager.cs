@@ -54,6 +54,10 @@ public class GameManager : MonoBehaviour
     public Text Money_Text;
     public Button[] Upgrade_Button;
     public Button Auto_Button;
+    public Button Cam_Rotate_Button;
+
+    public GameObject Rot_Cam;
+    public GameObject Full_Cam;
 
 
     [Space(10)]
@@ -141,11 +145,15 @@ public class GameManager : MonoBehaviour
         {
             Off_Object[2].SetActive(false);
             Off_Object[3].SetActive(true);
+            Off_Object[4].SetActive(false);
+            Full_Cam.SetActive(true);
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
             Off_Object[2].SetActive(true);
             Off_Object[3].SetActive(false);
+            Off_Object[4].SetActive(true);
+            Full_Cam.SetActive(false);
         }
 
     }
@@ -460,6 +468,7 @@ public class GameManager : MonoBehaviour
         Upgrade_Button[2].onClick.AddListener(() => Obj_Upgrade());
 
         Auto_Button.onClick.AddListener(() => Auto_Tap());
+        Cam_Rotate_Button.onClick.AddListener(() => Cam_Rot());
     }
 
     void Check_Data()
@@ -487,6 +496,10 @@ public class GameManager : MonoBehaviour
     //    Gizmos.DrawSphere(transform.position + Explosion_pos, Explosion_radius);
     //}
 
+    void Cam_Rot()
+    {
+        Rot_Cam.SetActive(!Rot_Cam.activeSelf);
+    }
 
 
 
