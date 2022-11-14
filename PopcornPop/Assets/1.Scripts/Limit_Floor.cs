@@ -16,7 +16,7 @@ public class Limit_Floor : MonoBehaviour
         {
             collision.transform.position = new Vector3(0f, 200f, 0f);
             collision.transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            collision.transform.SetParent(GameManager.instance.Waiting_Pool);
+            collision.transform.SetParent(GameManager.instance.Current_StageManager.Waiting_Pool);
             collision.transform.gameObject.SetActive(false);
         }
     }

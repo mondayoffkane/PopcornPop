@@ -12,62 +12,64 @@ public class GameManager : MonoBehaviour
 {
     static public GameManager instance;
 
-    public Transform Waiting_Pool, Using_Pool;
+    //public Transform Waiting_Pool, Using_Pool;
     public float Save_Interval = 1f;
     [SerializeField] float current_save_time = 0f;
 
     [Space(10)]
-    [Title("Upgrade Value")]
+    [FoldoutGroup("Upgrade_Value")] public GameObject[] Stage_Group;
+    [FoldoutGroup("Upgrade_Value")] public int Current_Max_Stage_Level;
+    [FoldoutGroup("Upgrade_Value")] public int Current_Stage_Level = 0;
+    [FoldoutGroup("Upgrade_Value")] public StageManager Current_StageManager;
 
-    public int Increase_Popcorn_Level; //  스폰갯수 증가    
-    public double[] Popcorn_Upgrade_Price;
-
-    [Space(10)]
-    public int Income_Level; // 업그레이드 레벨   
-    public double[] Up_Income; // 금액대 리스트
-    public double[] Income_Upgrade_Price;
+    [FoldoutGroup("Upgrade_Value")] public int Current_Popcorn_Level; //  스폰갯수 증가    
+    [FoldoutGroup("Upgrade_Value")] public double[] Current_Popcorn_Upgrade_Price;
 
     [Space(10)]
-    public int Max_Obj_Level = 5;
-    public int Object_Level;
+    [FoldoutGroup("Upgrade_Value")] public int Current_Income_Level; // 업그레이드 레벨   
+    [FoldoutGroup("Upgrade_Value")] public double[] Current_Up_Income; // 금액대 리스트
+    [FoldoutGroup("Upgrade_Value")] public double[] Current_Income_Upgrade_Price;
 
-    public double[] Obj_Upgrade_Price;
-    public GameObject[] Add_Object; // 맵 오브젝트
-    public GameObject[] Off_Object;
+    [Space(10)]
+    [FoldoutGroup("Upgrade_Value")] public int Current_Max_Obj_Level = 5;
+    [FoldoutGroup("Upgrade_Value")] public int Current_Object_Level;
 
+    [FoldoutGroup("Upgrade_Value")] public double[] Current_Obj_Upgrade_Price;
+    [FoldoutGroup("Upgrade_Value")] public GameObject[] Current_Add_Object; // 맵 오브젝트
+    [FoldoutGroup("Upgrade_Value")] public GameObject[] Current_Off_Object;
+
+
+
+    [Space(10)]    
+    [FoldoutGroup("UI")] public Text Money_Text;
+    [FoldoutGroup("UI")] public Button[] Upgrade_Button;
+    [FoldoutGroup("UI")] public Button Auto_Button;
+    [FoldoutGroup("UI")] public Button Cam_Rotate_Button;
+
+    [FoldoutGroup("UI")] public GameObject Rot_Cam;
+    [FoldoutGroup("UI")] public GameObject Full_Cam;
 
 
     [Space(10)]
-    [Title("UI")]
-    public Text Money_Text;
-    public Button[] Upgrade_Button;
-    public Button Auto_Button;
-    public Button Cam_Rotate_Button;
 
-    public GameObject Rot_Cam;
-    public GameObject Full_Cam;
+    [FoldoutGroup("Floating_Money")] public int Start_Pool_Size = 100;
+    [FoldoutGroup("Floating_Money")] public int Add_Pool_Size = 50;
+    [FoldoutGroup("Floating_Money")] public Transform Floating_Waiting_Pool;
+    [FoldoutGroup("Floating_Money")] public Transform Floating_Using_Pool;
 
-
-    [Space(10)]
-    [Title("Floating_Money")]
-    public int Start_Pool_Size = 100;
-    public int Add_Pool_Size = 50;
-    public Transform Floating_Waiting_Pool;
-    public Transform Floating_Using_Pool;
     public Spawner _spawner;
     public float Fever_time;
     public float Max_Fever_time = 300f;
 
 
     [Space(10)]
-    [Title("CPI")]
-    public Vector3 Explosion_pos;
-    public float Explosion_power;
-    public float Explosion_radius;
-    // Private
+    
+    [FoldoutGroup("CPI")] public Vector3 Explosion_pos;
+    [FoldoutGroup("CPI")] public float Explosion_power;
+    [FoldoutGroup("CPI")] public float Explosion_radius;
 
-    string p;
-    //GameObject[] Goals;
+
+
     /// //////////////////////////////////////
 
     [Space(10)]
@@ -75,6 +77,134 @@ public class GameManager : MonoBehaviour
     public double Money;
     static readonly string[] CurrencyUnits = new string[] { "", "K", "M", "B", "T", "aa", "bb", "cc", "dd", "ee", "ff", "gg", "hh", "ii", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "aa", "ab", "ac", "ad", "ae", "af", "ag", "ah", "ai", "aj", "ak", "al", "am", "an", "ao", "ap", "aq", "ar", "as", "at", "au", "av", "aw", "ax", "ay", "az", "ba", "bb", "bc", "bd", "be", "bf", "bg", "bh", "bi", "bj", "bk", "bl", "bm", "bn", "bo", "bp", "bq", "br", "bs", "bt", "bu", "bv", "bw", "bx", "by", "bz", "ca", "cb", "cc", "cd", "ce", "cf", "cg", "ch", "ci", "cj", "ck", "cl", "cm", "cn", "co", "cp", "cq", "cr", "cs", "ct", "cu", "cv", "cw", "cx", };
 
+
+    // ===============================================================================================
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+
+            // Application.targetFrameRate = 60;
+        }
+
+        Init();
+
+    }
+
+    void Init()
+    {
+        Stage_Group = new GameObject[3];
+
+
+    }
+
+    private void Start()
+    {
+        DataManager.instance.Load_Data();
+        SetStage();
+
+
+        SetButton();
+        Check_Data();
+        Check_Level_Price();
+    }
+
+    void SetStage()
+    {
+
+        Current_Stage_Level = Current_StageManager.Stage_Level;
+
+        if (Stage_Group[Current_Stage_Level] == null)
+        {
+            Stage_Group[Current_Stage_Level] = Instantiate(Resources.Load("Prefab/Stage/Stage_" + Current_Stage_Level) as GameObject);
+        }
+
+        for (int i = 0; i < Stage_Group.Length; i++)
+        {
+            Stage_Group[i].SetActive(false);
+        }
+        Stage_Group[Current_Stage_Level].SetActive(true);
+        Current_StageManager = Stage_Group[Current_Stage_Level].GetComponent<StageManager>();
+
+
+        Current_Popcorn_Upgrade_Price = Current_StageManager.Popcorn_Upgrade_Price;
+        Current_Income_Upgrade_Price = Current_StageManager.Income_Upgrade_Price;
+        Current_Up_Income = Current_StageManager.Up_Income;
+        Current_Add_Object = Current_StageManager.Add_Object;
+        Current_Off_Object = Current_StageManager.Off_Object;
+              
+
+
+    }
+
+
+
+    void Update()
+    {
+        Money_Text.text = ToCurrencyString(Money);
+        Check_Button();
+
+        InputKeyFunc();
+    }
+
+    // --------------------------------------------
+
+
+    void InputKeyFunc()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Current_Off_Object[1].SetActive(false);
+            Collider[] _cols = Physics.OverlapSphere(transform.position + Explosion_pos, Explosion_radius);
+            foreach (Collider _col in _cols)
+            {
+                if (_col.transform.CompareTag("Popcorn"))
+                {
+                    _col.GetComponent<Rigidbody>().AddExplosionForce(Explosion_power, transform.position + Explosion_pos, Explosion_radius);
+                }
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            Current_Off_Object[1].SetActive(true);
+        }
+
+        current_save_time += Time.deltaTime;
+        if (current_save_time >= Save_Interval)
+        {
+            current_save_time = 0f;
+            DataManager.instance.Save_Data();
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Current_Off_Object[2].SetActive(false);
+            Current_Off_Object[3].SetActive(true);
+            Current_Off_Object[4].SetActive(false);
+            Full_Cam.SetActive(true);
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Current_Off_Object[2].SetActive(true);
+            Current_Off_Object[3].SetActive(false);
+            Current_Off_Object[4].SetActive(true);
+            Full_Cam.SetActive(false);
+        }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            Money += 100000000;
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            DataManager.instance.Init_Data();
+        }
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        //}
+    }
 
     public static string ToCurrencyString(double number)
     {
@@ -142,93 +272,7 @@ public class GameManager : MonoBehaviour
 
 
 
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-
-            // Application.targetFrameRate = 60;
-        }
-
-        SetButton();
-
-
-
-    }
-
-    private void Start()
-    {
-        DataManager.instance.Load_Data();
-        Check_Data();
-
-        Check_Level_Price();
-
-    }
-
-    void Update()
-    {
-        Money_Text.text = ToCurrencyString(Money);
-        Check_Button();
-
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Off_Object[1].SetActive(false);
-            Collider[] _cols = Physics.OverlapSphere(transform.position + Explosion_pos, Explosion_radius);
-            foreach (Collider _col in _cols)
-            {
-                if (_col.transform.CompareTag("Popcorn"))
-                {
-                    _col.GetComponent<Rigidbody>().AddExplosionForce(Explosion_power, transform.position + Explosion_pos, Explosion_radius);
-                }
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            Off_Object[1].SetActive(true);
-        }
-
-        current_save_time += Time.deltaTime;
-        if (current_save_time >= Save_Interval)
-        {
-            current_save_time = 0f;
-            DataManager.instance.Save_Data();
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Off_Object[2].SetActive(false);
-            Off_Object[3].SetActive(true);
-            Off_Object[4].SetActive(false);
-            Full_Cam.SetActive(true);
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Off_Object[2].SetActive(true);
-            Off_Object[3].SetActive(false);
-            Off_Object[4].SetActive(true);
-            Full_Cam.SetActive(false);
-        }
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            Money += 100000000;
-        }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            DataManager.instance.Init_Data();
-        }
-        //if (Input.GetKeyDown(KeyCode.Escape))
-        //{
-        //    UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
-        //}
-
-    }
-
-    // --------------------------------------------
-
-    public void Add_Pool(int _count)
+    public void Add_Floating_Pool(int _count)
     {
         for (int i = 0; i < _count; i++)
         {
@@ -241,41 +285,9 @@ public class GameManager : MonoBehaviour
 
 
 
-    public void Theorem(int[] _money_list, ref int _money_index)
-    {
-
-        for (int i = 0; i < 5; i++)
-        {
-            if (_money_list[i] > 0)
-            {
-                _money_index = i;
-            }
-        }
-
-        for (int i = 0; i <= _money_index; i++)
-        {
-            if (_money_list[i] >= 1000)
-            {
-                _money_list[i] -= 1000;
-                _money_list[i + 1] += 1;
-            }
-
-            if (_money_list[i] < 0)
-            {
-                if (_money_index > i)
-                {
-                    _money_list[i + 1] -= 1;
-                    _money_list[i] += 1000;
-                }
-            }
-        }
-    }
-
-
-
     public void ManagerAddMoney()
     {
-        Money += Up_Income[Income_Level];
+        Money += Current_Up_Income[Current_Income_Level];
     }
 
 
@@ -283,9 +295,9 @@ public class GameManager : MonoBehaviour
     void Check_Button()
     {
 
-        if (Increase_Popcorn_Level < Popcorn_Upgrade_Price.Length)
+        if (Current_Popcorn_Level < Current_Popcorn_Upgrade_Price.Length)
         {
-            if (Money > Popcorn_Upgrade_Price[Increase_Popcorn_Level])
+            if (Money > Current_Popcorn_Upgrade_Price[Current_Popcorn_Level])
             {
                 Upgrade_Button[0].interactable = true;
             }
@@ -301,10 +313,10 @@ public class GameManager : MonoBehaviour
         }
 
 
-        if (Income_Level < Income_Upgrade_Price.Length)
+        if (Current_Income_Level < Current_Income_Upgrade_Price.Length)
         {
 
-            if (Money > Income_Upgrade_Price[Income_Level])
+            if (Money > Current_Income_Upgrade_Price[Current_Income_Level])
             {
                 Upgrade_Button[1].interactable = true;
             }
@@ -318,9 +330,9 @@ public class GameManager : MonoBehaviour
             Upgrade_Button[1].interactable = false;
         }
 
-        if (Object_Level < Max_Obj_Level)
+        if (Current_Object_Level < Current_Max_Obj_Level)
         {
-            if (Money > Obj_Upgrade_Price[Object_Level])
+            if (Money > Current_Obj_Upgrade_Price[Current_Object_Level])
             {
                 Upgrade_Button[2].interactable = true;
             }
@@ -348,13 +360,13 @@ public class GameManager : MonoBehaviour
     {
 
         Upgrade_Button[0].transform.GetChild(0).GetComponent<Text>().text =
-            Increase_Popcorn_Level >= Popcorn_Upgrade_Price.Length ? "Max" : ToCurrencyString(Popcorn_Upgrade_Price[Increase_Popcorn_Level]);
+            Current_Popcorn_Level >= Current_Popcorn_Upgrade_Price.Length ? "Max" : ToCurrencyString(Current_Popcorn_Upgrade_Price[Current_Popcorn_Level]);
 
         Upgrade_Button[1].transform.GetChild(0).GetComponent<Text>().text =
-            Income_Level >= Income_Upgrade_Price.Length ? "Max" : ToCurrencyString(Income_Upgrade_Price[Income_Level]);
+            Current_Income_Level >= Current_Income_Upgrade_Price.Length ? "Max" : ToCurrencyString(Current_Income_Upgrade_Price[Current_Income_Level]);
 
         Upgrade_Button[2].transform.GetChild(0).GetComponent<Text>().text =
-           Object_Level >= Max_Obj_Level ? "Max" : ToCurrencyString(Obj_Upgrade_Price[Object_Level]);
+           Current_Object_Level >= Current_Max_Obj_Level ? "Max" : ToCurrencyString(Current_Obj_Upgrade_Price[Current_Object_Level]);
         DataManager.instance.Save_Data();
     }
 
@@ -362,28 +374,28 @@ public class GameManager : MonoBehaviour
 
     public void Popcorn_Upgrade()
     {
-        Money -= Popcorn_Upgrade_Price[Increase_Popcorn_Level];
+        Money -= Current_Popcorn_Upgrade_Price[Current_Popcorn_Level];
 
-        Increase_Popcorn_Level++;
+        Current_Popcorn_Level++;
         Check_Level_Price();
 
     }
     public void Income_Upgrade()
     {
-        Money -= Income_Upgrade_Price[Income_Level];
-        Income_Level++;
+        Money -= Current_Income_Upgrade_Price[Current_Income_Level];
+        Current_Income_Level++;
         Check_Level_Price();
     }
     public void Obj_Upgrade()
     {
-        Money -= Obj_Upgrade_Price[Object_Level];
-        Object_Level++;
+        Money -= Current_Obj_Upgrade_Price[Current_Object_Level];
+        Current_Object_Level++;
 
-        if (Object_Level == 4)
+        if (Current_Object_Level == 4)
         {
-            Off_Object[0].SetActive(false);
+            Current_Off_Object[0].SetActive(false);
         }
-        Add_Object[Object_Level - 1].SetActive(true);
+        Current_Add_Object[Current_Object_Level - 1].SetActive(true);
         Check_Level_Price();
     }
 
@@ -413,16 +425,17 @@ public class GameManager : MonoBehaviour
         Cam_Rotate_Button.onClick.AddListener(() => Cam_Rot());
     }
 
+
     void Check_Data()
     {
 
-        for (int i = 1; i <= Object_Level; i++)
+        for (int i = 1; i <= Current_Object_Level; i++)
         {
-            Add_Object[i - 1].SetActive(true);
+            Current_Add_Object[i - 1].SetActive(true);
 
             if (i == 4)
             {
-                Off_Object[0].SetActive(false);
+                Current_Off_Object[0].SetActive(false);
             }
         }
 
@@ -433,6 +446,7 @@ public class GameManager : MonoBehaviour
     {
         Rot_Cam.SetActive(!Rot_Cam.activeSelf);
     }
+
 
 
 

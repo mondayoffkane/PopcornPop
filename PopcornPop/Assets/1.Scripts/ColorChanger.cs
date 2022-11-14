@@ -22,7 +22,7 @@ public class ColorChanger : MonoBehaviour
 
             if (GameManager.instance.Floating_Waiting_Pool.childCount <= 0)
             {
-                GameManager.instance.Add_Pool(GameManager.instance.Add_Pool_Size);
+                GameManager.instance.Add_Floating_Pool(GameManager.instance.Add_Pool_Size);
             }
 
             Transform _floating = GameManager.instance.Floating_Waiting_Pool.GetChild(0);
@@ -30,7 +30,7 @@ public class ColorChanger : MonoBehaviour
             _floating.transform.position = other.transform.position + Vector3.up * 1f;
             _floating.localScale = Vector3.one * 0.01f;
             _floating.gameObject.SetActive(true);
-            _floating.GetChild(0).GetComponent<Text>().text = GameManager.ToCurrencyString(GameManager.instance.Up_Income[GameManager.instance.Income_Level]);
+            _floating.GetChild(0).GetComponent<Text>().text = GameManager.ToCurrencyString(GameManager.instance.Current_Up_Income[GameManager.instance.Current_Income_Level]);
 
             Color _color = _floating.GetChild(0).GetComponent<Text>().color;
 

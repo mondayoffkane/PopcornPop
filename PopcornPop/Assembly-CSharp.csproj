@@ -74,6 +74,7 @@
     <Compile Include="Assets/MondayOFF/Etc/NiceVibrations/Demo/Scripts/NiceVibrationsDemoManager.cs" />
     <Compile Include="Assets/1.Scripts/GameManager.cs" />
     <Compile Include="Assets/1.Scripts/Bullet.cs" />
+    <Compile Include="Assets/1.Scripts/StageManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/SG2_Template_URP.txt" />

@@ -72,7 +72,7 @@ public class Spawner : MonoBehaviour
             if (Auto_Current_Time >= Auto_Spawn_Interval)
             {
                 Auto_Current_Time = 0f;
-                Spawn_Popcorn(Spawn_Count + GameManager.instance.Increase_Popcorn_Level);
+                Spawn_Popcorn(Spawn_Count + GameManager.instance.Current_Popcorn_Level);
             }
 
             Current_Tap_Time += Time.deltaTime;
@@ -91,7 +91,7 @@ public class Spawner : MonoBehaviour
             if (Current_Tap_Time >= Tap_Limit_Interval)
             {
                 Current_Tap_Time = 0f;
-                Spawn_Popcorn(Tap_Spawn_Count + (int)(GameManager.instance.Increase_Popcorn_Level * 0.5f));
+                Spawn_Popcorn(Tap_Spawn_Count + (int)(GameManager.instance.Current_Popcorn_Level * 0.5f));
                 MMVibrationManager.Haptic(HapticTypes.LightImpact);
                 if (isFever == false)
                 {
