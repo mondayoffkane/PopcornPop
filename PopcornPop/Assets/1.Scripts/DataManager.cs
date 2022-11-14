@@ -48,14 +48,11 @@ public class DataManager : MonoBehaviour
     public void Save_Data()
     {
         _gameData.Increase_Popcorn_Level = _gamemanager.Increase_Popcorn_Level;
-        _gameData.Popcorn_Upgrade_index = _gamemanager.Popcorn_Upgrade_index;
+
         _gameData.Income_Level = _gamemanager.Income_Level;
-        _gameData.Income_Index = _gamemanager.Income_Index;
-        _gameData.Income_Upgrade_Index = _gamemanager.Income_Upgrade_Index;
+
         _gameData.Object_Level = _gamemanager.Object_Level;
-        _gameData.Obj_Upgrade_Index = _gamemanager.Obj_Upgrade_Index;
-        _gameData.Money_list = _gamemanager.Money_list;
-        _gameData.Money_index = _gamemanager.Money_index;
+        _gameData.Money = _gamemanager.Money;
 
 
 
@@ -75,14 +72,11 @@ public class DataManager : MonoBehaviour
 
 
         _gamemanager.Increase_Popcorn_Level = _gameData.Increase_Popcorn_Level;
-        _gamemanager.Popcorn_Upgrade_index = _gameData.Popcorn_Upgrade_index;
+
         _gamemanager.Income_Level = _gameData.Income_Level;
-        _gamemanager.Income_Index = _gameData.Income_Index;
-        _gamemanager.Income_Upgrade_Index = _gameData.Income_Upgrade_Index;
+
         _gamemanager.Object_Level = _gameData.Object_Level;
-        _gamemanager.Obj_Upgrade_Index = _gameData.Obj_Upgrade_Index;
-        _gamemanager.Money_list = _gameData.Money_list;
-        _gamemanager.Money_index = _gameData.Money_index;
+        _gamemanager.Money = _gameData.Money;
 
 
     }
@@ -94,34 +88,21 @@ public class DataManager : MonoBehaviour
     public class GameData
     {
 
-        public int Increase_Popcorn_Level; //  스폰갯수 증가
-        public int Popcorn_Upgrade_index;
-
-        public int Income_Level; // 업그레이드 레벨
-        public int Income_Index; // 금액 리스트의 인덱스
-        public int Income_Upgrade_Index;
+        public int Increase_Popcorn_Level; //  스폰갯수 증가      
+        public int Income_Level; // 업그레이드 레벨     
         public int Object_Level;
-        public int Obj_Upgrade_Index;
-
-        public int[] Money_list;
-        public int Money_index;
+        public double Money;
     }
 
     [Button]
     public void Init_Data()
     {
         _gamemanager.Increase_Popcorn_Level = 0;
-        _gamemanager.Popcorn_Upgrade_index = 0;
+
         _gamemanager.Income_Level = 0;
-        _gamemanager.Income_Index = 0;
-        _gamemanager.Income_Upgrade_Index = 0;
+
         _gamemanager.Object_Level = 0;
-        _gamemanager.Obj_Upgrade_Index = 0;
-        _gamemanager.Money_index = 0;
-        for (int i = 0; i < _gamemanager.Money_list.Length; i++)
-        {
-            _gamemanager.Money_list[i] = 0;
-        }
+        _gamemanager.Money = 0;
 
         Save_Data();
     }

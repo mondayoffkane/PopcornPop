@@ -13,10 +13,10 @@ public class ColorChanger : MonoBehaviour
         {
             //other.GetComponent<MeshRenderer>().material.color = GetComponent<MeshRenderer>().material.color;
 
-            other.GetComponent<MeshRenderer>().material.SetColor("_MainColor", GetComponent<MeshRenderer>().material.color);
+            other.GetComponent<MeshRenderer>().material.SetColor("_MainColor", GetComponent<MeshRenderer>().material.GetColor("_MainColor"));
 
             Popcorn _corn = other.GetComponent<Popcorn>();
-            GameManager.instance.ManagerAddMoney(GameManager.instance.Up_Income[GameManager.instance.Income_Level], GameManager.instance.Income_Index);
+            GameManager.instance.ManagerAddMoney();
             //GameManager.instance.ManagerAddMoney(_corn.Price, _corn.Price_Index);
 
 
@@ -30,13 +30,11 @@ public class ColorChanger : MonoBehaviour
             _floating.transform.position = other.transform.position + Vector3.up * 1f;
             _floating.localScale = Vector3.one * 0.01f;
             _floating.gameObject.SetActive(true);
-            _floating.GetChild(0).GetComponent<Text>().text = string.Format("{0}{1}", /*_corn.Price*/ GameManager.instance.Up_Income[GameManager.instance.Income_Level]
-                 , GameManager.instance.Price_Unit[/*_corn.Price_Index*/GameManager.instance.Income_Index]);
+            _floating.GetChild(0).GetComponent<Text>().text = GameManager.ToCurrencyString(GameManager.instance.Up_Income[GameManager.instance.Income_Level]);
 
             Color _color = _floating.GetChild(0).GetComponent<Text>().color;
 
             _floating.GetChild(0).GetComponent<Text>().color = new Vector4(_color.r, _color.g, _color.b, 1);
-
 
 
 

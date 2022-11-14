@@ -19,34 +19,22 @@ public class GameManager : MonoBehaviour
     [Space(10)]
     [Title("Upgrade Value")]
 
-    public int Max_Popcorn_Level = 10;
-    public int Increase_Popcorn_Level; //  스폰갯수 증가
-    public int Popcorn_Upgrade_index;
-    public int[] Popcorn_Upgrade_Price;
+    public int Increase_Popcorn_Level; //  스폰갯수 증가    
+    public double[] Popcorn_Upgrade_Price;
 
     [Space(10)]
-    public int Max_Income_Level = 10;
-    public int Income_Level; // 업그레이드 레벨
-    public int Income_Index; // 금액 리스트의 인덱스
-    public int[] Up_Income; // 금액대 리스트
-    public int Income_Upgrade_Index;
-    public int[] Income_Upgrade_Price;
+    public int Income_Level; // 업그레이드 레벨   
+    public double[] Up_Income; // 금액대 리스트
+    public double[] Income_Upgrade_Price;
 
     [Space(10)]
     public int Max_Obj_Level = 5;
     public int Object_Level;
-    public int Obj_Upgrade_Index;
-    public int[] Obj_Upgrade_Price;
+
+    public double[] Obj_Upgrade_Price;
     public GameObject[] Add_Object; // 맵 오브젝트
     public GameObject[] Off_Object;
 
-
-
-    [Space(10)]
-    [Title("Money Value")]
-    public int[] Money_list;
-    public int Money_index;
-    public char[] Price_Unit;
 
 
     [Space(10)]
@@ -67,7 +55,8 @@ public class GameManager : MonoBehaviour
     public Transform Floating_Waiting_Pool;
     public Transform Floating_Using_Pool;
     public Spawner _spawner;
-    public float _fever_time;
+    public float Fever_time;
+    public float Max_Fever_time = 300f;
 
 
     [Space(10)]
@@ -80,6 +69,79 @@ public class GameManager : MonoBehaviour
     string p;
     //GameObject[] Goals;
     /// //////////////////////////////////////
+
+    [Space(10)]
+    [Title("Money Value")]
+    public double Money;
+    static readonly string[] CurrencyUnits = new string[] { "", "K", "M", "B", "T", "aa", "bb", "cc", "dd", "ee", "ff", "gg", "hh", "ii", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "aa", "ab", "ac", "ad", "ae", "af", "ag", "ah", "ai", "aj", "ak", "al", "am", "an", "ao", "ap", "aq", "ar", "as", "at", "au", "av", "aw", "ax", "ay", "az", "ba", "bb", "bc", "bd", "be", "bf", "bg", "bh", "bi", "bj", "bk", "bl", "bm", "bn", "bo", "bp", "bq", "br", "bs", "bt", "bu", "bv", "bw", "bx", "by", "bz", "ca", "cb", "cc", "cd", "ce", "cf", "cg", "ch", "ci", "cj", "ck", "cl", "cm", "cn", "co", "cp", "cq", "cr", "cs", "ct", "cu", "cv", "cw", "cx", };
+
+
+    public static string ToCurrencyString(double number)
+    {
+        string zero = "0";
+
+        if (-1d < number && number < 1d)
+        {
+            return zero;
+        }
+
+        if (double.IsInfinity(number))
+        {
+            return "Infinity";
+        }
+
+        //  부호 출력 문자열
+        string significant = (number < 0) ? "-" : string.Empty;
+
+        //  보여줄 숫자
+        string showNumber = string.Empty;
+
+        //  단위 문자열
+        string unityString = string.Empty;
+
+        //  패턴을 단순화 시키기 위해 무조건 지수 표현식으로 변경한 후 처리
+        string[] partsSplit = number.ToString("E").Split('+');
+
+        //  예외
+        if (partsSplit.Length < 2)
+        {
+            return zero;
+        }
+
+        //  지수 (자릿수 표현)
+        if (!int.TryParse(partsSplit[1], out int exponent))
+        {
+            Debug.LogWarningFormat("Failed - ToCurrentString({0}) : partSplit[1] = {1}", number, partsSplit[1]);
+            return zero;
+        }
+
+        //  몫은 문자열 인덱스
+        int quotient = exponent / 3;
+
+        //  나머지는 정수부 자릿수 계산에 사용(10의 거듭제곱을 사용)
+        int remainder = exponent % 3;
+
+        //  1A 미만은 그냥 표현
+        if (exponent < 3)
+        {
+            showNumber = System.Math.Truncate(number).ToString();
+        }
+        else
+        {
+            //  10의 거듭제곱을 구해서 자릿수 표현값을 만들어 준다.
+            var temp = double.Parse(partsSplit[0].Replace("E", "")) * System.Math.Pow(10, remainder);
+
+            //  소수 둘째자리까지만 출력한다.
+            showNumber = temp.ToString("F").Replace(".00", "");
+        }
+
+        unityString = CurrencyUnits[quotient];
+
+        return string.Format("{0}{1}{2}", significant, showNumber, unityString);
+    }
+
+
+
 
     private void Awake()
     {
@@ -101,19 +163,13 @@ public class GameManager : MonoBehaviour
         DataManager.instance.Load_Data();
         Check_Data();
 
-
-        // add data load ()
-        MymoneyToString(Money_list, ref Money_index);
         Check_Level_Price();
-
-
-
 
     }
 
     void Update()
     {
-        Money_Text.text = p;
+        Money_Text.text = ToCurrencyString(Money);
         Check_Button();
 
 
@@ -155,6 +211,18 @@ public class GameManager : MonoBehaviour
             Off_Object[4].SetActive(true);
             Full_Cam.SetActive(false);
         }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            Money += 100000000;
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            DataManager.instance.Init_Data();
+        }
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        //}
 
     }
 
@@ -171,7 +239,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //
 
 
     public void Theorem(int[] _money_list, ref int _money_index)
@@ -203,75 +270,24 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    public void MymoneyToString(int[] _money_list, ref int _money_index)
+
+
+
+    public void ManagerAddMoney()
     {
-
-        float a = _money_list[_money_index];
-        if (_money_index > 0)
-        {
-            float b = _money_list[_money_index - 1];
-            a += b / 1000;
-        }
-
-        if (_money_index == 0)
-        {
-            a += 0;
-        }
-
-        char unit = Price_Unit[_money_index];
-        p = (float)(Math.Truncate(a * 100) / 100) + unit.ToString();
-
-
-
+        Money += Up_Income[Income_Level];
     }
 
 
-
-
-    public void ManagerAddMoney(int _price, int _price_index)
-    {
-        Money_list[_price_index] += _price;
-
-
-        Theorem(Money_list, ref Money_index);
-        MymoneyToString(Money_list, ref Money_index);
-    }
-
-    public void PopcornAddMoney(ref int _price, ref int _price_index, int[] add_price, int _add_index)
-    {
-        if (_price_index == _add_index)
-        {
-            _price += add_price[_add_index];
-        }
-        else
-        {
-            _price = add_price[_add_index];
-            _price_index = _add_index;
-        }
-    }
-
-
-
-
-    public void SetPopcorn_Price(ref int _price, ref int _price_index)
-    {
-        _price = Up_Income[Income_Index];
-        _price_index = Income_Index;
-
-    }
 
     void Check_Button()
     {
 
-        if (Increase_Popcorn_Level < Max_Popcorn_Level)
+        if (Increase_Popcorn_Level < Popcorn_Upgrade_Price.Length)
         {
-            if (Money_index > Popcorn_Upgrade_index)
+            if (Money > Popcorn_Upgrade_Price[Increase_Popcorn_Level])
             {
                 Upgrade_Button[0].interactable = true;
-            }
-            else if (Money_index == Popcorn_Upgrade_index)
-            {
-                Upgrade_Button[0].interactable = Money_list[Money_index] >= Popcorn_Upgrade_Price[Increase_Popcorn_Level] ? true : false;
             }
             else
             {
@@ -285,22 +301,17 @@ public class GameManager : MonoBehaviour
         }
 
 
-        if (Income_Level < Max_Income_Level)
+        if (Income_Level < Income_Upgrade_Price.Length)
         {
 
-            if (Money_index > Income_Upgrade_Index)
+            if (Money > Income_Upgrade_Price[Income_Level])
             {
                 Upgrade_Button[1].interactable = true;
-            }
-            else if (Money_index == Income_Upgrade_Index)
-            {
-                Upgrade_Button[1].interactable = Money_list[Money_index] >= Income_Upgrade_Price[Income_Level] ? true : false;
             }
             else
             {
                 Upgrade_Button[1].interactable = false;
             }
-
         }
         else
         {
@@ -309,14 +320,9 @@ public class GameManager : MonoBehaviour
 
         if (Object_Level < Max_Obj_Level)
         {
-            if (Money_index > Obj_Upgrade_Index)
+            if (Money > Obj_Upgrade_Price[Object_Level])
             {
                 Upgrade_Button[2].interactable = true;
-            }
-            else if (Money_index == Obj_Upgrade_Index)
-            {
-                Upgrade_Button[2].interactable = Money_list[Money_index] >= Obj_Upgrade_Price[Object_Level] ? true : false;
-
             }
             else
             {
@@ -331,89 +337,24 @@ public class GameManager : MonoBehaviour
         }
 
 
-        Auto_Button.transform.GetChild(0).GetComponent<Image>().DOFillAmount(_fever_time / 300f, 0.1f).SetEase(Ease.Linear);
+        Auto_Button.transform.GetChild(0).GetComponent<Image>().DOFillAmount(Fever_time / 300f, 0.1f).SetEase(Ease.Linear);
 
-        Auto_Button.interactable = _fever_time >= 300f ? true : false;
+        Auto_Button.interactable = Fever_time >= Max_Fever_time ? true : false;
 
 
     }
 
     void Check_Level_Price()
     {
-        Theorem(Money_list, ref Money_index);
-        MymoneyToString(Money_list, ref Money_index);
-
-
-
-        switch (Increase_Popcorn_Level)
-        {
-            case int n when (n >= 0 && n < 1):
-                Popcorn_Upgrade_index = 0;
-                break;
-
-            case int n when (n >= 1 && n < 4):
-                Popcorn_Upgrade_index = 1;
-                break;
-            case int n when (n >= 4 && n < 9):
-                Popcorn_Upgrade_index = 2;
-                break;
-            case int n when (n >= 9):
-                Popcorn_Upgrade_index = 3;
-                break;
-        }
-
-
-        switch (Income_Level)
-        {
-            case int n when (0 <= n && n < 6):
-                Income_Index = 0;
-                break;
-
-            case int n when (6 <= n && n < 9):
-                Income_Index = 1;
-                break;
-            case int n when (9 <= n):
-                Income_Index = 2;
-                break;
-        }
-
-        switch (Income_Level)
-        {
-            case int n when (0 <= n && n < 1):
-                Income_Upgrade_Index = 0;
-                break;
-            case int n when (1 <= n && n < 4):
-                Income_Upgrade_Index = 1;
-                break;
-
-            case int n when (4 <= n && n < 7):
-                Income_Upgrade_Index = 2;
-                break;
-            case int n when (7 <= n):
-                Income_Upgrade_Index = 3;
-                break;
-        }
-
-        switch (Object_Level)
-        {
-            case int n when (0 <= n && n < 1):
-                Obj_Upgrade_Index = 0;
-                break;
-            case int n when (1 <= n && n < 3):
-                Obj_Upgrade_Index = 1;
-                break;
-            case int n when (3 <= n):
-                Obj_Upgrade_Index = 2;
-                break;
-
-        }
 
         Upgrade_Button[0].transform.GetChild(0).GetComponent<Text>().text =
-            Increase_Popcorn_Level >= Max_Popcorn_Level ? "Max" : Popcorn_Upgrade_Price[Increase_Popcorn_Level] + Price_Unit[Popcorn_Upgrade_index].ToString();
+            Increase_Popcorn_Level >= Popcorn_Upgrade_Price.Length ? "Max" : ToCurrencyString(Popcorn_Upgrade_Price[Increase_Popcorn_Level]);
+
         Upgrade_Button[1].transform.GetChild(0).GetComponent<Text>().text =
-            Income_Level >= Max_Income_Level ? "Max" : Income_Upgrade_Price[Income_Level] + Price_Unit[Income_Upgrade_Index].ToString();
+            Income_Level >= Income_Upgrade_Price.Length ? "Max" : ToCurrencyString(Income_Upgrade_Price[Income_Level]);
+
         Upgrade_Button[2].transform.GetChild(0).GetComponent<Text>().text =
-           Object_Level >= Max_Obj_Level ? "Max" : Obj_Upgrade_Price[Object_Level] + Price_Unit[Obj_Upgrade_Index].ToString();
+           Object_Level >= Max_Obj_Level ? "Max" : ToCurrencyString(Obj_Upgrade_Price[Object_Level]);
         DataManager.instance.Save_Data();
     }
 
@@ -421,20 +362,21 @@ public class GameManager : MonoBehaviour
 
     public void Popcorn_Upgrade()
     {
-        Money_list[Popcorn_Upgrade_index] -= Popcorn_Upgrade_Price[Increase_Popcorn_Level];
+        Money -= Popcorn_Upgrade_Price[Increase_Popcorn_Level];
+
         Increase_Popcorn_Level++;
         Check_Level_Price();
 
     }
     public void Income_Upgrade()
     {
-        Money_list[Income_Upgrade_Index] -= Income_Upgrade_Price[Income_Level];
+        Money -= Income_Upgrade_Price[Income_Level];
         Income_Level++;
         Check_Level_Price();
     }
     public void Obj_Upgrade()
     {
-        Money_list[Obj_Upgrade_Index] -= Obj_Upgrade_Price[Object_Level];
+        Money -= Obj_Upgrade_Price[Object_Level];
         Object_Level++;
 
         if (Object_Level == 4)
@@ -453,7 +395,7 @@ public class GameManager : MonoBehaviour
         DOTween.Sequence().AppendCallback(() =>
             {
                 Auto_Button.interactable = false;
-                DOTween.To(() => _fever_time, x => _fever_time = x, 0, 20f).SetEase(Ease.Linear);
+                DOTween.To(() => Fever_time, x => Fever_time = x, 0, 20f).SetEase(Ease.Linear);
 
             }).AppendInterval(20f)
         .OnComplete(() => _spawner.isFever = false);
@@ -473,10 +415,6 @@ public class GameManager : MonoBehaviour
 
     void Check_Data()
     {
-        //for (int i = 1; i <= 5; i++)
-        //{
-        //    Add_Object[i - 1].SetActive(false);
-        //}
 
         for (int i = 1; i <= Object_Level; i++)
         {
@@ -490,11 +428,6 @@ public class GameManager : MonoBehaviour
 
     }
 
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawSphere(transform.position + Explosion_pos, Explosion_radius);
-    //}
 
     void Cam_Rot()
     {

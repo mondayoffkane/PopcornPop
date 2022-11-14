@@ -62,7 +62,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Ramp:
-        m_Texture: {fileID: 2800000, guid: ff84a6ba2ae724240a77d0984b83fc90, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7472e3e988b88481394000416fcee9e6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -119,10 +119,10 @@ Material:
     - _HColor: {r: 1, g: 1, b: 1, a: 1}
     - _HighlightColor: {r: 1, g: 1, b: 1, a: 1}
     - _HightlightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _MainColor: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
+    - _MainColor: {r: 0.5372549, g: 0.5372549, b: 0.5372549, a: 1}
     - _RimColor: {r: 1, g: 0.9627956, b: 0.8349056, a: 1}
     - _SColor: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
-    - _ShadowColor: {r: 0.2932983, g: 0.3238272, b: 0.3679245, a: 1}
+    - _ShadowColor: {r: 0.18578677, g: 0.20686565, b: 0.23584908, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecularColor: {r: 1, g: 0.4575472, b: 0.4575472, a: 1}
   m_BuildTextureStacks: []

@@ -86,15 +86,19 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.A))
         {
             if (Current_Tap_Time >= Tap_Limit_Interval)
             {
                 Current_Tap_Time = 0f;
-                Spawn_Popcorn(Tap_Spawn_Count);
+                Spawn_Popcorn(Tap_Spawn_Count + (int)(GameManager.instance.Increase_Popcorn_Level * 0.5f));
                 MMVibrationManager.Haptic(HapticTypes.LightImpact);
                 if (isFever == false)
-                    GameManager.instance._fever_time++;
+                {
+                    GameManager.instance.Fever_time++;
+                    if (GameManager.instance.Fever_time > GameManager.instance.Max_Fever_time)
+                        GameManager.instance.Fever_time = GameManager.instance.Max_Fever_time;
+                }
             }
         }
 
@@ -108,11 +112,15 @@ public class Spawner : MonoBehaviour
             Fever_Current_Time += Time.deltaTime;
         }
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) || Input.GetKey(KeyCode.S))
         {
             Spawn_Popcorn(15);
             if (isFever == false)
-                GameManager.instance._fever_time++;
+            {
+                GameManager.instance.Fever_time++;
+                if (GameManager.instance.Fever_time > GameManager.instance.Max_Fever_time)
+                    GameManager.instance.Fever_time = GameManager.instance.Max_Fever_time;
+            }
         }
 
         Waiting_Pool_Count = Waiting_Pool.childCount;

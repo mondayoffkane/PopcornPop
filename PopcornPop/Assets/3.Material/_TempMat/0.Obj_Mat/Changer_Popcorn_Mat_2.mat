@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Obj_Red
+  m_Name: Changer_Popcorn_Mat_2
   m_Shader: {fileID: 4800000, guid: d843ad03c638e4826a36a67bc1468f79, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
@@ -46,7 +46,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: ed695eb3e79b046948d2496b900cc10e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -62,7 +62,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Ramp:
-        m_Texture: {fileID: 2800000, guid: 7472e3e988b88481394000416fcee9e6, type: 3}
+        m_Texture: {fileID: 2800000, guid: ff84a6ba2ae724240a77d0984b83fc90, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -80,7 +80,7 @@ Material:
     - _FogMinHeight: -18.59
     - _FogON: 1
     - _GlossMapScale: 1
-    - _Glossiness: 2.94
+    - _Glossiness: 8.51
     - _GlossyReflections: 0
     - _GradientAngle: 205
     - _GradientCenterX: 12.87
@@ -107,7 +107,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     - _specsmooth: 21.9
-    - _specularsmooth: 0.066
+    - _specularsmooth: 0.01
     m_Colors:
     - _AmbientColor: {r: 0.9107697, g: 0.740566, b: 1, a: 1}
     - _Color: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 1}
@@ -118,11 +118,11 @@ Material:
     - _GradientColor: {r: 0.15566039, g: 0.44042218, b: 1, a: 1}
     - _HColor: {r: 1, g: 1, b: 1, a: 1}
     - _HighlightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _HightlightColor: {r: 0.9528302, g: 0.81403, b: 0.61574405, a: 1}
-    - _MainColor: {r: 0.7075472, g: 0.43181467, b: 0.42386082, a: 1}
+    - _HightlightColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MainColor: {r: 0.8980392, g: 0.5176471, b: 0.39215687, a: 1}
     - _RimColor: {r: 1, g: 0.9627956, b: 0.8349056, a: 1}
-    - _SColor: {r: 0.9716981, g: 0.8479441, b: 0.8479441, a: 1}
-    - _ShadowColor: {r: 0.5943396, g: 0.42332682, b: 0.46145067, a: 1}
+    - _SColor: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
+    - _ShadowColor: {r: 0.2932983, g: 0.3238272, b: 0.3679245, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecularColor: {r: 1, g: 0.4575472, b: 0.4575472, a: 1}
   m_BuildTextureStacks: []

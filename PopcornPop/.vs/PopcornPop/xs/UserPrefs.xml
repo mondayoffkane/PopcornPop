@@ -1,21 +1,23 @@
 ﻿<Properties StartupConfiguration="{C031E835-6EEA-F012-B4FC-D2BC791B3F1D}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/1.Scripts/Conveyer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/numberRun/NewSurfaceShader.shader">
     <Files>
-      <File FileName="Assets/1.Scripts/GameManager.cs" Line="145" Column="43" />
-      <File FileName="Assets/1.Scripts/Spawner.cs" Line="101" Column="16" />
-      <File FileName="Assets/1.Scripts/TweenMove.cs" Line="53" Column="111" />
-      <File FileName="Assets/1.Scripts/Conveyer.cs" Line="18" Column="69" />
-      <File FileName="Assets/1.Scripts/Popcorn.cs" Line="28" Column="57" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/Goal.cs" Line="127" Column="14" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/Spawner.cs" Line="97" Column="18" />
+      <File FileName="Assets/1.Scripts/TweenMove.cs" />
+      <File FileName="Assets/1.Scripts/Conveyer.cs" />
+      <File FileName="Assets/1.Scripts/Popcorn.cs" Line="44" Column="16" />
+      <File FileName="Assets/numberRun/NewSurfaceShader.shader" Line="1" Column="1" />
+      <File FileName="Assets/1.Scripts/GameManager.cs" Line="218" Column="22" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/Goal.cs" Line="46" Column="1" NotebookId="1" />
       <File FileName="Assets/1.Scripts/RotObj.cs" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/ColorChanger.cs" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/ColorChanger.cs" Line="15" Column="1" NotebookId="1" />
       <File FileName="Assets/1.Scripts/Limit_Floor.cs" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/Fan.cs" Line="8" Column="1" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/Fan.cs" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/DataManager.cs" Line="47" Column="26" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="96c83469-cc1d-4a99-bfc0-8479626d2223" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f23a6a5a-4d13-4db1-af06-5a644b35cc95" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
