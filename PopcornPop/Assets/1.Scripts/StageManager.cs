@@ -6,7 +6,8 @@ using Sirenix.OdinInspector;
 
 public class StageManager : MonoBehaviour
 {
-    [FoldoutGroup("Upgrade_Value")]    public int Stage_Level;
+    public Spawner _spawner;
+    //[FoldoutGroup("Upgrade_Value")]    public int Stage_Level;
     [FoldoutGroup("Upgrade_Value")] public int Popcorn_Level; //  스폰갯수 증가    
     [FoldoutGroup("Upgrade_Value")] public double[] Popcorn_Upgrade_Price;
 
@@ -29,7 +30,6 @@ public class StageManager : MonoBehaviour
 
 
 
-
     private void Awake()
     {
         Waiting_Pool = new GameObject("Waiting_Pool").transform;
@@ -40,9 +40,10 @@ public class StageManager : MonoBehaviour
 
     }
 
-    private void Start()
-    {
 
+    private void OnEnable()
+    {
+        
     }
 
 

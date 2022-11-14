@@ -53,7 +53,7 @@ public class Spawner : MonoBehaviour
 
 
 
-        StartCoroutine(Cor_Spawn());
+        //StartCoroutine(Cor_Spawn());
         //StartCoroutine(Cor_Update());
         if (Spawn_Pos == null)
         {
@@ -61,6 +61,11 @@ public class Spawner : MonoBehaviour
         }
     }
 
+
+    private void OnEnable()
+    {
+        
+    }
 
 
 
@@ -86,10 +91,21 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
+        if (Auto_Current_Time >= Auto_Spawn_Interval)
+        {
+            Auto_Current_Time = 0f;
+            Spawn_Popcorn(Spawn_Count + GameManager.instance.Current_Popcorn_Level);
+        }
+
+        Current_Tap_Time += Time.deltaTime;
+        Auto_Current_Time += Time.deltaTime;
+
+
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.A))
         {
             if (Current_Tap_Time >= Tap_Limit_Interval)
             {
+                Debug.Log("Click");
                 Current_Tap_Time = 0f;
                 Spawn_Popcorn(Tap_Spawn_Count + (int)(GameManager.instance.Current_Popcorn_Level * 0.5f));
                 MMVibrationManager.Haptic(HapticTypes.LightImpact);

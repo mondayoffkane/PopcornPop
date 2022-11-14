@@ -66,6 +66,7 @@
     <Compile Include="Assets/1.Scripts/DataManager.cs" />
     <Compile Include="Assets/SlingShot/Sling.cs" />
     <Compile Include="Assets/1.Scripts/Popcorn.cs" />
+    <Compile Include="Assets/1.Scripts/StageManager.cs" />
     <Compile Include="Assets/1.Scripts/SnakeHead.cs" />
     <Compile Include="Assets/1.Scripts/Limit_Floor.cs" />
     <Compile Include="Assets/1.Scripts/Fan.cs" />
@@ -74,7 +75,6 @@
     <Compile Include="Assets/MondayOFF/Etc/NiceVibrations/Demo/Scripts/NiceVibrationsDemoManager.cs" />
     <Compile Include="Assets/1.Scripts/GameManager.cs" />
     <Compile Include="Assets/1.Scripts/Bullet.cs" />
-    <Compile Include="Assets/1.Scripts/StageManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/SG2_Template_URP.txt" />

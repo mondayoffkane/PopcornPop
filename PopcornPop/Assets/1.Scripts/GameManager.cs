@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
 
 
 
-    [Space(10)]    
+    [Space(10)]
     [FoldoutGroup("UI")] public Text Money_Text;
     [FoldoutGroup("UI")] public Button[] Upgrade_Button;
     [FoldoutGroup("UI")] public Button Auto_Button;
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
 
 
     [Space(10)]
-    
+
     [FoldoutGroup("CPI")] public Vector3 Explosion_pos;
     [FoldoutGroup("CPI")] public float Explosion_power;
     [FoldoutGroup("CPI")] public float Explosion_radius;
@@ -102,20 +102,20 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        DataManager.instance.Load_Data();
+        SetButton();
+
+
         SetStage();
 
 
-        SetButton();
         Check_Data();
-        Check_Level_Price();
+
     }
 
     void SetStage()
     {
-
-        Current_Stage_Level = Current_StageManager.Stage_Level;
-
+        DataManager.instance.Load_Data();
+        //Current_Stage_Level = Current_StageManager.Stage_Level;
         if (Stage_Group[Current_Stage_Level] == null)
         {
             Stage_Group[Current_Stage_Level] = Instantiate(Resources.Load("Prefab/Stage/Stage_" + Current_Stage_Level) as GameObject);
@@ -123,19 +123,29 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < Stage_Group.Length; i++)
         {
-            Stage_Group[i].SetActive(false);
+            try
+            {
+                Stage_Group[i].SetActive(false);
+            }
+            catch { }
         }
         Stage_Group[Current_Stage_Level].SetActive(true);
         Current_StageManager = Stage_Group[Current_Stage_Level].GetComponent<StageManager>();
 
-
         Current_Popcorn_Upgrade_Price = Current_StageManager.Popcorn_Upgrade_Price;
         Current_Income_Upgrade_Price = Current_StageManager.Income_Upgrade_Price;
+        Current_Obj_Upgrade_Price = Current_StageManager.Obj_Upgrade_Price;
+
+        Current_Popcorn_Level = Current_StageManager.Popcorn_Level;
+        Current_Income_Level = Current_StageManager.Income_Level;
+        Current_Object_Level = Current_StageManager.Object_Level;
+        Current_Max_Obj_Level = Current_StageManager.Max_Obj_Level;
+
         Current_Up_Income = Current_StageManager.Up_Income;
         Current_Add_Object = Current_StageManager.Add_Object;
         Current_Off_Object = Current_StageManager.Off_Object;
-              
-
+        _spawner = Current_StageManager._spawner;
+        Check_Level_Price();
 
     }
 
@@ -199,6 +209,21 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             DataManager.instance.Init_Data();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            DataManager.instance.Save_Data();
+            Current_Stage_Level--;
+            if (Current_Stage_Level < 0) Current_Stage_Level = 0;
+            SetStage();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            DataManager.instance.Save_Data();
+            Current_Stage_Level++;
+            if (Current_Stage_Level > 2) Current_Stage_Level = 2;
+            SetStage();
         }
         //if (Input.GetKeyDown(KeyCode.Escape))
         //{
@@ -367,7 +392,7 @@ public class GameManager : MonoBehaviour
 
         Upgrade_Button[2].transform.GetChild(0).GetComponent<Text>().text =
            Current_Object_Level >= Current_Max_Obj_Level ? "Max" : ToCurrencyString(Current_Obj_Upgrade_Price[Current_Object_Level]);
-        DataManager.instance.Save_Data();
+        //DataManager.instance.Save_Data();
     }
 
 
@@ -377,6 +402,8 @@ public class GameManager : MonoBehaviour
         Money -= Current_Popcorn_Upgrade_Price[Current_Popcorn_Level];
 
         Current_Popcorn_Level++;
+        Current_StageManager.Popcorn_Level = Current_Popcorn_Level;
+        DataManager.instance.Save_Data();
         Check_Level_Price();
 
     }
@@ -384,13 +411,16 @@ public class GameManager : MonoBehaviour
     {
         Money -= Current_Income_Upgrade_Price[Current_Income_Level];
         Current_Income_Level++;
+        Current_StageManager.Income_Level = Current_Income_Level;
+        DataManager.instance.Save_Data();
         Check_Level_Price();
     }
     public void Obj_Upgrade()
     {
         Money -= Current_Obj_Upgrade_Price[Current_Object_Level];
         Current_Object_Level++;
-
+        Current_StageManager.Object_Level = Current_Object_Level;
+        DataManager.instance.Save_Data();
         if (Current_Object_Level == 4)
         {
             Current_Off_Object[0].SetActive(false);

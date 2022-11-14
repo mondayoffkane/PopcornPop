@@ -49,27 +49,28 @@ public class DataManager : MonoBehaviour
     {
         try
         {
+            Debug.Log("Save");
             _gameData.Max_Stage_Level = _gamemanager.Current_Max_Stage_Level;
             _gameData.Stage_Level = _gamemanager.Current_Stage_Level;
-            _gameData.Popcorn_Level[_gamemanager.Current_Stage_Level] = _gamemanager.Current_Popcorn_Level;
-            _gameData.Income_Level[_gamemanager.Current_Stage_Level] = _gamemanager.Current_Income_Level;
-            _gameData.Object_Level[_gamemanager.Current_Stage_Level] = _gamemanager.Current_Object_Level;
+            _gameData.Popcorn_Level[_gameData.Stage_Level] = _gamemanager.Current_StageManager.Popcorn_Level;
+            _gameData.Income_Level[_gameData.Stage_Level] = _gamemanager.Current_StageManager.Income_Level;
+            _gameData.Object_Level[_gameData.Stage_Level] = _gamemanager.Current_StageManager.Object_Level;
             _gameData.Money = _gamemanager.Money;
         }
         catch
         {
             _gameData.Max_Stage_Level = 0;
             _gameData.Stage_Level = 0;
-            for (int i = 0; i < 3; i++)
-            {
-                _gameData.Popcorn_Level.Initialize();
-                _gameData.Income_Level.Initialize();
-                _gameData.Object_Level.Initialize();
-                _gameData.Money = 0;
-            }
-            _gameData.Popcorn_Level = new int[3];
-            _gameData.Income_Level = new int[3];
-            _gameData.Object_Level = new int[3];
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    _gameData.Popcorn_Level.Initialize();
+            //    _gameData.Income_Level.Initialize();
+            //    _gameData.Object_Level.Initialize();
+            //    _gameData.Money = 0;
+            //}
+            //_gameData.Popcorn_Level = new int[3];
+            //_gameData.Income_Level = new int[3];
+            //_gameData.Object_Level = new int[3];
         }
 
 
@@ -88,7 +89,7 @@ public class DataManager : MonoBehaviour
         _gameData = JsonUtility.FromJson<GameData>(jsondata);
 
         _gamemanager.Current_Max_Stage_Level = _gameData.Max_Stage_Level;
-        _gamemanager.Current_Stage_Level = _gameData.Stage_Level;
+        //  _gamemanager.Current_Stage_Level = _gameData.Stage_Level;
         _gamemanager.Current_Popcorn_Level = _gameData.Popcorn_Level[_gameData.Stage_Level];
         _gamemanager.Current_Income_Level = _gameData.Income_Level[_gameData.Stage_Level];
         _gamemanager.Current_Object_Level = _gameData.Object_Level[_gameData.Stage_Level];
