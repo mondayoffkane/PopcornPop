@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
     [FoldoutGroup("Floating_Money")] public int Add_Pool_Size = 50;
     [FoldoutGroup("Floating_Money")] public Transform Floating_Waiting_Pool;
     [FoldoutGroup("Floating_Money")] public Transform Floating_Using_Pool;
+    [FoldoutGroup("Floating_Money")] [ReadOnly] int Floating_Count;
 
     public Spawner _spawner;
     public float Fever_time;
@@ -88,6 +89,7 @@ public class GameManager : MonoBehaviour
 
             // Application.targetFrameRate = 60;
         }
+        StartCoroutine(Cor_Update());
 
         Init();
 
@@ -132,6 +134,10 @@ public class GameManager : MonoBehaviour
         Stage_Group[Current_Stage_Level].SetActive(true);
         Current_StageManager = Stage_Group[Current_Stage_Level].GetComponent<StageManager>();
 
+        Current_StageManager.Popcorn_Level = DataManager.instance._gameData.Popcorn_Level[Current_Stage_Level];
+        Current_StageManager.Income_Level = DataManager.instance._gameData.Income_Level[Current_Stage_Level];
+        Current_StageManager.Object_Level = DataManager.instance._gameData.Object_Level[Current_Stage_Level];
+
         Current_Popcorn_Upgrade_Price = Current_StageManager.Popcorn_Upgrade_Price;
         Current_Income_Upgrade_Price = Current_StageManager.Income_Upgrade_Price;
         Current_Obj_Upgrade_Price = Current_StageManager.Obj_Upgrade_Price;
@@ -149,15 +155,30 @@ public class GameManager : MonoBehaviour
 
     }
 
-
-
-    void Update()
+    IEnumerator Cor_Update()
     {
-        Money_Text.text = ToCurrencyString(Money);
-        Check_Button();
 
-        InputKeyFunc();
+        WaitForSeconds _deltatime = new WaitForSeconds(Time.deltaTime);
+
+        while (true)
+        {
+            yield return _deltatime;
+            Money_Text.text = ToCurrencyString(Money);
+            Check_Button();
+
+            InputKeyFunc();
+
+        }
     }
+
+
+    //void Update()
+    //{
+    //    Money_Text.text = ToCurrencyString(Money);
+    //    Check_Button();
+
+    //    InputKeyFunc();
+    //}
 
     // --------------------------------------------
 
@@ -299,12 +320,17 @@ public class GameManager : MonoBehaviour
 
     public void Add_Floating_Pool(int _count)
     {
+        Camera _cam = Camera.main;
+
         for (int i = 0; i < _count; i++)
         {
             GameObject _floating = Instantiate(Resources.Load("Prefab/Floating_Money") as GameObject);
             _floating.transform.SetParent(Floating_Waiting_Pool);
             _floating.transform.position = Floating_Waiting_Pool.position;
             _floating.SetActive(false);
+            _floating.GetComponent<Canvas>().worldCamera = _cam;
+            _floating.GetComponent<Canvas>().sortingOrder = Floating_Count;
+            Floating_Count++;
         }
     }
 

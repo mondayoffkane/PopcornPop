@@ -46,6 +46,20 @@ public class Spawner : MonoBehaviour
     [Space(10)]
     WaitForSeconds _wait;
 
+    Coroutine _cor;
+
+    private void OnEnable()
+    {
+        if (_cor != null)
+        {
+            StopCoroutine(_cor);
+
+            _cor = null;
+
+        }
+        _cor = StartCoroutine(Cor_Update());
+        
+    }
 
     void Start()
     {
@@ -62,18 +76,34 @@ public class Spawner : MonoBehaviour
     }
 
 
-    private void OnEnable()
+
+
+
+    //IEnumerator Cor_Spawn()
+    //{
+    //    _wait = new WaitForSeconds(Time.deltaTime);
+    //    while (true)
+    //    {
+    //        if (Auto_Current_Time >= Auto_Spawn_Interval)
+    //        {
+    //            Auto_Current_Time = 0f;
+    //            Spawn_Popcorn(Spawn_Count + GameManager.instance.Current_Popcorn_Level);
+    //        }
+
+    //        Current_Tap_Time += Time.deltaTime;
+    //        Auto_Current_Time += Time.deltaTime;
+    //        yield return _wait;
+
+
+    //    }
+
+    //}
+    IEnumerator Cor_Update()
     {
-        
-    }
-
-
-
-    IEnumerator Cor_Spawn()
-    {
-        _wait = new WaitForSeconds(Time.deltaTime);
+        WaitForSeconds _deltatime = new WaitForSeconds(Time.deltaTime);
         while (true)
         {
+            yield return _deltatime;
             if (Auto_Current_Time >= Auto_Spawn_Interval)
             {
                 Auto_Current_Time = 0f;
@@ -82,33 +112,38 @@ public class Spawner : MonoBehaviour
 
             Current_Tap_Time += Time.deltaTime;
             Auto_Current_Time += Time.deltaTime;
-            yield return _wait;
 
 
-        }
-
-    }
-
-    private void Update()
-    {
-        if (Auto_Current_Time >= Auto_Spawn_Interval)
-        {
-            Auto_Current_Time = 0f;
-            Spawn_Popcorn(Spawn_Count + GameManager.instance.Current_Popcorn_Level);
-        }
-
-        Current_Tap_Time += Time.deltaTime;
-        Auto_Current_Time += Time.deltaTime;
-
-
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.A))
-        {
-            if (Current_Tap_Time >= Tap_Limit_Interval)
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.A))
             {
-                Debug.Log("Click");
-                Current_Tap_Time = 0f;
-                Spawn_Popcorn(Tap_Spawn_Count + (int)(GameManager.instance.Current_Popcorn_Level * 0.5f));
-                MMVibrationManager.Haptic(HapticTypes.LightImpact);
+                if (Current_Tap_Time >= Tap_Limit_Interval)
+                {
+                    //Debug.Log("Click");
+                    Current_Tap_Time = 0f;
+                    Spawn_Popcorn(Tap_Spawn_Count + (int)(GameManager.instance.Current_Popcorn_Level * 0.5f));
+                    MMVibrationManager.Haptic(HapticTypes.LightImpact);
+                    if (isFever == false)
+                    {
+                        GameManager.instance.Fever_time++;
+                        if (GameManager.instance.Fever_time > GameManager.instance.Max_Fever_time)
+                            GameManager.instance.Fever_time = GameManager.instance.Max_Fever_time;
+                    }
+                }
+            }
+
+            if (isFever)
+            {
+                if (Fever_Current_Time >= Fever_Interval)
+                {
+                    Fever_Current_Time = 0f;
+                    Spawn_Popcorn(Fever_Count);
+                }
+                Fever_Current_Time += Time.deltaTime;
+            }
+
+            if (Input.GetMouseButton(1) || Input.GetKey(KeyCode.S))
+            {
+                Spawn_Popcorn(15);
                 if (isFever == false)
                 {
                     GameManager.instance.Fever_time++;
@@ -116,56 +151,70 @@ public class Spawner : MonoBehaviour
                         GameManager.instance.Fever_time = GameManager.instance.Max_Fever_time;
                 }
             }
-        }
 
-        if (isFever)
-        {
-            if (Fever_Current_Time >= Fever_Interval)
-            {
-                Fever_Current_Time = 0f;
-                Spawn_Popcorn(Fever_Count);
-            }
-            Fever_Current_Time += Time.deltaTime;
-        }
+            Waiting_Pool_Count = Waiting_Pool.childCount;
+            Using_Pool_Count = Using_Pool.childCount;
 
-        if (Input.GetMouseButton(1) || Input.GetKey(KeyCode.S))
-        {
-            Spawn_Popcorn(15);
-            if (isFever == false)
-            {
-                GameManager.instance.Fever_time++;
-                if (GameManager.instance.Fever_time > GameManager.instance.Max_Fever_time)
-                    GameManager.instance.Fever_time = GameManager.instance.Max_Fever_time;
-            }
         }
-
-        Waiting_Pool_Count = Waiting_Pool.childCount;
-        Using_Pool_Count = Using_Pool.childCount;
     }
 
 
-    //IEnumerator Cor_Update()
+    //private void Update()
     //{
-    //    while (true)
+    //    if (Auto_Current_Time >= Auto_Spawn_Interval)
     //    {
-    //        if (Input.GetMouseButtonDown(0))
+    //        Auto_Current_Time = 0f;
+    //        Spawn_Popcorn(Spawn_Count + GameManager.instance.Current_Popcorn_Level);
+    //    }
+
+    //    Current_Tap_Time += Time.deltaTime;
+    //    Auto_Current_Time += Time.deltaTime;
+
+
+    //    if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.A))
+    //    {
+    //        if (Current_Tap_Time >= Tap_Limit_Interval)
     //        {
-    //            if (Current_Tap_Time >= Tap_Limit_Interval)
+    //            Debug.Log("Click");
+    //            Current_Tap_Time = 0f;
+    //            Spawn_Popcorn(Tap_Spawn_Count + (int)(GameManager.instance.Current_Popcorn_Level * 0.5f));
+    //            MMVibrationManager.Haptic(HapticTypes.LightImpact);
+    //            if (isFever == false)
     //            {
-    //                Current_Tap_Time = 0f;
-    //                Spawn_Popcorn(Tap_Spawn_Count + GameManager.instance.Increase_Popcorn_Level);
+    //                GameManager.instance.Fever_time++;
+    //                if (GameManager.instance.Fever_time > GameManager.instance.Max_Fever_time)
+    //                    GameManager.instance.Fever_time = GameManager.instance.Max_Fever_time;
     //            }
     //        }
-    //        else if (Input.GetMouseButton(1))
-    //        {
-    //            Spawn_Popcorn(Spawn_Count + GameManager.instance.Increase_Popcorn_Level +10);
-    //        }
-    //        yield return null;
-
     //    }
+
+    //    if (isFever)
+    //    {
+    //        if (Fever_Current_Time >= Fever_Interval)
+    //        {
+    //            Fever_Current_Time = 0f;
+    //            Spawn_Popcorn(Fever_Count);
+    //        }
+    //        Fever_Current_Time += Time.deltaTime;
+    //    }
+
+    //    if (Input.GetMouseButton(1) || Input.GetKey(KeyCode.S))
+    //    {
+    //        Spawn_Popcorn(15);
+    //        if (isFever == false)
+    //        {
+    //            GameManager.instance.Fever_time++;
+    //            if (GameManager.instance.Fever_time > GameManager.instance.Max_Fever_time)
+    //                GameManager.instance.Fever_time = GameManager.instance.Max_Fever_time;
+    //        }
+    //    }
+
+    //    Waiting_Pool_Count = Waiting_Pool.childCount;
+    //    Using_Pool_Count = Using_Pool.childCount;
     //}
 
 
+  
     void Spawn_Popcorn(int _count)
     {
         for (int i = 0; i < _count; i++)

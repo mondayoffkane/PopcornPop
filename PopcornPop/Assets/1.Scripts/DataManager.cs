@@ -49,7 +49,7 @@ public class DataManager : MonoBehaviour
     {
         try
         {
-            Debug.Log("Save");
+            //Debug.Log("Save");
             _gameData.Max_Stage_Level = _gamemanager.Current_Max_Stage_Level;
             _gameData.Stage_Level = _gamemanager.Current_Stage_Level;
             _gameData.Popcorn_Level[_gameData.Stage_Level] = _gamemanager.Current_StageManager.Popcorn_Level;
@@ -90,9 +90,18 @@ public class DataManager : MonoBehaviour
 
         _gamemanager.Current_Max_Stage_Level = _gameData.Max_Stage_Level;
         //  _gamemanager.Current_Stage_Level = _gameData.Stage_Level;
-        _gamemanager.Current_Popcorn_Level = _gameData.Popcorn_Level[_gameData.Stage_Level];
-        _gamemanager.Current_Income_Level = _gameData.Income_Level[_gameData.Stage_Level];
-        _gamemanager.Current_Object_Level = _gameData.Object_Level[_gameData.Stage_Level];
+
+        // for 문 추가해서 0~2번까지 다 load 하기
+
+        //for (int i = 0; i < 3; i++)
+        //{
+        //    _gamemanager.Stage_Group[i].GetComponent<StageManager>().Popcorn_Level = _gameData.Popcorn_Level[i];
+        //    _gamemanager.Stage_Group[i].GetComponent<StageManager>().Income_Level = _gameData.Income_Level[i];
+        //    _gamemanager.Stage_Group[i].GetComponent<StageManager>().Object_Level = _gameData.Object_Level[i];
+        //}
+        //_gamemanager.Current_Popcorn_Level = _gameData.Popcorn_Level[_gameData.Stage_Level];
+        //_gamemanager.Current_Income_Level = _gameData.Income_Level[_gameData.Stage_Level];
+        //_gamemanager.Current_Object_Level = _gameData.Object_Level[_gameData.Stage_Level];
         _gamemanager.Money = _gameData.Money;
 
 

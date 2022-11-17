@@ -17,9 +17,24 @@ public class RotObj : MonoBehaviour
     public Rot_Dir _Dir;
     [SerializeField] Vector3 Rot;
 
+    Coroutine _cor;
+
+    private void OnEnable()
+    {
+        if (_cor != null)
+        {
+            StopCoroutine(_cor);
+
+            _cor = null;
+
+        }
+        _cor = StartCoroutine(Cor_Update());
+        //Debug.Log("new Coroutine");
+    }
+
     void Start()
     {
-        StartCoroutine(Cor_Update());
+
         //    float _value = isRevers == false ? Rot_Speed : -Rot_Speed;
         //    switch (_Dir)
         //    {

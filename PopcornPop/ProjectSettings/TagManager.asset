@@ -44,3 +44,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Floating_UI
+    uniqueID: 1268550425
+    locked: 0

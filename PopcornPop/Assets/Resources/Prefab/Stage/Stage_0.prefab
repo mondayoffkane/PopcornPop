@@ -1068,6 +1068,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3e1bbcdf1524969af230e208c90334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ChangeMat: {fileID: 2100000, guid: 1cecdf1454a4c4e849d526d9e7edb743, type: 2}
+  Floating_Current_time: 0
+  Floating_Max_Time: 0.1
+  _gamemanager: {fileID: 0}
 --- !u!1 &2718399614897120889
 GameObject:
   m_ObjectHideFlags: 0
@@ -1414,6 +1418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a9cb2d6f4f0479abdb86c57be19d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Base_Mat: {fileID: 2100000, guid: 0ef56efb579b54f19a3ffa432e23354d, type: 2}
   _waiting_Pool: {fileID: 2718399616697608126}
   add_size: 0.2
   Interval: 0.2
@@ -1423,6 +1428,11 @@ MonoBehaviour:
   Col_Radius: 3.23
   Front_Goal: {fileID: 0}
   Back_Goal: {fileID: 0}
+  Floating_Current_time: 0
+  Floating_Max_Time: 0.1
+  _gamemanager: {fileID: 0}
+  Floating_Start_Offset: {x: 0, y: 4, z: -2}
+  Floating_End_Offset: {x: 0, y: 2, z: 0.2}
 --- !u!65 &2718399614954367353
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1657,6 +1667,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3e1bbcdf1524969af230e208c90334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ChangeMat: {fileID: 2100000, guid: 2e0eb7546f9af409fa38b69e0f6b9a47, type: 2}
+  Floating_Current_time: 0
+  Floating_Max_Time: 0.1
+  _gamemanager: {fileID: 0}
 --- !u!1 &2718399615011596295
 GameObject:
   m_ObjectHideFlags: 0
@@ -9011,7 +9025,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawner: {fileID: 2269069836026363854}
-  Stage_Level: 0
   Popcorn_Level: 0
   Popcorn_Upgrade_Price:
   - 100
@@ -9032,20 +9045,31 @@ MonoBehaviour:
   Income_Level: 0
   Up_Income:
   - 1
+  - 2
   - 3
-  - 5
-  - 8
-  - 13
-  - 20
-  - 33
-  - 53
-  - 85
-  - 137
-  - 219
-  - 351
-  - 562
-  - 900
-  - 1441
+  - 5.5
+  - 9.25
+  - 14.875
+  - 23.2
+  - 35.8
+  - 54.7
+  - 83.05
+  - 125.5
+  - 188.5
+  - 283
+  - 425.5
+  - 638.5
+  - 958
+  - 1438
+  - 2158
+  - 3238
+  - 4858
+  - 7288
+  - 10933
+  - 16400.5
+  - 24601
+  - 36902.5
+  - 55354
   Income_Upgrade_Price:
   - 100
   - 180
@@ -9076,10 +9100,10 @@ MonoBehaviour:
   Object_Level: 0
   Obj_Upgrade_Price:
   - 500
-  - 2000
-  - 50000
+  - 20000
   - 500000
-  - 10000000
+  - 5000000
+  - 100000000
   Add_Object:
   - {fileID: 3026982871045832387}
   - {fileID: 2718399614950805071}
@@ -9091,7 +9115,7 @@ MonoBehaviour:
   - {fileID: 6617041459496769524}
   - {fileID: 6897770745106661615}
   - {fileID: 2718399616184820242}
-  - {fileID: 3556443103606949536}
+  - {fileID: 2718399614897120889}
   Waiting_Pool: {fileID: 0}
   Using_Pool: {fileID: 0}
 --- !u!1 &2718399615972355600
@@ -23381,6 +23405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a9cb2d6f4f0479abdb86c57be19d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Base_Mat: {fileID: 2100000, guid: 0ef56efb579b54f19a3ffa432e23354d, type: 2}
   _waiting_Pool: {fileID: 2718399616697608126}
   add_size: 0.2
   Interval: 0.2
@@ -23390,6 +23415,11 @@ MonoBehaviour:
   Col_Radius: 3.23
   Front_Goal: {fileID: 0}
   Back_Goal: {fileID: 0}
+  Floating_Current_time: 0
+  Floating_Max_Time: 0.1
+  _gamemanager: {fileID: 0}
+  Floating_Start_Offset: {x: 0, y: 4, z: -2}
+  Floating_End_Offset: {x: 0, y: 2, z: 0.2}
 --- !u!65 &2718399616287819034
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23713,6 +23743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a9cb2d6f4f0479abdb86c57be19d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Base_Mat: {fileID: 2100000, guid: 0ef56efb579b54f19a3ffa432e23354d, type: 2}
   _waiting_Pool: {fileID: 2718399616697608126}
   add_size: 0.2
   Interval: 0.2
@@ -23722,6 +23753,11 @@ MonoBehaviour:
   Col_Radius: 3.23
   Front_Goal: {fileID: 0}
   Back_Goal: {fileID: 0}
+  Floating_Current_time: 0
+  Floating_Max_Time: 0.1
+  _gamemanager: {fileID: 0}
+  Floating_Start_Offset: {x: 0, y: 4, z: -2}
+  Floating_End_Offset: {x: 0, y: 2, z: 0.2}
 --- !u!65 &2718399616478946763
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28609,6 +28645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a9cb2d6f4f0479abdb86c57be19d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Base_Mat: {fileID: 2100000, guid: 0ef56efb579b54f19a3ffa432e23354d, type: 2}
   _waiting_Pool: {fileID: 2718399616697608126}
   add_size: 0.2
   Interval: 0.2
@@ -28618,6 +28655,11 @@ MonoBehaviour:
   Col_Radius: 3.23
   Front_Goal: {fileID: 0}
   Back_Goal: {fileID: 0}
+  Floating_Current_time: 0
+  Floating_Max_Time: 0.1
+  _gamemanager: {fileID: 0}
+  Floating_Start_Offset: {x: 0, y: 4, z: -2}
+  Floating_End_Offset: {x: 0, y: 2, z: 0.2}
 --- !u!65 &2718399616573616165
 BoxCollider:
   m_ObjectHideFlags: 0
