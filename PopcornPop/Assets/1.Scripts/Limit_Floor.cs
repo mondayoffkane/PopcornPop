@@ -14,9 +14,9 @@ public class Limit_Floor : MonoBehaviour
     {
         if (collision.transform.CompareTag("Popcorn"))
         {
-            collision.transform.position = new Vector3(0f, 200f, 0f);
+            collision.transform.position = new Vector3(0f, 0f, 0f);
             collision.transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            collision.transform.SetParent(GameManager.instance.Current_StageManager.Waiting_Pool);
+            collision.transform.SetParent(GameManager.instance._spawner.Waiting_Pool);
             collision.transform.gameObject.SetActive(false);
         }
     }

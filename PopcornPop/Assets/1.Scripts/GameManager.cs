@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
         SetStage();
 
 
-        Check_Data();
+
 
     }
 
@@ -152,7 +152,7 @@ public class GameManager : MonoBehaviour
         Current_Off_Object = Current_StageManager.Off_Object;
         _spawner = Current_StageManager._spawner;
         Check_Level_Price();
-
+        Check_Data();
     }
 
     IEnumerator Cor_Update()

@@ -6,7 +6,14 @@ using MoreMountains.NiceVibrations;
 
 public class Spawner : MonoBehaviour
 {
-
+    public enum Obj_Type
+    {
+        Popcorn,
+        Gem,
+        Coin,
+        Ball
+    }
+    public Obj_Type _obj;
 
     public float Auto_Spawn_Interval = 1f;
     public int Spawn_Count = 1;
@@ -58,7 +65,7 @@ public class Spawner : MonoBehaviour
 
         }
         _cor = StartCoroutine(Cor_Update());
-        
+
     }
 
     void Start()
@@ -103,7 +110,7 @@ public class Spawner : MonoBehaviour
         WaitForSeconds _deltatime = new WaitForSeconds(Time.deltaTime);
         while (true)
         {
-            yield return _deltatime;
+            yield return null;
             if (Auto_Current_Time >= Auto_Spawn_Interval)
             {
                 Auto_Current_Time = 0f;
@@ -214,7 +221,7 @@ public class Spawner : MonoBehaviour
     //}
 
 
-  
+
     void Spawn_Popcorn(int _count)
     {
         for (int i = 0; i < _count; i++)
@@ -258,7 +265,7 @@ public class Spawner : MonoBehaviour
             {
                 if (Current_popcorn_count < Max_Pool_Size)
                 {
-                    GameObject _popcorn = Instantiate(Resources.Load("Prefab/Popcorn") as GameObject);
+                    GameObject _popcorn = Instantiate(Resources.Load("Prefab/" + _obj.ToString()) as GameObject);
                     _popcorn.transform.SetParent(Waiting_Pool);
                     _popcorn.transform.position = Spawn_Pos.position;
                     _popcorn.SetActive(false);

@@ -1,19 +1,20 @@
 ﻿<Properties StartupConfiguration="{C031E835-6EEA-F012-B4FC-D2BC791B3F1D}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/1.Scripts/ColorChanger.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/1.Scripts/Limit_Floor.cs">
     <Files>
-      <File FileName="Assets/1.Scripts/DataManager.cs" Line="49" Column="6" />
-      <File FileName="Assets/1.Scripts/Goal.cs" Line="24" Column="49" />
-      <File FileName="Assets/1.Scripts/GameManager.cs" Line="333" Column="30" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/StageManager.cs" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/DataManager.cs" Line="23" Column="1" />
+      <File FileName="Assets/1.Scripts/Goal.cs" Line="112" Column="48" />
+      <File FileName="Assets/1.Scripts/GameManager.cs" Line="23" Column="49" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/StageManager.cs" Line="7" Column="14" NotebookId="1" />
       <File FileName="Assets/1.Scripts/ColorChanger.cs" Line="57" Column="76" NotebookId="1" />
       <File FileName="Assets/numberRun/NewSurfaceShader.shader" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/Spawner.cs" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/RotObj.cs" Line="14" Column="11" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/Spawner.cs" Line="113" Column="31" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/RotObj.cs" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/Limit_Floor.cs" Line="23" Column="2" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="9d597dd3-9616-44ab-880f-2f3efcf69106" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="de8d2e63-e707-422f-8308-770d01cf480d" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/chaeyong-un/Desktop/Game_Project/6.PopcornPop/PopcornPop/Assets/1.Scripts/DataManager.cs" relfile="Assets/1.Scripts/DataManager.cs" line="11" column="1" />

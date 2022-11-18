@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Popcorn_Machine_Mat
+  m_Name: Stage_1_Mat
   m_Shader: {fileID: 4800000, guid: d843ad03c638e4826a36a67bc1468f79, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
