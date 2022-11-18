@@ -198,6 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d42cb868156d46d5a3255d8e68ff131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obj: 0
   Auto_Spawn_Interval: 1
   Spawn_Count: 1
   Tap_Limit_Interval: 0.05
@@ -208,7 +209,7 @@ MonoBehaviour:
   Using_Pool: {fileID: 2718399616036322234}
   Start_Pool_Size: 100
   Add_Pool_Size: 50
-  Max_Pool_Size: 1000
+  Max_Pool_Size: 2000
   isFever: 0
   Auto_Current_Time: 0
   Default_Dir: {x: -60, y: 36, z: 0}
