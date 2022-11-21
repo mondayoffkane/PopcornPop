@@ -7,15 +7,15 @@
       <File FileName="Assets/1.Scripts/StageManager.cs" NotebookId="1" />
       <File FileName="Assets/1.Scripts/ColorChanger.cs" NotebookId="1" />
       <File FileName="Assets/numberRun/NewSurfaceShader.shader" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/Spawner.cs" Line="261" Column="6" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/Spawner.cs" NotebookId="1" />
       <File FileName="Assets/1.Scripts/RotObj.cs" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/Limit_Floor.cs" Line="24" Column="1" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/Limit_Floor.cs" NotebookId="1" />
       <File FileName="Assets/1.Scripts/TweenMove.cs" Line="36" Column="40" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="52af8392-6ea6-4850-a916-b5495732e950" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="a935fc0c-a7bc-490c-b4be-eed0cc3ac547" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/chaeyong-un/Desktop/Game_Project/6.PopcornPop/PopcornPop/Assets/1.Scripts/DataManager.cs" relfile="Assets/1.Scripts/DataManager.cs" line="11" column="1" />

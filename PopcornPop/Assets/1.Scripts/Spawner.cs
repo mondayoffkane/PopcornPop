@@ -253,6 +253,9 @@ public class Spawner : MonoBehaviour
                 Shoot_Dir = Spawn_Pos.forward.normalized;
                 _popcorn.AddTorque(Shoot_Dir * Power);
                 _popcorn.AddForce(Shoot_Dir * Power);
+
+
+
             }
         }
     }
