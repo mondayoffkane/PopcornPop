@@ -50,8 +50,8 @@ public class TweenMove : MonoBehaviour
         {
             if (other.CompareTag("Popcorn"))
             {
-                DOTween.Sequence().Append(other.transform.DOMove(transform.GetChild(0).transform.position, 0.5f).SetEase(Ease.Linear))
-                    .OnComplete(() => other.GetComponent<Rigidbody>().velocity = Vector3.up*10f);
+                DOTween.Sequence().Append(other.transform.DOMove(transform.GetChild(0).transform.position, Move_time).SetEase(Ease.Linear))
+                .OnComplete(() => other.GetComponent<Rigidbody>().velocity = transform.forward * 10f);
             }
         }
     }

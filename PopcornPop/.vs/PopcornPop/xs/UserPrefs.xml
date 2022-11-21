@@ -1,16 +1,19 @@
 ﻿<Properties StartupConfiguration="{C031E835-6EEA-F012-B4FC-D2BC791B3F1D}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/1.Scripts/TweenMove.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/1.Scripts/MeshChanger.cs">
     <Files>
-      <File FileName="Assets/1.Scripts/DataManager.cs" Line="57" Column="70" />
-      <File FileName="Assets/1.Scripts/Goal.cs" />
-      <File FileName="Assets/1.Scripts/GameManager.cs" Line="23" Column="49" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/StageManager.cs" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/DataManager.cs" Line="91" Column="38" />
+      <File FileName="Assets/1.Scripts/Goal.cs" Line="86" Column="71" />
+      <File FileName="Assets/1.Scripts/StageManager.cs" Line="30" Column="37" />
+      <File FileName="Assets/1.Scripts/MeshChanger.cs" Line="8" Column="18" />
+      <File FileName="Assets/1.Scripts/GameManager.cs" Line="140" Column="74" NotebookId="1" />
       <File FileName="Assets/1.Scripts/ColorChanger.cs" NotebookId="1" />
       <File FileName="Assets/numberRun/NewSurfaceShader.shader" NotebookId="1" />
       <File FileName="Assets/1.Scripts/Spawner.cs" NotebookId="1" />
       <File FileName="Assets/1.Scripts/RotObj.cs" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/Limit_Floor.cs" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/TweenMove.cs" Line="36" Column="40" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/Limit_Floor.cs" Line="19" Column="1" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/TweenMove.cs" Line="15" Column="13" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/Entrance_Force.cs" Line="20" Column="1" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/Fan.cs" Line="1" Column="1" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

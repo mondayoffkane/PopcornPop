@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
     static readonly string[] CurrencyUnits = new string[] { "", "K", "M", "B", "T", "aa", "bb", "cc", "dd", "ee", "ff", "gg", "hh", "ii", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "aa", "ab", "ac", "ad", "ae", "af", "ag", "ah", "ai", "aj", "ak", "al", "am", "an", "ao", "ap", "aq", "ar", "as", "at", "au", "av", "aw", "ax", "ay", "az", "ba", "bb", "bc", "bd", "be", "bf", "bg", "bh", "bi", "bj", "bk", "bl", "bm", "bn", "bo", "bp", "bq", "br", "bs", "bt", "bu", "bv", "bw", "bx", "by", "bz", "ca", "cb", "cc", "cd", "ce", "cf", "cg", "ch", "ci", "cj", "ck", "cl", "cm", "cn", "co", "cp", "cq", "cr", "cs", "ct", "cu", "cv", "cw", "cx", };
 
 
+    Camera _maincam;
     // ===============================================================================================
 
     private void Awake()
@@ -92,6 +93,8 @@ public class GameManager : MonoBehaviour
         StartCoroutine(Cor_Update());
 
         Init();
+
+        _maincam = Camera.main;
 
     }
 
@@ -133,6 +136,8 @@ public class GameManager : MonoBehaviour
         }
         Stage_Group[Current_Stage_Level].SetActive(true);
         Current_StageManager = Stage_Group[Current_Stage_Level].GetComponent<StageManager>();
+
+        _maincam.backgroundColor = Current_StageManager.BackGround_Color;
 
         Current_StageManager.Popcorn_Level = DataManager.instance._gameData.Popcorn_Level[Current_Stage_Level];
         Current_StageManager.Income_Level = DataManager.instance._gameData.Income_Level[Current_Stage_Level];

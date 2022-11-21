@@ -49,7 +49,7 @@ public class DataManager : MonoBehaviour
     {
         try
         {
-            //Debug.Log("Save");
+            //Debug.Log("try");
             _gameData.Max_Stage_Level = _gamemanager.Current_Max_Stage_Level;
             _gameData.Stage_Level = _gamemanager.Current_Stage_Level;
             _gameData.Popcorn_Level[_gameData.Stage_Level] = _gamemanager.Current_StageManager.Popcorn_Level;
@@ -59,6 +59,7 @@ public class DataManager : MonoBehaviour
         }
         catch
         {
+            //Debug.Log("catch");
             _gameData.Max_Stage_Level = 0;
             _gameData.Stage_Level = 0;
             //for (int i = 0; i < 3; i++)
@@ -82,14 +83,21 @@ public class DataManager : MonoBehaviour
     public void Load_Data()
     {
         if (!File.Exists(Path.Combine(Application.persistentDataPath, "Load.json")))
+        {
             Save_Data();
+        }
+        //else
+        //{
+        //    Debug.Log("Load Data");
+        //    Debug.Log(Path.Combine(Application.persistentDataPath));
+        //}
 
         string path = Path.Combine(Application.persistentDataPath, "Load.json");
         string jsondata = File.ReadAllText(path);
         _gameData = JsonUtility.FromJson<GameData>(jsondata);
 
         _gamemanager.Current_Max_Stage_Level = _gameData.Max_Stage_Level;
-        //  _gamemanager.Current_Stage_Level = _gameData.Stage_Level;
+        //_gamemanager.Current_Stage_Level = _gameData.Stage_Level;
 
         // for 문 추가해서 0~2번까지 다 load 하기
 

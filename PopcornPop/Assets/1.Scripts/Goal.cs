@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class Goal : MonoBehaviour
 {
     public Material Base_Mat;
+    public Mesh Base_Mesh;
 
     [SerializeField]
     //Transform _floating;
@@ -91,10 +92,10 @@ public class Goal : MonoBehaviour
 
 
 
-                
+
                 DOTween.Sequence().Append(_floating.transform.DOMove(_floating.transform.position + Floating_End_Offset, 0.75f))
-                     //.Join(_floating.GetChild(0).GetComponent<Text>().DOColor(new Vector4(_color.r, _color.g, _color.b, 0.5f), 0.5f))
-                     //.Join(_floating.DOScale(Vector3.zero, 1.5f)).SetEase(Ease.InSine)
+                    //.Join(_floating.GetChild(0).GetComponent<Text>().DOColor(new Vector4(_color.r, _color.g, _color.b, 0.5f), 0.5f))
+                    //.Join(_floating.DOScale(Vector3.zero, 1.5f)).SetEase(Ease.InSine)
                     .OnComplete(() =>
                     {
                         _floating.SetParent(_gamemanager.Floating_Waiting_Pool);
@@ -113,6 +114,10 @@ public class Goal : MonoBehaviour
                 //other.GetComponent<MeshRenderer>().material.color = Color.white;
                 //other.GetComponent<MeshRenderer>().material.SetColor("_MainColor", Color.white);
                 other.GetComponent<MeshRenderer>().material = Base_Mat;
+                if (other.GetComponent<MeshFilter>().sharedMesh != Base_Mesh)
+                {
+                    other.GetComponent<MeshFilter>().sharedMesh = Base_Mesh;
+                }
 
                 //if (Current_Count >= Max_Count)
                 //{

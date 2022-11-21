@@ -27,6 +27,7 @@ public class StageManager : MonoBehaviour
 
     public Transform Waiting_Pool, Using_Pool;
 
+    public Color32 BackGround_Color;
 
 
 
