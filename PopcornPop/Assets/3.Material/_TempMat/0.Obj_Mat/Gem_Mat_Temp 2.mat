@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Gem_Mat_Base_Red
+  m_Name: Gem_Mat_Temp 2
   m_Shader: {fileID: 4800000, guid: d843ad03c638e4826a36a67bc1468f79, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
@@ -46,7 +46,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 96b2417c9220b40fc8c5afc98105f153, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4edfbf53a187943e6b51a56d9c00ddc1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:

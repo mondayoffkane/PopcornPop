@@ -1,24 +1,25 @@
 ﻿<Properties StartupConfiguration="{C031E835-6EEA-F012-B4FC-D2BC791B3F1D}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/1.Scripts/MeshChanger.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/1.Scripts/Compressor.cs">
     <Files>
       <File FileName="Assets/1.Scripts/DataManager.cs" Line="91" Column="38" />
-      <File FileName="Assets/1.Scripts/Goal.cs" Line="86" Column="71" />
-      <File FileName="Assets/1.Scripts/StageManager.cs" Line="30" Column="37" />
-      <File FileName="Assets/1.Scripts/MeshChanger.cs" Line="8" Column="18" />
-      <File FileName="Assets/1.Scripts/GameManager.cs" Line="140" Column="74" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/ColorChanger.cs" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/Goal.cs" />
+      <File FileName="Assets/1.Scripts/StageManager.cs" />
+      <File FileName="Assets/1.Scripts/MeshChanger.cs" Line="14" Column="71" />
+      <File FileName="Assets/1.Scripts/ColorChanger.cs" Line="41" Column="70" />
+      <File FileName="Assets/1.Scripts/GameManager.cs" Line="452" Column="32" NotebookId="1" />
       <File FileName="Assets/numberRun/NewSurfaceShader.shader" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/Spawner.cs" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/Spawner.cs" Line="229" Column="23" NotebookId="1" />
       <File FileName="Assets/1.Scripts/RotObj.cs" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/Limit_Floor.cs" Line="19" Column="1" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/TweenMove.cs" Line="15" Column="13" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/Entrance_Force.cs" Line="20" Column="1" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/Fan.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/Limit_Floor.cs" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/TweenMove.cs" Line="43" Column="1" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/Entrance_Force.cs" Line="16" Column="99" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/Fan.cs" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/Compressor.cs" Line="139" Column="6" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="a935fc0c-a7bc-490c-b4be-eed0cc3ac547" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="15dd798a-5d98-47ce-8918-e17a78feb260" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/chaeyong-un/Desktop/Game_Project/6.PopcornPop/PopcornPop/Assets/1.Scripts/DataManager.cs" relfile="Assets/1.Scripts/DataManager.cs" line="11" column="1" />

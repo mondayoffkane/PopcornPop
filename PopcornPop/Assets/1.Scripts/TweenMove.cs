@@ -20,7 +20,7 @@ public class TweenMove : MonoBehaviour
     public float Move_time;
     public float Rot_time;
 
-
+    public DG.Tweening.Ease _ease = Ease.Linear;
 
     void Start()
     {
@@ -29,12 +29,12 @@ public class TweenMove : MonoBehaviour
         {
             case State.Up_down_move:
                 transform.DOMoveY(Move_y, Move_time)
-           .SetEase(Ease.Linear).SetRelative(true).SetLoops(-1, LoopType.Yoyo);
+           .SetEase(_ease).SetRelative(true).SetLoops(-1, LoopType.Yoyo);
                 break;
 
             case State.Left_Right_move:
                 transform.DOMoveX(Move_x, Move_time)
-        .SetEase(Ease.Linear).SetRelative(true).SetLoops(-1, LoopType.Yoyo);
+        .SetEase(_ease).SetRelative(true).SetLoops(-1, LoopType.Yoyo);
                 break;
 
             default:
