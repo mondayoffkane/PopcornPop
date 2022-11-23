@@ -29,6 +29,9 @@ public class Compressor : MonoBehaviour
     [SerializeField] Vector3 Coll_Size;
     [SerializeField] Collider[] _colls;
 
+    GameManager _gamemanager;
+
+
 
     Coroutine _cor;
     void Awake()
@@ -41,6 +44,8 @@ public class Compressor : MonoBehaviour
 
     private void OnEnable()
     {
+        if (_gamemanager == null)
+            _gamemanager = GameManager.instance;
         if (_cor != null)
         {
             StopCoroutine(_cor);
@@ -134,7 +139,8 @@ public class Compressor : MonoBehaviour
         if (other.CompareTag("Popcorn"))
         {
             //other.transform.SetParent(null);
-            other.transform.SetParent(GameManager.instance.Current_StageManager.Using_Pool);
+            other.transform.SetParent(_gamemanager.Current_StageManager.Using_Pool);
+            other.transform.DOScale(Vector3.one, 0.1f);
         }
     }
 

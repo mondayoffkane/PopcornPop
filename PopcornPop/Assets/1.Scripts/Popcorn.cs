@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //using System.Numerics;
@@ -24,7 +24,7 @@ public class Popcorn : MonoBehaviour
     //        {
     //            transform.position = new Vector3(0f, 200f, 0f);
     //            GetComponent<Rigidbody>().velocity = Vector3.zero;
-    //            transform.SetParent(GameManager.instance.Waiting_Pool);
+    //            transform.SetParent(_gamemanager.Waiting_Pool);
     //            transform.gameObject.SetActive(false);
     //        }
     //    }
@@ -39,7 +39,7 @@ public class Popcorn : MonoBehaviour
     //    {
     //        if (Application.isPlaying)
     //        {
-    //            transform.SetParent(GameManager.instance.Waiting_Pool);
+    //            transform.SetParent(_gamemanager.Waiting_Pool);
     //            transform.gameObject.SetActive(false);
     //        }
     //    }

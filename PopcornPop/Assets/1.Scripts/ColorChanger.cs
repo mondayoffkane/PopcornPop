@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -17,6 +17,8 @@ public class ColorChanger : MonoBehaviour
     private void OnEnable()
     {
         StartCoroutine(Cor_Timer());
+        if (_gamemanager == null)
+            _gamemanager = GameManager.instance;
     }
 
     IEnumerator Cor_Timer()
@@ -42,24 +44,25 @@ public class ColorChanger : MonoBehaviour
 
 
             Popcorn _corn = other.GetComponent<Popcorn>();
-            GameManager.instance.ManagerAddMoney();
-            //GameManager.instance.ManagerAddMoney(_corn.Price, _corn.Price_Index);
+            _gamemanager.ManagerAddMoney();
+            //_gamemanager.ManagerAddMoney(_corn.Price, _corn.Price_Index);
 
 
-            if (GameManager.instance.Floating_Waiting_Pool.childCount <= 0)
+            if (_gamemanager.Floating_Waiting_Pool.childCount <= 0)
             {
-                GameManager.instance.Add_Floating_Pool(GameManager.instance.Add_Pool_Size);
+                _gamemanager.Add_Floating_Pool(_gamemanager.Add_Pool_Size);
             }
             if (Floating_Current_time >= Floating_Max_Time)
             {
                 Floating_Current_time = 0;
 
-                Transform _floating = GameManager.instance.Floating_Waiting_Pool.GetChild(0);
-                _floating.SetParent(GameManager.instance.Floating_Using_Pool);
+                Transform _floating = _gamemanager.Floating_Waiting_Pool.GetChild(0);
+                _floating.SetParent(_gamemanager.Floating_Using_Pool);
                 _floating.transform.position = new Vector3(other.transform.position.x, other.transform.position.y, -6f) + Vector3.up * 1f;
                 _floating.localScale = Vector3.one * 0.01f;
                 _floating.gameObject.SetActive(true);
-                _floating.GetChild(1).GetComponent<Text>().text = GameManager.ToCurrencyString(GameManager.instance.Current_Up_Income[GameManager.instance.Current_Income_Level]);
+                //_floating.GetChild(1).GetComponent<Text>().text = GameManager.ToCurrencyString(_gamemanager.Current_Up_Income[_gamemanager.Current_Income_Level]);
+                _floating.GetChild(1).GetComponent<Text>().text = GameManager.ToCurrencyString(_gamemanager.temp_money);
 
                 //Color _color = _floating.GetChild(0).GetComponent<Text>().color;
 
@@ -72,7 +75,7 @@ public class ColorChanger : MonoBehaviour
                     //.Join(_floating.DOScale(Vector3.zero, 1.5f)).SetEase(Ease.InSine)
                     .OnComplete(() =>
                     {
-                        _floating.SetParent(GameManager.instance.Floating_Waiting_Pool);
+                        _floating.SetParent(_gamemanager.Floating_Waiting_Pool);
                         _floating.gameObject.SetActive(false);
                     });
 

@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     [FoldoutGroup("UI")] public Button[] Upgrade_Button;
     [FoldoutGroup("UI")] public Button Auto_Button;
     [FoldoutGroup("UI")] public Button Cam_Rotate_Button;
+    [FoldoutGroup("UI")] public Button[] RV_Button_Group;
 
     [FoldoutGroup("UI")] public GameObject Rot_Cam;
     [FoldoutGroup("UI")] public GameObject Full_Cam;
@@ -77,7 +78,7 @@ public class GameManager : MonoBehaviour
     [Title("Money Value")]
     public double Money;
     static readonly string[] CurrencyUnits = new string[] { "", "K", "M", "B", "T", "aa", "bb", "cc", "dd", "ee", "ff", "gg", "hh", "ii", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "aa", "ab", "ac", "ad", "ae", "af", "ag", "ah", "ai", "aj", "ak", "al", "am", "an", "ao", "ap", "aq", "ar", "as", "at", "au", "av", "aw", "ax", "ay", "az", "ba", "bb", "bc", "bd", "be", "bf", "bg", "bh", "bi", "bj", "bk", "bl", "bm", "bn", "bo", "bp", "bq", "br", "bs", "bt", "bu", "bv", "bw", "bx", "by", "bz", "ca", "cb", "cc", "cd", "ce", "cf", "cg", "ch", "ci", "cj", "ck", "cl", "cm", "cn", "co", "cp", "cq", "cr", "cs", "ct", "cu", "cv", "cw", "cx", };
-
+    public double temp_money;
 
     Camera _maincam;
     // ===============================================================================================
@@ -108,13 +109,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         SetButton();
-
-
         SetStage();
-
-
-
-
     }
 
     void SetStage()
@@ -216,17 +211,19 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Current_Off_Object[2].SetActive(false);
-            Current_Off_Object[3].SetActive(true);
-            Current_Off_Object[4].SetActive(false);
-            Full_Cam.SetActive(true);
+            //Current_Off_Object[2].SetActive(false);
+            //Current_Off_Object[3].SetActive(true);
+            //Current_Off_Object[4].SetActive(false);
+            //Full_Cam.SetActive(true);
+            Door_OnOff(true);
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Current_Off_Object[2].SetActive(true);
-            Current_Off_Object[3].SetActive(false);
-            Current_Off_Object[4].SetActive(true);
-            Full_Cam.SetActive(false);
+            //Current_Off_Object[2].SetActive(true);
+            //Current_Off_Object[3].SetActive(false);
+            //Current_Off_Object[4].SetActive(true);
+            //Full_Cam.SetActive(false);
+            Door_OnOff(false);
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
@@ -256,6 +253,16 @@ public class GameManager : MonoBehaviour
         //    UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
         //}
     }
+
+    void Door_OnOff(bool isbool)
+    {
+        Current_Off_Object[2].SetActive(!isbool);
+        Current_Off_Object[3].SetActive(isbool);
+        Current_Off_Object[4].SetActive(!isbool);
+        Full_Cam.SetActive(isbool);
+
+    }
+
 
     public static string ToCurrencyString(double number)
     {
@@ -343,9 +350,13 @@ public class GameManager : MonoBehaviour
 
     public void ManagerAddMoney()
     {
-        Money += Current_Up_Income[Current_Income_Level];
+        temp_money = RV_Income_Double_bool ? Current_Up_Income[Current_Income_Level] * 2 : Current_Up_Income[Current_Income_Level];
+        Money += temp_money;
     }
 
+    //////////////////////////////////////////////////////////////////////////////////////////////
+    ///  UI Button Func //////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////
 
 
     void Check_Button()
@@ -482,10 +493,97 @@ public class GameManager : MonoBehaviour
         Upgrade_Button[1].onClick.AddListener(() => Income_Upgrade());
         Upgrade_Button[2].onClick.AddListener(() => Obj_Upgrade());
 
+        RV_Button_Group[0].onClick.AddListener(() => RV_Spawn_Dobule());
+        RV_Button_Group[1].onClick.AddListener(() => RV_Spawn_Special());
+        RV_Button_Group[2].onClick.AddListener(() => RV_Income_Double());
+        RV_Button_Group[3].onClick.AddListener(() => RV_Super_Fever());
+
+
         Auto_Button.onClick.AddListener(() => Auto_Tap());
         Cam_Rotate_Button.onClick.AddListener(() => Cam_Rot());
     }
 
+    public bool RV_Spawn_Double_bool;
+    float RV_Spawn_Double_time;
+    void RV_Spawn_Dobule() // double spawn count
+    {
+        RV_Spawn_Double_bool = true;
+
+        DOTween.Sequence().AppendCallback(() =>
+        {
+            RV_Button_Group[0].gameObject.SetActive(false);
+            DOTween.To(() => RV_Spawn_Double_time, x => RV_Spawn_Double_time = x, 0, 30f).SetEase(Ease.Linear);
+
+        }).AppendInterval(30f)
+        .OnComplete(() =>
+        {
+            RV_Spawn_Double_bool = false;
+            RV_Button_Group[0].gameObject.SetActive(true);
+        });
+    }
+
+    public bool RV_Spawn_Special_bool;
+    float RV_Spawn_Special_time;
+    void RV_Spawn_Special() // spawn something special
+    {
+        RV_Spawn_Special_bool = true;
+        DOTween.Sequence().AppendCallback(() =>
+        {
+            RV_Button_Group[1].gameObject.SetActive(false);
+            DOTween.To(() => RV_Spawn_Special_time, x => RV_Spawn_Special_time = x, 0, 30f).SetEase(Ease.Linear);
+
+        }).AppendInterval(30f)
+        .OnComplete(() =>
+        {
+            RV_Spawn_Special_bool = false;
+            RV_Button_Group[1].gameObject.SetActive(true);
+        });
+    }
+
+    public bool RV_Income_Double_bool;
+    float RV_Income_Double_time;
+    void RV_Income_Double() // double income
+    {
+        RV_Income_Double_bool = true;
+        DOTween.Sequence().AppendCallback(() =>
+        {
+            RV_Button_Group[2].gameObject.SetActive(false);
+            DOTween.To(() => RV_Income_Double_time, x => RV_Income_Double_time = x, 0, 30f).SetEase(Ease.Linear);
+
+        }).AppendInterval(30f)
+        .OnComplete(() =>
+        {
+            RV_Income_Double_bool = false;
+            RV_Button_Group[2].gameObject.SetActive(true);
+        });
+    }
+
+    //public bool RV_Super_Fever_bool;
+    float RV_Super_Fever_time;
+    void RV_Super_Fever() // super spawn object and open 4 door
+    {
+        //RV_Super_Fever_bool = true;
+        Current_StageManager._spawner.isSuperFever = true;
+        DOTween.Sequence().AppendCallback(() =>
+        {
+            RV_Button_Group[3].gameObject.SetActive(false);
+            Door_OnOff(true);
+            DOTween.To(() => RV_Super_Fever_time, x => RV_Super_Fever_time = x, 0, 30f).SetEase(Ease.Linear);
+
+        }).AppendInterval(30f)
+        .OnComplete(() =>
+        {
+            Door_OnOff(false);
+            Current_StageManager._spawner.isSuperFever = false;
+            RV_Button_Group[3].gameObject.SetActive(true);
+        });
+    }
+
+
+
+    /// <summary>
+    /// Other Func /////////////////////////////////
+    /// </summary>
 
     void Check_Data()
     {

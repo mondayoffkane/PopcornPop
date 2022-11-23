@@ -66,13 +66,13 @@ public class Goal : MonoBehaviour
 
 
             Popcorn _corn = other.GetComponent<Popcorn>();
-            GameManager.instance.ManagerAddMoney();
+            _gamemanager.ManagerAddMoney();
 
             Current_Count++;
 
-            if (GameManager.instance.Floating_Waiting_Pool.childCount <= 0)
+            if (_gamemanager.Floating_Waiting_Pool.childCount <= 0)
             {
-                GameManager.instance.Add_Floating_Pool(_gamemanager.Add_Pool_Size);
+                _gamemanager.Add_Floating_Pool(_gamemanager.Add_Pool_Size);
             }
             if (Floating_Current_time >= Floating_Max_Time)
             {
@@ -84,18 +84,12 @@ public class Goal : MonoBehaviour
                 _floating.transform.position = transform.position + Floating_Start_Offset;
                 _floating.localScale = Vector3.one * 0.01f;
                 _floating.gameObject.SetActive(true);
-                _floating.GetChild(1).GetComponent<Text>().text = GameManager.ToCurrencyString(_gamemanager.Current_Up_Income[GameManager.instance.Current_Income_Level]);
-
-                //Color _color = _floating.GetChild(1).GetComponent<Text>().color;
-
-                //_floating.GetChild(0).GetComponent<Text>().color = new Vector4(_color.r, _color.g, _color.b, 1);
-
-
+                //_floating.GetChild(1).GetComponent<Text>().text = GameManager.ToCurrencyString(_gamemanager.Current_Up_Income[_gamemanager.Current_Income_Level]);
+                _floating.GetChild(1).GetComponent<Text>().text = GameManager.ToCurrencyString(_gamemanager.temp_money);
 
 
                 DOTween.Sequence().Append(_floating.transform.DOMove(_floating.transform.position + Floating_End_Offset, 0.75f))
-                    //.Join(_floating.GetChild(0).GetComponent<Text>().DOColor(new Vector4(_color.r, _color.g, _color.b, 0.5f), 0.5f))
-                    //.Join(_floating.DOScale(Vector3.zero, 1.5f)).SetEase(Ease.InSine)
+
                     .OnComplete(() =>
                     {
                         _floating.SetParent(_gamemanager.Floating_Waiting_Pool);
@@ -132,53 +126,53 @@ public class Goal : MonoBehaviour
 
         }
     }
-    public void Set()
-    {
-        transform.position = new Vector3(15f, transform.position.y, transform.position.z);
+    //public void Set()
+    //{
+    //    transform.position = new Vector3(15f, transform.position.y, transform.position.z);
 
-        DOTween.Sequence().Append(transform.DOMoveX(0f, 1f))
-            .Join(transform.DORotate(new Vector3(0f, 360f, 0f), 1f, RotateMode.FastBeyond360).SetEase(Ease.Linear)
-            .SetRelative(true))
-            .OnComplete(() =>
-            {
-                transform.DOScale(Vector3.one * add_size, Interval)
-                 .SetEase(Ease.Linear).SetRelative(true).SetLoops(-1, LoopType.Yoyo);
-            });
-    }
+    //    DOTween.Sequence().Append(transform.DOMoveX(0f, 1f))
+    //        .Join(transform.DORotate(new Vector3(0f, 360f, 0f), 1f, RotateMode.FastBeyond360).SetEase(Ease.Linear)
+    //        .SetRelative(true))
+    //        .OnComplete(() =>
+    //        {
+    //            transform.DOScale(Vector3.one * add_size, Interval)
+    //             .SetEase(Ease.Linear).SetRelative(true).SetLoops(-1, LoopType.Yoyo);
+    //        });
+    //}
 
-    public void Full()
-    {
-        DOTween.Sequence().AppendInterval(2f)
-            .AppendCallback(() =>
-            {
-                Collider[] _cols = Physics.OverlapSphere(transform.position + Vector3.up * 1.5f, Col_Radius);
-                foreach (Collider _col in _cols)
-                {
-                    if (_col.CompareTag("Popcorn"))
-                    {
-                        _col.transform.SetParent(transform);
-                    }
-                }
-                Back_Goal.Set();
-            })
-            .Append(transform.DOMoveX(-15f, 1f))
-            .Join(transform.DORotate(new Vector3(0f, 360f, 0f), 1f, RotateMode.FastBeyond360).SetEase(Ease.Linear)
-            .SetRelative(true))
-            .OnComplete(() =>
-            {
-                Collider[] _cols = Physics.OverlapSphere(transform.position + Vector3.up * 1.5f, Col_Radius);
-                foreach (Collider _col in _cols)
-                {
-                    if (_col.CompareTag("Popcorn"))
-                    {
-                        _col.gameObject.SetActive(false);
-                        _col.transform.SetParent(_waiting_Pool);
-                    }
-                }
-                DOTween.Kill(transform);
+    //public void Full()
+    //{
+    //    DOTween.Sequence().AppendInterval(2f)
+    //        .AppendCallback(() =>
+    //        {
+    //            Collider[] _cols = Physics.OverlapSphere(transform.position + Vector3.up * 1.5f, Col_Radius);
+    //            foreach (Collider _col in _cols)
+    //            {
+    //                if (_col.CompareTag("Popcorn"))
+    //                {
+    //                    _col.transform.SetParent(transform);
+    //                }
+    //            }
+    //            Back_Goal.Set();
+    //        })
+    //        .Append(transform.DOMoveX(-15f, 1f))
+    //        .Join(transform.DORotate(new Vector3(0f, 360f, 0f), 1f, RotateMode.FastBeyond360).SetEase(Ease.Linear)
+    //        .SetRelative(true))
+    //        .OnComplete(() =>
+    //        {
+    //            Collider[] _cols = Physics.OverlapSphere(transform.position + Vector3.up * 1.5f, Col_Radius);
+    //            foreach (Collider _col in _cols)
+    //            {
+    //                if (_col.CompareTag("Popcorn"))
+    //                {
+    //                    _col.gameObject.SetActive(false);
+    //                    _col.transform.SetParent(_waiting_Pool);
+    //                }
+    //            }
+    //            DOTween.Kill(transform);
 
-            });
-    }
+    //        });
+    //}
 
     //private void OnDrawGizmos()
     //{
