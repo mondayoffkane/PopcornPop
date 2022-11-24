@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ColorChanger : MonoBehaviour
 {
-    public Material _ChangeMat;
+    public Material[] _ChangeMat;
 
 
     [SerializeField] float Floating_Current_time = 0f;
@@ -40,7 +40,7 @@ public class ColorChanger : MonoBehaviour
             //other.GetComponent<MeshRenderer>().material.color = GetComponent<MeshRenderer>().material.color;
 
             //other.GetComponent<MeshRenderer>().material.SetColor("_MainColor", GetComponent<MeshRenderer>().material.GetColor("_MainColor"));
-            other.GetComponent<MeshRenderer>().material = _ChangeMat;
+            other.GetComponent<MeshRenderer>().material = _ChangeMat[Random.Range(0,_ChangeMat.Length)];
 
 
             Popcorn _corn = other.GetComponent<Popcorn>();

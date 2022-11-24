@@ -1,25 +1,25 @@
 ﻿<Properties StartupConfiguration="{C031E835-6EEA-F012-B4FC-D2BC791B3F1D}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/1.Scripts/Spawner.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/1.Scripts/StageManager.cs">
     <Files>
       <File FileName="Assets/1.Scripts/DataManager.cs" Line="91" Column="38" />
       <File FileName="Assets/1.Scripts/Goal.cs" />
-      <File FileName="Assets/1.Scripts/StageManager.cs" />
+      <File FileName="Assets/1.Scripts/StageManager.cs" Line="1" Column="1" />
       <File FileName="Assets/1.Scripts/MeshChanger.cs" />
       <File FileName="Assets/1.Scripts/ColorChanger.cs" />
-      <File FileName="Assets/1.Scripts/Spawner.cs" Line="117" Column="17" />
-      <File FileName="Assets/1.Scripts/GameManager.cs" Line="456" Column="70" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/Spawner.cs" />
+      <File FileName="Assets/1.Scripts/GameManager.cs" Line="345" Column="30" NotebookId="1" />
       <File FileName="Assets/numberRun/NewSurfaceShader.shader" NotebookId="1" />
       <File FileName="Assets/1.Scripts/RotObj.cs" NotebookId="1" />
       <File FileName="Assets/1.Scripts/Limit_Floor.cs" NotebookId="1" />
       <File FileName="Assets/1.Scripts/TweenMove.cs" NotebookId="1" />
       <File FileName="Assets/1.Scripts/Entrance_Force.cs" NotebookId="1" />
       <File FileName="Assets/1.Scripts/Fan.cs" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/Compressor.cs" Line="139" Column="6" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/Compressor.cs" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="bc819904-1d51-4892-8f60-b55e173f9739" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="3f5394d6-de7a-45c0-b5c3-e8aea172937d" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/chaeyong-un/Desktop/Game_Project/6.PopcornPop/PopcornPop/Assets/1.Scripts/DataManager.cs" relfile="Assets/1.Scripts/DataManager.cs" line="11" column="1" />

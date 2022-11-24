@@ -211,6 +211,7 @@ MonoBehaviour:
   Add_Pool_Size: 50
   Max_Pool_Size: 2000
   isFever: 0
+  isSuperFever: 0
   Auto_Current_Time: 0
   Default_Dir: {x: -60, y: 36, z: 0}
   Spawn_Pos: {fileID: 2718399616666378424}
@@ -218,6 +219,9 @@ MonoBehaviour:
   Fever_Current_Time: 0
   Fever_Interval: 0.2
   Fever_Count: 5
+  SuperFever_Current_Time: 0
+  SuperFever_Interval: 0.1
+  SuperFever_Count: 10
   Current_popcorn_count: 0
   isMax: 0
   Waiting_Pool_Count: 0
@@ -1071,7 +1075,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3e1bbcdf1524969af230e208c90334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ChangeMat: {fileID: 2100000, guid: 1cecdf1454a4c4e849d526d9e7edb743, type: 2}
+  _ChangeMat:
+  - {fileID: 2100000, guid: 1cecdf1454a4c4e849d526d9e7edb743, type: 2}
   Floating_Current_time: 0
   Floating_Max_Time: 0.1
   _gamemanager: {fileID: 0}
@@ -1671,7 +1676,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3e1bbcdf1524969af230e208c90334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ChangeMat: {fileID: 2100000, guid: 2e0eb7546f9af409fa38b69e0f6b9a47, type: 2}
+  _ChangeMat:
+  - {fileID: 2100000, guid: 2e0eb7546f9af409fa38b69e0f6b9a47, type: 2}
   Floating_Current_time: 0
   Floating_Max_Time: 0.1
   _gamemanager: {fileID: 0}
@@ -23165,7 +23171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2718399616233324077
 Transform:
   m_ObjectHideFlags: 0
@@ -34453,7 +34459,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3032122003177178591
 Transform:
   m_ObjectHideFlags: 0
