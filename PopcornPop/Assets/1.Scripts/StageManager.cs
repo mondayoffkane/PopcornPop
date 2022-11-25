@@ -8,19 +8,29 @@ public class StageManager : MonoBehaviour
 {
     public Spawner _spawner;
     //[FoldoutGroup("Upgrade_Value")]    public int Stage_Level;
-    [FoldoutGroup("Upgrade_Value")] public int Popcorn_Level; //  스폰갯수 증가    
-    [FoldoutGroup("Upgrade_Value")] public double[] Popcorn_Upgrade_Price;
+    [FoldoutGroup("Upgrade_Value")] public int Popcorn_Level = 10; //  스폰갯수 증가
+    [FoldoutGroup("Upgrade_Value")] public int Popcorn_Max_Level;
+    [FoldoutGroup("Upgrade_Value")] public double Popcorn_Upgrade_Base_Price = 100;
+    [FoldoutGroup("Upgrade_Value")] public float Popcorn_Upgrade_Scope = 5f;
+    //[FoldoutGroup("Upgrade_Value")] public double[] Popcorn_Upgrade_Price;
 
     [Space(10)]
-    [FoldoutGroup("Upgrade_Value")] public int Income_Level; // 업그레이드 레벨   
-    [FoldoutGroup("Upgrade_Value")] public double[] Up_Income; // 금액대 리스트
-    [FoldoutGroup("Upgrade_Value")] public double[] Income_Upgrade_Price;
+    [FoldoutGroup("Upgrade_Value")] public int Income_Level; // 업그레이드 레벨
+    [FoldoutGroup("Upgrade_Value")] public int Income_Max_Level = 100;
+    [FoldoutGroup("Upgrade_Value")] public double Up_Income;
+    [FoldoutGroup("Upgrade_Value")] public double Up_Income_Base_Price = 1;
+    [FoldoutGroup("Upgrade_Value")] public float Up_Income_Scope = 1.1f;
+    [FoldoutGroup("Upgrade_Value")] public double Income_Upgrade_Base_Price = 100;
+    [FoldoutGroup("Upgrade_Value")] public float Income_Upgrade_Scope = 1.2f;
+    //[FoldoutGroup("Upgrade_Value")] public double[] Up_Income; // 금액대 리스트
+    //[FoldoutGroup("Upgrade_Value")] public double[] Income_Upgrade_Price;
 
     [Space(10)]
-    [FoldoutGroup("Upgrade_Value")] public int Max_Obj_Level = 5;
+    [FoldoutGroup("Upgrade_Value")] public int Obj_Max_Level = 5;
     [FoldoutGroup("Upgrade_Value")] public int Object_Level;
-
-    [FoldoutGroup("Upgrade_Value")] public double[] Obj_Upgrade_Price;
+    [FoldoutGroup("Upgrade_Value")] public double Object_Upgrade_Base_Price = 500;
+    [FoldoutGroup("Upgrade_Value")] public float Object_Upgrade_Scope = 10f;
+    //[FoldoutGroup("Upgrade_Value")] public double[] Obj_Upgrade_Price;
     public GameObject[] Add_Object; // 맵 오브젝트
     public GameObject[] Off_Object;
 
@@ -44,7 +54,7 @@ public class StageManager : MonoBehaviour
 
     private void OnEnable()
     {
-        
+
     }
 
 

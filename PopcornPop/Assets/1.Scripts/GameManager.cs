@@ -22,19 +22,29 @@ public class GameManager : MonoBehaviour
     [FoldoutGroup("Upgrade_Value")] public int Current_Stage_Level = 0;
     [FoldoutGroup("Upgrade_Value")] public StageManager Current_StageManager;
 
-    [FoldoutGroup("Upgrade_Value")] public int Current_Popcorn_Level; //  스폰갯수 증가    
-    [FoldoutGroup("Upgrade_Value")] public double[] Current_Popcorn_Upgrade_Price;
+    [FoldoutGroup("Upgrade_Value")] public int Current_Popcorn_Level; //  스폰갯수 증가
+    [FoldoutGroup("Upgrade_Value")] public int Current_Popcorn_Max_Level;
+    [FoldoutGroup("Upgrade_Value")] public double Current_Popcorn_Base_Price;
+    [FoldoutGroup("Upgrade_Value")] public float Current_Popcorn_Upgrade_Scope;
+    //[FoldoutGroup("Upgrade_Value")] public double[] Current_Popcorn_Upgrade_Price;
 
     [Space(10)]
-    [FoldoutGroup("Upgrade_Value")] public int Current_Income_Level; // 업그레이드 레벨   
-    [FoldoutGroup("Upgrade_Value")] public double[] Current_Up_Income; // 금액대 리스트
-    [FoldoutGroup("Upgrade_Value")] public double[] Current_Income_Upgrade_Price;
+    [FoldoutGroup("Upgrade_Value")] public int Current_Income_Level; // 업그레이드 레벨
+    [FoldoutGroup("Upgrade_Value")] public int Current_Income_Max_Level;
+    [FoldoutGroup("Upgrade_Value")] public double Current_Up_Income;
+    [FoldoutGroup("Upgrade_Value")] public double Current_Up_Income_Base_Price;
+    [FoldoutGroup("Upgrade_Value")] public float Current_Up_Income_Scope;
+    [FoldoutGroup("Upgrade_Value")] public double Current_Income_Upgrade_Base_Price;
+    [FoldoutGroup("Upgrade_Value")] public float Current_Income_Upgrade_Scope;
+    //[FoldoutGroup("Upgrade_Value")] public double[] Current_Up_Income; // 금액대 리스트
+    //[FoldoutGroup("Upgrade_Value")] public double[] Current_Income_Upgrade_Price;
 
     [Space(10)]
-    [FoldoutGroup("Upgrade_Value")] public int Current_Max_Obj_Level = 5;
+    [FoldoutGroup("Upgrade_Value")] public int Current_Obj_Max_Level = 5;
     [FoldoutGroup("Upgrade_Value")] public int Current_Object_Level;
-
-    [FoldoutGroup("Upgrade_Value")] public double[] Current_Obj_Upgrade_Price;
+    [FoldoutGroup("Upgrade_Value")] public double Current_Object_Base_Price;
+    [FoldoutGroup("Upgrade_Value")] public float Current_Object_Upgrade_Scope;
+    //[FoldoutGroup("Upgrade_Value")] public double[] Current_Obj_Upgrade_Price;
     [FoldoutGroup("Upgrade_Value")] public GameObject[] Current_Add_Object; // 맵 오브젝트
     [FoldoutGroup("Upgrade_Value")] public GameObject[] Current_Off_Object;
 
@@ -50,6 +60,8 @@ public class GameManager : MonoBehaviour
     [FoldoutGroup("UI")] public GameObject Rot_Cam;
     [FoldoutGroup("UI")] public GameObject Full_Cam;
 
+    [SerializeField] Text[] Upgrade_Button_Text;
+    [SerializeField] Text Income_Text;
 
     [Space(10)]
 
@@ -96,7 +108,7 @@ public class GameManager : MonoBehaviour
         Init();
 
         _maincam = Camera.main;
-
+        Upgrade_Button_Text = new Text[3];
     }
 
     void Init()
@@ -138,18 +150,39 @@ public class GameManager : MonoBehaviour
         Current_StageManager.Income_Level = DataManager.instance._gameData.Income_Level[Current_Stage_Level];
         Current_StageManager.Object_Level = DataManager.instance._gameData.Object_Level[Current_Stage_Level];
 
-        Current_Popcorn_Upgrade_Price = Current_StageManager.Popcorn_Upgrade_Price;
-        Current_Income_Upgrade_Price = Current_StageManager.Income_Upgrade_Price;
-        Current_Obj_Upgrade_Price = Current_StageManager.Obj_Upgrade_Price;
+        //Current_Popcorn_Upgrade_Price = Current_StageManager.Popcorn_Upgrade_Price;
+        //Current_Income_Upgrade_Price = Current_StageManager.Income_Upgrade_Price;
+        //Current_Obj_Upgrade_Price = Current_StageManager.Obj_Upgrade_Price;
 
         Current_Popcorn_Level = Current_StageManager.Popcorn_Level;
         Current_Income_Level = Current_StageManager.Income_Level;
         Current_Object_Level = Current_StageManager.Object_Level;
-        Current_Max_Obj_Level = Current_StageManager.Max_Obj_Level;
+        Current_Obj_Max_Level = Current_StageManager.Obj_Max_Level;
 
-        Current_Up_Income = Current_StageManager.Up_Income;
+
+        //Current_Up_Income = Current_StageManager.Up_Income;
         Current_Add_Object = Current_StageManager.Add_Object;
         Current_Off_Object = Current_StageManager.Off_Object;
+
+        // 11.25 update
+        Current_Popcorn_Max_Level = Current_StageManager.Popcorn_Max_Level;
+        Current_Income_Max_Level = Current_StageManager.Income_Max_Level;
+        Current_Obj_Max_Level = Current_StageManager.Obj_Max_Level;
+
+        Current_Popcorn_Upgrade_Scope = Current_StageManager.Popcorn_Upgrade_Scope;
+        Current_Up_Income_Scope = Current_StageManager.Up_Income_Scope;
+        Current_Income_Upgrade_Scope = Current_StageManager.Income_Upgrade_Scope;
+        Current_Object_Upgrade_Scope = Current_StageManager.Object_Upgrade_Scope;
+
+        Current_Popcorn_Base_Price = Current_StageManager.Popcorn_Upgrade_Base_Price;
+        Current_Up_Income_Base_Price = Current_StageManager.Up_Income_Base_Price;
+        Current_Object_Base_Price = Current_StageManager.Object_Upgrade_Base_Price;
+        Current_Income_Upgrade_Base_Price = Current_StageManager.Income_Upgrade_Base_Price;
+
+
+
+        Current_Up_Income = Current_Income_Level + Current_Up_Income_Base_Price * Mathf.Pow(Current_Up_Income_Scope, Current_Income_Level);
+
         _spawner = Current_StageManager._spawner;
         Check_Level_Price();
         Check_Data();
@@ -350,7 +383,8 @@ public class GameManager : MonoBehaviour
 
     public void ManagerAddMoney()
     {
-        temp_money = RV_Income_Double_bool ? Current_Up_Income[Current_Income_Level] * 2 : Current_Up_Income[Current_Income_Level];
+
+        temp_money = RV_Income_Double_bool ? Current_Up_Income * 2f : Current_Up_Income;
         Money += temp_money;
     }
 
@@ -362,9 +396,9 @@ public class GameManager : MonoBehaviour
     void Check_Button()
     {
 
-        if (Current_Popcorn_Level < Current_Popcorn_Upgrade_Price.Length)
+        if (Current_Popcorn_Level < Current_Popcorn_Max_Level)
         {
-            if (Money > Current_Popcorn_Upgrade_Price[Current_Popcorn_Level])
+            if (Money >= Current_Popcorn_Base_Price * MathF.Pow(Current_Popcorn_Upgrade_Scope, Current_Popcorn_Level))  //  Current_Popcorn_Upgrade_Price[Current_Popcorn_Level])
             {
                 Upgrade_Button[0].interactable = true;
             }
@@ -380,10 +414,10 @@ public class GameManager : MonoBehaviour
         }
 
 
-        if (Current_Income_Level < Current_Income_Upgrade_Price.Length)
+        if (Current_Income_Level < Current_Income_Max_Level)
         {
 
-            if (Money > Current_Income_Upgrade_Price[Current_Income_Level])
+            if (Money > Current_Income_Upgrade_Base_Price * MathF.Pow(Current_Income_Upgrade_Scope, Current_Income_Level))
             {
                 Upgrade_Button[1].interactable = true;
             }
@@ -397,16 +431,15 @@ public class GameManager : MonoBehaviour
             Upgrade_Button[1].interactable = false;
         }
 
-        if (Current_Object_Level < Current_Max_Obj_Level)
+        if (Current_Object_Level < Current_Obj_Max_Level)
         {
-            if (Money > Current_Obj_Upgrade_Price[Current_Object_Level])
+            if (Money > Current_Object_Base_Price * MathF.Pow(Current_Object_Upgrade_Scope, Current_Object_Level))
             {
                 Upgrade_Button[2].interactable = true;
             }
             else
             {
                 Upgrade_Button[2].interactable = false;
-
             }
         }
         else
@@ -426,14 +459,20 @@ public class GameManager : MonoBehaviour
     void Check_Level_Price()
     {
 
-        Upgrade_Button[0].transform.GetChild(0).GetComponent<Text>().text =
-            Current_Popcorn_Level >= Current_Popcorn_Upgrade_Price.Length ? "Max" : ToCurrencyString(Current_Popcorn_Upgrade_Price[Current_Popcorn_Level]);
+        Upgrade_Button_Text[0].text =
+            Current_Popcorn_Level >= Current_Popcorn_Max_Level ? "Max" : ToCurrencyString(Current_Popcorn_Base_Price * MathF.Pow(Current_Popcorn_Upgrade_Scope, Current_Popcorn_Level));
 
-        Upgrade_Button[1].transform.GetChild(0).GetComponent<Text>().text =
-            Current_Income_Level >= Current_Income_Upgrade_Price.Length ? "Max" : ToCurrencyString(Current_Income_Upgrade_Price[Current_Income_Level]);
+        Upgrade_Button_Text[1].text =
+            Current_Income_Level >= Current_Income_Max_Level ? "Max" : ToCurrencyString(Current_Income_Upgrade_Base_Price * MathF.Pow(Current_Income_Upgrade_Scope, Current_Income_Level));
 
-        Upgrade_Button[2].transform.GetChild(0).GetComponent<Text>().text =
-           Current_Object_Level >= Current_Max_Obj_Level ? "Max" : ToCurrencyString(Current_Obj_Upgrade_Price[Current_Object_Level]);
+        Upgrade_Button_Text[2].text =
+           Current_Object_Level >= Current_Obj_Max_Level ? "Max" : ToCurrencyString(Current_Object_Base_Price * MathF.Pow(Current_Object_Upgrade_Scope, Current_Object_Level));
+
+        Income_Text.text = string.Format("{0}➜{1}", ToCurrencyString(Current_Up_Income), ToCurrencyString(Current_Income_Level + 1 + Current_Up_Income_Base_Price * Mathf.Pow(Current_Up_Income_Scope, Current_Income_Level + 1)));
+        //Income_Text.text = string.Format("{0}➜{1}", ToCurrencyString(Current_Up_Income), ToCurrencyString(Current_Up_Income * Current_Up_Income_Scope));
+
+
+
         //DataManager.instance.Save_Data();
     }
 
@@ -441,7 +480,7 @@ public class GameManager : MonoBehaviour
 
     public void Popcorn_Upgrade()
     {
-        Money -= Current_Popcorn_Upgrade_Price[Current_Popcorn_Level];
+        Money -= Current_Popcorn_Base_Price * MathF.Pow(Current_Popcorn_Upgrade_Scope, Current_Popcorn_Level);
 
         Current_Popcorn_Level++;
         Current_StageManager.Popcorn_Level = Current_Popcorn_Level;
@@ -451,15 +490,16 @@ public class GameManager : MonoBehaviour
     }
     public void Income_Upgrade()
     {
-        Money -= Current_Income_Upgrade_Price[Current_Income_Level];
+        Money -= Current_Income_Upgrade_Base_Price * MathF.Pow(Current_Income_Upgrade_Scope, Current_Income_Level);
         Current_Income_Level++;
         Current_StageManager.Income_Level = Current_Income_Level;
+        Current_Up_Income = Current_Income_Level + Current_Up_Income_Base_Price * Mathf.Pow(Current_Up_Income_Scope, Current_Income_Level);
         DataManager.instance.Save_Data();
         Check_Level_Price();
     }
     public void Obj_Upgrade()
     {
-        Money -= Current_Obj_Upgrade_Price[Current_Object_Level];
+        Money -= Current_Object_Base_Price * MathF.Pow(Current_Object_Upgrade_Scope, Current_Object_Level);
         Current_Object_Level++;
         Current_StageManager.Object_Level = Current_Object_Level;
         DataManager.instance.Save_Data();
@@ -494,10 +534,15 @@ public class GameManager : MonoBehaviour
         Upgrade_Button[2].onClick.AddListener(() => Obj_Upgrade());
 
         RV_Button_Group[0].onClick.AddListener(() => RV_Spawn_Dobule());
-        RV_Button_Group[1].onClick.AddListener(() => RV_Spawn_Special());
-        RV_Button_Group[2].onClick.AddListener(() => RV_Income_Double());
-        RV_Button_Group[3].onClick.AddListener(() => RV_Super_Fever());
+        RV_Button_Group[1].onClick.AddListener(() => RV_Income_Double());
+        RV_Button_Group[2].onClick.AddListener(() => RV_Super_Fever());
 
+
+        Upgrade_Button_Text[0] = Upgrade_Button[0].transform.GetChild(0).GetComponent<Text>();
+        Upgrade_Button_Text[1] = Upgrade_Button[1].transform.GetChild(0).GetComponent<Text>();
+        Upgrade_Button_Text[2] = Upgrade_Button[2].transform.GetChild(0).GetComponent<Text>();
+
+        Income_Text = Upgrade_Button[1].transform.GetChild(1).GetChild(0).GetComponent<Text>();
 
         Auto_Button.onClick.AddListener(() => Auto_Tap());
         Cam_Rotate_Button.onClick.AddListener(() => Cam_Rot());
@@ -522,23 +567,23 @@ public class GameManager : MonoBehaviour
         });
     }
 
-    public bool RV_Spawn_Special_bool;
-    float RV_Spawn_Special_time;
-    void RV_Spawn_Special() // spawn something special
-    {
-        RV_Spawn_Special_bool = true;
-        DOTween.Sequence().AppendCallback(() =>
-        {
-            RV_Button_Group[1].gameObject.SetActive(false);
-            DOTween.To(() => RV_Spawn_Special_time, x => RV_Spawn_Special_time = x, 0, 30f).SetEase(Ease.Linear);
+    //public bool RV_Spawn_Special_bool;
+    //float RV_Spawn_Special_time;
+    //void RV_Spawn_Special() // spawn something special
+    //{
+    //    RV_Spawn_Special_bool = true;
+    //    DOTween.Sequence().AppendCallback(() =>
+    //    {
+    //        RV_Button_Group[1].gameObject.SetActive(false);
+    //        DOTween.To(() => RV_Spawn_Special_time, x => RV_Spawn_Special_time = x, 0, 30f).SetEase(Ease.Linear);
 
-        }).AppendInterval(30f)
-        .OnComplete(() =>
-        {
-            RV_Spawn_Special_bool = false;
-            RV_Button_Group[1].gameObject.SetActive(true);
-        });
-    }
+    //    }).AppendInterval(30f)
+    //    .OnComplete(() =>
+    //    {
+    //        RV_Spawn_Special_bool = false;
+    //        RV_Button_Group[1].gameObject.SetActive(true);
+    //    });
+    //}
 
     public bool RV_Income_Double_bool;
     float RV_Income_Double_time;
@@ -547,14 +592,14 @@ public class GameManager : MonoBehaviour
         RV_Income_Double_bool = true;
         DOTween.Sequence().AppendCallback(() =>
         {
-            RV_Button_Group[2].gameObject.SetActive(false);
+            RV_Button_Group[1].gameObject.SetActive(false);
             DOTween.To(() => RV_Income_Double_time, x => RV_Income_Double_time = x, 0, 30f).SetEase(Ease.Linear);
 
         }).AppendInterval(30f)
         .OnComplete(() =>
         {
             RV_Income_Double_bool = false;
-            RV_Button_Group[2].gameObject.SetActive(true);
+            RV_Button_Group[1].gameObject.SetActive(true);
         });
     }
 
@@ -566,7 +611,7 @@ public class GameManager : MonoBehaviour
         Current_StageManager._spawner.isSuperFever = true;
         DOTween.Sequence().AppendCallback(() =>
         {
-            RV_Button_Group[3].gameObject.SetActive(false);
+            RV_Button_Group[2].gameObject.SetActive(false);
             Door_OnOff(true);
             DOTween.To(() => RV_Super_Fever_time, x => RV_Super_Fever_time = x, 0, 30f).SetEase(Ease.Linear);
 
@@ -575,7 +620,7 @@ public class GameManager : MonoBehaviour
         {
             Door_OnOff(false);
             Current_StageManager._spawner.isSuperFever = false;
-            RV_Button_Group[3].gameObject.SetActive(true);
+            RV_Button_Group[2].gameObject.SetActive(true);
         });
     }
 
