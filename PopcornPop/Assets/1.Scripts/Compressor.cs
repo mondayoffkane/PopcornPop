@@ -128,10 +128,10 @@ public class Compressor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Popcorn"))
-        {
-            other.transform.SetParent(transform);
-        }
+        //if (other.CompareTag("Popcorn"))
+        //{
+        //    other.transform.SetParent(transform);
+        //}
     }
 
     private void OnTriggerExit(Collider other)
@@ -139,7 +139,7 @@ public class Compressor : MonoBehaviour
         if (other.CompareTag("Popcorn"))
         {
             //other.transform.SetParent(null);
-            other.transform.SetParent(_gamemanager.Current_StageManager.Using_Pool);
+            //other.transform.SetParent(_gamemanager.Current_StageManager.Using_Pool);
             other.transform.DOScale(Vector3.one, 0.1f);
         }
     }

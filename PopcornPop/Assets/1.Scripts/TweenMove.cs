@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 
 
 public class TweenMove : MonoBehaviour
@@ -12,13 +13,21 @@ public class TweenMove : MonoBehaviour
         Up_down_move,
         Left_Right_move,
         ToThrow,
+        Scale,
+        Rot,
         None
     }
     public State _state;
 
-    public float Move_x, Move_y;
-    public float Move_time;
-    public float Rot_time;
+
+    [FoldoutGroup("Move")] public float Move_x, Move_y;
+    [FoldoutGroup("Move")] public float Move_time;
+
+    [FoldoutGroup("Scale")] public float Add_Sacle = 0.2f;
+    [FoldoutGroup("Scale")] public float Scale_time = 0.75f;
+
+    [FoldoutGroup("Rot")] public Vector3 Rot;
+    [FoldoutGroup("Rot")] public float Rot_time = 0.3f;
 
     public DG.Tweening.Ease _ease = Ease.Linear;
 
@@ -35,6 +44,19 @@ public class TweenMove : MonoBehaviour
             case State.Left_Right_move:
                 transform.DOMoveX(Move_x, Move_time)
         .SetEase(_ease).SetRelative(true).SetLoops(-1, LoopType.Yoyo);
+                break;
+
+            case State.Scale:
+                transform.DOScale(Add_Sacle, Scale_time)
+                    .SetEase(_ease).SetRelative(true).SetLoops(-1, LoopType.Yoyo);
+                break;
+
+            case State.Rot:
+
+                transform.DORotateQuaternion(Quaternion.Euler(Rot), Rot_time)
+                    .SetEase(_ease).SetRelative(true).SetLoops(-1, LoopType.Yoyo);
+
+
                 break;
 
             default:

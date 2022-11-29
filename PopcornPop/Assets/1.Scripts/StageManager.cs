@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using DG.Tweening;
 
 
 public class StageManager : MonoBehaviour
@@ -33,11 +34,14 @@ public class StageManager : MonoBehaviour
     //[FoldoutGroup("Upgrade_Value")] public double[] Obj_Upgrade_Price;
     public GameObject[] Add_Object; // 맵 오브젝트
     public GameObject[] Off_Object;
-
+    public double NextLevel_Price;
 
     public Transform Waiting_Pool, Using_Pool;
 
     public Color32 BackGround_Color;
+
+    public bool isRot = false;
+    public Vector3 Rot_Speed = new Vector3(0f, 20f, 0f);
 
 
 
@@ -52,12 +56,46 @@ public class StageManager : MonoBehaviour
     }
 
 
-    private void OnEnable()
-    {
+    //Coroutine _cor;
 
-    }
+    //private void OnEnable()
+    //{
+    //    if (_cor != null)
+    //    {
+    //        StopCoroutine(_cor);
 
+    //        _cor = null;
 
+    //    }
+    //    transform.rotation = Quaternion.Euler(Vector3.zero);
+    //    _cor = StartCoroutine(Cor_Rotate());
+
+    //}
+
+    //IEnumerator Cor_Rotate()
+    //{
+
+    //    while (true)
+    //    {
+    //        yield return null;
+
+    //        if (isRot)
+    //        {
+    //            transform.Rotate(Rot_Speed * Time.deltaTime);
+    //        }
+
+    //    }
+    //}
+
+    //public void Rotate_Button()
+    //{
+    //    isRot = !isRot;
+
+    //    if (isRot == false)
+    //    {
+    //        transform.DORotate(Vector3.zero, 0.5f).SetEase(Ease.Linear);
+    //    }
+    //}
 
 
 }
