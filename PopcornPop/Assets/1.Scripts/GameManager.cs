@@ -63,6 +63,10 @@ public class GameManager : MonoBehaviour
     [FoldoutGroup("UI")] public GameObject Rot_Cam;
     [FoldoutGroup("UI")] public GameObject Full_Cam;
 
+    [FoldoutGroup("UI")] public Button Setting_Button;
+    [FoldoutGroup("UI")] public GameObject Setting_Panel;
+
+
     [SerializeField] Text[] Upgrade_Button_Text;
     [SerializeField] Text Income_Text;
     [SerializeField] Text[] RV_Text;
@@ -621,6 +625,13 @@ public class GameManager : MonoBehaviour
 
         Auto_Button.onClick.AddListener(() => Auto_Tap());
         Cam_Rotate_Button.onClick.AddListener(() => Cam_Rot());
+
+        // 11.30 update
+        Setting_Button.onClick.AddListener(() => Setting_OnOff());
+        Setting_Panel.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => Setting_OnOff());
+        Setting_Panel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => Sound_OnOff());
+        Setting_Panel.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() => Vibe_OnOff());
+
     }
 
     public bool RV_Spawn_Double_bool;
@@ -754,18 +765,31 @@ public class GameManager : MonoBehaviour
 
     void Cam_Rot()
     {
+        //Debug.Log("Rot Cam");
         Rot_Cam.SetActive(!Rot_Cam.activeSelf);
         if (Rot_Cam.activeSelf == false)
         {
             Mouse_Rot.rotation = Quaternion.Euler(Vector3.zero);
-            
+
         }
         //Current_StageManager.Rotate_Button();
     }
 
 
+    void Setting_OnOff()
+    {
+        Setting_Panel.SetActive(!Setting_Panel.activeSelf);
+        //Debug.Log("onoff");
+    }
 
+    void Sound_OnOff()
+    {
 
+    }
 
+    void Vibe_OnOff()
+    {
+
+    }
 
 }

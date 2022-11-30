@@ -1,24 +1,24 @@
 ﻿<Properties StartupConfiguration="{C031E835-6EEA-F012-B4FC-D2BC791B3F1D}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/1.Scripts/GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/1.Scripts/Spawner.cs">
     <Files>
       <File FileName="Assets/1.Scripts/DataManager.cs" Line="135" Column="49" />
-      <File FileName="Assets/1.Scripts/Goal.cs" />
-      <File FileName="Assets/1.Scripts/StageManager.cs" Line="54" Column="41" />
+      <File FileName="Assets/1.Scripts/Goal.cs" Line="1" Column="1" />
+      <File FileName="Assets/1.Scripts/StageManager.cs" />
       <File FileName="Assets/1.Scripts/MeshChanger.cs" />
       <File FileName="Assets/1.Scripts/ColorChanger.cs" />
-      <File FileName="Assets/1.Scripts/Spawner.cs" Line="125" Column="1" />
+      <File FileName="Assets/1.Scripts/Spawner.cs" Line="125" Column="1" NotebookId="1" />
       <File FileName="Assets/1.Scripts/GameManager.cs" Line="753" Column="1" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/RotObj.cs" Line="79" Column="1" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/RotObj.cs" NotebookId="1" />
       <File FileName="Assets/1.Scripts/Limit_Floor.cs" NotebookId="1" />
       <File FileName="Assets/1.Scripts/TweenMove.cs" Line="10" Column="1" NotebookId="1" />
       <File FileName="Assets/1.Scripts/Entrance_Force.cs" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/Fan.cs" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/Compressor.cs" Line="151" Column="56" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/Fan.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/Compressor.cs" Line="34" Column="1" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="91e69ca7-3ef6-4c64-8c52-581db693907b" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="a90dde37-6c19-4db2-8b53-9301d5f68665" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/chaeyong-un/Desktop/Game_Project/6.PopcornPop/PopcornPop/Assets/1.Scripts/DataManager.cs" relfile="Assets/1.Scripts/DataManager.cs" line="11" column="1" />

@@ -15,6 +15,9 @@ public class Spawner : MonoBehaviour
     }
     public Obj_Type _obj;
 
+    [SerializeField] Material Base_Mat;
+    [SerializeField] Mesh Base_Mesh;
+
     public float Auto_Spawn_Interval = 1f;
     public int Spawn_Count = 1;
 
@@ -61,6 +64,13 @@ public class Spawner : MonoBehaviour
     WaitForSeconds _wait;
 
     Coroutine _cor;
+
+    private void Awake()
+    {
+        //Base_Mat = (Resources.Load("Prefab/" + _obj.ToString()) as GameObject).GetComponent<Renderer>().GetMaterial;
+        //Base_Mesh = (Resources.Load("Prefab/" + _obj.ToString()) as GameObject).GetComponent<MeshFilter>().sharedMesh;
+    }
+
 
     private void OnEnable()
     {
@@ -205,13 +215,26 @@ public class Spawner : MonoBehaviour
             }
             if (Waiting_Pool.childCount > 0)
             {
-
                 Rigidbody _popcorn = Waiting_Pool.GetChild(0).GetComponent<Rigidbody>();
                 _popcorn.transform.SetParent(Using_Pool);
                 _popcorn.transform.position = Spawn_Pos.position;
                 _popcorn.transform.rotation = Quaternion.Euler(new Vector3(Random.Range(0, 360f), Random.Range(0, 360f), Random.Range(0, 360f)));
                 _popcorn.gameObject.SetActive(true);
 
+
+                if (!_popcorn.GetComponent<Renderer>().material.Equals(Base_Mat))
+                {
+                    _popcorn.GetComponent<Renderer>().material = Base_Mat;
+                }
+                else
+                {
+                    Debug.Log(_popcorn.name);
+                }
+                if (!_popcorn.GetComponent<MeshFilter>().sharedMesh.Equals(Base_Mesh))
+                {
+                    _popcorn.GetComponent<MeshFilter>().sharedMesh = Base_Mesh;
+                    Debug.Log(_popcorn.name);
+                }
 
 
 

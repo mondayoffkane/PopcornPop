@@ -97,20 +97,22 @@ public class Compressor : MonoBehaviour
                 .Join(Door[1].DOLocalRotate(Door_Rot, Door_Interval))
                 .AppendCallback(() =>
                 {
-                    _colls = Physics.OverlapBox(transform.position, Coll_Size * 0.5f);
-                    for (int i = 0; i < _colls.Length; i++)
+                    if (gameObject.activeInHierarchy == true)
                     {
-                        if (_colls[i].CompareTag("Popcorn"))
+                        _colls = Physics.OverlapBox(transform.position, Coll_Size * 0.5f);
+                        for (int i = 0; i < _colls.Length; i++)
                         {
-                            var _force = new Vector3(Random.Range(-1f, 1f), 0f, 0f);
-                            _colls[i].GetComponent<Rigidbody>().AddForce(_force * Random.Range(Min_Force, Max_Force));
-                            _colls[i].GetComponent<MeshFilter>().sharedMesh = Change_Mesh;
-                            _colls[i].GetComponent<MeshRenderer>().material = _ChangeMat;
+                            if (_colls[i].CompareTag("Popcorn"))
+                            {
+                                var _force = new Vector3(Random.Range(-1f, 1f), 0f, 0f);
+                                _colls[i].GetComponent<Rigidbody>().AddForce(_force * Random.Range(Min_Force, Max_Force));
+                                _colls[i].GetComponent<MeshFilter>().sharedMesh = Change_Mesh;
+                                _colls[i].GetComponent<MeshRenderer>().material = _ChangeMat;
 
+                            }
                         }
+                        //Debug.Log("Shoot");
                     }
-                    //Debug.Log("Shoot");
-
                 })
                 .AppendInterval(Waiting_Interval)
                   //.Append(transform.DOLocalMoveY(transform.position.y - Move_Y, Move_Interval).SetEase(_ease)); //  상승

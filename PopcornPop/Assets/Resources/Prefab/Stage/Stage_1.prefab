@@ -26465,20 +26465,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawner: {fileID: 3143957266379070249}
   Popcorn_Level: 0
-  Popcorn_Max_Level: 10
-  Popcorn_Upgrade_Base_Price: 100
-  Popcorn_Upgrade_Scope: 5
+  Popcorn_Max_Level: 20
+  Popcorn_Upgrade_Base_Price: 500
+  Popcorn_Upgrade_Scope: 2
   Income_Level: 0
   Income_Max_Level: 100
   Up_Income: 0
-  Up_Income_Base_Price: 1
+  Up_Income_Base_Price: 10
   Up_Income_Scope: 1.1
-  Income_Upgrade_Base_Price: 100
+  Income_Upgrade_Base_Price: 1000
   Income_Upgrade_Scope: 1.2
   Obj_Max_Level: 5
   Object_Level: 0
-  Object_Upgrade_Base_Price: 500
-  Object_Upgrade_Scope: 10
+  Object_Upgrade_Base_Price: 5000
+  Object_Upgrade_Scope: 5
   Add_Object:
   - {fileID: 236121846975592872}
   - {fileID: 2718399616233324078}
@@ -33516,6 +33516,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obj: 1
+  Base_Mat: {fileID: 2100000, guid: 83bb990c14b9249f88d870c2d126f5f4, type: 2}
+  Base_Mesh: {fileID: -4261862083882790870, guid: 2ae1ddcb54c534de4b7e16466cb8e672, type: 3}
   Auto_Spawn_Interval: 1
   Spawn_Count: 1
   Tap_Limit_Interval: 0.05

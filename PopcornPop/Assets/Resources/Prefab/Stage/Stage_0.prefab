@@ -199,6 +199,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obj: 0
+  Base_Mat: {fileID: 2100000, guid: 0ef56efb579b54f19a3ffa432e23354d, type: 2}
+  Base_Mesh: {fileID: 1878168672877299918, guid: 553550a08eb914f9a8b7b05b8c53b27e, type: 3}
   Auto_Spawn_Interval: 1
   Spawn_Count: 1
   Tap_Limit_Interval: 0.05
