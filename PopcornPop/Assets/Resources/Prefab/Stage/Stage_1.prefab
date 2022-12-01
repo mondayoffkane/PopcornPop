@@ -2055,7 +2055,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -7736,7 +7736,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2718399616233324077}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &1253545010977958943
 ParticleSystem:
@@ -7755,7 +7755,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -13397,7 +13397,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -21047,7 +21047,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3032122003177178591}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -109.888}
 --- !u!33 &2718399614837729485
 MeshFilter:
@@ -21596,7 +21596,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3032122003177178591}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &2718399615630261968
 ParticleSystem:
@@ -21615,7 +21615,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -26465,20 +26465,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawner: {fileID: 3143957266379070249}
   Popcorn_Level: 0
-  Popcorn_Max_Level: 20
-  Popcorn_Upgrade_Base_Price: 500
-  Popcorn_Upgrade_Scope: 2
+  Popcorn_Max_Level: 15
+  Popcorn_Upgrade_Base_Price: 5000
+  Popcorn_Upgrade_Scope: 3
   Income_Level: 0
   Income_Max_Level: 100
   Up_Income: 0
   Up_Income_Base_Price: 10
-  Up_Income_Scope: 1.1
-  Income_Upgrade_Base_Price: 1000
+  Up_Income_Scope: 1.2
+  Income_Upgrade_Base_Price: 10000
   Income_Upgrade_Scope: 1.2
   Obj_Max_Level: 5
   Object_Level: 0
-  Object_Upgrade_Base_Price: 5000
-  Object_Upgrade_Scope: 5
+  Object_Upgrade_Base_Price: 50000
+  Object_Upgrade_Scope: 10
+  Off_Num: 4
   Add_Object:
   - {fileID: 236121846975592872}
   - {fileID: 2718399616233324078}
@@ -26491,7 +26492,7 @@ MonoBehaviour:
   - {fileID: 3809146468342491707}
   - {fileID: 2718399616184820242}
   - {fileID: 3809146468034189465}
-  NextLevel_Price: 500000000
+  NextLevel_Price: 1000000000
   Waiting_Pool: {fileID: 0}
   Using_Pool: {fileID: 0}
   BackGround_Color:
@@ -31383,8 +31384,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3302121174224158644}
   - {fileID: 1253545010977958941}
+  - {fileID: 3302121174224158644}
   - {fileID: 7038863217397630506}
   - {fileID: 2859498943167621332}
   m_Father: {fileID: 2718399616840497271}
@@ -32208,7 +32209,7 @@ Transform:
   - {fileID: 2718399615972355613}
   - {fileID: 2718399614720679140}
   m_Father: {fileID: 2718399616233324077}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 53.771, y: -90, z: 90}
 --- !u!33 &1908583012105334801
 MeshFilter:
@@ -32552,10 +32553,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2718399615630261970}
   - {fileID: 6992702572217584962}
   - {fileID: 527542587799559143}
   - {fileID: 2718399614837729484}
-  - {fileID: 2718399615630261970}
   - {fileID: 3809146467593216045}
   m_Father: {fileID: 2718399616840497271}
   m_RootOrder: 2
@@ -39195,7 +39196,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -106018,7 +106019,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3032122003177178591}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -142.958}
 --- !u!33 &6243337520779772647
 MeshFilter:
@@ -124303,7 +124304,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: e9648a63356244999a7cf1883072ee5a, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9648a63356244999a7cf1883072ee5a, type: 3}
       propertyPath: m_LocalPosition.x

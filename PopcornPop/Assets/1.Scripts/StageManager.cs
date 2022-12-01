@@ -31,6 +31,7 @@ public class StageManager : MonoBehaviour
     [FoldoutGroup("Upgrade_Value")] public int Object_Level;
     [FoldoutGroup("Upgrade_Value")] public double Object_Upgrade_Base_Price = 500;
     [FoldoutGroup("Upgrade_Value")] public float Object_Upgrade_Scope = 10f;
+    [FoldoutGroup("Upgrade_Value")] public int Off_Num = 0;
     //[FoldoutGroup("Upgrade_Value")] public double[] Obj_Upgrade_Price;
     public GameObject[] Add_Object; // 맵 오브젝트
     public GameObject[] Off_Object;
