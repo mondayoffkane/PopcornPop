@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
 
     [FoldoutGroup("UI")] public Button Setting_Button;
     [FoldoutGroup("UI")] public GameObject Setting_Panel;
+    [FoldoutGroup("UI")] public Sprite[] Income_Img;
 
 
     [SerializeField] Text[] Upgrade_Button_Text;
@@ -73,8 +74,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] Text[] RV_Text;
 
     [FoldoutGroup("UI")] public GameObject MPS_Panel;
+    [FoldoutGroup("UI")] public GameObject TapToSpawn_Img;
     [SerializeField] Text[] MPS_Text;
+    public double[] MPS_Temp;
+    [SerializeField] double[] MPS_value;
+    [SerializeField] double[] Stage_Income;
 
+    Button[] MPS_Button;
 
     [Space(10)]
 
@@ -130,19 +136,29 @@ public class GameManager : MonoBehaviour
         Upgrade_Button_Text = new Text[3];
         RV_Text = new Text[3];
         MPS_Text = new Text[3];
+        MPS_value = new double[3];
+        MPS_Temp = new double[3];
+        Stage_Income = new double[3];
+        MPS_Button = new Button[3];
     }
 
     void Init()
     {
         Stage_Group = new GameObject[3];
-
+        DOTween.Sequence(TapToSpawn_Img.transform.DOScale(0.2f, 0.25f)
+            .SetEase(Ease.Linear).SetRelative(true).SetLoops(-1, LoopType.Yoyo));
 
     }
 
     private void Start()
     {
         SetButton();
-        SetStage();
+        for (int i = 0; i <= Current_Max_Stage_Level; i++)
+        {
+            Current_Stage_Level = i;
+            SetStage();
+            DataManager.instance.Save_Data();
+        }
     }
 
     void SetStage()
@@ -212,6 +228,30 @@ public class GameManager : MonoBehaviour
         _spawner = Current_StageManager._spawner;
         Check_Level_Price();
         Check_Data();
+
+        // 12.1 update
+        Door_OnOff(false);
+        RV_Super_Fever_bool = false;
+        Current_StageManager._spawner.isSuperFever = false;
+        RV_Button_Group[2].interactable = true;
+        RV_Button_Group[2].transform.GetChild(1).gameObject.SetActive(true);
+        RV_Super_Fever_time = 0;
+        Stage_Income[Current_Stage_Level] = Current_Up_Income;
+
+        for (int i = 0; i < 3; i++)
+        {
+            MPS_Button[i].interactable = true;
+            MPS_Button[1].GetComponent<Image>().SetNativeSize();
+            MPS_Button[i].gameObject.SetActive(false);
+        }
+        for (int i = 0; i <= Current_Max_Stage_Level; i++)
+        {
+            MPS_Button[i].gameObject.SetActive(true);
+        }
+        MPS_Button[Current_Stage_Level].interactable = false;
+        MPS_Button[Current_Stage_Level].GetComponent<Image>().SetNativeSize();
+
+        Current_StageManager._spawner.DataSet();
     }
 
     IEnumerator Cor_Update()
@@ -222,14 +262,25 @@ public class GameManager : MonoBehaviour
         while (true)
         {
             yield return null; // _deltatime;
+
+            for (int i = 0; i < 3; i++)
+            {
+                temp_money = RV_Income_Double_bool ? Current_Up_Income * 2f : Current_Up_Income;
+                double Temp_testMoney = RV_Income_Double_bool ? Stage_Income[i] * 2d : Stage_Income[i];
+                MPS_value[i] = MPS_Temp[i] * Temp_testMoney;
+            }
+
+
             Money_Text.text = ToCurrencyString(Money);
 
             RV_Text[0].text = RV_Spawn_Double_bool ? string.Format("00:{0:N0}", RV_Spawn_Double_time) : "Spawn X2";
             RV_Text[1].text = RV_Income_Double_bool ? string.Format("00:{0:N0}", RV_Income_Double_time) : "Income X2";
             RV_Text[2].text = RV_Super_Fever_bool ? string.Format("00:{0:N0}", RV_Super_Fever_time) : "Super Fever";
 
-            //MPS_Text[0].text = string.Format("{0}",cu)
-            // 다른부분에 추가하기, 어떻게 산정할지도 계산하기
+            MPS_Text[0].text = string.Format("{0}/s", ToCurrencyString(MPS_value[0]));
+            MPS_Text[1].text = string.Format("{0}/s", ToCurrencyString(MPS_value[1]));
+            MPS_Text[2].text = string.Format("{0}/s", ToCurrencyString(MPS_value[2]));
+            //다른부분에 추가하기, 어떻게 산정할지도 계산하기
 
             Check_Button();
 
@@ -437,7 +488,7 @@ public class GameManager : MonoBehaviour
     public void ManagerAddMoney()
     {
 
-        temp_money = RV_Income_Double_bool ? Current_Up_Income * 2f : Current_Up_Income;
+        //temp_money = RV_Income_Double_bool ? Current_Up_Income * 2f : Current_Up_Income;
         Money += temp_money;
     }
 
@@ -473,15 +524,18 @@ public class GameManager : MonoBehaviour
             if (Money > Current_Income_Upgrade_Base_Price * MathF.Pow(Current_Income_Upgrade_Scope, Current_Income_Level))
             {
                 Upgrade_Button[1].interactable = true;
+                Upgrade_Button[1].transform.GetChild(1).GetComponent<Image>().sprite = Income_Img[0];
             }
             else
             {
                 Upgrade_Button[1].interactable = false;
+                Upgrade_Button[1].transform.GetChild(1).GetComponent<Image>().sprite = Income_Img[1];
             }
         }
         else
         {
             Upgrade_Button[1].interactable = false;
+            Upgrade_Button[1].transform.GetChild(1).GetComponent<Image>().sprite = Income_Img[1];
         }
 
         if (Current_Object_Level < Current_Obj_Max_Level)
@@ -570,7 +624,7 @@ public class GameManager : MonoBehaviour
         Current_StageManager.Popcorn_Level = Current_Popcorn_Level;
         DataManager.instance.Save_Data();
         Check_Level_Price();
-
+        //Stage_Income[Current_Stage_Level] = Current_Up_Income;
     }
     public void Income_Upgrade()
     {
@@ -580,6 +634,7 @@ public class GameManager : MonoBehaviour
         Current_Up_Income = Current_Income_Level + Current_Up_Income_Base_Price * Mathf.Pow(Current_Up_Income_Scope, Current_Income_Level);
         DataManager.instance.Save_Data();
         Check_Level_Price();
+        Stage_Income[Current_Stage_Level] = Current_Up_Income;
     }
     public void Obj_Upgrade()
     {
@@ -646,10 +701,27 @@ public class GameManager : MonoBehaviour
         Setting_Panel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => Sound_OnOff());
         Setting_Panel.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() => Vibe_OnOff());
 
-        MPS_Text[0] = MPS_Panel.transform.GetChild(0).GetChild(0).GetComponent<Text>();
-        MPS_Text[1] = MPS_Panel.transform.GetChild(1).GetChild(0).GetComponent<Text>();
-        MPS_Text[2] = MPS_Panel.transform.GetChild(2).GetChild(0).GetComponent<Text>();
+        // 12.01 update
+        MPS_Button[0] = MPS_Panel.transform.GetChild(0).GetComponent<Button>();
+        MPS_Button[1] = MPS_Panel.transform.GetChild(1).GetComponent<Button>();
+        MPS_Button[2] = MPS_Panel.transform.GetChild(2).GetComponent<Button>();
 
+        MPS_Text[0] = MPS_Button[0].transform.GetChild(0).GetComponent<Text>();
+        MPS_Text[1] = MPS_Button[1].transform.GetChild(0).GetComponent<Text>();
+        MPS_Text[2] = MPS_Button[2].transform.GetChild(0).GetComponent<Text>();
+
+        for (int i = 0; i < 3; i++)
+        {
+            var temp = i;
+            MPS_Button[i].onClick.AddListener(() =>
+            {
+                DataManager.instance.Save_Data();
+                Current_Stage_Level = temp;
+                Check_Level_Price();
+
+                SetStage();
+            });
+        }
 
     }
 
@@ -773,7 +845,7 @@ public class GameManager : MonoBehaviour
         {
             Current_Add_Object[i - 1].SetActive(true);
 
-            if (i == 4)
+            if (i == Current_Off_Num)
             {
                 Current_Off_Object[0].SetActive(false);
             }

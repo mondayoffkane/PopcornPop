@@ -299,7 +299,7 @@ MonoBehaviour:
   Base_Mesh: {fileID: 1878168672877299918, guid: 553550a08eb914f9a8b7b05b8c53b27e, type: 3}
   Auto_Spawn_Interval: 1
   Spawn_Count: 1
-  Tap_Limit_Interval: 0.05
+  Tap_Limit_Interval: 0.25
   Tap_Spawn_Count: 2
   Current_Tap_Time: 0
   Power: 600
@@ -307,7 +307,7 @@ MonoBehaviour:
   Using_Pool: {fileID: 2718399616036322234}
   Start_Pool_Size: 100
   Add_Pool_Size: 50
-  Max_Pool_Size: 3500
+  Max_Pool_Size: 3000
   isFever: 0
   isSuperFever: 0
   Auto_Current_Time: 0
@@ -7295,6 +7295,7 @@ Transform:
   - {fileID: 3615859312708888191}
   - {fileID: 4979453043425519929}
   - {fileID: 1973574704136239832}
+  - {fileID: 8307128328815978470}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7312,7 +7313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawner: {fileID: 2269069836026363854}
   Popcorn_Level: 0
-  Popcorn_Max_Level: 15
+  Popcorn_Max_Level: 25
   Popcorn_Upgrade_Base_Price: 500000
   Popcorn_Upgrade_Scope: 4
   Income_Level: 0
@@ -7324,7 +7325,7 @@ MonoBehaviour:
   Income_Upgrade_Scope: 1.2
   Obj_Max_Level: 5
   Object_Level: 0
-  Object_Upgrade_Base_Price: 500000
+  Object_Upgrade_Base_Price: 300000
   Object_Upgrade_Scope: 10
   Off_Num: 0
   Add_Object:
@@ -7339,7 +7340,7 @@ MonoBehaviour:
   - {fileID: 3831690882847531451}
   - {fileID: 2718399616184820242}
   - {fileID: 7910333455179950678}
-  NextLevel_Price: 100000000000
+  NextLevel_Price: 70000000000
   Waiting_Pool: {fileID: 0}
   Using_Pool: {fileID: 0}
   BackGround_Color:
@@ -38536,6 +38537,111 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.1017804, y: 1.6568012, z: 3.1017804}
   m_Center: {x: -0.013833761, y: 0.33543777, z: 0.013833761}
+--- !u!1 &7139789281772938617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8307128328815978470}
+  - component: {fileID: 8680319008031952447}
+  - component: {fileID: 8603025476359653642}
+  - component: {fileID: 4987709883384227865}
+  m_Layer: 0
+  m_Name: PopcornCup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8307128328815978470
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7139789281772938617}
+  m_LocalRotation: {x: 0.107915364, y: 0.22296149, z: -0.009506808, w: 0.96878904}
+  m_LocalPosition: {x: -490, y: -0.08, z: 0.16499999}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2718399615953338430}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 12.318, y: 26.109, z: 1.742}
+--- !u!33 &8680319008031952447
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7139789281772938617}
+  m_Mesh: {fileID: -3213423234199376657, guid: 2e7e849572a6d438aa9934bb02a47200, type: 3}
+--- !u!23 &8603025476359653642
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7139789281772938617}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 048c2edbb5bd64a29b8008465e1e7c47, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4987709883384227865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7139789281772938617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d211a35bc7ca949dd9cfb1edd20c76c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _state: 3
+  Move_x: 0
+  Move_y: 0
+  Move_time: 0
+  Add_Sacle: 0.02
+  Scale_time: 0.5
+  Rot: {x: 0, y: 0, z: 0}
+  Rot_time: 0.3
+  _ease: 1
 --- !u!1 &7851221137777458434
 GameObject:
   m_ObjectHideFlags: 0

@@ -6662,6 +6662,111 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1 &1146954012241873846
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6856119729037572956}
+  - component: {fileID: 2559019384261781039}
+  - component: {fileID: 3293240094628044955}
+  - component: {fileID: 5255471942401002127}
+  m_Layer: 0
+  m_Name: PopcornCup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6856119729037572956
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146954012241873846}
+  m_LocalRotation: {x: 0.107915364, y: 0.22296149, z: -0.009506808, w: 0.96878904}
+  m_LocalPosition: {x: -490, y: -0.08, z: 0.16499999}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2718399615953338430}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 12.318, y: 26.109, z: 1.742}
+--- !u!33 &2559019384261781039
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146954012241873846}
+  m_Mesh: {fileID: -975215918339741766, guid: ee8e871f985124c30b12398d462f37c8, type: 3}
+--- !u!23 &3293240094628044955
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146954012241873846}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: f06ea9ff38622411f88bc43728d88698, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5255471942401002127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146954012241873846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d211a35bc7ca949dd9cfb1edd20c76c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _state: 3
+  Move_x: 0
+  Move_y: 0
+  Move_time: 0
+  Add_Sacle: 0.02
+  Scale_time: 0.5
+  Rot: {x: 0, y: 0, z: 0}
+  Rot_time: 0.3
+  _ease: 1
 --- !u!1 &1169588803834828302
 GameObject:
   m_ObjectHideFlags: 0
@@ -26448,6 +26553,8 @@ Transform:
   - {fileID: 8057406149653962643}
   - {fileID: 3540882445181638020}
   - {fileID: 8725419633323420685}
+  - {fileID: 6856119729037572956}
+  - {fileID: 3798658914774733944}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -26465,7 +26572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawner: {fileID: 3143957266379070249}
   Popcorn_Level: 0
-  Popcorn_Max_Level: 15
+  Popcorn_Max_Level: 25
   Popcorn_Upgrade_Base_Price: 5000
   Popcorn_Upgrade_Scope: 3
   Income_Level: 0
@@ -26477,7 +26584,7 @@ MonoBehaviour:
   Income_Upgrade_Scope: 1.2
   Obj_Max_Level: 5
   Object_Level: 0
-  Object_Upgrade_Base_Price: 50000
+  Object_Upgrade_Base_Price: 30000
   Object_Upgrade_Scope: 10
   Off_Num: 4
   Add_Object:
@@ -26492,7 +26599,7 @@ MonoBehaviour:
   - {fileID: 3809146468342491707}
   - {fileID: 2718399616184820242}
   - {fileID: 3809146468034189465}
-  NextLevel_Price: 1000000000
+  NextLevel_Price: 700000000
   Waiting_Pool: {fileID: 0}
   Using_Pool: {fileID: 0}
   BackGround_Color:
@@ -33521,7 +33628,7 @@ MonoBehaviour:
   Base_Mesh: {fileID: -4261862083882790870, guid: 2ae1ddcb54c534de4b7e16466cb8e672, type: 3}
   Auto_Spawn_Interval: 1
   Spawn_Count: 1
-  Tap_Limit_Interval: 0.05
+  Tap_Limit_Interval: 0.25
   Tap_Spawn_Count: 2
   Current_Tap_Time: 0
   Power: 0
@@ -80954,6 +81061,111 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7028383179530035860
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3798658914774733944}
+  - component: {fileID: 650838548863082177}
+  - component: {fileID: 3982101016293467714}
+  - component: {fileID: 9175388276388472187}
+  m_Layer: 0
+  m_Name: PopcornCup (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3798658914774733944
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7028383179530035860}
+  m_LocalRotation: {x: 0.107915364, y: 0.22296149, z: -0.009506808, w: 0.96878904}
+  m_LocalPosition: {x: -490, y: -0.08, z: 0.16499999}
+  m_LocalScale: {x: 0.29999998, y: 0.29999998, z: 0.29999995}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2718399615953338430}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 12.318, y: 26.109, z: 1.742}
+--- !u!33 &650838548863082177
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7028383179530035860}
+  m_Mesh: {fileID: -3213423234199376657, guid: 2e7e849572a6d438aa9934bb02a47200, type: 3}
+--- !u!23 &3982101016293467714
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7028383179530035860}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 048c2edbb5bd64a29b8008465e1e7c47, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &9175388276388472187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7028383179530035860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d211a35bc7ca949dd9cfb1edd20c76c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _state: 3
+  Move_x: 0
+  Move_y: 0
+  Move_time: 0
+  Add_Sacle: 0.02
+  Scale_time: 0.5
+  Rot: {x: 0, y: 0, z: 0}
+  Rot_time: 0.3
+  _ease: 1
 --- !u!1 &7058468873825069802
 GameObject:
   m_ObjectHideFlags: 0

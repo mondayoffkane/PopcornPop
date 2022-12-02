@@ -59,6 +59,7 @@ public class Spawner : MonoBehaviour
     [ReadOnly] [SerializeField] int Total_Spawn_Count_Auto;
     [ReadOnly] [SerializeField] int Total_Spawn_Count_Tap;
     GameManager _gamemanager;
+    StageManager _stagemanager;
     //////////////////// ////////
     [Space(10)]
     WaitForSeconds _wait;
@@ -74,6 +75,12 @@ public class Spawner : MonoBehaviour
 
     private void OnEnable()
     {
+        if (_gamemanager == null)
+            _gamemanager = GameManager.instance;
+        if (_stagemanager == null)
+            _stagemanager = transform.root.GetComponent<StageManager>();
+
+
         if (_cor != null)
         {
             StopCoroutine(_cor);
@@ -83,13 +90,28 @@ public class Spawner : MonoBehaviour
         }
         _cor = StartCoroutine(Cor_Update());
 
-        _gamemanager = GameManager.instance;
+        isOpen = false;
+
+    }
+
+    public void DataSet() // 게임 시작시 MPS 값 초기화 용
+    {
+        Total_Spawn_Count_Auto = _gamemanager.RV_Spawn_Double_bool
+                ? (Spawn_Count + _stagemanager.Popcorn_Level) * 2
+                : Spawn_Count + _stagemanager.Popcorn_Level;
+
+        Total_Spawn_Count_Tap = _gamemanager.RV_Spawn_Double_bool
+            ? (Tap_Spawn_Count + _stagemanager.Popcorn_Level)
+            : Tap_Spawn_Count + (int)(_stagemanager.Popcorn_Level * 0.5f);
+
+        _gamemanager.MPS_Temp[_gamemanager.Current_Stage_Level]
+              = (Total_Spawn_Count_Auto + (Total_Spawn_Count_Tap * 4f));
+
     }
 
     void Start()
     {
         Add_Pool(Start_Pool_Size);
-
 
 
         //StartCoroutine(Cor_Spawn());
@@ -128,19 +150,30 @@ public class Spawner : MonoBehaviour
         WaitForSeconds _deltatime = new WaitForSeconds(Time.deltaTime);
         while (true)
         {
-            yield return null;
+            Total_Spawn_Count_Auto = _gamemanager.RV_Spawn_Double_bool
+                ? (Spawn_Count + _gamemanager.Current_Popcorn_Level) * 2
+                : Spawn_Count + _gamemanager.Current_Popcorn_Level;
+
+            Total_Spawn_Count_Tap = _gamemanager.RV_Spawn_Double_bool
+                ? (Tap_Spawn_Count + _gamemanager.Current_Popcorn_Level)
+                : Tap_Spawn_Count + (int)(_gamemanager.Current_Popcorn_Level * 0.5f);
+
             if (Auto_Current_Time >= Auto_Spawn_Interval)
             {
                 Auto_Current_Time = 0f;
-                Total_Spawn_Count_Auto = _gamemanager.RV_Spawn_Double_bool
-                    ? (Spawn_Count + _gamemanager.Current_Popcorn_Level) * 2
-                    : Spawn_Count + _gamemanager.Current_Popcorn_Level;
                 Spawn_Popcorn(Total_Spawn_Count_Auto);
             }
 
             Current_Tap_Time += Time.deltaTime;
             Auto_Current_Time += Time.deltaTime;
 
+            if (Current_Tap_Time >= 5f)
+            {
+                if (_gamemanager.TapToSpawn_Img.activeSelf == false)
+                {
+                    _gamemanager.TapToSpawn_Img.SetActive(true);
+                }
+            }
 
             if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.A))
             {
@@ -148,10 +181,10 @@ public class Spawner : MonoBehaviour
                 {
                     //Debug.Log("Click");
                     Current_Tap_Time = 0f;
-
-                    Total_Spawn_Count_Tap = _gamemanager.RV_Spawn_Double_bool
-                   ? (Tap_Spawn_Count + _gamemanager.Current_Popcorn_Level)
-                   : Tap_Spawn_Count + (int)(_gamemanager.Current_Popcorn_Level * 0.5f);
+                    if (_gamemanager.TapToSpawn_Img.activeSelf == true)
+                    {
+                        _gamemanager.TapToSpawn_Img.SetActive(false);
+                    }
 
                     Spawn_Popcorn(Total_Spawn_Count_Tap);
                     MMVibrationManager.Haptic(HapticTypes.LightImpact);
@@ -200,6 +233,29 @@ public class Spawner : MonoBehaviour
             Waiting_Pool_Count = Waiting_Pool.childCount;
             Using_Pool_Count = Using_Pool.childCount;
 
+            if (Using_Pool_Count > Max_Pool_Size * 0.8f)
+            {
+                if (isOpen == false && isSuperFever == false)
+                {
+                    StartCoroutine(CheckDoor());
+                }
+            }
+
+            _gamemanager.MPS_Temp[_gamemanager.Current_Stage_Level]
+                = (Total_Spawn_Count_Auto + (Total_Spawn_Count_Tap * 4f));
+            yield return null;
+        }
+    }
+    bool isOpen = false;
+    IEnumerator CheckDoor()
+    {
+        isOpen = true;
+        Door_OnOff(true);
+        yield return new WaitForSeconds(10f);
+        isOpen = false;
+        if (isSuperFever == false)
+        {
+            Door_OnOff(false);
         }
     }
 
@@ -271,6 +327,14 @@ public class Spawner : MonoBehaviour
                 }
             }
         }
+    }
+
+    void Door_OnOff(bool isbool)
+    {
+        _stagemanager.Off_Object[2].SetActive(!isbool);
+        _stagemanager.Off_Object[3].SetActive(isbool);
+        _stagemanager.Off_Object[4].SetActive(!isbool);
+        //_gamemanager.Full_Cam.SetActive(isbool);
     }
 
 }
