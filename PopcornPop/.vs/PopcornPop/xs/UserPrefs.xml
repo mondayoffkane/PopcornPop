@@ -4,9 +4,9 @@
       <File FileName="Assets/1.Scripts/DataManager.cs" Line="1" Column="1" />
       <File FileName="Assets/1.Scripts/Goal.cs" Line="1" Column="1" />
       <File FileName="Assets/1.Scripts/StageManager.cs" />
-      <File FileName="Assets/1.Scripts/Spawner.cs" Line="315" Column="34" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/TweenMove.cs" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/GameManager.cs" Line="794" Column="45" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/Spawner.cs" Line="351" Column="14" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/TweenMove.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/GameManager.cs" Line="409" Column="1" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

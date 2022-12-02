@@ -159,6 +159,8 @@ public class GameManager : MonoBehaviour
             SetStage();
             DataManager.instance.Save_Data();
         }
+
+        StartCoroutine(Cor_MPS());
     }
 
     void SetStage()
@@ -289,6 +291,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    IEnumerator Cor_MPS()
+    {
+        WaitForSeconds _wait = new WaitForSeconds(1f);
+        while (true)
+        {
+            yield return _wait;
+            try
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    if (Current_Stage_Level != i)
+                    {
+                        Money += MPS_value[i];
+
+                    }
+                }
+            }
+            catch { }
+        }
+    }
+
 
     //void Update()
     //{
@@ -393,10 +416,30 @@ public class GameManager : MonoBehaviour
 
     void Door_OnOff(bool isbool)
     {
-        Current_Off_Object[2].SetActive(!isbool);
-        Current_Off_Object[3].SetActive(isbool);
-        Current_Off_Object[4].SetActive(!isbool);
-        Full_Cam.SetActive(isbool);
+
+        StartCoroutine(Cor());
+
+        IEnumerator Cor()
+        {
+
+            Current_Off_Object[2].SetActive(!isbool);
+            Current_Off_Object[4].SetActive(!isbool);
+            if (isbool == false)
+            {
+                yield return new WaitForSeconds(2f);
+                Current_Off_Object[3].SetActive(false);
+            }
+            else
+            {
+
+                Current_Off_Object[3].SetActive(true);
+            }
+
+            Full_Cam.SetActive(isbool);
+        }
+
+
+
 
     }
 
@@ -457,7 +500,7 @@ public class GameManager : MonoBehaviour
             var temp = double.Parse(partsSplit[0].Replace("E", "")) * System.Math.Pow(10, remainder);
 
             //  소수 둘째자리까지만 출력한다.
-            showNumber = temp.ToString("F").Replace(".00", "");
+            showNumber = temp.ToString("F1").Replace(".0", "");
         }
 
         unityString = CurrencyUnits[quotient];
@@ -604,7 +647,9 @@ public class GameManager : MonoBehaviour
         Upgrade_Button_Text[2].text =
            Current_Object_Level >= Current_Obj_Max_Level ? "Max" : ToCurrencyString(Current_Object_Base_Price * MathF.Pow(Current_Object_Upgrade_Scope, Current_Object_Level));
 
-        Income_Text.text = string.Format("{0}➜{1}", ToCurrencyString(Current_Up_Income), ToCurrencyString(Current_Income_Level + 1 + Current_Up_Income_Base_Price * Mathf.Pow(Current_Up_Income_Scope, Current_Income_Level + 1)));
+        Income_Text.text = Current_Income_Level < Current_Income_Max_Level ?
+            string.Format("{0}➜{1}", ToCurrencyString(Current_Up_Income), ToCurrencyString(Current_Income_Level + 1 + Current_Up_Income_Base_Price * Mathf.Pow(Current_Up_Income_Scope, Current_Income_Level + 1)))
+            : string.Format("{0}", ToCurrencyString(Current_Up_Income));
         //Income_Text.text = string.Format("{0}➜{1}", ToCurrencyString(Current_Up_Income), ToCurrencyString(Current_Up_Income * Current_Up_Income_Scope));
 
         NextLevel_Price_text.text =

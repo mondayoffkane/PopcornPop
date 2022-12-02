@@ -284,12 +284,12 @@ public class Spawner : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log(_popcorn.name);
+
                 }
                 if (!_popcorn.GetComponent<MeshFilter>().sharedMesh.Equals(Base_Mesh))
                 {
                     _popcorn.GetComponent<MeshFilter>().sharedMesh = Base_Mesh;
-                    Debug.Log(_popcorn.name);
+
                 }
 
 
@@ -331,10 +331,33 @@ public class Spawner : MonoBehaviour
 
     void Door_OnOff(bool isbool)
     {
-        _stagemanager.Off_Object[2].SetActive(!isbool);
-        _stagemanager.Off_Object[3].SetActive(isbool);
-        _stagemanager.Off_Object[4].SetActive(!isbool);
-        //_gamemanager.Full_Cam.SetActive(isbool);
+
+        StartCoroutine(Cor());
+
+        IEnumerator Cor()
+        {
+
+            _stagemanager.Off_Object[2].SetActive(!isbool);
+            _stagemanager.Off_Object[4].SetActive(!isbool);
+
+            if (isbool == false)
+            {
+                yield return new WaitForSeconds(2f);
+                _stagemanager.Off_Object[3].SetActive(false);
+            }
+            else
+            {
+                _stagemanager.Off_Object[3].SetActive(true);
+            }
+            //if (isbool == false && _stagemanager.Off_Object[3].activeSelf == true)
+            //{
+            //}
+            //else if (isbool == true)
+            //{
+            //}
+            //_gamemanager.Full_Cam.SetActive(isbool);
+        }
+
     }
 
 }
