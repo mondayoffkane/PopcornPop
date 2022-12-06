@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
-using MoreMountains.NiceVibrations;
+
 
 public class Spawner : MonoBehaviour
 {
@@ -187,9 +187,9 @@ public class Spawner : MonoBehaviour
                     {
                         _gamemanager.TapToSpawn_Img.SetActive(false);
                     }
-
+                    _gamemanager.Sound(0);
                     Spawn_Popcorn(Total_Spawn_Count_Tap);
-                    MMVibrationManager.Haptic(HapticTypes.LightImpact);
+
                     if (isFever == false)
                     {
                         _gamemanager.Fever_time++;
@@ -209,7 +209,7 @@ public class Spawner : MonoBehaviour
                 {
                     if (Input.GetTouch(i).phase == TouchPhase.Began)
                     {
-                        MMVibrationManager.Haptic(HapticTypes.LightImpact);
+                        _gamemanager.Vibe(0);
                         if (Current_Tap_Time >= Tap_Limit_Interval)
                         {
 
@@ -218,7 +218,7 @@ public class Spawner : MonoBehaviour
                             {
                                 _gamemanager.TapToSpawn_Img.SetActive(false);
                             }
-
+                            _gamemanager.Sound(0);
                             Spawn_Popcorn(Total_Spawn_Count_Tap);
                             if (isFever == false)
                             {

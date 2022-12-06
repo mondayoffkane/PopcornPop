@@ -56,16 +56,16 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Library/PackageCache/com.unity.services.core@1.4.0/Runtime/Core/DynamicDependency/PreserveDependencyAttribute.cs" />
+    <Compile Include="Library/PackageCache/com.unity.services.core@1.4.0/Runtime/Core/Utils/UnityThreadUtils.cs" />
+    <Compile Include="Library/PackageCache/com.unity.services.core@1.4.0/Runtime/Core/IUnityServices.cs" />
+    <Compile Include="Library/PackageCache/com.unity.services.core@1.4.0/Runtime/Core/Initialization/InitializationOptions.cs" />
     <Compile Include="Library/PackageCache/com.unity.services.core@1.4.0/Runtime/Core/Initialization/ServicesInitializationException.cs" />
     <Compile Include="Library/PackageCache/com.unity.services.core@1.4.0/Runtime/Core/UnityServices.cs" />
     <Compile Include="Library/PackageCache/com.unity.services.core@1.4.0/Runtime/Core/CommonErrorCodes.cs" />
     <Compile Include="Library/PackageCache/com.unity.services.core@1.4.0/Runtime/Core/AssemblyInfo.cs" />
-    <Compile Include="Library/PackageCache/com.unity.services.core@1.4.0/Runtime/Core/DynamicDependency/PreserveDependencyAttribute.cs" />
     <Compile Include="Library/PackageCache/com.unity.services.core@1.4.0/Runtime/Core/RequestFailedException.cs" />
     <Compile Include="Library/PackageCache/com.unity.services.core@1.4.0/Runtime/Core/Initialization/ServicesInitializationState.cs" />
-    <Compile Include="Library/PackageCache/com.unity.services.core@1.4.0/Runtime/Core/Utils/UnityThreadUtils.cs" />
-    <Compile Include="Library/PackageCache/com.unity.services.core@1.4.0/Runtime/Core/IUnityServices.cs" />
-    <Compile Include="Library/PackageCache/com.unity.services.core@1.4.0/Runtime/Core/Initialization/InitializationOptions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Library/PackageCache/com.unity.services.core@1.4.0/Runtime/Core/Unity.Services.Core.asmdef" />
@@ -341,17 +341,29 @@
     <Reference Include="DOTweenEditor">
       <HintPath>Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Burst.Unsafe">
+      <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="DemiEditor">
       <HintPath>Assets/Plugins/Demigiant/DemiLib/Core/Editor/DemiEditor.dll</HintPath>
     </Reference>
-    <Reference Include="Sirenix.OdinInspector.Attributes">
-      <HintPath>Assets/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
+    <Reference Include="Unity.Burst.Cecil.Mdb">
+      <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/EditorAssetResources/Unity.VisualScripting.TextureAssets.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.IonicZip">
       <HintPath>Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.OdinInspector.Attributes">
+      <HintPath>Assets/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Pdb">
+      <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil">
+      <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
       <HintPath>Library/PackageCache/com.unity.collab-proxy@1.15.18/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
@@ -379,6 +391,9 @@
     </Reference>
     <Reference Include="DOTweenPro">
       <HintPath>Assets/Plugins/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Rocks">
+      <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
     </Reference>
     <Reference Include="Sirenix.Utilities.Editor">
       <HintPath>Assets/Sirenix/Assemblies/Sirenix.Utilities.Editor.dll</HintPath>

@@ -5,6 +5,7 @@ using Sirenix.OdinInspector;
 using UnityEngine.UI;
 using System;
 using DG.Tweening;
+using MoreMountains.NiceVibrations;
 //using System.Numerics;
 
 
@@ -79,6 +80,8 @@ public class GameManager : MonoBehaviour
     public double[] MPS_Temp;
     [SerializeField] double[] MPS_value;
     [SerializeField] double[] Stage_Income;
+    [SerializeField] Toggle Sound_Toggle;
+    [SerializeField] Toggle Vibe_Toggle;
 
     Button[] MPS_Button;
 
@@ -109,6 +112,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] Vector3 Start_Rot;
     public Transform Mouse_Rot;
 
+    public bool isSound = true;
+    public bool isVibe = true;
+
+    [FoldoutGroup("Sound")] public AudioClip[] _clips;
+    [FoldoutGroup("Sound")] AudioSource _audio;
+
 
     /// //////////////////////////////////////
 
@@ -134,6 +143,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(Cor_Update());
 
         Init();
+        _audio = GetComponent<AudioSource>();
 
         _maincam = Camera.main;
         Upgrade_Button_Text = new Text[3];
@@ -228,7 +238,7 @@ public class GameManager : MonoBehaviour
         Current_Off_Num = Current_StageManager.Off_Num;
 
 
-        Current_Up_Income = Current_Income_Level + Current_Up_Income_Base_Price * Mathf.Pow(Current_Up_Income_Scope, Current_Income_Level);
+        Current_Up_Income = Current_Income_Level* Current_Up_Income_Base_Price + Current_Up_Income_Base_Price * Mathf.Pow(Current_Up_Income_Scope, Current_Income_Level);
 
         _spawner = Current_StageManager._spawner;
         Check_Level_Price();
@@ -711,7 +721,7 @@ public class GameManager : MonoBehaviour
            Current_Object_Level >= Current_Obj_Max_Level ? "Max" : ToCurrencyString(Current_Object_Base_Price * MathF.Pow(Current_Object_Upgrade_Scope, Current_Object_Level));
 
         Income_Text.text = Current_Income_Level < Current_Income_Max_Level ?
-            string.Format("{0}➜{1}", ToCurrencyString(Current_Up_Income), ToCurrencyString(Current_Income_Level + 1 + Current_Up_Income_Base_Price * Mathf.Pow(Current_Up_Income_Scope, Current_Income_Level + 1)))
+            string.Format("{0}➜{1}", ToCurrencyString(Current_Up_Income), ToCurrencyString((Current_Income_Level + 1)* Current_Up_Income_Base_Price + Current_Up_Income_Base_Price * Mathf.Pow(Current_Up_Income_Scope, Current_Income_Level + 1)))
             : string.Format("{0}", ToCurrencyString(Current_Up_Income));
         //Income_Text.text = string.Format("{0}➜{1}", ToCurrencyString(Current_Up_Income), ToCurrencyString(Current_Up_Income * Current_Up_Income_Scope));
 
@@ -739,7 +749,7 @@ public class GameManager : MonoBehaviour
         Money -= Current_Income_Upgrade_Base_Price * MathF.Pow(Current_Income_Upgrade_Scope, Current_Income_Level);
         Current_Income_Level++;
         Current_StageManager.Income_Level = Current_Income_Level;
-        Current_Up_Income = Current_Income_Level + Current_Up_Income_Base_Price * Mathf.Pow(Current_Up_Income_Scope, Current_Income_Level);
+        Current_Up_Income = Current_Income_Level* Current_Up_Income_Base_Price + Current_Up_Income_Base_Price * Mathf.Pow(Current_Up_Income_Scope, Current_Income_Level);
         DataManager.instance.Save_Data();
         Check_Level_Price();
         Stage_Income[Current_Stage_Level] = Current_Up_Income;
@@ -806,8 +816,8 @@ public class GameManager : MonoBehaviour
         // 11.30 update
         Setting_Button.onClick.AddListener(() => Setting_OnOff());
         Setting_Panel.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => Setting_OnOff());
-        Setting_Panel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => Sound_OnOff());
-        Setting_Panel.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() => Vibe_OnOff());
+        //Setting_Panel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => Sound_OnOff());
+        //Setting_Panel.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() => Vibe_OnOff());
 
         // 12.01 update
         MPS_Button[0] = MPS_Panel.transform.GetChild(0).GetComponent<Button>();
@@ -817,6 +827,13 @@ public class GameManager : MonoBehaviour
         MPS_Text[0] = MPS_Button[0].transform.GetChild(0).GetComponent<Text>();
         MPS_Text[1] = MPS_Button[1].transform.GetChild(0).GetComponent<Text>();
         MPS_Text[2] = MPS_Button[2].transform.GetChild(0).GetComponent<Text>();
+
+        // 12.06 update
+        Sound_Toggle = Setting_Panel.transform.GetChild(1).GetComponent<Toggle>();
+        Vibe_Toggle = Setting_Panel.transform.GetChild(2).GetComponent<Toggle>();
+
+        Sound_Toggle.onValueChanged.AddListener(delegate { Sound_OnOff(); });
+        Vibe_Toggle.onValueChanged.AddListener(delegate { Vibe_OnOff(); });
 
         for (int i = 0; i < 3; i++)
         {
@@ -978,17 +995,54 @@ public class GameManager : MonoBehaviour
     void Setting_OnOff()
     {
         Setting_Panel.SetActive(!Setting_Panel.activeSelf);
-        //Debug.Log("onoff");
+
     }
 
-    void Sound_OnOff()
+    public void Sound_OnOff()
     {
+        isSound = Sound_Toggle.isOn;
+        //Sound_Toggle.isOn = isSound;
 
     }
 
-    void Vibe_OnOff()
+    public void Vibe_OnOff()
     {
-
+        isVibe = Vibe_Toggle.isOn;
+        //Vibe_Toggle.isOn = isVibe;
     }
 
+
+    public void Vibe(int _num)
+    {
+        if (isVibe)
+        {
+            switch (_num)
+            {
+                case 0:
+                    MMVibrationManager.Haptic(HapticTypes.LightImpact);
+                    break;
+
+                case 1:
+                    MMVibrationManager.Haptic(HapticTypes.MediumImpact);
+                    break;
+                case 2:
+
+                    MMVibrationManager.Haptic(HapticTypes.HeavyImpact);
+                    break;
+
+                default:
+
+                    break;
+            }
+        }
+    }
+
+    public void Sound(int _num)
+    {
+        if (isSound)
+        {
+            _audio.clip = _clips[_num];
+            _audio.Play();
+        }
+    }
 }

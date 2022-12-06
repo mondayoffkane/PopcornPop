@@ -26574,11 +26574,11 @@ MonoBehaviour:
   Popcorn_Level: 0
   Popcorn_Max_Level: 25
   Popcorn_Upgrade_Base_Price: 5000
-  Popcorn_Upgrade_Scope: 2
+  Popcorn_Upgrade_Scope: 1.5
   Income_Level: 0
   Income_Max_Level: 100
   Up_Income: 0
-  Up_Income_Base_Price: 10
+  Up_Income_Base_Price: 100
   Up_Income_Scope: 1.05
   Income_Upgrade_Base_Price: 10000
   Income_Upgrade_Scope: 1.1
