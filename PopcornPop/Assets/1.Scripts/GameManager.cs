@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
     [FoldoutGroup("CPI")] public float Explosion_power;
     [FoldoutGroup("CPI")] public float Explosion_radius;
 
+    [SerializeField] bool isClick = false;
     [SerializeField] float Start_x;
     [SerializeField] float End_x;
     [SerializeField] float Move_Distance = 0f;
@@ -234,8 +235,17 @@ public class GameManager : MonoBehaviour
         // 12.1 update
         Door_OnOff(false);
         RV_Super_Fever_bool = false;
-        Current_StageManager._spawner.isSuperFever = false;
-        RV_Button_Group[2].interactable = true;
+        //Current_StageManager._spawner.isSuperFever = false;
+        RV_Super_Fever_time = 0f;
+        if (Current_StageManager._spawner.isSuperFever == true)
+        {
+            RV_Button_Group[2].interactable = false;
+        }
+        else
+        {
+            RV_Button_Group[2].interactable = true;
+
+        }
         RV_Button_Group[2].transform.GetChild(1).gameObject.SetActive(true);
         RV_Super_Fever_time = 0;
         Stage_Income[Current_Stage_Level] = Current_Up_Income;
@@ -392,18 +402,30 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Start_x = Input.mousePosition.x;
-            Start_Rot = Mouse_Rot.rotation.eulerAngles;
+            if (isClick == false)
+            {
+                isClick = true;
+                Start_x = Input.mousePosition.x;
+                Start_Rot = Mouse_Rot.rotation.eulerAngles;
+            }
+            else { isClick = false; }
         }
         else if (Input.GetMouseButton(0))
         {
-            End_x = Input.mousePosition.x;
-            Move_Distance = End_x - Start_x;
-            if (Mathf.Abs(Move_Distance) >= Limit_Distace)
+            if (isClick == true)
             {
-                Mouse_Rot.rotation = Quaternion.Euler(Start_Rot + new Vector3(0f, Move_Distance * 0.1f, 0f));
-                //Current_StageManager.transform.Rotate(new Vector3(0f, Move_Distance * Time.deltaTime, 0f));
+                End_x = Input.mousePosition.x;
+                Move_Distance = End_x - Start_x;
+                if (Mathf.Abs(Move_Distance) >= Limit_Distace)
+                {
+                    Mouse_Rot.rotation = Quaternion.Euler(Start_Rot + new Vector3(0f, Move_Distance * 0.1f, 0f));
+                    //Current_StageManager.transform.Rotate(new Vector3(0f, Move_Distance * Time.deltaTime, 0f));
+                }
             }
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            isClick = false;
         }
 
 
@@ -422,16 +444,32 @@ public class GameManager : MonoBehaviour
         IEnumerator Cor()
         {
 
-            Current_Off_Object[2].SetActive(!isbool);
-            Current_Off_Object[4].SetActive(!isbool);
+            //Current_Off_Object[2].SetActive(!isbool);
+            //Current_Off_Object[4].SetActive(!isbool);
             if (isbool == false)
             {
-                yield return new WaitForSeconds(2f);
-                Current_Off_Object[3].SetActive(false);
+                if (Current_StageManager._spawner.isSuperFever == true)
+                {
+
+                    RV_Super_Fever_bool = false;
+                    Current_Off_Object[2].SetActive(true);
+                    Current_Off_Object[4].SetActive(true);
+                    yield return new WaitForSeconds(2f);
+                    Current_Off_Object[3].SetActive(false);
+                    Current_StageManager._spawner.isSuperFever = false;
+                    RV_Button_Group[2].interactable = true;
+                }
+                else
+                {
+                    Current_Off_Object[2].SetActive(true);
+                    Current_Off_Object[4].SetActive(true);
+                    Current_Off_Object[3].SetActive(false);
+                }
             }
             else
             {
-
+                Current_Off_Object[2].SetActive(false);
+                Current_Off_Object[4].SetActive(false);
                 Current_Off_Object[3].SetActive(true);
             }
 
@@ -566,8 +604,11 @@ public class GameManager : MonoBehaviour
 
             if (Money > Current_Income_Upgrade_Base_Price * MathF.Pow(Current_Income_Upgrade_Scope, Current_Income_Level))
             {
+
                 Upgrade_Button[1].interactable = true;
                 Upgrade_Button[1].transform.GetChild(1).GetComponent<Image>().sprite = Income_Img[0];
+
+
             }
             else
             {

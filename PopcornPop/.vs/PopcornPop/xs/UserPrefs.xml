@@ -1,17 +1,17 @@
 ﻿<Properties StartupConfiguration="{C031E835-6EEA-F012-B4FC-D2BC791B3F1D}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/1.Scripts/GameManager.cs">
     <Files>
-      <File FileName="Assets/1.Scripts/DataManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/1.Scripts/Goal.cs" Line="1" Column="1" />
+      <File FileName="Assets/1.Scripts/DataManager.cs" Line="34" Column="22" />
+      <File FileName="Assets/1.Scripts/Goal.cs" />
       <File FileName="Assets/1.Scripts/StageManager.cs" />
       <File FileName="Assets/1.Scripts/Spawner.cs" Line="351" Column="14" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/TweenMove.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/GameManager.cs" Line="409" Column="1" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/TweenMove.cs" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/GameManager.cs" Line="242" Column="10" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="ef17373c-561a-47a7-961e-348e2c975e1a" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="0879f236-4ce1-4ef0-a806-083b6f898a87" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/chaeyong-un/Desktop/Game_Project/6.PopcornPop/PopcornPop/Assets/1.Scripts/DataManager.cs" relfile="Assets/1.Scripts/DataManager.cs" line="11" column="1" />
