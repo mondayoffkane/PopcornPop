@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
     [FoldoutGroup("CPI")] public float Explosion_power;
     [FoldoutGroup("CPI")] public float Explosion_radius;
 
-    [SerializeField] bool isClick = false;
+
     [SerializeField] float Start_x;
     [SerializeField] float End_x;
     [SerializeField] float Move_Distance = 0f;
@@ -119,6 +119,8 @@ public class GameManager : MonoBehaviour
     public double temp_money;
 
     Camera _maincam;
+    Touch _touch;
+    bool isClick = false;
     // ===============================================================================================
 
     private void Awake()
@@ -400,33 +402,53 @@ public class GameManager : MonoBehaviour
             SetStage();
         }
 
+        // ///////////////////////////////////
+#if UNITY_EDITOR
         if (Input.GetMouseButtonDown(0))
         {
-            if (isClick == false)
-            {
-                isClick = true;
-                Start_x = Input.mousePosition.x;
-                Start_Rot = Mouse_Rot.rotation.eulerAngles;
-            }
-            else { isClick = false; }
+            Start_x = Input.mousePosition.x;
+            Start_Rot = Mouse_Rot.rotation.eulerAngles;
         }
         else if (Input.GetMouseButton(0))
         {
-            if (isClick == true)
+            End_x = Input.mousePosition.x;
+            Move_Distance = End_x - Start_x;
+
+            Mouse_Rot.rotation = Quaternion.Euler(Start_Rot + new Vector3(0f, Move_Distance * 0.1f, 0f));
+            //Current_StageManager.transform.Rotate(new Vector3(0f, Move_Distance * Time.deltaTime, 0f));
+
+        }
+#endif
+        /////////////////////////////////////////
+
+#if UNITY_ANDROID
+        // 12.06 update
+        if (Input.touchCount > 0)
+        {
+            _touch = Input.GetTouch(0);
+
+            if (_touch.phase == TouchPhase.Began)
             {
-                End_x = Input.mousePosition.x;
-                Move_Distance = End_x - Start_x;
-                if (Mathf.Abs(Move_Distance) >= Limit_Distace)
+                Start_x = _touch.position.x - _touch.deltaPosition.x;
+                Start_Rot = Mouse_Rot.rotation.eulerAngles;
+                if (isClick == false) { isClick = true; }
+            }
+            else if (_touch.phase == TouchPhase.Moved)
+            {
+                if (isClick == true)
                 {
+                    End_x = _touch.position.x - _touch.deltaPosition.x;
+                    Move_Distance = End_x - Start_x;
+
                     Mouse_Rot.rotation = Quaternion.Euler(Start_Rot + new Vector3(0f, Move_Distance * 0.1f, 0f));
-                    //Current_StageManager.transform.Rotate(new Vector3(0f, Move_Distance * Time.deltaTime, 0f));
                 }
             }
+            else if (_touch.phase == TouchPhase.Ended)
+            {
+                isClick = false;
+            }
         }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            isClick = false;
-        }
+#endif
 
 
 

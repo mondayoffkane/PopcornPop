@@ -65,6 +65,7 @@ public class Spawner : MonoBehaviour
     WaitForSeconds _wait;
 
     Coroutine _cor;
+    Touch _touch;
 
     private void Awake()
     {
@@ -175,6 +176,7 @@ public class Spawner : MonoBehaviour
                 }
             }
 
+#if UNITY_EDITOR
             if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.A))
             {
                 if (Current_Tap_Time >= Tap_Limit_Interval)
@@ -196,6 +198,61 @@ public class Spawner : MonoBehaviour
                     }
                 }
             }
+#endif
+            //12.06 update
+#if UNITY_ANDROID
+            if (Input.touchCount > 0)
+            {
+                //_touch = Input.GetTouch(Input.touchCount - 1);
+
+                for (int i = 0; i < Input.touchCount; i++)
+                {
+                    if (Input.GetTouch(i).phase == TouchPhase.Began)
+                    {
+                        MMVibrationManager.Haptic(HapticTypes.LightImpact);
+                        if (Current_Tap_Time >= Tap_Limit_Interval)
+                        {
+
+                            Current_Tap_Time = 0f;
+                            if (_gamemanager.TapToSpawn_Img.activeSelf == true)
+                            {
+                                _gamemanager.TapToSpawn_Img.SetActive(false);
+                            }
+
+                            Spawn_Popcorn(Total_Spawn_Count_Tap);
+                            if (isFever == false)
+                            {
+                                _gamemanager.Fever_time++;
+                                if (_gamemanager.Fever_time > _gamemanager.Max_Fever_time)
+                                    _gamemanager.Fever_time = _gamemanager.Max_Fever_time;
+                            }
+                        }
+                    }
+                }
+                //if (_touch.phase == TouchPhase.Began)
+                //{
+                //    //if (Current_Tap_Time >= Tap_Limit_Interval)
+                //    //{
+                //    //Debug.Log("Click");
+                //    Current_Tap_Time = 0f;
+                //    if (_gamemanager.TapToSpawn_Img.activeSelf == true)
+                //    {
+                //        _gamemanager.TapToSpawn_Img.SetActive(false);
+                //    }
+
+                //    Spawn_Popcorn(Total_Spawn_Count_Tap);
+                //    MMVibrationManager.Haptic(HapticTypes.LightImpact);
+                //    if (isFever == false)
+                //    {
+                //        _gamemanager.Fever_time++;
+                //        if (_gamemanager.Fever_time > _gamemanager.Max_Fever_time)
+                //            _gamemanager.Fever_time = _gamemanager.Max_Fever_time;
+                //    }
+                //    //}
+                //}
+            }
+#endif
+
 
             if (isFever)
             {
@@ -206,7 +263,7 @@ public class Spawner : MonoBehaviour
                 }
                 Fever_Current_Time += Time.deltaTime;
             }
-
+#if UNITY_EDITOR
             if (Input.GetMouseButton(1) || Input.GetKey(KeyCode.S))
             {
                 Spawn_Popcorn(15);
@@ -217,7 +274,7 @@ public class Spawner : MonoBehaviour
                         _gamemanager.Fever_time = _gamemanager.Max_Fever_time;
                 }
             }
-
+#endif
             if (isSuperFever)
             {
                 SuperFever_Current_Time += Time.deltaTime;
