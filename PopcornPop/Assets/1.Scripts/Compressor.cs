@@ -38,7 +38,7 @@ public class Compressor : MonoBehaviour
     {
         Door[0] = transform.GetChild(0);
         Door[1] = transform.GetChild(1);
-        //Coll_Size = GetComponent<BoxCollider>().size;
+      
 
     }
 
@@ -72,12 +72,9 @@ public class Compressor : MonoBehaviour
 
                 .Append(Door[0].DOLocalRotate(Rot_Zero, Door_Interval)) // 문 닫힘
                 .Join(Door[1].DOLocalRotate(Rot_Zero, Door_Interval))
-                //.AppendInterval(Door_Interval)
-
-                //.Append(transform.DOLocalMoveY(transform.position.y + Move_Y, Move_Interval).SetEase(_ease)) //  하강
+              
                 .Append(transform.DOLocalMoveY(Min_Y, Down_Move_Interval).SetEase(_ease)) //  하강 
 
-                //.Append(transform.DOShakeScale(1f))
                 .AppendInterval(1f)
                 .Append(transform.DOScale(Vector3.one * 1.2f, 0.2f)).SetEase(Ease.OutCubic)
                 .Append(transform.DOScale(Vector3.one * 1f, 0.2f)).SetEase(Ease.OutCubic)
@@ -111,11 +108,10 @@ public class Compressor : MonoBehaviour
 
                             }
                         }
-                        //Debug.Log("Shoot");
+                    
                     }
                 })
-                .AppendInterval(Waiting_Interval)
-                  //.Append(transform.DOLocalMoveY(transform.position.y - Move_Y, Move_Interval).SetEase(_ease)); //  상승
+                .AppendInterval(Waiting_Interval)          
                   .Append(transform.DOLocalMoveY(Max_Y, Up_Move_Interval).SetEase(_ease)) //  상승
                   .AppendInterval(Waiting_Interval);
             yield return new WaitForSeconds(Door_Interval * 4f + Down_Move_Interval + Up_Move_Interval + Waiting_Interval + 1.6f);
@@ -128,20 +124,12 @@ public class Compressor : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-        //if (other.CompareTag("Popcorn"))
-        //{
-        //    other.transform.SetParent(transform);
-        //}
-    }
+   
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Popcorn"))
         {
-            //other.transform.SetParent(null);
-            //other.transform.SetParent(_gamemanager.Current_StageManager.Using_Pool);
             other.transform.DOScale(Vector3.one, 0.1f);
         }
     }
@@ -157,14 +145,6 @@ public class Compressor : MonoBehaviour
 }
 
 
-
-
-
-//1. 문이 열림 -> 보석 들어옴
-//    2. 문 닫힘
-//    3. 내려감
-//    4. 문 열림 + 보석 폭발하듯이 나감
-//    5. 다시 위로 올라ㅆ
 
 
 

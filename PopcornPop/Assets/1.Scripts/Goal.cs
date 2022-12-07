@@ -10,8 +10,7 @@ public class Goal : MonoBehaviour
     public Material Base_Mat;
     public Mesh Base_Mesh;
 
-    [SerializeField]
-    //Transform _floating;
+        
     public Transform _waiting_Pool;
 
     public float add_size = 0.2f;
@@ -80,11 +79,11 @@ public class Goal : MonoBehaviour
 
                 Transform _floating = _gamemanager.Floating_Waiting_Pool.GetChild(0);
                 _floating.SetParent(_gamemanager.Floating_Using_Pool);
-                //_floating.transform.position = other.transform.position + Vector3.up * 2f;
+               
                 _floating.transform.position = transform.position + Floating_Start_Offset;
                 _floating.localScale = Vector3.one * 0.01f;
                 _floating.gameObject.SetActive(true);
-                //_floating.GetChild(1).GetComponent<Text>().text = GameManager.ToCurrencyString(_gamemanager.Current_Up_Income[_gamemanager.Current_Income_Level]);
+               
                 _floating.GetChild(1).GetComponent<Text>().text = GameManager.ToCurrencyString(_gamemanager.temp_money);
 
 
@@ -99,25 +98,18 @@ public class Goal : MonoBehaviour
 
 
 
-            //
+            
 
             if (isFull == false)
             {
                 other.gameObject.SetActive(false);
                 other.transform.SetParent(_waiting_Pool);
-                //other.GetComponent<MeshRenderer>().material.color = Color.white;
-                //other.GetComponent<MeshRenderer>().material.SetColor("_MainColor", Color.white);
+             
                 other.GetComponent<MeshRenderer>().material = Base_Mat;
                 if (other.GetComponent<MeshFilter>().sharedMesh != Base_Mesh)
                 {
                     other.GetComponent<MeshFilter>().sharedMesh = Base_Mesh;
-                }
-
-                //if (Current_Count >= Max_Count)
-                //{
-                //    isFull = true;
-                //    Full();
-                //}
+                }             
             }
             else
             {
@@ -126,59 +118,5 @@ public class Goal : MonoBehaviour
 
         }
     }
-    //public void Set()
-    //{
-    //    transform.position = new Vector3(15f, transform.position.y, transform.position.z);
-
-    //    DOTween.Sequence().Append(transform.DOMoveX(0f, 1f))
-    //        .Join(transform.DORotate(new Vector3(0f, 360f, 0f), 1f, RotateMode.FastBeyond360).SetEase(Ease.Linear)
-    //        .SetRelative(true))
-    //        .OnComplete(() =>
-    //        {
-    //            transform.DOScale(Vector3.one * add_size, Interval)
-    //             .SetEase(Ease.Linear).SetRelative(true).SetLoops(-1, LoopType.Yoyo);
-    //        });
-    //}
-
-    //public void Full()
-    //{
-    //    DOTween.Sequence().AppendInterval(2f)
-    //        .AppendCallback(() =>
-    //        {
-    //            Collider[] _cols = Physics.OverlapSphere(transform.position + Vector3.up * 1.5f, Col_Radius);
-    //            foreach (Collider _col in _cols)
-    //            {
-    //                if (_col.CompareTag("Popcorn"))
-    //                {
-    //                    _col.transform.SetParent(transform);
-    //                }
-    //            }
-    //            Back_Goal.Set();
-    //        })
-    //        .Append(transform.DOMoveX(-15f, 1f))
-    //        .Join(transform.DORotate(new Vector3(0f, 360f, 0f), 1f, RotateMode.FastBeyond360).SetEase(Ease.Linear)
-    //        .SetRelative(true))
-    //        .OnComplete(() =>
-    //        {
-    //            Collider[] _cols = Physics.OverlapSphere(transform.position + Vector3.up * 1.5f, Col_Radius);
-    //            foreach (Collider _col in _cols)
-    //            {
-    //                if (_col.CompareTag("Popcorn"))
-    //                {
-    //                    _col.gameObject.SetActive(false);
-    //                    _col.transform.SetParent(_waiting_Pool);
-    //                }
-    //            }
-    //            DOTween.Kill(transform);
-
-    //        });
-    //}
-
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = new Vector4(1f, 1f, 1f, 0.3f);
-    //    Gizmos.DrawSphere(transform.position + Vector3.up * 1.5f, Col_Radius);
-
-    //}
-
+   
 }

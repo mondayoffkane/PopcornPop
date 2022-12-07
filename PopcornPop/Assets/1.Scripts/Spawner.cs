@@ -65,13 +65,9 @@ public class Spawner : MonoBehaviour
     WaitForSeconds _wait;
 
     Coroutine _cor;
-    Touch _touch;
 
-    private void Awake()
-    {
-        //Base_Mat = (Resources.Load("Prefab/" + _obj.ToString()) as GameObject).GetComponent<Renderer>().GetMaterial;
-        //Base_Mesh = (Resources.Load("Prefab/" + _obj.ToString()) as GameObject).GetComponent<MeshFilter>().sharedMesh;
-    }
+
+    
 
 
     private void OnEnable()
@@ -114,9 +110,6 @@ public class Spawner : MonoBehaviour
     {
         Add_Pool(Start_Pool_Size);
 
-
-        //StartCoroutine(Cor_Spawn());
-        //StartCoroutine(Cor_Update());
         if (Spawn_Pos == null)
         {
             Spawn_Pos = transform.GetChild(0);
@@ -124,28 +117,6 @@ public class Spawner : MonoBehaviour
     }
 
 
-
-
-
-    //IEnumerator Cor_Spawn()
-    //{
-    //    _wait = new WaitForSeconds(Time.deltaTime);
-    //    while (true)
-    //    {
-    //        if (Auto_Current_Time >= Auto_Spawn_Interval)
-    //        {
-    //            Auto_Current_Time = 0f;
-    //            Spawn_Popcorn(Spawn_Count + _gamemanager.Current_Popcorn_Level);
-    //        }
-
-    //        Current_Tap_Time += Time.deltaTime;
-    //        Auto_Current_Time += Time.deltaTime;
-    //        yield return _wait;
-
-
-    //    }
-
-    //}
     IEnumerator Cor_Update()
     {
         WaitForSeconds _deltatime = new WaitForSeconds(Time.deltaTime);
@@ -161,6 +132,7 @@ public class Spawner : MonoBehaviour
 
             if (Auto_Current_Time >= Auto_Spawn_Interval)
             {
+                _gamemanager.Sound(0);
                 Auto_Current_Time = 0f;
                 Spawn_Popcorn(Total_Spawn_Count_Auto);
             }
@@ -179,15 +151,15 @@ public class Spawner : MonoBehaviour
 #if UNITY_EDITOR
             if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.A))
             {
+                    _gamemanager.Sound(0);
                 if (Current_Tap_Time >= Tap_Limit_Interval)
                 {
-                    //Debug.Log("Click");
+                    
                     Current_Tap_Time = 0f;
                     if (_gamemanager.TapToSpawn_Img.activeSelf == true)
                     {
                         _gamemanager.TapToSpawn_Img.SetActive(false);
                     }
-                    _gamemanager.Sound(0);
                     Spawn_Popcorn(Total_Spawn_Count_Tap);
 
                     if (isFever == false)
@@ -200,7 +172,7 @@ public class Spawner : MonoBehaviour
             }
 #endif
             //12.06 update
-#if UNITY_ANDROID
+#if !UNITY_EDITOR
             if (Input.touchCount > 0)
             {
                 //_touch = Input.GetTouch(Input.touchCount - 1);
@@ -210,6 +182,7 @@ public class Spawner : MonoBehaviour
                     if (Input.GetTouch(i).phase == TouchPhase.Began)
                     {
                         _gamemanager.Vibe(0);
+                        _gamemanager.Sound(0);
                         if (Current_Tap_Time >= Tap_Limit_Interval)
                         {
 
@@ -218,7 +191,7 @@ public class Spawner : MonoBehaviour
                             {
                                 _gamemanager.TapToSpawn_Img.SetActive(false);
                             }
-                            _gamemanager.Sound(0);
+
                             Spawn_Popcorn(Total_Spawn_Count_Tap);
                             if (isFever == false)
                             {
@@ -254,15 +227,6 @@ public class Spawner : MonoBehaviour
 #endif
 
 
-            if (isFever)
-            {
-                if (Fever_Current_Time >= Fever_Interval)
-                {
-                    Fever_Current_Time = 0f;
-                    Spawn_Popcorn(Fever_Count);
-                }
-                Fever_Current_Time += Time.deltaTime;
-            }
 #if UNITY_EDITOR
             if (Input.GetMouseButton(1) || Input.GetKey(KeyCode.S))
             {
@@ -275,11 +239,22 @@ public class Spawner : MonoBehaviour
                 }
             }
 #endif
+            if (isFever)
+            {
+                if (Fever_Current_Time >= Fever_Interval)
+                {
+                    Fever_Current_Time = 0f;
+                    _gamemanager.Sound(1);
+                    Spawn_Popcorn(Fever_Count);
+                }
+                Fever_Current_Time += Time.deltaTime;
+            }
             if (isSuperFever)
             {
                 SuperFever_Current_Time += Time.deltaTime;
                 if (SuperFever_Current_Time >= SuperFever_Interval)
                 {
+                    _gamemanager.Sound(1);
                     SuperFever_Current_Time = 0;
                     Spawn_Popcorn(SuperFever_Count);
                 }
@@ -292,7 +267,7 @@ public class Spawner : MonoBehaviour
 
             if (Using_Pool_Count > Max_Pool_Size * 0.8f)
             {
-                if (isOpen == false && isSuperFever == false)
+                if (isOpen == false && isSuperFever == false && isFever == false)
                 {
                     StartCoroutine(CheckDoor());
                 }
@@ -309,17 +284,42 @@ public class Spawner : MonoBehaviour
         isOpen = true;
         Door_OnOff(true);
         yield return new WaitForSeconds(10f);
-        isOpen = false;
-        if (isSuperFever == false)
+        if (isSuperFever == false && isFever == false)
         {
+            
             Door_OnOff(false);
         }
     }
 
+    void Door_OnOff(bool isbool)
+    {
 
+        StartCoroutine(Cor());
+
+        IEnumerator Cor()
+        {
+
+            _stagemanager.Off_Object[2].SetActive(!isbool);
+            _stagemanager.Off_Object[4].SetActive(!isbool);
+
+            if (isbool == false)
+            {
+                yield return new WaitForSeconds(2f);
+                _stagemanager.Off_Object[3].SetActive(false);
+                isOpen = false;
+            }
+            else
+            {
+                _stagemanager.Off_Object[3].SetActive(true);
+            }
+
+        }
+
+    }
 
     void Spawn_Popcorn(int _count)
     {
+        
         for (int i = 0; i < _count; i++)
         {
             if (Waiting_Pool.childCount <= 0)
@@ -386,35 +386,6 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    void Door_OnOff(bool isbool)
-    {
 
-        StartCoroutine(Cor());
-
-        IEnumerator Cor()
-        {
-
-            _stagemanager.Off_Object[2].SetActive(!isbool);
-            _stagemanager.Off_Object[4].SetActive(!isbool);
-
-            if (isbool == false)
-            {
-                yield return new WaitForSeconds(2f);
-                _stagemanager.Off_Object[3].SetActive(false);
-            }
-            else
-            {
-                _stagemanager.Off_Object[3].SetActive(true);
-            }
-            //if (isbool == false && _stagemanager.Off_Object[3].activeSelf == true)
-            //{
-            //}
-            //else if (isbool == true)
-            //{
-            //}
-            //_gamemanager.Full_Cam.SetActive(isbool);
-        }
-
-    }
 
 }

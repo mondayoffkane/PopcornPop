@@ -29,31 +29,10 @@ public class RotObj : MonoBehaviour
 
         }
         _cor = StartCoroutine(Cor_Update());
-        //Debug.Log("new Coroutine");
+      
     }
 
-    void Start()
-    {
 
-        //    float _value = isRevers == false ? Rot_Speed : -Rot_Speed;
-        //    switch (_Dir)
-        //    {
-        //        case Rot_Dir.X:
-        //            Rot = new Vector3(_value, 0f, 0f);
-        //            break;
-
-        //        case Rot_Dir.Y:
-        //            Rot = new Vector3(0f, _value, 0f);
-        //            break;
-
-        //        case Rot_Dir.Z:
-        //            Rot = new Vector3(0f, 0f, _value);
-        //            break;
-        //    }
-
-        //transform.DOLocalRotate(Rot, 4f, RotateMode.FastBeyond360)
-        //       .SetEase(Ease.Linear).SetRelative(true).SetLoops(-1, LoopType.Restart);
-    }
 
 
     IEnumerator Cor_Update()

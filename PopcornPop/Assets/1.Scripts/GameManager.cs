@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
     [FoldoutGroup("UI")] public Button Cam_Rotate_Button;
     [FoldoutGroup("UI")] public Button[] RV_Button_Group;
     [FoldoutGroup("UI")] public Button NextLevel_Button;
+    [FoldoutGroup("UI")] public Button Previous_Button;
     Text NextLevel_Price_text;
 
     [FoldoutGroup("UI")] public GameObject Rot_Cam;
@@ -68,20 +69,21 @@ public class GameManager : MonoBehaviour
     [FoldoutGroup("UI")] public Button Setting_Button;
     [FoldoutGroup("UI")] public GameObject Setting_Panel;
     [FoldoutGroup("UI")] public Sprite[] Income_Img;
-
-
-    [SerializeField] Text[] Upgrade_Button_Text;
-    [SerializeField] Text Income_Text;
-    [SerializeField] Text[] RV_Text;
-
     [FoldoutGroup("UI")] public GameObject MPS_Panel;
     [FoldoutGroup("UI")] public GameObject TapToSpawn_Img;
-    [SerializeField] Text[] MPS_Text;
-    public double[] MPS_Temp;
-    [SerializeField] double[] MPS_value;
-    [SerializeField] double[] Stage_Income;
-    [SerializeField] Toggle Sound_Toggle;
-    [SerializeField] Toggle Vibe_Toggle;
+    [FoldoutGroup("UI")] public double[] MPS_Temp;
+    [FoldoutGroup("UI")] public GameObject Fever_Img_Group;
+
+
+    Text[] Upgrade_Button_Text;
+    Text Income_Text;
+    Text[] RV_Text;
+
+    Text[] MPS_Text;
+    double[] MPS_value;
+    double[] Stage_Income;
+    Toggle Sound_Toggle;
+    Toggle Vibe_Toggle;
 
     Button[] MPS_Button;
 
@@ -105,16 +107,16 @@ public class GameManager : MonoBehaviour
     [FoldoutGroup("CPI")] public float Explosion_radius;
 
 
-    [SerializeField] float Start_x;
-    [SerializeField] float End_x;
-    [SerializeField] float Move_Distance = 0f;
+    float Start_x;
+    float End_x;
+    float Move_Distance = 0f;
     [SerializeField] float Limit_Distace = 0.2f;
-    [SerializeField] Vector3 Start_Rot;
+    Vector3 Start_Rot;
     public Transform Mouse_Rot;
 
     public bool isSound = true;
     public bool isVibe = true;
-
+    public Color Fever_Color;
     [FoldoutGroup("Sound")] public AudioClip[] _clips;
     [FoldoutGroup("Sound")] AudioSource _audio;
 
@@ -179,7 +181,7 @@ public class GameManager : MonoBehaviour
     void SetStage()
     {
         DataManager.instance.Load_Data();
-        //Current_Stage_Level = Current_StageManager.Stage_Level;
+
         if (Stage_Group[Current_Stage_Level] == null)
         {
             Stage_Group[Current_Stage_Level] = Instantiate(Resources.Load("Prefab/Stage/Stage_" + Current_Stage_Level) as GameObject);
@@ -202,9 +204,7 @@ public class GameManager : MonoBehaviour
         Current_StageManager.Income_Level = DataManager.instance._gameData.Income_Level[Current_Stage_Level];
         Current_StageManager.Object_Level = DataManager.instance._gameData.Object_Level[Current_Stage_Level];
 
-        //Current_Popcorn_Upgrade_Price = Current_StageManager.Popcorn_Upgrade_Price;
-        //Current_Income_Upgrade_Price = Current_StageManager.Income_Upgrade_Price;
-        //Current_Obj_Upgrade_Price = Current_StageManager.Obj_Upgrade_Price;
+
 
         Current_Popcorn_Level = Current_StageManager.Popcorn_Level;
         Current_Income_Level = Current_StageManager.Income_Level;
@@ -212,7 +212,7 @@ public class GameManager : MonoBehaviour
         Current_Obj_Max_Level = Current_StageManager.Obj_Max_Level;
 
 
-        //Current_Up_Income = Current_StageManager.Up_Income;
+
         Current_Add_Object = Current_StageManager.Add_Object;
         Current_Off_Object = Current_StageManager.Off_Object;
 
@@ -238,7 +238,7 @@ public class GameManager : MonoBehaviour
         Current_Off_Num = Current_StageManager.Off_Num;
 
 
-        Current_Up_Income = Current_Income_Level* Current_Up_Income_Base_Price + Current_Up_Income_Base_Price * Mathf.Pow(Current_Up_Income_Scope, Current_Income_Level);
+        Current_Up_Income = Current_Income_Level * Current_Up_Income_Base_Price + Current_Up_Income_Base_Price * Mathf.Pow(Current_Up_Income_Scope, Current_Income_Level);
 
         _spawner = Current_StageManager._spawner;
         Check_Level_Price();
@@ -247,7 +247,7 @@ public class GameManager : MonoBehaviour
         // 12.1 update
         Door_OnOff(false);
         RV_Super_Fever_bool = false;
-        //Current_StageManager._spawner.isSuperFever = false;
+
         RV_Super_Fever_time = 0f;
         if (Current_StageManager._spawner.isSuperFever == true)
         {
@@ -276,6 +276,33 @@ public class GameManager : MonoBehaviour
         MPS_Button[Current_Stage_Level].GetComponent<Image>().SetNativeSize();
 
         Current_StageManager._spawner.DataSet();
+
+        // 12.07 update
+
+        switch (Current_Stage_Level)
+        {
+            case 0:
+                Upgrade_Button[0].transform.GetChild(1).GetComponent<Text>().text = "Add Popcorn";
+                NextLevel_Button.gameObject.SetActive(true);
+                Previous_Button.gameObject.SetActive(false);
+                break;
+            case 1:
+                Upgrade_Button[0].transform.GetChild(1).GetComponent<Text>().text = "Add Jewelry";
+                NextLevel_Button.gameObject.SetActive(true);
+                Previous_Button.gameObject.SetActive(true);
+                break;
+            case 2:
+                Upgrade_Button[0].transform.GetChild(1).GetComponent<Text>().text = "Add Popcorn";
+                NextLevel_Button.gameObject.SetActive(false);
+                Previous_Button.gameObject.SetActive(true);
+                break;
+
+            default:
+
+                break;
+        }
+        Fever_Img_Group.SetActive(false);
+
     }
 
     IEnumerator Cor_Update()
@@ -304,7 +331,7 @@ public class GameManager : MonoBehaviour
             MPS_Text[0].text = string.Format("{0}/s", ToCurrencyString(MPS_value[0]));
             MPS_Text[1].text = string.Format("{0}/s", ToCurrencyString(MPS_value[1]));
             MPS_Text[2].text = string.Format("{0}/s", ToCurrencyString(MPS_value[2]));
-            //다른부분에 추가하기, 어떻게 산정할지도 계산하기
+
 
             Check_Button();
 
@@ -335,19 +362,9 @@ public class GameManager : MonoBehaviour
     }
 
 
-    //void Update()
-    //{
-    //    Money_Text.text = ToCurrencyString(Money);
-    //    Check_Button();
-
-    //    InputKeyFunc();
-    //}
-
-    // --------------------------------------------
-
-
     void InputKeyFunc()
     {
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Current_Off_Object[1].SetActive(false);
@@ -374,18 +391,10 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            //Current_Off_Object[2].SetActive(false);
-            //Current_Off_Object[3].SetActive(true);
-            //Current_Off_Object[4].SetActive(false);
-            //Full_Cam.SetActive(true);
             Door_OnOff(true);
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            //Current_Off_Object[2].SetActive(true);
-            //Current_Off_Object[3].SetActive(false);
-            //Current_Off_Object[4].SetActive(true);
-            //Full_Cam.SetActive(false);
             Door_OnOff(false);
         }
         if (Input.GetKeyDown(KeyCode.G))
@@ -412,8 +421,6 @@ public class GameManager : MonoBehaviour
             SetStage();
         }
 
-        // ///////////////////////////////////
-#if UNITY_EDITOR
         if (Input.GetMouseButtonDown(0))
         {
             Start_x = Input.mousePosition.x;
@@ -425,13 +432,11 @@ public class GameManager : MonoBehaviour
             Move_Distance = End_x - Start_x;
 
             Mouse_Rot.rotation = Quaternion.Euler(Start_Rot + new Vector3(0f, Move_Distance * 0.1f, 0f));
-            //Current_StageManager.transform.Rotate(new Vector3(0f, Move_Distance * Time.deltaTime, 0f));
-
         }
 #endif
         /////////////////////////////////////////
 
-#if UNITY_ANDROID
+#if !UNITY_EDITOR
         // 12.06 update
         if (Input.touchCount > 0)
         {
@@ -459,13 +464,6 @@ public class GameManager : MonoBehaviour
             }
         }
 #endif
-
-
-
-        //if (Input.GetKeyDown(KeyCode.Escape))
-        //{
-        //    UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
-        //}
     }
 
     void Door_OnOff(bool isbool)
@@ -475,9 +473,6 @@ public class GameManager : MonoBehaviour
 
         IEnumerator Cor()
         {
-
-            //Current_Off_Object[2].SetActive(!isbool);
-            //Current_Off_Object[4].SetActive(!isbool);
             if (isbool == false)
             {
                 if (Current_StageManager._spawner.isSuperFever == true)
@@ -509,12 +504,10 @@ public class GameManager : MonoBehaviour
         }
 
 
-
-
     }
 
 
-    public static string ToCurrencyString(double number)
+    public static string ToCurrencyString(double number, int _num = 0)
     {
         string zero = "0";
 
@@ -549,7 +542,7 @@ public class GameManager : MonoBehaviour
         //  지수 (자릿수 표현)
         if (!int.TryParse(partsSplit[1], out int exponent))
         {
-            Debug.LogWarningFormat("Failed - ToCurrentString({0}) : partSplit[1] = {1}", number, partsSplit[1]);
+            //Debug.LogWarningFormat("Failed - ToCurrentString({0}) : partSplit[1] = {1}", number, partsSplit[1]);
             return zero;
         }
 
@@ -568,9 +561,30 @@ public class GameManager : MonoBehaviour
         {
             //  10의 거듭제곱을 구해서 자릿수 표현값을 만들어 준다.
             var temp = double.Parse(partsSplit[0].Replace("E", "")) * System.Math.Pow(10, remainder);
+            switch (_num)
+            {
+                case 0:
+                    showNumber = temp.ToString("F1").Replace(".0", "");
+                    break;
 
-            //  소수 둘째자리까지만 출력한다.
-            showNumber = temp.ToString("F1").Replace(".0", "");
+                case 1:
+                    if (remainder == 2)
+                    {
+                        showNumber = temp.ToString("F0").Replace(".0", "");
+                    }
+                    else
+                    {
+                        showNumber = temp.ToString("F1").Replace(".0", "");
+                    }
+
+                    break;
+
+                case 2: //  소수 둘째자리까지만 출력한다.
+                    showNumber = temp.ToString("F2").Replace(".0", "");
+                    break;
+            }
+
+
         }
 
         unityString = CurrencyUnits[quotient];
@@ -597,11 +611,8 @@ public class GameManager : MonoBehaviour
     }
 
 
-
     public void ManagerAddMoney()
     {
-
-        //temp_money = RV_Income_Double_bool ? Current_Up_Income * 2f : Current_Up_Income;
         Money += temp_money;
     }
 
@@ -699,8 +710,6 @@ public class GameManager : MonoBehaviour
 
         // ////////////
 
-        //Auto_Button.transform.GetChild(0).GetComponent<Image>().DOFillAmount(Fever_time / 300f, 0.1f).SetEase(Ease.Linear);
-
         bool isbool;
         isbool = Fever_time >= Max_Fever_time ? true : false;
 
@@ -721,15 +730,13 @@ public class GameManager : MonoBehaviour
            Current_Object_Level >= Current_Obj_Max_Level ? "Max" : ToCurrencyString(Current_Object_Base_Price * MathF.Pow(Current_Object_Upgrade_Scope, Current_Object_Level));
 
         Income_Text.text = Current_Income_Level < Current_Income_Max_Level ?
-            string.Format("{0}➜{1}", ToCurrencyString(Current_Up_Income), ToCurrencyString((Current_Income_Level + 1)* Current_Up_Income_Base_Price + Current_Up_Income_Base_Price * Mathf.Pow(Current_Up_Income_Scope, Current_Income_Level + 1)))
-            : string.Format("{0}", ToCurrencyString(Current_Up_Income));
+            string.Format("{0}➜{1}", ToCurrencyString(Current_Up_Income, 1), ToCurrencyString((Current_Income_Level + 1) * Current_Up_Income_Base_Price + Current_Up_Income_Base_Price * Mathf.Pow(Current_Up_Income_Scope, Current_Income_Level + 1), 1))
+            : string.Format("{0}", ToCurrencyString(Current_Up_Income, 1));
         //Income_Text.text = string.Format("{0}➜{1}", ToCurrencyString(Current_Up_Income), ToCurrencyString(Current_Up_Income * Current_Up_Income_Scope));
 
         NextLevel_Price_text.text =
             Current_Stage_Level == Current_Max_Stage_Level ? string.Format("{0}", ToCurrencyString(Current_NextLevel_Price)) : "";
 
-
-        //DataManager.instance.Save_Data();
     }
 
 
@@ -742,14 +749,13 @@ public class GameManager : MonoBehaviour
         Current_StageManager.Popcorn_Level = Current_Popcorn_Level;
         DataManager.instance.Save_Data();
         Check_Level_Price();
-        //Stage_Income[Current_Stage_Level] = Current_Up_Income;
     }
     public void Income_Upgrade()
     {
         Money -= Current_Income_Upgrade_Base_Price * MathF.Pow(Current_Income_Upgrade_Scope, Current_Income_Level);
         Current_Income_Level++;
         Current_StageManager.Income_Level = Current_Income_Level;
-        Current_Up_Income = Current_Income_Level* Current_Up_Income_Base_Price + Current_Up_Income_Base_Price * Mathf.Pow(Current_Up_Income_Scope, Current_Income_Level);
+        Current_Up_Income = Current_Income_Level * Current_Up_Income_Base_Price + Current_Up_Income_Base_Price * Mathf.Pow(Current_Up_Income_Scope, Current_Income_Level);
         DataManager.instance.Save_Data();
         Check_Level_Price();
         Stage_Income[Current_Stage_Level] = Current_Up_Income;
@@ -773,15 +779,20 @@ public class GameManager : MonoBehaviour
     {
 
         _spawner.isFever = true;
-
         DOTween.Sequence().AppendCallback(() =>
             {
-                //Auto_Button.interactable = false;
+                Fever_Img_Group.SetActive(true);
+                _maincam.backgroundColor = Fever_Color;
                 Auto_Button.gameObject.SetActive(false);
                 DOTween.To(() => Fever_time, x => Fever_time = x, 0, 20f).SetEase(Ease.Linear);
 
             }).AppendInterval(20f)
-        .OnComplete(() => _spawner.isFever = false);
+        .OnComplete(() =>
+        {
+            Fever_Img_Group.SetActive(false);
+            _spawner.isFever = false;
+            _maincam.backgroundColor = Current_StageManager.BackGround_Color;
+        });
 
     }
 
@@ -809,6 +820,7 @@ public class GameManager : MonoBehaviour
 
         NextLevel_Button.onClick.AddListener(() => NextLevel());
         NextLevel_Price_text = NextLevel_Button.transform.GetChild(0).GetComponent<Text>();
+        Previous_Button.onClick.AddListener(() => PreviousLevel());
 
         Auto_Button.onClick.AddListener(() => Auto_Tap());
         Cam_Rotate_Button.onClick.AddListener(() => Cam_Rot());
@@ -816,8 +828,6 @@ public class GameManager : MonoBehaviour
         // 11.30 update
         Setting_Button.onClick.AddListener(() => Setting_OnOff());
         Setting_Panel.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => Setting_OnOff());
-        //Setting_Panel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => Sound_OnOff());
-        //Setting_Panel.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() => Vibe_OnOff());
 
         // 12.01 update
         MPS_Button[0] = MPS_Panel.transform.GetChild(0).GetComponent<Button>();
@@ -859,7 +869,7 @@ public class GameManager : MonoBehaviour
 
         DOTween.Sequence().AppendCallback(() =>
         {
-            //RV_Button_Group[0].gameObject.SetActive(false);
+
             RV_Button_Group[0].interactable = false;
             DOTween.To(() => 30f, x => RV_Spawn_Double_time = x, 0, 30f).SetEase(Ease.Linear);
 
@@ -891,7 +901,7 @@ public class GameManager : MonoBehaviour
     //    });
     //}
 
-    public bool RV_Income_Double_bool;
+    bool RV_Income_Double_bool;
     float RV_Income_Double_time;
     void RV_Income_Double() // double income
     {
@@ -899,21 +909,21 @@ public class GameManager : MonoBehaviour
         RV_Button_Group[1].transform.GetChild(1).gameObject.SetActive(false);
         DOTween.Sequence().AppendCallback(() =>
         {
-            //RV_Button_Group[1].gameObject.SetActive(false);
+
             RV_Button_Group[1].interactable = false;
             DOTween.To(() => 30f, x => RV_Income_Double_time = x, 0, 30f).SetEase(Ease.Linear);
 
         }).AppendInterval(30f)
         .OnComplete(() =>
         {
+
             RV_Income_Double_bool = false;
-            //RV_Button_Group[1].gameObject.SetActive(true);
             RV_Button_Group[1].interactable = true;
             RV_Button_Group[1].transform.GetChild(1).gameObject.SetActive(true);
         });
     }
 
-    public bool RV_Super_Fever_bool;
+    bool RV_Super_Fever_bool;
     float RV_Super_Fever_time;
     void RV_Super_Fever() // super spawn object and open 4 door
     {
@@ -922,7 +932,8 @@ public class GameManager : MonoBehaviour
         RV_Button_Group[2].transform.GetChild(1).gameObject.SetActive(false);
         DOTween.Sequence().AppendCallback(() =>
         {
-            //RV_Button_Group[2].gameObject.SetActive(false);
+            Fever_Img_Group.SetActive(true);
+            _maincam.backgroundColor = Fever_Color;
             RV_Button_Group[2].interactable = false;
             Door_OnOff(true);
             DOTween.To(() => 30f, x => RV_Super_Fever_time = x, 0, 30f).SetEase(Ease.Linear);
@@ -930,10 +941,12 @@ public class GameManager : MonoBehaviour
         }).AppendInterval(30f)
         .OnComplete(() =>
         {
+            Fever_Img_Group.SetActive(false);
+            _maincam.backgroundColor = Current_StageManager.BackGround_Color;
             Door_OnOff(false);
             RV_Super_Fever_bool = false;
             Current_StageManager._spawner.isSuperFever = false;
-            //RV_Button_Group[2].gameObject.SetActive(true);
+
             RV_Button_Group[2].interactable = true;
             RV_Button_Group[2].transform.GetChild(1).gameObject.SetActive(true);
         });
@@ -953,9 +966,16 @@ public class GameManager : MonoBehaviour
 
         SetStage();
 
+    }
 
+    void PreviousLevel()
+    {
 
+        DataManager.instance.Save_Data();
+        Current_Stage_Level--;
+        Check_Level_Price();
 
+        SetStage();
     }
 
 
@@ -981,14 +1001,14 @@ public class GameManager : MonoBehaviour
 
     void Cam_Rot()
     {
-        //Debug.Log("Rot Cam");
+
         Rot_Cam.SetActive(!Rot_Cam.activeSelf);
         if (Rot_Cam.activeSelf == false)
         {
             Mouse_Rot.rotation = Quaternion.Euler(Vector3.zero);
 
         }
-        //Current_StageManager.Rotate_Button();
+
     }
 
 
@@ -1001,14 +1021,13 @@ public class GameManager : MonoBehaviour
     public void Sound_OnOff()
     {
         isSound = Sound_Toggle.isOn;
-        //Sound_Toggle.isOn = isSound;
 
     }
 
     public void Vibe_OnOff()
     {
         isVibe = Vibe_Toggle.isOn;
-        //Vibe_Toggle.isOn = isVibe;
+
     }
 
 
@@ -1045,4 +1064,6 @@ public class GameManager : MonoBehaviour
             _audio.Play();
         }
     }
+
+
 }

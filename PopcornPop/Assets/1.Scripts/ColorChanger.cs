@@ -36,18 +36,13 @@ public class ColorChanger : MonoBehaviour
     {
 
         if (other.CompareTag("Popcorn"))
-        {
-            //other.GetComponent<MeshRenderer>().material.color = GetComponent<MeshRenderer>().material.color;
-
-            //other.GetComponent<MeshRenderer>().material.SetColor("_MainColor", GetComponent<MeshRenderer>().material.GetColor("_MainColor"));
+        {           
             other.GetComponent<MeshRenderer>().material = _ChangeMat[Random.Range(0,_ChangeMat.Length)];
 
 
             Popcorn _corn = other.GetComponent<Popcorn>();
             _gamemanager.ManagerAddMoney();
-            //_gamemanager.ManagerAddMoney(_corn.Price, _corn.Price_Index);
-
-
+         
             if (_gamemanager.Floating_Waiting_Pool.childCount <= 0)
             {
                 _gamemanager.Add_Floating_Pool(_gamemanager.Add_Pool_Size);
@@ -61,18 +56,12 @@ public class ColorChanger : MonoBehaviour
                 _floating.transform.position = new Vector3(other.transform.position.x, other.transform.position.y, -6f) + Vector3.up * 1f;
                 _floating.localScale = Vector3.one * 0.01f;
                 _floating.gameObject.SetActive(true);
-                //_floating.GetChild(1).GetComponent<Text>().text = GameManager.ToCurrencyString(_gamemanager.Current_Up_Income[_gamemanager.Current_Income_Level]);
+               
                 _floating.GetChild(1).GetComponent<Text>().text = GameManager.ToCurrencyString(_gamemanager.temp_money);
-
-                //Color _color = _floating.GetChild(0).GetComponent<Text>().color;
-
-                //_floating.GetChild(0).GetComponent<Text>().color = new Vector4(_color.r, _color.g, _color.b, 1);
-
 
 
                 DOTween.Sequence().Append(_floating.transform.DOMove(_floating.transform.position + Vector3.up * 2f, 0.75f))
-                    //.Join(_floating.GetChild(0).GetComponent<Text>().DOColor(new Vector4(_color.r, _color.g, _color.b, 0.5f), 0.5f))
-                    //.Join(_floating.DOScale(Vector3.zero, 1.5f)).SetEase(Ease.InSine)
+                   
                     .OnComplete(() =>
                     {
                         _floating.SetParent(_gamemanager.Floating_Waiting_Pool);

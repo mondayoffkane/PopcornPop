@@ -16,7 +16,7 @@ public class Conveyer : MonoBehaviour
         if (other.CompareTag("Popcorn"))
         {
             other.GetComponent<Rigidbody>().velocity += transform.forward * Speed;
-            //other.GetComponent<Rigidbody>().velocity = Vector3.back * Speed;
+           
         }
     }
 }
