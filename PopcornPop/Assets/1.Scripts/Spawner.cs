@@ -67,7 +67,7 @@ public class Spawner : MonoBehaviour
     Coroutine _cor;
 
 
-    
+
 
 
     private void OnEnable()
@@ -151,10 +151,11 @@ public class Spawner : MonoBehaviour
 #if UNITY_EDITOR
             if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.A))
             {
-                    _gamemanager.Sound(0);
+                _gamemanager.Sound(0);
+                _gamemanager.Add_Order_count(GameManager.Order.Tap);
                 if (Current_Tap_Time >= Tap_Limit_Interval)
                 {
-                    
+
                     Current_Tap_Time = 0f;
                     if (_gamemanager.TapToSpawn_Img.activeSelf == true)
                     {
@@ -183,9 +184,10 @@ public class Spawner : MonoBehaviour
                     {
                         _gamemanager.Vibe(0);
                         _gamemanager.Sound(0);
+                        _gamemanager.Add_Order_count(GameManager.Order.Tap);
+
                         if (Current_Tap_Time >= Tap_Limit_Interval)
                         {
-
                             Current_Tap_Time = 0f;
                             if (_gamemanager.TapToSpawn_Img.activeSelf == true)
                             {
@@ -286,7 +288,7 @@ public class Spawner : MonoBehaviour
         yield return new WaitForSeconds(10f);
         if (isSuperFever == false && isFever == false)
         {
-            
+
             Door_OnOff(false);
         }
     }
@@ -304,13 +306,19 @@ public class Spawner : MonoBehaviour
 
             if (isbool == false)
             {
+                _gamemanager.Fever_Img_Group.SetActive(false);
+                _gamemanager.Fever_Effect.SetActive(false);
                 yield return new WaitForSeconds(2f);
                 _stagemanager.Off_Object[3].SetActive(false);
                 isOpen = false;
+                _gamemanager._maincam.backgroundColor = _stagemanager.BackGround_Color;
             }
             else
             {
+                _gamemanager._maincam.backgroundColor = _gamemanager.Fever_Color;
                 _stagemanager.Off_Object[3].SetActive(true);
+                _gamemanager.Fever_Img_Group.SetActive(true);
+                _gamemanager.Fever_Effect.SetActive(true);
             }
 
         }
@@ -319,7 +327,7 @@ public class Spawner : MonoBehaviour
 
     void Spawn_Popcorn(int _count)
     {
-        
+
         for (int i = 0; i < _count; i++)
         {
             if (Waiting_Pool.childCount <= 0)
@@ -328,6 +336,7 @@ public class Spawner : MonoBehaviour
             }
             if (Waiting_Pool.childCount > 0)
             {
+                _gamemanager.Add_Order_count(GameManager.Order.Spawn);
                 Rigidbody _popcorn = Waiting_Pool.GetChild(0).GetComponent<Rigidbody>();
                 _popcorn.transform.SetParent(Using_Pool);
                 _popcorn.transform.position = Spawn_Pos.position;
@@ -385,7 +394,5 @@ public class Spawner : MonoBehaviour
             }
         }
     }
-
-
 
 }

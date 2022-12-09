@@ -36,13 +36,13 @@ public class ColorChanger : MonoBehaviour
     {
 
         if (other.CompareTag("Popcorn"))
-        {           
-            other.GetComponent<MeshRenderer>().material = _ChangeMat[Random.Range(0,_ChangeMat.Length)];
-
+        {
+            other.GetComponent<MeshRenderer>().material = _ChangeMat[Random.Range(0, _ChangeMat.Length)];
+            _gamemanager.Add_Order_count(GameManager.Order.ColorChange);
 
             Popcorn _corn = other.GetComponent<Popcorn>();
             _gamemanager.ManagerAddMoney();
-         
+
             if (_gamemanager.Floating_Waiting_Pool.childCount <= 0)
             {
                 _gamemanager.Add_Floating_Pool(_gamemanager.Add_Pool_Size);
@@ -56,12 +56,12 @@ public class ColorChanger : MonoBehaviour
                 _floating.transform.position = new Vector3(other.transform.position.x, other.transform.position.y, -6f) + Vector3.up * 1f;
                 _floating.localScale = Vector3.one * 0.01f;
                 _floating.gameObject.SetActive(true);
-               
-                _floating.GetChild(1).GetComponent<Text>().text = GameManager.ToCurrencyString(_gamemanager.temp_money);
+
+                _floating.GetChild(1).GetComponent<Text>().text = "$" + GameManager.ToCurrencyString(_gamemanager.temp_money);
 
 
                 DOTween.Sequence().Append(_floating.transform.DOMove(_floating.transform.position + Vector3.up * 2f, 0.75f))
-                   
+
                     .OnComplete(() =>
                     {
                         _floating.SetParent(_gamemanager.Floating_Waiting_Pool);

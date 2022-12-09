@@ -10,7 +10,7 @@ public class Goal : MonoBehaviour
     public Material Base_Mat;
     public Mesh Base_Mesh;
 
-        
+
     public Transform _waiting_Pool;
 
     public float add_size = 0.2f;
@@ -79,12 +79,14 @@ public class Goal : MonoBehaviour
 
                 Transform _floating = _gamemanager.Floating_Waiting_Pool.GetChild(0);
                 _floating.SetParent(_gamemanager.Floating_Using_Pool);
-               
-                _floating.transform.position = transform.position + Floating_Start_Offset;
+
+                //_floating.transform.position = transform.position + Floating_Start_Offset;
+                //_floating.transform.position = new Vector3(other.transform.position.x, other.transform.position.y, -6f) + Vector3.up * 1f;
+                _floating.transform.position = other.transform.position + new Vector3(0f, 1f, -1.5f) * 2f;
                 _floating.localScale = Vector3.one * 0.01f;
                 _floating.gameObject.SetActive(true);
-               
-                _floating.GetChild(1).GetComponent<Text>().text = GameManager.ToCurrencyString(_gamemanager.temp_money);
+
+                _floating.GetChild(1).GetComponent<Text>().text = "$" + GameManager.ToCurrencyString(_gamemanager.temp_money);
 
 
                 DOTween.Sequence().Append(_floating.transform.DOMove(_floating.transform.position + Floating_End_Offset, 0.75f))
@@ -98,18 +100,18 @@ public class Goal : MonoBehaviour
 
 
 
-            
+
 
             if (isFull == false)
             {
                 other.gameObject.SetActive(false);
                 other.transform.SetParent(_waiting_Pool);
-             
+
                 other.GetComponent<MeshRenderer>().material = Base_Mat;
                 if (other.GetComponent<MeshFilter>().sharedMesh != Base_Mesh)
                 {
                     other.GetComponent<MeshFilter>().sharedMesh = Base_Mesh;
-                }             
+                }
             }
             else
             {
@@ -118,5 +120,5 @@ public class Goal : MonoBehaviour
 
         }
     }
-   
+
 }

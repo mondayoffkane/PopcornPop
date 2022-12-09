@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using System;
 using DG.Tweening;
 using MoreMountains.NiceVibrations;
+
 //using System.Numerics;
 
 
@@ -72,8 +73,9 @@ public class GameManager : MonoBehaviour
     [FoldoutGroup("UI")] public GameObject MPS_Panel;
     [FoldoutGroup("UI")] public GameObject TapToSpawn_Img;
     [FoldoutGroup("UI")] public double[] MPS_Temp;
+    [FoldoutGroup("UI")] public GameObject Order_Panel;
     [FoldoutGroup("UI")] public GameObject Fever_Img_Group;
-
+    [FoldoutGroup("UI")] public GameObject Fever_Effect;
 
     Text[] Upgrade_Button_Text;
     Text Income_Text;
@@ -87,8 +89,10 @@ public class GameManager : MonoBehaviour
 
     Button[] MPS_Button;
 
-    [Space(10)]
+    Button Recive_Button;
 
+
+    [Space(10)]
     [FoldoutGroup("Floating_Money")] public int Start_Pool_Size = 100;
     [FoldoutGroup("Floating_Money")] public int Add_Pool_Size = 50;
     [FoldoutGroup("Floating_Money")] public Transform Floating_Waiting_Pool;
@@ -120,6 +124,32 @@ public class GameManager : MonoBehaviour
     [FoldoutGroup("Sound")] public AudioClip[] _clips;
     [FoldoutGroup("Sound")] AudioSource _audio;
 
+    //////////////////////////////////////
+    [FoldoutGroup("Order")]
+    public enum Order
+    {
+        Tap,
+        Spawn,
+        ColorChange
+
+
+    }
+    public Order Order_State;
+    [FoldoutGroup("Order")] public int[] Tap_Count;
+    [FoldoutGroup("Order")] public int[] Spawn_Count;
+    [FoldoutGroup("Order")] public bool isOrder = false;
+    [FoldoutGroup("Order")] public double Reward_Scope = 250;
+    [FoldoutGroup("Order")] public float Order_Current_time;
+    [FoldoutGroup("Order")] public float Order_Max_Time = 60f;
+    [SerializeField] public int Order_Num;
+    public int Order_Current_Count;
+    public int Order_Max_Count;
+    [SerializeField] public double Reward_Money;
+    [SerializeField] float Order_x;
+    [SerializeField] Image Check_Line_Img;
+    GameObject Check_Img;
+    Text[] Order_Text;
+
 
     /// //////////////////////////////////////
 
@@ -129,9 +159,19 @@ public class GameManager : MonoBehaviour
     static readonly string[] CurrencyUnits = new string[] { "", "K", "M", "B", "T", "aa", "bb", "cc", "dd", "ee", "ff", "gg", "hh", "ii", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "aa", "ab", "ac", "ad", "ae", "af", "ag", "ah", "ai", "aj", "ak", "al", "am", "an", "ao", "ap", "aq", "ar", "as", "at", "au", "av", "aw", "ax", "ay", "az", "ba", "bb", "bc", "bd", "be", "bf", "bg", "bh", "bi", "bj", "bk", "bl", "bm", "bn", "bo", "bp", "bq", "br", "bs", "bt", "bu", "bv", "bw", "bx", "by", "bz", "ca", "cb", "cc", "cd", "ce", "cf", "cg", "ch", "ci", "cj", "ck", "cl", "cm", "cn", "co", "cp", "cq", "cr", "cs", "ct", "cu", "cv", "cw", "cx", };
     public double temp_money;
 
-    Camera _maincam;
+    public Camera _maincam;
     Touch _touch;
     bool isClick = false;
+
+    float RV_x;
+    int RV_Current_num;
+    bool isRV_Visible = false;
+    [SerializeField] float RV_Current_Interval = 0f;
+    [SerializeField] float RV_On_Interval = 60f;
+    [SerializeField] float RV_Current_Wait_Interval = 0f;
+    [SerializeField] float RV_Off_Interval = 30f;
+    public Color[] RV_Line_Color;
+    bool isRV_On = false;
     // ===============================================================================================
 
     private void Awake()
@@ -155,6 +195,7 @@ public class GameManager : MonoBehaviour
         MPS_Temp = new double[3];
         Stage_Income = new double[3];
         MPS_Button = new Button[3];
+        Order_Text = new Text[4];
     }
 
     void Init()
@@ -162,7 +203,8 @@ public class GameManager : MonoBehaviour
         Stage_Group = new GameObject[3];
         DOTween.Sequence(TapToSpawn_Img.transform.DOScale(0.2f, 0.25f)
             .SetEase(Ease.Linear).SetRelative(true).SetLoops(-1, LoopType.Yoyo));
-
+        RV_x = RV_Button_Group[0].transform.localPosition.x;
+        Order_x = Order_Panel.transform.localPosition.x;
     }
 
     private void Start()
@@ -176,6 +218,7 @@ public class GameManager : MonoBehaviour
         }
 
         StartCoroutine(Cor_MPS());
+        StartCoroutine(Cor_Time());
     }
 
     void SetStage()
@@ -301,9 +344,83 @@ public class GameManager : MonoBehaviour
 
                 break;
         }
-        Fever_Img_Group.SetActive(false);
+        //Fever_Img_Group.SetActive(false);
 
     }
+    IEnumerator Cor_Time()
+    {
+        WaitForSeconds _deltatime = new WaitForSeconds(Time.time);
+
+        while (true)
+        {
+            yield return _deltatime;
+            if (isRV_Visible == false)
+            {
+                RV_Current_Interval += Time.deltaTime;
+                if (RV_Current_Interval >= RV_On_Interval)
+                {
+                    RV_Current_Interval = 0;
+                    RV_Button_OnOff();
+                }
+            }
+            else if (isRV_Visible == true && isRV_On == false)
+            {
+                RV_Current_Wait_Interval += Time.deltaTime;
+                RV_Button_Group[RV_Current_num].transform.GetChild(1).GetComponent<Image>().fillAmount
+                    = (RV_Off_Interval - RV_Current_Wait_Interval) / RV_Off_Interval;
+
+                RV_Button_Group[RV_Current_num].transform.GetChild(1).GetComponent<Image>().color
+                    = RV_Button_Group[RV_Current_num].transform.GetChild(1).GetComponent<Image>().fillAmount > 0.4
+                    ? RV_Button_Group[RV_Current_num].transform.GetChild(1).GetComponent<Image>().color = RV_Line_Color[0]
+                : RV_Button_Group[RV_Current_num].transform.GetChild(1).GetComponent<Image>().color = RV_Line_Color[1];
+
+
+                if (RV_Current_Wait_Interval >= RV_Off_Interval)
+                {
+                    RV_Current_Wait_Interval = 0;
+                    RV_Button_OnOff();
+                }
+            }
+
+            // update 12.09
+            if (isOrder == false)
+            {
+                Order_Current_time += Time.deltaTime;
+                if (Order_Current_time >= Order_Max_Time)
+                {
+                    Order_Current_time = 0f;
+                    isOrder = true;
+                    Order_Func();
+                }
+            }
+            else
+            {
+                if (Order_Current_Count >= Order_Max_Count)
+                {
+
+                    if (Check_Img.activeSelf == false)
+                    {
+                        Check_Line_Img.DOFillAmount(1, 0.5f).SetEase(Ease.Linear)
+                            .OnComplete(() =>
+                            {
+                                Order_Text[1].gameObject.SetActive(false);
+                                Order_Text[2].gameObject.SetActive(false);
+                                Recive_Button.gameObject.SetActive(true);
+                            }
+                            );
+                    }
+                    Check_Img.SetActive(true);
+                }
+            }
+
+
+
+
+
+        }
+
+    }
+
 
     IEnumerator Cor_Update()
     {
@@ -332,6 +449,7 @@ public class GameManager : MonoBehaviour
             MPS_Text[1].text = string.Format("{0}/s", ToCurrencyString(MPS_value[1]));
             MPS_Text[2].text = string.Format("{0}/s", ToCurrencyString(MPS_value[2]));
 
+            Order_Text[1].text = string.Format("({0}/{1})", Order_Current_Count, Order_Max_Count);
 
             Check_Button();
 
@@ -433,6 +551,12 @@ public class GameManager : MonoBehaviour
 
             Mouse_Rot.rotation = Quaternion.Euler(Start_Rot + new Vector3(0f, Move_Distance * 0.1f, 0f));
         }
+
+        else if (Input.GetKeyDown(KeyCode.Z))
+        {
+            RV_Button_OnOff();
+        }
+
 #endif
         /////////////////////////////////////////
 
@@ -481,6 +605,8 @@ public class GameManager : MonoBehaviour
                     RV_Super_Fever_bool = false;
                     Current_Off_Object[2].SetActive(true);
                     Current_Off_Object[4].SetActive(true);
+                    Fever_Img_Group.SetActive(false);
+                    Fever_Effect.SetActive(false);
                     yield return new WaitForSeconds(2f);
                     Current_Off_Object[3].SetActive(false);
                     Current_StageManager._spawner.isSuperFever = false;
@@ -491,6 +617,8 @@ public class GameManager : MonoBehaviour
                     Current_Off_Object[2].SetActive(true);
                     Current_Off_Object[4].SetActive(true);
                     Current_Off_Object[3].SetActive(false);
+                    Fever_Img_Group.SetActive(false);
+                    Fever_Effect.SetActive(false);
                 }
             }
             else
@@ -498,6 +626,8 @@ public class GameManager : MonoBehaviour
                 Current_Off_Object[2].SetActive(false);
                 Current_Off_Object[4].SetActive(false);
                 Current_Off_Object[3].SetActive(true);
+                Fever_Img_Group.SetActive(true);
+                Fever_Effect.SetActive(true);
             }
 
             Full_Cam.SetActive(isbool);
@@ -782,15 +912,19 @@ public class GameManager : MonoBehaviour
         DOTween.Sequence().AppendCallback(() =>
             {
                 Fever_Img_Group.SetActive(true);
+                Fever_Effect.SetActive(true);
                 _maincam.backgroundColor = Fever_Color;
                 Auto_Button.gameObject.SetActive(false);
+                Door_OnOff(true);
                 DOTween.To(() => Fever_time, x => Fever_time = x, 0, 20f).SetEase(Ease.Linear);
 
             }).AppendInterval(20f)
         .OnComplete(() =>
         {
             Fever_Img_Group.SetActive(false);
+            Fever_Effect.SetActive(false);
             _spawner.isFever = false;
+            Door_OnOff(false);
             _maincam.backgroundColor = Current_StageManager.BackGround_Color;
         });
 
@@ -827,7 +961,7 @@ public class GameManager : MonoBehaviour
 
         // 11.30 update
         Setting_Button.onClick.AddListener(() => Setting_OnOff());
-        Setting_Panel.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => Setting_OnOff());
+        Setting_Panel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => Setting_OnOff());
 
         // 12.01 update
         MPS_Button[0] = MPS_Panel.transform.GetChild(0).GetComponent<Button>();
@@ -839,8 +973,8 @@ public class GameManager : MonoBehaviour
         MPS_Text[2] = MPS_Button[2].transform.GetChild(0).GetComponent<Text>();
 
         // 12.06 update
-        Sound_Toggle = Setting_Panel.transform.GetChild(1).GetComponent<Toggle>();
-        Vibe_Toggle = Setting_Panel.transform.GetChild(2).GetComponent<Toggle>();
+        Sound_Toggle = Setting_Panel.transform.GetChild(2).GetComponent<Toggle>();
+        Vibe_Toggle = Setting_Panel.transform.GetChild(3).GetComponent<Toggle>();
 
         Sound_Toggle.onValueChanged.AddListener(delegate { Sound_OnOff(); });
         Vibe_Toggle.onValueChanged.AddListener(delegate { Vibe_OnOff(); });
@@ -858,6 +992,27 @@ public class GameManager : MonoBehaviour
             });
         }
 
+        // 12.09 update
+        Check_Img = Order_Panel.transform.GetChild(0).gameObject;
+        Check_Line_Img = Order_Panel.transform.GetChild(1).GetChild(0).GetComponent<Image>();
+        Order_Text[0] = Order_Panel.transform.GetChild(1).GetComponent<Text>();
+        Order_Text[1] = Order_Panel.transform.GetChild(2).GetComponent<Text>();
+        Order_Text[2] = Order_Panel.transform.GetChild(3).GetComponent<Text>();
+        Order_Text[3] = Order_Panel.transform.GetChild(4).GetChild(0).GetComponent<Text>();
+        Recive_Button = Order_Panel.transform.GetChild(4).GetComponent<Button>();
+        Recive_Button.onClick.AddListener(() =>
+        {
+            Order_Current_Count = 0;
+            isOrder = false;
+            Money += Reward_Money;
+            DOTween.Sequence(Order_Panel.transform.DOLocalMoveX(Order_x, 0.5f).SetEase(Ease.Linear));
+            Recive_Button.gameObject.SetActive(false);
+            Order_Text[1].gameObject.SetActive(true);
+            Order_Text[2].gameObject.SetActive(true);
+            Check_Img.SetActive(false);
+        });
+
+
     }
 
     public bool RV_Spawn_Double_bool;
@@ -869,7 +1024,7 @@ public class GameManager : MonoBehaviour
 
         DOTween.Sequence().AppendCallback(() =>
         {
-
+            isRV_On = true;
             RV_Button_Group[0].interactable = false;
             DOTween.To(() => 30f, x => RV_Spawn_Double_time = x, 0, 30f).SetEase(Ease.Linear);
 
@@ -880,6 +1035,7 @@ public class GameManager : MonoBehaviour
             //RV_Button_Group[0].gameObject.SetActive(true);
             RV_Button_Group[0].interactable = true;
             RV_Button_Group[0].transform.GetChild(1).gameObject.SetActive(true);
+            RV_Button_OnOff();
         });
     }
 
@@ -909,7 +1065,7 @@ public class GameManager : MonoBehaviour
         RV_Button_Group[1].transform.GetChild(1).gameObject.SetActive(false);
         DOTween.Sequence().AppendCallback(() =>
         {
-
+            isRV_On = true;
             RV_Button_Group[1].interactable = false;
             DOTween.To(() => 30f, x => RV_Income_Double_time = x, 0, 30f).SetEase(Ease.Linear);
 
@@ -920,6 +1076,7 @@ public class GameManager : MonoBehaviour
             RV_Income_Double_bool = false;
             RV_Button_Group[1].interactable = true;
             RV_Button_Group[1].transform.GetChild(1).gameObject.SetActive(true);
+            RV_Button_OnOff();
         });
     }
 
@@ -932,7 +1089,8 @@ public class GameManager : MonoBehaviour
         RV_Button_Group[2].transform.GetChild(1).gameObject.SetActive(false);
         DOTween.Sequence().AppendCallback(() =>
         {
-            Fever_Img_Group.SetActive(true);
+            isRV_On = true;
+            //Fever_Img_Group.SetActive(true);
             _maincam.backgroundColor = Fever_Color;
             RV_Button_Group[2].interactable = false;
             Door_OnOff(true);
@@ -941,7 +1099,7 @@ public class GameManager : MonoBehaviour
         }).AppendInterval(30f)
         .OnComplete(() =>
         {
-            Fever_Img_Group.SetActive(false);
+            //Fever_Img_Group.SetActive(false);
             _maincam.backgroundColor = Current_StageManager.BackGround_Color;
             Door_OnOff(false);
             RV_Super_Fever_bool = false;
@@ -949,6 +1107,7 @@ public class GameManager : MonoBehaviour
 
             RV_Button_Group[2].interactable = true;
             RV_Button_Group[2].transform.GetChild(1).gameObject.SetActive(true);
+            RV_Button_OnOff();
         });
     }
 
@@ -1065,5 +1224,72 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    void RV_Button_OnOff()
+    {
+        isRV_Visible = !isRV_Visible;
+        if (isRV_Visible)
+        {
+            RV_Current_num = UnityEngine.Random.Range(0, 3);
+            DOTween.Sequence(RV_Button_Group[RV_Current_num].GetComponent<RectTransform>().DOLocalMoveX(RV_x - 245f, 0.5f).SetEase(Ease.Linear));
+            RV_Button_Group[RV_Current_num].transform.GetChild(1).GetComponent<Image>().fillAmount = 1f;
+        }
+        else
+        {
+            DOTween.Sequence(RV_Button_Group[RV_Current_num].GetComponent<RectTransform>().DOLocalMoveX(RV_x, 0.5f).SetEase(Ease.Linear));
+        }
+
+    }
+
+
+    void Order_Func()
+    {
+
+        DOTween.Sequence(Order_Panel.transform.DOLocalMoveX(Order_x + 417f, 0.5f).SetEase(Ease.Linear));
+
+        Order_State = (Order)(UnityEngine.Random.Range(0, Enum.GetValues(typeof(Order)).Length));
+
+        Order_Num = UnityEngine.Random.Range(0, Tap_Count.Length);
+        Order_Current_Count = 0;
+        Check_Img.SetActive(false);
+        Check_Line_Img.fillAmount = 0;
+        Reward_Money = Current_Up_Income * Reward_Scope * (double)(Order_Num + 1);
+        Order_Text[1].gameObject.SetActive(true);
+        Order_Text[2].gameObject.SetActive(true);
+        Order_Text[2].text = string.Format("Reward : {0}", ToCurrencyString(Reward_Money));
+        Order_Text[3].text = string.Format("Recive ${0}", ToCurrencyString(Reward_Money));
+        switch (Order_State)
+        {
+            case Order.Tap:
+                Order_Max_Count = Tap_Count[Order_Num];
+                Order_Text[0].text = string.Format("Tap {0} Times", Order_Max_Count);
+                break;
+
+            case Order.Spawn:
+                Order_Max_Count = Spawn_Count[Order_Num];
+                Order_Text[0].text = string.Format("Make {0} Corns", Order_Max_Count);
+                break;
+
+            case Order.ColorChange:
+                Order_Max_Count = Spawn_Count[Order_Num];
+                Order_Text[0].text = string.Format("Dyeing {0}", Order_Max_Count);
+                break;
+
+
+            default:
+
+                break;
+        }
+
+    }
+
+    public void Add_Order_count(Order _order)
+    {
+        if (_order == Order_State)
+        {
+            Order_Current_Count++;
+
+        }
+    }
 
 }
