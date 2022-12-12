@@ -78,7 +78,7 @@ PlayerSettings:
   macRetinaSupport: 1
   runInBackground: 1
   captureSingleScreen: 0
-  muteOtherAudioSources: 0
+  muteOtherAudioSources: 1
   Prepare IOS For Recording: 0
   Force IOS Speakers When Recording: 0
   deferSystemGesturesMode: 0
@@ -157,13 +157,14 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.mondayoff.popcorn
+    iPhone: com.mondayoff.popcorn
   buildNumber:
     Standalone: 0
     iPhone: 0
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
   AndroidBundleVersionCode: 3
-  AndroidMinSdkVersion: 25
+  AndroidMinSdkVersion: 24
   AndroidTargetSdkVersion: 31
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -239,18 +240,18 @@ PlayerSettings:
   clonedFromGUID: c0afd0d1d80e3634a9dac47e8a0426ea
   templatePackageId: com.unity.template.3d@8.1.0
   templateDefaultScene: Assets/Scenes/SampleScene.unity
-  useCustomMainManifest: 0
+  useCustomMainManifest: 1
   useCustomLauncherManifest: 0
-  useCustomMainGradleTemplate: 0
-  useCustomLauncherGradleManifest: 0
+  useCustomMainGradleTemplate: 1
+  useCustomLauncherGradleManifest: 1
   useCustomBaseGradleTemplate: 0
-  useCustomGradlePropertiesTemplate: 0
-  useCustomProguardFile: 0
+  useCustomGradlePropertiesTemplate: 1
+  useCustomProguardFile: 1
   AndroidTargetArchitectures: 3
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: /Users/chaeyong-un/Desktop/Project_Resource/Android_Key/MondayOFF_Keystore.keystore
+  AndroidKeystoreName: /Users/chaeyong-un/Desktop/Project_Resource/Android/MondayOFF_Keystore.keystore
   AndroidKeyaliasName: mondayoff
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
@@ -258,7 +259,7 @@ PlayerSettings:
   AndroidEnableTango: 0
   androidEnableBanner: 1
   androidUseLowAccuracyLocation: 0
-  androidUseCustomKeystore: 0
+  androidUseCustomKeystore: 1
   m_AndroidBanners:
   - width: 320
     height: 180
@@ -476,11 +477,11 @@ PlayerSettings:
     m_StaticBatching: 1
     m_DynamicBatching: 0
   - m_BuildTarget: Android
-    m_StaticBatching: 1
-    m_DynamicBatching: 0
+    m_StaticBatching: 0
+    m_DynamicBatching: 1
   - m_BuildTarget: iPhone
-    m_StaticBatching: 1
-    m_DynamicBatching: 0
+    m_StaticBatching: 0
+    m_DynamicBatching: 1
   - m_BuildTarget: WebGL
     m_StaticBatching: 0
     m_DynamicBatching: 0
@@ -809,7 +810,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
-    Android: PROBUILDER_EXPERIMENTAL_FEATURES;ODIN_INSPECTOR;ODIN_INSPECTOR_3
+    Android: PROBUILDER_EXPERIMENTAL_FEATURES;ODIN_INSPECTOR;ODIN_INSPECTOR_3;FIREBASE_ENABLED
     CloudRendering: PROBUILDER_EXPERIMENTAL_FEATURES
     EmbeddedLinux: PROBUILDER_EXPERIMENTAL_FEATURES
     GameCoreXboxOne: PROBUILDER_EXPERIMENTAL_FEATURES
@@ -818,10 +819,11 @@ PlayerSettings:
     PS4: PROBUILDER_EXPERIMENTAL_FEATURES
     PS5: PROBUILDER_EXPERIMENTAL_FEATURES
     Stadia: PROBUILDER_EXPERIMENTAL_FEATURES
-    Standalone: ODIN_INSPECTOR;ODIN_INSPECTOR_3;PROBUILDER_EXPERIMENTAL_FEATURES
+    Standalone: ODIN_INSPECTOR;ODIN_INSPECTOR_3;PROBUILDER_EXPERIMENTAL_FEATURES;FIREBASE_ENABLED
     WebGL: PROBUILDER_EXPERIMENTAL_FEATURES
     Windows Store Apps: PROBUILDER_EXPERIMENTAL_FEATURES
     XboxOne: PROBUILDER_EXPERIMENTAL_FEATURES
+    iPhone: FIREBASE_ENABLED;ODIN_INSPECTOR;ODIN_INSPECTOR_3
     tvOS: PROBUILDER_EXPERIMENTAL_FEATURES
   additionalCompilerArguments: {}
   platformArchitecture: {}
@@ -841,7 +843,7 @@ PlayerSettings:
   assemblyVersionValidation: 1
   gcWBarrierValidation: 0
   apiCompatibilityLevelPerPlatform:
-    Android: 3
+    Android: 6
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: Template_3D
@@ -914,11 +916,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 
+  cloudProjectId: a1208267-6717-400d-b321-794399e1560b
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: Popcorn Pop!
+  organizationId: mondayoff
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 

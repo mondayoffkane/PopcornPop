@@ -6,9 +6,14 @@ using UnityEngine.UI;
 using System;
 using DG.Tweening;
 using MoreMountains.NiceVibrations;
+using MondayOFF;
+
+
 
 //using System.Numerics;
-
+//#if UNITY_ANDROID
+//using Google
+//#endif
 
 public class GameManager : MonoBehaviour
 {
@@ -171,7 +176,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] float RV_Current_Wait_Interval = 0f;
     [SerializeField] float RV_Off_Interval = 30f;
     public Color[] RV_Line_Color;
-    bool isRV_On = false;
+    [SerializeField] bool isRV_On = false;
+    [SerializeField] float _PlayTime = 0f;
     // ===============================================================================================
 
     private void Awake()
@@ -209,6 +215,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+
+
         SetButton();
         for (int i = 0; i <= Current_Max_Stage_Level; i++)
         {
@@ -216,6 +224,13 @@ public class GameManager : MonoBehaviour
             SetStage();
             DataManager.instance.Save_Data();
         }
+
+        if (DataManager.instance._gameData.Max_Stage_Level == 0)
+        {
+            EventTracker.TryStage(Current_Stage_Level + 1);
+            Debug.Log("Send TryStage : Stage_" + (Current_Stage_Level + 1));
+        }
+
 
         StartCoroutine(Cor_MPS());
         StartCoroutine(Cor_Time());
@@ -349,11 +364,13 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator Cor_Time()
     {
-        WaitForSeconds _deltatime = new WaitForSeconds(Time.time);
+        WaitForSeconds _deltatime = new WaitForSeconds(Time.deltaTime);
 
         while (true)
         {
-            yield return _deltatime;
+            yield return null; // _deltatime;
+            _PlayTime += Time.deltaTime;
+
             if (isRV_Visible == false)
             {
                 RV_Current_Interval += Time.deltaTime;
@@ -873,6 +890,8 @@ public class GameManager : MonoBehaviour
 
     public void Popcorn_Upgrade()
     {
+        MondayOFF.AdsManager.ShowInterstitial();
+
         Money -= Current_Popcorn_Base_Price * MathF.Pow(Current_Popcorn_Upgrade_Scope, Current_Popcorn_Level);
 
         Current_Popcorn_Level++;
@@ -882,6 +901,7 @@ public class GameManager : MonoBehaviour
     }
     public void Income_Upgrade()
     {
+        MondayOFF.AdsManager.ShowInterstitial();
         Money -= Current_Income_Upgrade_Base_Price * MathF.Pow(Current_Income_Upgrade_Scope, Current_Income_Level);
         Current_Income_Level++;
         Current_StageManager.Income_Level = Current_Income_Level;
@@ -892,6 +912,7 @@ public class GameManager : MonoBehaviour
     }
     public void Obj_Upgrade()
     {
+        MondayOFF.AdsManager.ShowInterstitial();
         Money -= Current_Object_Base_Price * MathF.Pow(Current_Object_Upgrade_Scope, Current_Object_Level);
         Current_Object_Level++;
         Current_StageManager.Object_Level = Current_Object_Level;
@@ -937,9 +958,9 @@ public class GameManager : MonoBehaviour
         Upgrade_Button[1].onClick.AddListener(() => Income_Upgrade());
         Upgrade_Button[2].onClick.AddListener(() => Obj_Upgrade());
 
-        RV_Button_Group[0].onClick.AddListener(() => RV_Spawn_Dobule());
-        RV_Button_Group[1].onClick.AddListener(() => RV_Income_Double());
-        RV_Button_Group[2].onClick.AddListener(() => RV_Super_Fever());
+        RV_Button_Group[0].onClick.AddListener(() => AdsManager.ShowRewarded(() => RV_Spawn_Dobule()));
+        RV_Button_Group[1].onClick.AddListener(() => AdsManager.ShowRewarded(() => RV_Income_Double()));
+        RV_Button_Group[2].onClick.AddListener(() => AdsManager.ShowRewarded(() => RV_Super_Fever()));
 
 
         Upgrade_Button_Text[0] = Upgrade_Button[0].transform.GetChild(0).GetComponent<Text>();
@@ -1028,9 +1049,15 @@ public class GameManager : MonoBehaviour
             RV_Button_Group[0].interactable = false;
             DOTween.To(() => 30f, x => RV_Spawn_Double_time = x, 0, 30f).SetEase(Ease.Linear);
 
+            Dictionary<string, string> _dic = new Dictionary<string, string>();
+            _dic.Add(string.Format("RV_Spawn")
+                , string.Format("1"));
+            EventTracker.LogCustomEvent("RV_", _dic);
+
         }).AppendInterval(30f)
         .OnComplete(() =>
         {
+            isRV_On = false;
             RV_Spawn_Double_bool = false;
             //RV_Button_Group[0].gameObject.SetActive(true);
             RV_Button_Group[0].interactable = true;
@@ -1069,10 +1096,16 @@ public class GameManager : MonoBehaviour
             RV_Button_Group[1].interactable = false;
             DOTween.To(() => 30f, x => RV_Income_Double_time = x, 0, 30f).SetEase(Ease.Linear);
 
+            Dictionary<string, string> _dic = new Dictionary<string, string>();
+            _dic.Add(string.Format("RV_Income")
+                , string.Format("3"));
+            EventTracker.LogCustomEvent("RV_", _dic);
+
+
         }).AppendInterval(30f)
         .OnComplete(() =>
         {
-
+            isRV_On = false;
             RV_Income_Double_bool = false;
             RV_Button_Group[1].interactable = true;
             RV_Button_Group[1].transform.GetChild(1).gameObject.SetActive(true);
@@ -1096,9 +1129,15 @@ public class GameManager : MonoBehaviour
             Door_OnOff(true);
             DOTween.To(() => 30f, x => RV_Super_Fever_time = x, 0, 30f).SetEase(Ease.Linear);
 
+            Dictionary<string, string> _dic = new Dictionary<string, string>();
+            _dic.Add(string.Format("RV_SuperFever")
+                , string.Format("2"));
+            EventTracker.LogCustomEvent("RV_", _dic);
+
         }).AppendInterval(30f)
         .OnComplete(() =>
         {
+            isRV_On = false;
             //Fever_Img_Group.SetActive(false);
             _maincam.backgroundColor = Current_StageManager.BackGround_Color;
             Door_OnOff(false);
@@ -1116,7 +1155,47 @@ public class GameManager : MonoBehaviour
         if (Current_Stage_Level == Current_Max_Stage_Level)
         {
             Money -= Current_NextLevel_Price;
+
+            EventTracker.ClearStage(Current_Stage_Level + 1);
+
+
+            Dictionary<string, string> _dic = new Dictionary<string, string>();
+            _dic.Add(string.Format("Stage_{0}", Current_Stage_Level + 1)
+                , string.Format("PlayTime:{0:0}s", _PlayTime));
+            EventTracker.LogCustomEvent("Stage_Level,PlayTime", _dic);
+
+            _PlayTime = 0f;
+
             Current_Max_Stage_Level++;
+
+            EventTracker.TryStage(Current_Stage_Level + 2);
+
+            if (Current_Stage_Level == 0)
+            {
+
+#if UNITY_ANDROID
+            //var reviewManager = new ReviewManager();
+            //    // start preloading the review prompt in the background
+            //    var playReviewInfoAsyncOperation = reviewManager.RequestReviewFlow();
+            //    // define a callback after the preloading is done
+            //    playReviewInfoAsyncOperation.Completed += playReviewInfoAsync =>
+            //    {
+            //        if (playReviewInfoAsync.Error == ReviewErrorCode.NoError)
+            //        {
+            //        // display the review prompt
+            //        var playReviewInfo = playReviewInfoAsync.GetResult();
+            //            reviewManager.LaunchReviewFlow(playReviewInfo);
+            //        }
+            //        else
+            //        {
+            //        // handle error when loading review prompt
+            //    }
+            //    };
+#elif UNITY_IOS
+                UnityEngine.iOS.Device.RequestStoreReview();
+#endif
+            }
+
         }
 
         DataManager.instance.Save_Data();
@@ -1236,6 +1315,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            RV_Current_Wait_Interval = 0;
             DOTween.Sequence(RV_Button_Group[RV_Current_num].GetComponent<RectTransform>().DOLocalMoveX(RV_x, 0.5f).SetEase(Ease.Linear));
         }
 
@@ -1292,4 +1372,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    private void OnApplicationQuit()
+    {
+        Dictionary<string, string> _dic = new Dictionary<string, string>();
+        _dic.Add(string.Format("Stage_{0}", Current_Stage_Level + 1)
+            , string.Format("PlayTime:{0:0}s", _PlayTime));
+        EventTracker.LogCustomEvent("Stage_Level,PlayTime", _dic);
+
+        _PlayTime = 0f;
+    }
 }

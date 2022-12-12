@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\</OutputPath>
-    <DefineConstants>UNITY_2021_3_6;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_SEARCH_TABLE;USE_SEARCH_MODULE;USE_PROPERTY_DATABASE;USE_SEARCH_EXTENSION_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_ANDROID;TEXTCORE_1_0_OR_NEWER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_ETC_COMPRESSION;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;PROBUILDER_EXPERIMENTAL_FEATURES;ODIN_INSPECTOR;ODIN_INSPECTOR_3;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>UNITY_2021_3_6;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_SEARCH_TABLE;USE_SEARCH_MODULE;USE_PROPERTY_DATABASE;USE_SEARCH_EXTENSION_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_ANDROID;TEXTCORE_1_0_OR_NEWER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_ETC_COMPRESSION;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;PROBUILDER_EXPERIMENTAL_FEATURES;ODIN_INSPECTOR;ODIN_INSPECTOR_3;FIREBASE_ENABLED;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -323,14 +323,113 @@
     <Reference Include="UnityEditor.iOS.Extensions">
       <HintPath>/Applications/2021.3.6f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="AdvertyDirectory">
+      <HintPath>Assets/Adverty/Plugins/AdvertyDirectory.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJson">
+      <HintPath>Assets/Adverty/Plugins/LitJson.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.VersionHandler">
+      <HintPath>Assets/ExternalDependencyManager/Editor/Google.VersionHandler.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.OdinInspector.Attributes">
+      <HintPath>Assets/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
+    </Reference>
+    <Reference Include="log4netPlastic">
+      <HintPath>Library/PackageCache/com.unity.collab-proxy@1.15.18/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.JarResolver">
+      <HintPath>Assets/ExternalDependencyManager/Editor/1.2.174/Google.JarResolver.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.Serialization.Config">
+      <HintPath>Assets/Sirenix/Assemblies/Sirenix.Serialization.Config.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="AdvertySDK">
+      <HintPath>Assets/Adverty/Plugins/AdvertySDK.dll</HintPath>
+    </Reference>
+    <Reference Include="ReportGeneratorMerged">
+      <HintPath>Library/PackageCache/com.unity.testtools.codecoverage@1.0.1/lib/ReportGenerator/ReportGeneratorMerged.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.App">
+      <HintPath>Assets/Firebase/Plugins/Firebase.App.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.Utilities.Editor">
+      <HintPath>Assets/Sirenix/Assemblies/Sirenix.Utilities.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library/PackageCache/com.unity.collab-proxy@1.15.18/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="AdvertyEditorDirectory">
+      <HintPath>Assets/Adverty/Editor/Plugins/AdvertyEditorDirectory.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Plastic.Antlr3.Runtime">
+      <HintPath>Library/PackageCache/com.unity.collab-proxy@1.15.18/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.PackageManagerResolver">
+      <HintPath>Assets/ExternalDependencyManager/Editor/1.2.174/Google.PackageManagerResolver.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Unsafe">
+      <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="unityplastic">
+      <HintPath>Library/PackageCache/com.unity.collab-proxy@1.15.18/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.TextureAssets">
+      <HintPath>Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/EditorAssetResources/Unity.VisualScripting.TextureAssets.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.TaskExtension">
+      <HintPath>Assets/Firebase/Plugins/Firebase.TaskExtension.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.IOSResolver">
+      <HintPath>Assets/ExternalDependencyManager/Editor/1.2.174/Google.IOSResolver.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.Utilities">
+      <HintPath>Assets/Sirenix/Assemblies/Sirenix.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
+      <HintPath>Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AdvertySDKEditor">
+      <HintPath>Assets/Adverty/Editor/Plugins/AdvertySDKEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.Serialization">
+      <HintPath>Assets/Sirenix/Assemblies/Sirenix.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook.Unity.Editor">
+      <HintPath>Assets/FacebookSDK/Plugins/Editor/Facebook.Unity.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook.Unity.Android">
+      <HintPath>Assets/FacebookSDK/Plugins/Android/Facebook.Unity.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="DemiEditor">
+      <HintPath>Assets/Plugins/Demigiant/DemiLib/Core/Editor/DemiEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.IonicZip">
+      <HintPath>Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Pdb">
+      <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenPro">
+      <HintPath>Assets/Plugins/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Editor">
+      <HintPath>Assets/Firebase/Editor/Firebase.Editor.dll</HintPath>
     </Reference>
     <Reference Include="DemiLib">
       <HintPath>Assets/Plugins/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Plastic.Antlr3.Runtime">
-      <HintPath>Library/PackageCache/com.unity.collab-proxy@1.15.18/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+    <Reference Include="Firebase.Analytics">
+      <HintPath>Assets/Firebase/Plugins/Firebase.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook.Unity.Settings">
+      <HintPath>Assets/FacebookSDK/Plugins/Settings/Facebook.Unity.Settings.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.YamlDotNet">
       <HintPath>Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll</HintPath>
@@ -338,71 +437,38 @@
     <Reference Include="Sirenix.OdinInspector.Editor">
       <HintPath>Assets/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="unityplastic">
-      <HintPath>Library/PackageCache/com.unity.collab-proxy@1.15.18/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
-    </Reference>
     <Reference Include="DOTweenProEditor">
       <HintPath>Assets/Plugins/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenEditor">
       <HintPath>Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Burst.Unsafe">
-      <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.Unsafe.dll</HintPath>
-    </Reference>
-    <Reference Include="DemiEditor">
-      <HintPath>Assets/Plugins/Demigiant/DemiLib/Core/Editor/DemiEditor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Burst.Cecil.Mdb">
       <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.TextureAssets">
-      <HintPath>Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/EditorAssetResources/Unity.VisualScripting.TextureAssets.dll</HintPath>
+    <Reference Include="Unity.Tasks">
+      <HintPath>Assets/Parse/Plugins/dotNet45/Unity.Tasks.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.IonicZip">
-      <HintPath>Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll</HintPath>
-    </Reference>
-    <Reference Include="Sirenix.OdinInspector.Attributes">
-      <HintPath>Assets/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst.Cecil.Pdb">
-      <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
+    <Reference Include="Google.VersionHandlerImpl">
+      <HintPath>Assets/ExternalDependencyManager/Editor/1.2.174/Google.VersionHandlerImpl.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil">
       <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll</HintPath>
     </Reference>
-    <Reference Include="log4netPlastic">
-      <HintPath>Library/PackageCache/com.unity.collab-proxy@1.15.18/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
-    </Reference>
-    <Reference Include="Sirenix.Serialization.Config">
-      <HintPath>Assets/Sirenix/Assemblies/Sirenix.Serialization.Config.dll</HintPath>
-    </Reference>
-    <Reference Include="Sirenix.Utilities">
-      <HintPath>Assets/Sirenix/Assemblies/Sirenix.Utilities.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween">
-      <HintPath>Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
-    </Reference>
-    <Reference Include="ReportGeneratorMerged">
-      <HintPath>Library/PackageCache/com.unity.testtools.codecoverage@1.0.1/lib/ReportGenerator/ReportGeneratorMerged.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-      <HintPath>Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Sirenix.Serialization">
-      <HintPath>Assets/Sirenix/Assemblies/Sirenix.Serialization.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTweenPro">
-      <HintPath>Assets/Plugins/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Burst.Cecil.Rocks">
       <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
     </Reference>
-    <Reference Include="Sirenix.Utilities.Editor">
-      <HintPath>Assets/Sirenix/Assemblies/Sirenix.Utilities.Editor.dll</HintPath>
+    <Reference Include="Firebase.Platform">
+      <HintPath>Assets/Firebase/Plugins/Firebase.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Compat">
+      <HintPath>Assets/Parse/Plugins/dotNet45/Unity.Compat.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.MiniJson">
+      <HintPath>Assets/Firebase/Plugins/Google.MiniJson.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook.Unity">
+      <HintPath>Assets/FacebookSDK/Plugins/Facebook.Unity.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
@@ -828,6 +894,10 @@
       <Project>{90D963BB-E8A4-852E-6ADE-3CB7C7D687E0}</Project>
       <Name>Unity.TestTools.CodeCoverage.Editor.OpenCover.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="Everyday.Editor.csproj">
+      <Project>{EE7B3BCF-C865-D670-5FBD-74047C28A77B}</Project>
+      <Name>Everyday.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="ToonyColorsPro.Demo.Editor.csproj">
       <Project>{F540341C-4DF4-B201-2A8D-7E0C14AA0161}</Project>
       <Name>ToonyColorsPro.Demo.Editor</Name>
@@ -844,13 +914,13 @@
       <Project>{F2820DFA-2509-1D25-DE01-9B8AE84CDAE0}</Project>
       <Name>Unity.Searcher.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="PlayOn.csproj">
+      <Project>{4BAE7AEA-BDB9-539A-E766-223C089935C0}</Project>
+      <Name>PlayOn</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.SettingsProvider.Editor.csproj">
       <Project>{678DF3F9-7EB0-D118-D743-F404072C7793}</Project>
       <Name>Unity.VisualScripting.SettingsProvider.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ProBuilder.csproj">
-      <Project>{3F03E56F-099F-6EFC-F847-E5C0CD96E9E4}</Project>
-      <Name>Unity.ProBuilder</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.csproj">
       <Project>{E128A4D6-2672-8BBA-A505-6F4221BE9A0E}</Project>
@@ -868,25 +938,29 @@
       <Project>{EF5D17FD-5663-3498-7A35-0C67343BFC6C}</Project>
       <Name>Unity.RenderPipelines.Core.ShaderLibrary</Name>
     </ProjectReference>
-    <ProjectReference Include="Sirenix.OdinInspector.Modules.UnityMathematics.csproj">
-      <Project>{78EAF861-0C79-D289-9695-59BEEC1B7398}</Project>
-      <Name>Sirenix.OdinInspector.Modules.UnityMathematics</Name>
-    </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
       <Project>{35937EA5-CEDB-5BCB-FE50-D9CC4C83BD82}</Project>
       <Name>UnityEngine.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="Sirenix.OdinInspector.Modules.UnityMathematics.csproj">
+      <Project>{78EAF861-0C79-D289-9695-59BEEC1B7398}</Project>
+      <Name>Sirenix.OdinInspector.Modules.UnityMathematics</Name>
     </ProjectReference>
     <ProjectReference Include="Autodesk.Fbx.csproj">
       <Project>{C728D5FF-05A4-F0DD-BE1F-33CA0FA4CE04}</Project>
       <Name>Autodesk.Fbx</Name>
     </ProjectReference>
+    <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj">
+      <Project>{3134CC2C-EF89-774C-1B85-50C8F30622A2}</Project>
+      <Name>Sirenix.OdinInspector.CompatibilityLayer.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.EditorCoroutines.Editor.csproj">
       <Project>{CF98BB47-75EB-CCB1-3659-81337ED9D89A}</Project>
       <Name>Unity.EditorCoroutines.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj">
-      <Project>{3134CC2C-EF89-774C-1B85-50C8F30622A2}</Project>
-      <Name>Sirenix.OdinInspector.CompatibilityLayer.Editor</Name>
+    <ProjectReference Include="Everyday.IAP.Editor.csproj">
+      <Project>{31F14903-913D-0C50-0F12-F455435E9A0C}</Project>
+      <Name>Everyday.IAP.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.ShaderGraph.Editor.csproj">
       <Project>{75F97A8F-85D4-C7A7-5F7B-DC0AC8D9DD15}</Project>
@@ -916,6 +990,14 @@
       <Project>{31D253D6-2FBE-A5A0-F0A1-96CC8EF60330}</Project>
       <Name>Unity.Mathematics.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="MaxSdk.Mediation.Google.Editor.csproj">
+      <Project>{BD946072-C5D0-3E7B-4535-EF5E38269F3A}</Project>
+      <Name>MaxSdk.Mediation.Google.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="MaxSdk.Scripts.IntegrationManager.Editor.csproj">
+      <Project>{781004AD-BDA1-8B6D-9797-D54666C21BD1}</Project>
+      <Name>MaxSdk.Scripts.IntegrationManager.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="ToonyColorsPro.Editor.csproj">
       <Project>{239FCAE0-E6B7-634A-BC8E-EB4EAABCB26C}</Project>
       <Name>ToonyColorsPro.Editor</Name>
@@ -935,10 +1017,6 @@
     <ProjectReference Include="PPv2URPConverters.csproj">
       <Project>{516D2B4D-1AC8-B2DC-C73A-88B1396037AB}</Project>
       <Name>PPv2URPConverters</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ProBuilder.AddOns.Editor.csproj">
-      <Project>{3801AEE8-9DB4-61D8-40B0-BEA2FD8984BC}</Project>
-      <Name>Unity.ProBuilder.AddOns.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualStudio.Editor.csproj">
       <Project>{BC4CCFBC-D147-9519-4FC9-6333F9DDF16D}</Project>
@@ -964,17 +1042,21 @@
       <Project>{CF11800C-4877-0274-0F6A-E579EE11964C}</Project>
       <Name>Unity.Burst.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Everyday.Ads.Editor.csproj">
+      <Project>{7632AE85-AEAE-AA89-5814-679FE51D6E24}</Project>
+      <Name>Everyday.Ads.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.Core.Editor.csproj">
       <Project>{0431E697-AD15-7063-E6F9-B027F8845141}</Project>
       <Name>Unity.VisualScripting.Core.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="KinoBloom.Runtime.csproj">
+      <Project>{E0EE5686-F88B-54E4-5663-89423F633F2B}</Project>
+      <Name>KinoBloom.Runtime</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Core.Runtime.csproj">
       <Project>{0A788BC7-4A72-C4C9-6684-B970041AF981}</Project>
       <Name>Unity.RenderPipelines.Core.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ProBuilder.Editor.csproj">
-      <Project>{CBD92FCA-43E2-AB83-B922-B859B22D9933}</Project>
-      <Name>Unity.ProBuilder.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.Flow.csproj">
       <Project>{67FCA8F5-A7F8-1398-8885-D10B812E3E8F}</Project>
@@ -984,9 +1066,9 @@
       <Project>{216E5836-519D-73F3-6ADF-C5546374B4F0}</Project>
       <Name>Unity.PlasticSCM.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="KinoBloom.Runtime.csproj">
-      <Project>{E0EE5686-F88B-54E4-5663-89423F633F2B}</Project>
-      <Name>KinoBloom.Runtime</Name>
+    <ProjectReference Include="Everyday.csproj">
+      <Project>{00326D66-7C07-1AF7-9B21-CA8FBE54AEE6}</Project>
+      <Name>Everyday</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.csproj">
       <Project>{5F379AAB-8AD9-8AFF-5FE1-EC09AC85D86D}</Project>
@@ -1008,13 +1090,13 @@
       <Project>{8A0B1295-169C-BA36-0CC7-E1137CF30471}</Project>
       <Name>Unity.Burst</Name>
     </ProjectReference>
+    <ProjectReference Include="MaxSdk.Scripts.Editor.csproj">
+      <Project>{2A197C12-D9DA-A639-CDEC-E23A9BDE4B70}</Project>
+      <Name>MaxSdk.Scripts.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Universal.Editor.csproj">
       <Project>{DA6BF67D-AB16-FC4C-F75C-7F270E575510}</Project>
       <Name>Unity.RenderPipelines.Universal.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ProBuilder.AssetIdRemapUtility.csproj">
-      <Project>{69FAADC4-9227-1FDF-F2E0-FFE0E2BEC75F}</Project>
-      <Name>Unity.ProBuilder.AssetIdRemapUtility</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.Shared.Editor.csproj">
       <Project>{5B9DEAE1-C7F1-EB9E-22AD-2F595C8E5BEF}</Project>
@@ -1024,6 +1106,10 @@
       <Project>{9C862D17-867F-D6C3-881C-6B129D1F835C}</Project>
       <Name>Unity.Services.Core.Environments</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.Mobile.AndroidLogcat.Editor.csproj">
+      <Project>{8497785C-3F96-1E3A-3A6F-4EEAA6FDF124}</Project>
+      <Name>Unity.Mobile.AndroidLogcat.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Timeline.Editor.csproj">
       <Project>{22E4BF61-652C-6A5A-F0D0-57AD2DAB338A}</Project>
       <Name>Unity.Timeline.Editor</Name>
@@ -1032,9 +1118,17 @@
       <Project>{9A9F69A4-7670-BF76-48E7-B84F75CDC611}</Project>
       <Name>SingularSDK</Name>
     </ProjectReference>
+    <ProjectReference Include="Everyday.Ads.csproj">
+      <Project>{E7209CEC-EF9B-7570-0646-0A90F4AF3756}</Project>
+      <Name>Everyday.Ads</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.csproj">
       <Project>{38B61E2C-85CB-27C3-2380-8BFC5F5C1595}</Project>
       <Name>Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="MaxSdk.Scripts.csproj">
+      <Project>{C6657AB8-9093-E6E8-42BB-331EA61FA5AE}</Project>
+      <Name>MaxSdk.Scripts</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.TestTools.CodeCoverage.Editor.csproj">
       <Project>{D8628724-9E16-A0B2-5233-F0B21A2B804C}</Project>

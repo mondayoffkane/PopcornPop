@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\</OutputPath>
-    <DefineConstants>UNITY_2021_3_6;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_SEARCH_TABLE;USE_SEARCH_MODULE;USE_PROPERTY_DATABASE;USE_SEARCH_EXTENSION_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_ANDROID;TEXTCORE_1_0_OR_NEWER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_ETC_COMPRESSION;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;PROBUILDER_EXPERIMENTAL_FEATURES;ODIN_INSPECTOR;ODIN_INSPECTOR_3;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>UNITY_2021_3_6;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_SEARCH_TABLE;USE_SEARCH_MODULE;USE_PROPERTY_DATABASE;USE_SEARCH_EXTENSION_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_ANDROID;TEXTCORE_1_0_OR_NEWER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_ETC_COMPRESSION;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;PROBUILDER_EXPERIMENTAL_FEATURES;ODIN_INSPECTOR;ODIN_INSPECTOR_3;FIREBASE_ENABLED;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -57,34 +57,44 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/1.Scripts/SnakeMovement.cs" />
-    <Compile Include="Assets/Fireworks/Rocket 5/Script/Rocket5.cs" />
+    <Compile Include="Assets/Adverty/Scripts/PlatformSpecific/IosNativeUtils.cs" />
     <Compile Include="Assets/MondayOFF/Etc/NiceVibrations/Common/Scripts/MMVibrationManager.cs" />
+    <Compile Include="Assets/Adverty/Scripts/PlatformSpecific/OsxNativeUtils.cs" />
     <Compile Include="Assets/1.Scripts/TweenMove.cs" />
+    <Compile Include="Assets/Adverty/Scripts/PlatformSpecific/SystemVersion.cs" />
     <Compile Include="Assets/1.Scripts/ColorChanger.cs" />
     <Compile Include="Assets/1.Scripts/DataManager.cs" />
+    <Compile Include="Assets/Adverty/Scripts/PlatformSpecific/AndroidRenderingPlugin.cs" />
+    <Compile Include="Assets/Adverty/Scripts/PlatformSpecific/NativeMessageSystem.cs" />
     <Compile Include="Assets/SlingShot/Sling.cs" />
+    <Compile Include="Assets/MondayOFF/ThirdParties/CrystalFramework/Utility/SafeArea.cs" />
+    <Compile Include="Assets/Adverty/Scripts/PlatformSpecific/NativeAssemblyGetter.cs" />
+    <Compile Include="Assets/Adverty/Scripts/PlatformSpecific/IOSWebViewTexture.cs" />
     <Compile Include="Assets/1.Scripts/StageManager.cs" />
     <Compile Include="Assets/1.Scripts/SnakeHead.cs" />
     <Compile Include="Assets/1.Scripts/Limit_Floor.cs" />
-    <Compile Include="Assets/Fireworks/Rocket 4/Script/Rocket4.cs" />
+    <Compile Include="Assets/MondayOFF/Everyday/_Test/Scripts/Runtime/EverydayAdTestScript.cs" />
+    <Compile Include="Assets/Adverty/Scripts/PlatformSpecific/AndroidWebViewTextureBridge.cs" />
     <Compile Include="Assets/MondayOFF/Etc/NiceVibrations/Demo/Scripts/NiceVibrationsDemoManager.cs" />
+    <Compile Include="Assets/Adverty/Scripts/PlatformSpecific/NativeBridge.cs" />
     <Compile Include="Assets/1.Scripts/MeshChanger.cs" />
     <Compile Include="Assets/1.Scripts/GameManager.cs" />
-    <Compile Include="Assets/Fireworks/Firecracker 2/Script/Firecracker2.cs" />
     <Compile Include="Assets/1.Scripts/Entrance_Force.cs" />
     <Compile Include="Assets/1.Scripts/Goal.cs" />
-    <Compile Include="Assets/Fireworks/Firecracker 1/Script/Firecracker1.cs" />
+    <Compile Include="Assets/Adverty/Scripts/PlatformSpecific/NativeDebug.cs" />
+    <Compile Include="Assets/Adverty/Scripts/PlatformSpecific/AndroidNativeUtils.cs" />
+    <Compile Include="Assets/Adverty/Scripts/PlatformSpecific/NativeLogger.cs" />
     <Compile Include="Assets/1.Scripts/RotObj.cs" />
     <Compile Include="Assets/1.Scripts/Spawner.cs" />
     <Compile Include="Assets/1.Scripts/Compressor.cs" />
     <Compile Include="Assets/1.Scripts/Popcorn.cs" />
-    <Compile Include="Assets/Fireworks/Firecracker 3/Script/Firecracker3.cs" />
-    <Compile Include="Assets/Fireworks/Rocket 1/Script/Rocket1.cs" />
-    <Compile Include="Assets/Fireworks/Rocket 2/Script/Rocket2.cs" />
+    <Compile Include="Assets/Adverty/Scripts/PlatformSpecific/NativeRedirectionDialogBridge.cs" />
+    <Compile Include="Assets/MondayOFF/Everyday/_Test/Scripts/Runtime/Rotate.cs" />
+    <Compile Include="Assets/Adverty/Scripts/PlatformSpecific/BaseWebViewTextureBridge.cs" />
+    <Compile Include="Assets/Adverty/Scripts/PlatformSpecific/IosWebViewTextureBridge.cs" />
     <Compile Include="Assets/1.Scripts/Fan.cs" />
     <Compile Include="Assets/1.Scripts/Conveyer.cs" />
     <Compile Include="Assets/1.Scripts/Cannon.cs" />
-    <Compile Include="Assets/Fireworks/Rocket 3/Script/Rocket3.cs" />
     <Compile Include="Assets/1.Scripts/Bullet.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -94,8 +104,14 @@
     <None Include="Assets/Toony Colors Pro/Shaders/Standard PBS/TCP2_Standard PBS Outline.shader" />
     <None Include="Assets/6.UI/_TempUI/ShootAndFit_UI/ShootAndFit_Font.fnt" />
     <None Include="Assets/Toony Colors Pro/Shaders/Legacy/Include/TCP2_Outline_Behind_SM2.shader" />
+    <None Include="Assets/Adverty/Resources/Shaders/WatermarkShader.shader" />
+    <None Include="Assets/Parse/Plugins/Unity.Compat.dll" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_VertexDisplacement.txt" />
+    <None Include="Assets/FacebookSDK/link.xml" />
+    <None Include="Assets/FacebookSDK/Plugins/iOS/Facebook.Unity.IOS.dll" />
+    <None Include="Assets/Adverty/Resources/ComputeShaders/VisibilityCheckCS.compute" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_Outline.txt" />
+    <None Include="Assets/Firebase/Plugins/Firebase.Analytics.dll" />
     <None Include="Assets/Toony Colors Pro/Shaders Generated/Examples/SG2/Stylized Water.shader" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_Terrain.txt" />
     <None Include="Assets/Toony Colors Pro/Shaders Generated/Examples/SG2/Detail Texture Simple.shader" />
@@ -103,11 +119,17 @@
     <None Include="Assets/SimpleFX/Materials/UnlitVertexColour_Alpha.shader" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_DepthTexture.txt" />
     <None Include="Assets/Toony Colors Pro/Shaders/Legacy/Variants Base/TCP2_Mobile_Specular_OutlineBlending.shader" />
+    <None Include="Assets/Firebase/Plugins/iOS/Firebase.Analytics.dll" />
+    <None Include="Assets/Adverty/Resources/Shaders/AdSpriteUnlitShader.shader" />
     <None Include="Assets/Toony Colors Pro/Shaders Generated/Examples/SG2/Vertex Color Albedo.shader" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_MatCap.txt" />
     <None Include="Assets/Sirenix/Assemblies/NoEmitAndNoEditor/Sirenix.Serialization.dll" />
     <None Include="Assets/Sirenix/Assemblies/link.xml" />
+    <None Include="Assets/Adverty/Plugins/AdvertySDK.dll" />
+    <None Include="Assets/Firebase/Plugins/Firebase.App.dll" />
     <None Include="Assets/Toony Colors Pro/Shaders Generated/Examples/Default/HSV.shader" />
+    <None Include="Assets/Adverty/Resources/Shaders/AdUIShader.shader" />
+    <None Include="Assets/Parse/Plugins/Unity.Tasks.dll" />
     <None Include="Assets/Toony Colors Pro/Shaders Generated/Examples/Default/Old School.shader" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_Dissolve.txt" />
     <None Include="Assets/Toony Colors Pro/Shaders/Standard PBS/TCP2_Standard PBS Outline Blended (Specular).shader" />
@@ -120,18 +142,24 @@
     <None Include="Assets/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.dll" />
     <None Include="Assets/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.xml" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_Texture Blending.txt" />
+    <None Include="Assets/Adverty/Resources/Shaders/AdvertyURP.hlsl" />
+    <None Include="Assets/FacebookSDK/Plugins/Settings/Facebook.Unity.Settings.dll" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_ShadowHSV.txt" />
+    <None Include="Assets/PlayOn/Plugins/Android/AndroidManifest.xml" />
     <None Include="Assets/Toony Colors Pro/Shaders/Legacy/Variants Base/TCP2_Desktop_OutlineBlending.shader" />
     <None Include="Assets/Toony Colors Pro/Shader Templates/TCP2_ShaderTemplate_Water.txt" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/SG2_Template_Default.txt" />
     <None Include="Assets/Toony Colors Pro/Shaders Generated/Examples/Default/Snow Accumulation.shader" />
     <None Include="Assets/Toony Colors Pro/Shaders/Legacy/TCP2_OutlineOnly Blended.shader" />
+    <None Include="Assets/Firebase/Plugins/Firebase.TaskExtension.dll" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_NdotL Stylization.txt" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_Water.txt" />
     <None Include="Assets/Toony Colors Pro/Shaders Generated/Examples/Default/Comic Book.shader" />
     <None Include="Assets/3.Material/_TempMat/3.others/DoubleSided.shader" />
     <None Include="Assets/Sirenix/Assemblies/NoEditor/Sirenix.Serialization.dll" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_CurvedWorld.txt" />
+    <None Include="Assets/Adverty/Resources/Shaders/AdShader.shader" />
+    <None Include="Assets/Firebase/m2repository/com/google/firebase/firebase-app-unity/maven-metadata.xml" />
     <None Include="Assets/Toony Colors Pro/Shaders/Standard PBS/TCP2_PBS_Core.cginc" />
     <None Include="Assets/Toony Colors Pro/Shaders/Legacy/Variants Base/TCP2_Mobile_Specular.shader" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_Wind.txt" />
@@ -151,53 +179,72 @@
     <None Include="Assets/Toony Colors Pro/Shaders Generated/Examples/Water/Realistic.shader" />
     <None Include="Assets/Toony Colors Pro/Shaders/Legacy/Include/TCP2_Outline_Include.cginc" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_AlbedoHSV.txt" />
+    <None Include="Assets/FacebookSDK/Plugins/Facebook.Unity.dll" />
+    <None Include="Assets/MondayOFF/Everyday/link.xml" />
+    <None Include="Assets/Adverty/Resources/Shaders/UIDrawOnTop.shader" />
+    <None Include="Assets/MondayOFF/ThirdParties/NiceVibrations/readme.txt" />
+    <None Include="Assets/MondayOFF/ThirdParties/NiceVibrations/Common/Plugins/Android/AndroidManifest.xml" />
+    <None Include="Assets/Adverty/ReadMe.txt" />
     <None Include="Assets/Sirenix/Assemblies/Sirenix.Utilities.xml" />
     <None Include="Assets/Sirenix/Assemblies/Sirenix.Utilities.dll" />
     <None Include="Assets/Toony Colors Pro/Shaders/Legacy/Include/TCP2_Outline_Behind.shader" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_Normal Mapping.txt" />
     <None Include="Assets/Toony Colors Pro/Shaders Generated/Examples/PBS/Blended Outline.shader" />
+    <None Include="Assets/Adverty/Resources/Shaders/AndroidExternalTextureCopy.shader" />
     <None Include="Assets/numberRun/NewSurfaceShader.shader" />
     <None Include="Assets/Toony Colors Pro/Shaders/Standard PBS/TCP2_Standard PBS.shader" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_VertExmotion.txt" />
+    <None Include="Assets/Firebase/m2repository/com/google/firebase/firebase-analytics-unity/maven-metadata.xml" />
     <None Include="Assets/Sirenix/Assemblies/NoEditor/Sirenix.Utilities.dll" />
+    <None Include="Assets/Adverty/Resources/Shaders/AdvertyCG.cginc" />
     <None Include="Assets/Toony Colors Pro/Shaders/Legacy/Include/TCP2_Outline.shader" />
     <None Include="Assets/Toony Colors Pro/Shaders Generated/Examples/Default/Subsurface Scattering.shader" />
     <None Include="Assets/Sirenix/Readme.txt" />
+    <None Include="Assets/MondayOFF/ThirdParties/NiceVibrations/license.txt" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_Vertical Fog.txt" />
     <None Include="Assets/Toony Colors Pro/Shaders Generated/Examples/Water/Water WindWaker2.shader" />
     <None Include="Assets/Toony Colors Pro/Shader Templates/TCP2_ShaderTemplate_Water_CurvedWorld.txt" />
     <None Include="Assets/Toony Colors Pro/Shaders Generated/Examples/PBS/Hand Painted.shader" />
     <None Include="Assets/Toony Colors Pro/Shaders/Legacy/Include/TCP2_Outline_Stencil.shader" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_Ramp Shading.txt" />
+    <None Include="Assets/MaxSdk/Mediation/MediationAdapters.txt" />
     <None Include="Assets/Toony Colors Pro/Shaders/Standard PBS/TCP2_Standard PBS Outline Blended.shader" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_Sketch.txt" />
     <None Include="Assets/Toony Colors Pro/Shaders/Legacy/Include/TCP2_Outline_SM2.shader" />
+    <None Include="Assets/Adverty/Plugins/LitJson.dll" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_Aura2.txt" />
     <None Include="Assets/Toony Colors Pro/Shaders Generated/Examples/Water/Reflection.shader" />
     <None Include="Assets/Toony Colors Pro/Shaders Generated/Examples/Water/Lava.shader" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_Screen Space UV.txt" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_Hash Functions.txt" />
     <None Include="Assets/Toony Colors Pro/Shader Templates/TCP2_ShaderTemplate_Terrain.txt" />
+    <None Include="Assets/FacebookSDK/Plugins/Android/Facebook.Unity.Android.dll" />
     <None Include="Assets/Toony Colors Pro/Shader Templates/TCP2_ShaderTemplate_Default_CurvedWorld.txt" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_Triplanar.txt" />
     <None Include="Assets/Sirenix/Assemblies/Sirenix.Utilities.Editor.xml" />
     <None Include="Assets/Sirenix/Assemblies/Sirenix.Utilities.Editor.dll" />
     <None Include="Assets/Toony Colors Pro/Shader Templates/TCP2_ShaderTemplate_PBS.txt" />
     <None Include="Assets/Toony Colors Pro/Shaders Generated/Examples/Default/Sketch.shader" />
+    <None Include="Assets/Adverty/Resources/Shaders/AdSpriteLitShader.shader" />
     <None Include="Assets/Toony Colors Pro/Shaders/Standard PBS/TCP2_PBS_ShadowMeta.shader" />
     <None Include="Assets/Toony Colors Pro/Shaders/Legacy/TCP2_Mobile.shader" />
     <None Include="Assets/Toony Colors Pro/Shaders Generated/Examples/Water/Lava Cartoon.shader" />
+    <None Include="Assets/MondayOFF/ThirdParties/Adverty/Dependencies.xml" />
     <None Include="Assets/Toony Colors Pro/Shaders Generated/Examples/PBS/Outline Behind.shader" />
     <None Include="Assets/Test/Skybox Gradient.shader" />
+    <None Include="Assets/Parse/Plugins/dotNet45/Unity.Compat.dll" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_HSV.txt" />
     <None Include="Assets/Toony Colors Pro/Shaders/Hybrid/TCP2 Hybrid URP Support.cginc" />
     <None Include="Assets/Toony Colors Pro/Shaders/Standard PBS/TCP2_Standard PBS (Specular).shader" />
+    <None Include="Assets/Firebase/Plugins/Firebase.Platform.dll" />
     <None Include="Assets/Toony Colors Pro/Shaders Generated/Examples/SG2/Water.shader" />
+    <None Include="Assets/Parse/Plugins/dotNet45/Unity.Tasks.dll" />
     <None Include="Assets/Toony Colors Pro/Shaders/Legacy/Variants Base/TCP2_Mobile_Outline.shader" />
     <None Include="Assets/Toony Colors Pro/Shaders/Legacy/Variants Base/TCP2_Desktop_Specular_Outline.shader" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_Rim Lighting.txt" />
     <None Include="Assets/Sirenix/Assemblies/NoEmitAndNoEditor/Sirenix.Utilities.dll" />
     <None Include="Assets/Toony Colors Pro/Shaders/Legacy/Variants Base/TCP2_Mobile_Specular_Outline.shader" />
+    <None Include="Assets/Firebase/Plugins/Google.MiniJson.dll" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_Subsurface Scattering.txt" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_NoTile Sampling.txt" />
     <None Include="Assets/Toony Colors Pro/Shaders/Standard PBS/TCP2_PBS_BRDF.cginc" />
@@ -206,13 +253,18 @@
     <None Include="Assets/Toony Colors Pro/Shaders Generated/Examples/Water/Water WindWaker.shader" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_CustomAmbient.txt" />
     <None Include="Assets/Toony Colors Pro/Shaders Generated/Examples/SG2/Wind Animation.shader" />
+    <None Include="Assets/Adverty/Plugins/AdvertyDirectory.dll" />
     <None Include="Assets/Toony Colors Pro/Shader Templates/TCP2_ShaderTemplate_Default.txt" />
+    <None Include="Assets/Adverty/Resources/Shaders/VisibilityCheckStencilShader.shader" />
     <None Include="Assets/Sirenix/Assemblies/Sirenix.Serialization.dll" />
     <None Include="Assets/Sirenix/Assemblies/Sirenix.Serialization.xml" />
+    <None Include="Assets/Firebase/Plugins/iOS/Firebase.App.dll" />
     <None Include="Assets/Toony Colors Pro/Shaders Generated/Examples/Water/Poison.shader" />
+    <None Include="Assets/MondayOFF/ThirdParties/Singular/Dependencies.xml" />
     <None Include="Assets/Toony Colors Pro/Shaders/Hybrid/TCP2 Hybrid Shader.shader" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_Specular.txt" />
     <None Include="Assets/Toony Colors Pro/Shaders Generated/Examples/SG2/Detail Texture.shader" />
+    <None Include="Assets/Adverty/Resources/Shaders/AdUnlitShader.shader" />
     <None Include="Assets/Toony Colors Pro/Shaders/Hybrid/TCP2 Hybrid Shader Outline.shader" />
     <None Include="Assets/Toony Colors Pro/Shader Templates 2/Modules/Module_Reflection.txt" />
   </ItemGroup>
@@ -451,56 +503,95 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
-    <Reference Include="DemiLib">
-      <HintPath>Assets/Plugins/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
+    <Reference Include="AdvertyDirectory">
+      <HintPath>Assets/Adverty/Plugins/AdvertyDirectory.dll</HintPath>
     </Reference>
-    <Reference Include="Sirenix.OdinInspector.Editor">
-      <HintPath>Assets/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst.Unsafe">
-      <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.Unsafe.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst.Cecil.Mdb">
-      <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
+    <Reference Include="LitJson">
+      <HintPath>Assets/Adverty/Plugins/LitJson.dll</HintPath>
     </Reference>
     <Reference Include="Sirenix.OdinInspector.Attributes">
       <HintPath>Assets/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Burst.Cecil.Pdb">
-      <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst.Cecil">
-      <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll</HintPath>
-    </Reference>
     <Reference Include="Sirenix.Serialization.Config">
       <HintPath>Assets/Sirenix/Assemblies/Sirenix.Serialization.Config.dll</HintPath>
-    </Reference>
-    <Reference Include="Sirenix.Utilities">
-      <HintPath>Assets/Sirenix/Assemblies/Sirenix.Utilities.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
       <HintPath>Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
+    <Reference Include="AdvertySDK">
+      <HintPath>Assets/Adverty/Plugins/AdvertySDK.dll</HintPath>
+    </Reference>
     <Reference Include="ReportGeneratorMerged">
       <HintPath>Library/PackageCache/com.unity.testtools.codecoverage@1.0.1/lib/ReportGenerator/ReportGeneratorMerged.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.App">
+      <HintPath>Assets/Firebase/Plugins/Firebase.App.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.Utilities.Editor">
+      <HintPath>Assets/Sirenix/Assemblies/Sirenix.Utilities.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Unsafe">
+      <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.TaskExtension">
+      <HintPath>Assets/Firebase/Plugins/Firebase.TaskExtension.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.Utilities">
+      <HintPath>Assets/Sirenix/Assemblies/Sirenix.Utilities.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="Sirenix.Serialization">
       <HintPath>Assets/Sirenix/Assemblies/Sirenix.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook.Unity.Android">
+      <HintPath>Assets/FacebookSDK/Plugins/Android/Facebook.Unity.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Pdb">
+      <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenPro">
       <HintPath>Assets/Plugins/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
     </Reference>
+    <Reference Include="DemiLib">
+      <HintPath>Assets/Plugins/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Analytics">
+      <HintPath>Assets/Firebase/Plugins/Firebase.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook.Unity.Settings">
+      <HintPath>Assets/FacebookSDK/Plugins/Settings/Facebook.Unity.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.OdinInspector.Editor">
+      <HintPath>Assets/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Mdb">
+      <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Tasks">
+      <HintPath>Assets/Parse/Plugins/dotNet45/Unity.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil">
+      <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Burst.Cecil.Rocks">
       <HintPath>Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
     </Reference>
-    <Reference Include="Sirenix.Utilities.Editor">
-      <HintPath>Assets/Sirenix/Assemblies/Sirenix.Utilities.Editor.dll</HintPath>
+    <Reference Include="Firebase.Platform">
+      <HintPath>Assets/Firebase/Plugins/Firebase.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Compat">
+      <HintPath>Assets/Parse/Plugins/dotNet45/Unity.Compat.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.MiniJson">
+      <HintPath>Assets/Firebase/Plugins/Google.MiniJson.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook.Unity">
+      <HintPath>Assets/FacebookSDK/Plugins/Facebook.Unity.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>/Applications/2021.3.6f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -514,380 +605,371 @@
     <Reference Include="Unity.Android.Gradle">
       <HintPath>/Applications/2021.3.6f1/PlaybackEngines/AndroidPlayer/Unity.Android.Gradle.dll</HintPath>
     </Reference>
-    <Reference Include="mscorlib">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/mscorlib.dll</HintPath>
-    </Reference>
-    <Reference Include="System">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Core">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.Serialization">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Runtime.Serialization.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Xml">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Xml.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Xml.Linq">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Xml.Linq.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Numerics">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Numerics.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Numerics.Vectors">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Numerics.Vectors.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Net.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="System.IO.Compression">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.IO.Compression.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.CSharp">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Microsoft.CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Data.DataSetExtensions.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Drawing">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Drawing.dll</HintPath>
-    </Reference>
-    <Reference Include="System.IO.Compression.FileSystem">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.IO.Compression.FileSystem.dll</HintPath>
-    </Reference>
-    <Reference Include="System.ComponentModel.Composition">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.ComponentModel.Composition.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Transactions">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Transactions.dll</HintPath>
+    <Reference Include="netstandard">
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/ref/2.1.0/netstandard.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Win32.Primitives">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/Microsoft.Win32.Primitives.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/Microsoft.Win32.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="System.AppContext">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.AppContext.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.AppContext.dll</HintPath>
     </Reference>
     <Reference Include="System.Buffers">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Buffers.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.Collections.Concurrent">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Collections.Concurrent.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Collections.Concurrent.dll</HintPath>
     </Reference>
     <Reference Include="System.Collections.NonGeneric">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Collections.NonGeneric.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Collections.NonGeneric.dll</HintPath>
     </Reference>
     <Reference Include="System.Collections.Specialized">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Collections.Specialized.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Collections.Specialized.dll</HintPath>
     </Reference>
     <Reference Include="System.Collections">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Collections.dll</HintPath>
-    </Reference>
-    <Reference Include="System.ComponentModel.Annotations">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ComponentModel.Annotations.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Collections.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.EventBasedAsync">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ComponentModel.EventBasedAsync.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.ComponentModel.EventBasedAsync.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Primitives">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ComponentModel.Primitives.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.ComponentModel.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.TypeConverter">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ComponentModel.TypeConverter.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.ComponentModel.TypeConverter.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ComponentModel.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.ComponentModel.dll</HintPath>
     </Reference>
     <Reference Include="System.Console">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Console.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Console.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Common">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Data.Common.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Data.Common.dll</HintPath>
     </Reference>
     <Reference Include="System.Diagnostics.Contracts">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Diagnostics.Contracts.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Contracts.dll</HintPath>
     </Reference>
     <Reference Include="System.Diagnostics.Debug">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Diagnostics.Debug.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Debug.dll</HintPath>
     </Reference>
     <Reference Include="System.Diagnostics.FileVersionInfo">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Diagnostics.FileVersionInfo.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.FileVersionInfo.dll</HintPath>
     </Reference>
     <Reference Include="System.Diagnostics.Process">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Diagnostics.Process.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Process.dll</HintPath>
     </Reference>
     <Reference Include="System.Diagnostics.StackTrace">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Diagnostics.StackTrace.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.StackTrace.dll</HintPath>
     </Reference>
     <Reference Include="System.Diagnostics.TextWriterTraceListener">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Diagnostics.TextWriterTraceListener.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.TextWriterTraceListener.dll</HintPath>
     </Reference>
     <Reference Include="System.Diagnostics.Tools">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Diagnostics.Tools.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Tools.dll</HintPath>
     </Reference>
     <Reference Include="System.Diagnostics.TraceSource">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Diagnostics.TraceSource.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.TraceSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Tracing">
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Tracing.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing.Primitives">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Drawing.Primitives.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Drawing.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="System.Dynamic.Runtime">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Dynamic.Runtime.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Dynamic.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="System.Globalization.Calendars">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Globalization.Calendars.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Globalization.Calendars.dll</HintPath>
     </Reference>
     <Reference Include="System.Globalization.Extensions">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Globalization.Extensions.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Globalization.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Globalization">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Globalization.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Globalization.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.Compression.ZipFile">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.Compression.ZipFile.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.Compression.ZipFile.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression">
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.Compression.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.FileSystem.DriveInfo">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.FileSystem.DriveInfo.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.FileSystem.DriveInfo.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.FileSystem.Primitives">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.FileSystem.Primitives.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.FileSystem.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.FileSystem.Watcher">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.FileSystem.Watcher.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.FileSystem.Watcher.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.FileSystem">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.FileSystem.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.FileSystem.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.IsolatedStorage">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.IsolatedStorage.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.IsolatedStorage.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.MemoryMappedFiles">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.MemoryMappedFiles.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.MemoryMappedFiles.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.Pipes">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.Pipes.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.Pipes.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.UnmanagedMemoryStream">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.UnmanagedMemoryStream.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.UnmanagedMemoryStream.dll</HintPath>
     </Reference>
     <Reference Include="System.IO">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.dll</HintPath>
     </Reference>
     <Reference Include="System.Linq.Expressions">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Linq.Expressions.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Linq.Expressions.dll</HintPath>
     </Reference>
     <Reference Include="System.Linq.Parallel">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Linq.Parallel.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Linq.Parallel.dll</HintPath>
     </Reference>
     <Reference Include="System.Linq.Queryable">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Linq.Queryable.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Linq.Queryable.dll</HintPath>
     </Reference>
     <Reference Include="System.Linq">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Linq.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Linq.dll</HintPath>
     </Reference>
     <Reference Include="System.Memory">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Memory.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Memory.dll</HintPath>
     </Reference>
-    <Reference Include="System.Net.Http.Rtc">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.Http.Rtc.dll</HintPath>
+    <Reference Include="System.Net.Http">
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.NameResolution">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.NameResolution.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.NameResolution.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.NetworkInformation">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.NetworkInformation.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.NetworkInformation.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Ping">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.Ping.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Ping.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Primitives">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.Primitives.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Requests">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.Requests.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Requests.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Security">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.Security.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Security.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Sockets">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.Sockets.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Sockets.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.WebHeaderCollection">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.WebHeaderCollection.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.WebHeaderCollection.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.WebSockets.Client">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.WebSockets.Client.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.WebSockets.Client.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.WebSockets">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.WebSockets.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.WebSockets.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics.Vectors">
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Numerics.Vectors.dll</HintPath>
     </Reference>
     <Reference Include="System.ObjectModel">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ObjectModel.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.ObjectModel.dll</HintPath>
     </Reference>
     <Reference Include="System.Reflection.DispatchProxy">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Reflection.DispatchProxy.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.DispatchProxy.dll</HintPath>
     </Reference>
     <Reference Include="System.Reflection.Emit.ILGeneration">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Reflection.Emit.ILGeneration.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Emit.ILGeneration.dll</HintPath>
     </Reference>
     <Reference Include="System.Reflection.Emit.Lightweight">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Reflection.Emit.Lightweight.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Emit.Lightweight.dll</HintPath>
     </Reference>
     <Reference Include="System.Reflection.Emit">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Reflection.Emit.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Emit.dll</HintPath>
     </Reference>
     <Reference Include="System.Reflection.Extensions">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Reflection.Extensions.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Reflection.Primitives">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Reflection.Primitives.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="System.Reflection">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Reflection.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.dll</HintPath>
     </Reference>
     <Reference Include="System.Resources.Reader">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Resources.Reader.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Resources.Reader.dll</HintPath>
     </Reference>
     <Reference Include="System.Resources.ResourceManager">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Resources.ResourceManager.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Resources.ResourceManager.dll</HintPath>
     </Reference>
     <Reference Include="System.Resources.Writer">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Resources.Writer.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Resources.Writer.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.VisualC">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.CompilerServices.VisualC.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.CompilerServices.VisualC.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Extensions">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.Extensions.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Handles">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.Handles.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Handles.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.InteropServices.WindowsRuntime">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.InteropServices.WindowsRuntime.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.InteropServices">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.InteropServices.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.InteropServices.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Numerics">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.Numerics.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Numerics.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization.Formatters">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.Serialization.Formatters.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Serialization.Formatters.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization.Json">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.Serialization.Json.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Serialization.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization.Primitives">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.Serialization.Primitives.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Serialization.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization.Xml">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.Serialization.Xml.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Serialization.Xml.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="System.Security.Claims">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Security.Claims.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Claims.dll</HintPath>
     </Reference>
     <Reference Include="System.Security.Cryptography.Algorithms">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Security.Cryptography.Algorithms.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.Algorithms.dll</HintPath>
     </Reference>
     <Reference Include="System.Security.Cryptography.Csp">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Security.Cryptography.Csp.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.Csp.dll</HintPath>
     </Reference>
     <Reference Include="System.Security.Cryptography.Encoding">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Security.Cryptography.Encoding.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.Encoding.dll</HintPath>
     </Reference>
     <Reference Include="System.Security.Cryptography.Primitives">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Security.Cryptography.Primitives.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="System.Security.Cryptography.X509Certificates">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.X509Certificates.dll</HintPath>
     </Reference>
     <Reference Include="System.Security.Principal">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Security.Principal.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Principal.dll</HintPath>
     </Reference>
     <Reference Include="System.Security.SecureString">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Security.SecureString.dll</HintPath>
-    </Reference>
-    <Reference Include="System.ServiceModel.Duplex">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ServiceModel.Duplex.dll</HintPath>
-    </Reference>
-    <Reference Include="System.ServiceModel.Http">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ServiceModel.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="System.ServiceModel.NetTcp">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ServiceModel.NetTcp.dll</HintPath>
-    </Reference>
-    <Reference Include="System.ServiceModel.Primitives">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ServiceModel.Primitives.dll</HintPath>
-    </Reference>
-    <Reference Include="System.ServiceModel.Security">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ServiceModel.Security.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Security.SecureString.dll</HintPath>
     </Reference>
     <Reference Include="System.Text.Encoding.Extensions">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Text.Encoding.Extensions.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Text.Encoding.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Text.Encoding">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Text.Encoding.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Text.Encoding.dll</HintPath>
     </Reference>
     <Reference Include="System.Text.RegularExpressions">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Text.RegularExpressions.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Text.RegularExpressions.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Overlapped">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Threading.Overlapped.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Overlapped.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks.Extensions">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Threading.Tasks.Extensions.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks.Parallel">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Threading.Tasks.Parallel.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Tasks.Parallel.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Threading.Tasks.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Tasks.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Thread">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Threading.Thread.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Thread.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.ThreadPool">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Threading.ThreadPool.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.ThreadPool.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Timer">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Threading.Timer.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Timer.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Threading.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.dll</HintPath>
     </Reference>
     <Reference Include="System.ValueTuple">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ValueTuple.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.ReaderWriter">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Xml.ReaderWriter.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.ReaderWriter.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.XDocument">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Xml.XDocument.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XDocument.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.XPath.XDocument">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Xml.XPath.XDocument.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.XPath">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Xml.XPath.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XPath.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.XmlDocument">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Xml.XmlDocument.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XmlDocument.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.XmlSerializer">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Xml.XmlSerializer.dll</HintPath>
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XmlSerializer.dll</HintPath>
     </Reference>
-    <Reference Include="netstandard">
-      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/netstandard.dll</HintPath>
+    <Reference Include="System.Runtime.InteropServices.WindowsRuntime">
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/Extensions/2.0.0/System.Runtime.InteropServices.WindowsRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition">
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.ComponentModel.Composition.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem">
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.IO.Compression.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net">
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics">
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Runtime.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web">
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.ServiceModel.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions">
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Transactions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web">
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows">
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Xml.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Serialization">
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib">
+      <HintPath>/Applications/2021.3.6f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/mscorlib.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -915,6 +997,10 @@
       <Project>{90D963BB-E8A4-852E-6ADE-3CB7C7D687E0}</Project>
       <Name>Unity.TestTools.CodeCoverage.Editor.OpenCover.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="Everyday.Editor.csproj">
+      <Project>{EE7B3BCF-C865-D670-5FBD-74047C28A77B}</Project>
+      <Name>Everyday.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="ToonyColorsPro.Demo.Editor.csproj">
       <Project>{F540341C-4DF4-B201-2A8D-7E0C14AA0161}</Project>
       <Name>ToonyColorsPro.Demo.Editor</Name>
@@ -931,13 +1017,13 @@
       <Project>{F2820DFA-2509-1D25-DE01-9B8AE84CDAE0}</Project>
       <Name>Unity.Searcher.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="PlayOn.csproj">
+      <Project>{4BAE7AEA-BDB9-539A-E766-223C089935C0}</Project>
+      <Name>PlayOn</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.SettingsProvider.Editor.csproj">
       <Project>{678DF3F9-7EB0-D118-D743-F404072C7793}</Project>
       <Name>Unity.VisualScripting.SettingsProvider.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ProBuilder.csproj">
-      <Project>{3F03E56F-099F-6EFC-F847-E5C0CD96E9E4}</Project>
-      <Name>Unity.ProBuilder</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.csproj">
       <Project>{E128A4D6-2672-8BBA-A505-6F4221BE9A0E}</Project>
@@ -955,25 +1041,29 @@
       <Project>{EF5D17FD-5663-3498-7A35-0C67343BFC6C}</Project>
       <Name>Unity.RenderPipelines.Core.ShaderLibrary</Name>
     </ProjectReference>
-    <ProjectReference Include="Sirenix.OdinInspector.Modules.UnityMathematics.csproj">
-      <Project>{78EAF861-0C79-D289-9695-59BEEC1B7398}</Project>
-      <Name>Sirenix.OdinInspector.Modules.UnityMathematics</Name>
-    </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
       <Project>{35937EA5-CEDB-5BCB-FE50-D9CC4C83BD82}</Project>
       <Name>UnityEngine.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="Sirenix.OdinInspector.Modules.UnityMathematics.csproj">
+      <Project>{78EAF861-0C79-D289-9695-59BEEC1B7398}</Project>
+      <Name>Sirenix.OdinInspector.Modules.UnityMathematics</Name>
     </ProjectReference>
     <ProjectReference Include="Autodesk.Fbx.csproj">
       <Project>{C728D5FF-05A4-F0DD-BE1F-33CA0FA4CE04}</Project>
       <Name>Autodesk.Fbx</Name>
     </ProjectReference>
+    <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj">
+      <Project>{3134CC2C-EF89-774C-1B85-50C8F30622A2}</Project>
+      <Name>Sirenix.OdinInspector.CompatibilityLayer.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.EditorCoroutines.Editor.csproj">
       <Project>{CF98BB47-75EB-CCB1-3659-81337ED9D89A}</Project>
       <Name>Unity.EditorCoroutines.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj">
-      <Project>{3134CC2C-EF89-774C-1B85-50C8F30622A2}</Project>
-      <Name>Sirenix.OdinInspector.CompatibilityLayer.Editor</Name>
+    <ProjectReference Include="Everyday.IAP.Editor.csproj">
+      <Project>{31F14903-913D-0C50-0F12-F455435E9A0C}</Project>
+      <Name>Everyday.IAP.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.ShaderGraph.Editor.csproj">
       <Project>{75F97A8F-85D4-C7A7-5F7B-DC0AC8D9DD15}</Project>
@@ -1003,6 +1093,14 @@
       <Project>{31D253D6-2FBE-A5A0-F0A1-96CC8EF60330}</Project>
       <Name>Unity.Mathematics.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="MaxSdk.Mediation.Google.Editor.csproj">
+      <Project>{BD946072-C5D0-3E7B-4535-EF5E38269F3A}</Project>
+      <Name>MaxSdk.Mediation.Google.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="MaxSdk.Scripts.IntegrationManager.Editor.csproj">
+      <Project>{781004AD-BDA1-8B6D-9797-D54666C21BD1}</Project>
+      <Name>MaxSdk.Scripts.IntegrationManager.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="ToonyColorsPro.Editor.csproj">
       <Project>{239FCAE0-E6B7-634A-BC8E-EB4EAABCB26C}</Project>
       <Name>ToonyColorsPro.Editor</Name>
@@ -1022,10 +1120,6 @@
     <ProjectReference Include="PPv2URPConverters.csproj">
       <Project>{516D2B4D-1AC8-B2DC-C73A-88B1396037AB}</Project>
       <Name>PPv2URPConverters</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ProBuilder.AddOns.Editor.csproj">
-      <Project>{3801AEE8-9DB4-61D8-40B0-BEA2FD8984BC}</Project>
-      <Name>Unity.ProBuilder.AddOns.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualStudio.Editor.csproj">
       <Project>{BC4CCFBC-D147-9519-4FC9-6333F9DDF16D}</Project>
@@ -1051,17 +1145,21 @@
       <Project>{CF11800C-4877-0274-0F6A-E579EE11964C}</Project>
       <Name>Unity.Burst.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Everyday.Ads.Editor.csproj">
+      <Project>{7632AE85-AEAE-AA89-5814-679FE51D6E24}</Project>
+      <Name>Everyday.Ads.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.Core.Editor.csproj">
       <Project>{0431E697-AD15-7063-E6F9-B027F8845141}</Project>
       <Name>Unity.VisualScripting.Core.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="KinoBloom.Runtime.csproj">
+      <Project>{E0EE5686-F88B-54E4-5663-89423F633F2B}</Project>
+      <Name>KinoBloom.Runtime</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Core.Runtime.csproj">
       <Project>{0A788BC7-4A72-C4C9-6684-B970041AF981}</Project>
       <Name>Unity.RenderPipelines.Core.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ProBuilder.Editor.csproj">
-      <Project>{CBD92FCA-43E2-AB83-B922-B859B22D9933}</Project>
-      <Name>Unity.ProBuilder.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.Flow.csproj">
       <Project>{67FCA8F5-A7F8-1398-8885-D10B812E3E8F}</Project>
@@ -1071,9 +1169,9 @@
       <Project>{216E5836-519D-73F3-6ADF-C5546374B4F0}</Project>
       <Name>Unity.PlasticSCM.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="KinoBloom.Runtime.csproj">
-      <Project>{E0EE5686-F88B-54E4-5663-89423F633F2B}</Project>
-      <Name>KinoBloom.Runtime</Name>
+    <ProjectReference Include="Everyday.csproj">
+      <Project>{00326D66-7C07-1AF7-9B21-CA8FBE54AEE6}</Project>
+      <Name>Everyday</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.csproj">
       <Project>{5F379AAB-8AD9-8AFF-5FE1-EC09AC85D86D}</Project>
@@ -1095,13 +1193,13 @@
       <Project>{8A0B1295-169C-BA36-0CC7-E1137CF30471}</Project>
       <Name>Unity.Burst</Name>
     </ProjectReference>
+    <ProjectReference Include="MaxSdk.Scripts.Editor.csproj">
+      <Project>{2A197C12-D9DA-A639-CDEC-E23A9BDE4B70}</Project>
+      <Name>MaxSdk.Scripts.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Universal.Editor.csproj">
       <Project>{DA6BF67D-AB16-FC4C-F75C-7F270E575510}</Project>
       <Name>Unity.RenderPipelines.Universal.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ProBuilder.AssetIdRemapUtility.csproj">
-      <Project>{69FAADC4-9227-1FDF-F2E0-FFE0E2BEC75F}</Project>
-      <Name>Unity.ProBuilder.AssetIdRemapUtility</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.Shared.Editor.csproj">
       <Project>{5B9DEAE1-C7F1-EB9E-22AD-2F595C8E5BEF}</Project>
@@ -1111,6 +1209,10 @@
       <Project>{9C862D17-867F-D6C3-881C-6B129D1F835C}</Project>
       <Name>Unity.Services.Core.Environments</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.Mobile.AndroidLogcat.Editor.csproj">
+      <Project>{8497785C-3F96-1E3A-3A6F-4EEAA6FDF124}</Project>
+      <Name>Unity.Mobile.AndroidLogcat.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Timeline.Editor.csproj">
       <Project>{22E4BF61-652C-6A5A-F0D0-57AD2DAB338A}</Project>
       <Name>Unity.Timeline.Editor</Name>
@@ -1119,9 +1221,17 @@
       <Project>{9A9F69A4-7670-BF76-48E7-B84F75CDC611}</Project>
       <Name>SingularSDK</Name>
     </ProjectReference>
+    <ProjectReference Include="Everyday.Ads.csproj">
+      <Project>{E7209CEC-EF9B-7570-0646-0A90F4AF3756}</Project>
+      <Name>Everyday.Ads</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.csproj">
       <Project>{38B61E2C-85CB-27C3-2380-8BFC5F5C1595}</Project>
       <Name>Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="MaxSdk.Scripts.csproj">
+      <Project>{C6657AB8-9093-E6E8-42BB-331EA61FA5AE}</Project>
+      <Name>MaxSdk.Scripts</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.TestTools.CodeCoverage.Editor.csproj">
       <Project>{D8628724-9E16-A0B2-5233-F0B21A2B804C}</Project>

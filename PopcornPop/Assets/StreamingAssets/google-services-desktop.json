@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "440372724135",
+    "project_id": "popcorn-pop-7ea10",
+    "storage_bucket": "popcorn-pop-7ea10.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440372724135:android:2cf8cf192d64b5d03ef682",
+        "android_client_info": {
+          "package_name": "com.mondayoff.popcorn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "440372724135-de5jj6mqouvt6kdp8k67l5dbp2n0s5el.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3wYRHtTEunvGkicduN5Q4mnUftNMfZsk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "440372724135-de5jj6mqouvt6kdp8k67l5dbp2n0s5el.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "440372724135-1facmsib4pcdj21tjdgj7pk69asifj4i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mondayoff.popcorn"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -13,4 +13,13 @@ public static class Events{
 	public const string sngUpdate = "sng_update";
 	public const string sngEcommercePurchase = "sng_ecommerce_purchase";
 	public const string sngViewCart = "sng_view_cart";
+	public const string sngAchievementUnlocked = "sng_achievement_unlocked";
+	public const string sngAddPaymentInfo = "sng_add_payment_info";
+	public const string sngAddToCart = "sng_add_to_cart";
+	public const string sngAddToWishlist = "sng_add_to_wishlist";
+	public const string sngCheckoutInitiated = "sng_checkout_initiated";
+	public const string sngCompleteRegistration = "sng_complete_registration";
+	public const string sngContentView = "sng_content_view";
+	public const string sngLevelAchieved = "sng_level_achieved";
+	public const string sngSearch = "sng_search";
 }
