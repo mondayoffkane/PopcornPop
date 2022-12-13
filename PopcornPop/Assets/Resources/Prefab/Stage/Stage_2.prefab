@@ -27721,7 +27721,7 @@ GameObject:
   - component: {fileID: 6131042384732384509}
   m_Layer: 0
   m_Name: Popcorn (2)
-  m_TagString: Popcorn
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27734,7 +27734,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5867316839389701733}
   m_LocalRotation: {x: -0.42177337, y: 0.15534836, z: -0.073598735, w: 0.89025694}
-  m_LocalPosition: {x: -500.11, y: 0, z: -0.43152}
+  m_LocalPosition: {x: -500.11, y: -1000, z: -0.43152}
   m_LocalScale: {x: 1.0883996, y: 1.0884001, z: 1.0884}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -33206,7 +33206,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7139789281772938617}
   m_LocalRotation: {x: 0.107915364, y: 0.22296149, z: -0.009506808, w: 0.96878904}
-  m_LocalPosition: {x: -490, y: -0.08, z: 0.16499999}
+  m_LocalPosition: {x: -490, y: -1000.08, z: 0.16499999}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []

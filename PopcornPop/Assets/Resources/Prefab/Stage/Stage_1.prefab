@@ -27303,7 +27303,7 @@ GameObject:
   - component: {fileID: 3540882445181638023}
   m_Layer: 0
   m_Name: Gem
-  m_TagString: Popcorn
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27316,7 +27316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3540882445181638016}
   m_LocalRotation: {x: -0.009494099, y: -0.04817597, z: 0.97994596, w: -0.19311918}
-  m_LocalPosition: {x: -500.11, y: 0, z: -0.43152}
+  m_LocalPosition: {x: -500.11, y: -1000, z: -0.43152}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43189,7 +43189,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7028383179530035860}
   m_LocalRotation: {x: 0.107915364, y: 0.22296149, z: -0.009506808, w: 0.96878904}
-  m_LocalPosition: {x: -490, y: -0.08, z: 0.16499999}
+  m_LocalPosition: {x: -490, y: -1000.08, z: 0.16499999}
   m_LocalScale: {x: 0.29999998, y: 0.29999998, z: 0.29999995}
   m_ConstrainProportionsScale: 0
   m_Children: []
