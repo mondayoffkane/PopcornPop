@@ -18,7 +18,7 @@ MonoBehaviour:
     showBannerOnLoad: 1
     adInitializationOrder: 84
     delay: 2
-    interstitialInterval: 60
+    interstitialInterval: 90
     resetTimerOnRewarded: 1
     bannerPosition: 7
     iOS_IS_AdUnitID: 5851e8f19c0f82b4
