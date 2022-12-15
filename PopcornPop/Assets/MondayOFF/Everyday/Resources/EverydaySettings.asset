@@ -27,6 +27,7 @@ MonoBehaviour:
     AOS_IS_AdUnitID: ff9d68b2de786b38
     AOS_RV_AdUnitID: 26226464365dd1f9
     AOS_BN_AdUnitID: b227e91cdfb2c664
+    hasPlayOn: 1
     playOnAPIKey_Android: 
     playOnAPIKey_iOS: 
     storeID: 

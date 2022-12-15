@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: EverydayProducts
   m_EditorClassIdentifier: MondayOFF.IAP:MondayOFF:MondayOFFProducts
   products:
-  - productID: Consumable
-    productType: 0
-  - productID: Non Consumable
+  - productID: popcorn_noads
     productType: 1

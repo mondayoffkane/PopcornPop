@@ -77,6 +77,9 @@ public class GameManager : MonoBehaviour
     [FoldoutGroup("UI")] public GameObject Fever_Img_Group;
     [FoldoutGroup("UI")] public GameObject Fever_Effect;
 
+    [FoldoutGroup("UI")] public Button NoAds_Button;
+    [FoldoutGroup("UI")] public GameObject NoAds_Panel;
+
     Text[] Upgrade_Button_Text;
     Text Income_Text;
     Text[] RV_Text;
@@ -210,7 +213,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-
+        IAPManager.RegisterProduct("popcorn_noads", () => PlayNoAds());
 
         SetButton();
         for (int i = 0; i <= Current_Max_Stage_Level; i++)
@@ -229,6 +232,11 @@ public class GameManager : MonoBehaviour
 
         StartCoroutine(Cor_MPS());
         StartCoroutine(Cor_Time());
+
+        NoAds_Button.gameObject.SetActive(false);
+
+        StartCoroutine(NoAdsButton_On());
+
     }
 
     void SetStage()
@@ -885,7 +893,10 @@ public class GameManager : MonoBehaviour
 
     public void Popcorn_Upgrade()
     {
-        MondayOFF.AdsManager.ShowInterstitial();
+        if (PlayerPrefs.GetInt("NoAds", 0) == 0)
+        {
+            MondayOFF.AdsManager.ShowInterstitial();
+        }
 
         Money -= Current_Popcorn_Base_Price * MathF.Pow(Current_Popcorn_Upgrade_Scope, Current_Popcorn_Level);
 
@@ -896,7 +907,11 @@ public class GameManager : MonoBehaviour
     }
     public void Income_Upgrade()
     {
-        MondayOFF.AdsManager.ShowInterstitial();
+        if (PlayerPrefs.GetInt("NoAds", 0) == 0)
+        {
+            MondayOFF.AdsManager.ShowInterstitial();
+        }
+
         Money -= Current_Income_Upgrade_Base_Price * MathF.Pow(Current_Income_Upgrade_Scope, Current_Income_Level);
         Current_Income_Level++;
         Current_StageManager.Income_Level = Current_Income_Level;
@@ -907,7 +922,11 @@ public class GameManager : MonoBehaviour
     }
     public void Obj_Upgrade()
     {
-        MondayOFF.AdsManager.ShowInterstitial();
+        if (PlayerPrefs.GetInt("NoAds", 0) == 0)
+        {
+            MondayOFF.AdsManager.ShowInterstitial();
+        }
+
         Money -= Current_Object_Base_Price * MathF.Pow(Current_Object_Upgrade_Scope, Current_Object_Level);
         Current_Object_Level++;
         Current_StageManager.Object_Level = Current_Object_Level;
@@ -1027,6 +1046,14 @@ public class GameManager : MonoBehaviour
             Order_Text[2].gameObject.SetActive(true);
             Check_Img.SetActive(false);
         });
+
+        // 12.14 InApp purchase Update
+        NoAds_Button.onClick.AddListener(() => NoAdsPanel_OnOff());
+        NoAds_Panel.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => NoAdsPanel_OnOff());
+        NoAds_Panel.transform.GetChild(4).GetComponent<Button>().onClick.AddListener(() => IAP_NoAdsPurchase());
+
+
+        Setting_Panel.transform.GetChild(5).GetComponent<Button>().onClick.AddListener(() => IAPManager.RestorePurchase());
 
 
     }
@@ -1356,4 +1383,50 @@ public class GameManager : MonoBehaviour
 
         _PlayTime = 0f;
     }
+
+
+
+
+
+
+    public void PlayNoAds()
+    {
+        AdsManager.noads = true;
+        PlayerPrefs.SetInt("NoAds", 1);
+
+        AdsManager.HideBanner();
+        AdsManager.HidePlayOn();
+
+
+        NoAds_Button.gameObject.SetActive(false);
+        NoAds_Panel.SetActive(false);
+        Debug.Log("Hide Ads");
+    }
+
+
+    public void IAP_NoAdsPurchase()
+    {
+        IAPManager.PurchaseProduct("popcorn_noads");
+    }
+
+
+    void NoAdsPanel_OnOff()
+    {
+        NoAds_Panel.SetActive(!NoAds_Panel.activeSelf);
+    }
+
+    IEnumerator NoAdsButton_On()
+    {
+        yield return new WaitForSeconds(5f);
+        if (PlayerPrefs.GetInt("NoAds", 0) == 1)
+        {
+            NoAds_Button.gameObject.SetActive(false);
+        }
+        else
+        {
+            NoAds_Button.gameObject.SetActive(true);
+        }
+    }
+
+
 }

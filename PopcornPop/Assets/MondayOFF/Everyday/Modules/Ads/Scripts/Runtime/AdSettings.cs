@@ -40,7 +40,7 @@ namespace MondayOFF {
 
         [Space(20)]
         [Header("====== PlayOn ======")]
-        // [SerializeField][LabelOverride("PlayOn")] internal bool hasPlayOn = false;
+         [SerializeField][LabelOverride("PlayOn")] internal bool hasPlayOn = false;
         [SerializeField][LabelOverride("Android Api Key")] private string playOnAPIKey_Android = "";
         [Space(15)]
         [SerializeField][LabelOverride("iOS Api Key")] private string playOnAPIKey_iOS = "";
