@@ -1,23 +1,17 @@
 ﻿<Properties StartupConfiguration="{C031E835-6EEA-F012-B4FC-D2BC791B3F1D}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/1.Scripts/GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/1.Scripts/Spawner.cs">
     <Files>
-      <File FileName="Assets/MondayOFF/Everyday/Modules/IAP/Scripts/Runtime/EverydayProducts.cs" Line="19" Column="1" />
-      <File FileName="Assets/MondayOFF/Everyday/Modules/IAP/Scripts/Editor/EverydayIAPMenuItem.cs" Line="14" Column="14" />
-      <File FileName="Assets/MondayOFF/Everyday/Modules/Ads/Scripts/Runtime/Manager/AdsManager.cs" Line="4" Column="20" />
-      <File FileName="Assets/MondayOFF/Everyday/Modules/Ads/Scripts/Runtime/AdSettings.cs" Line="5" Column="20" />
-      <File FileName="Assets/MondayOFF/Everyday/Modules/Ads/Scripts/Runtime/Manager/AdsManagerImpl.cs" Line="10" Column="29" />
+      <File FileName="Assets/MondayOFF/Everyday/Modules/Ads/Scripts/Runtime/Manager/AdsManager.cs" Line="39" Column="83" />
+      <File FileName="Assets/MondayOFF/Everyday/Modules/Ads/Scripts/Runtime/AdSettings.cs" Line="10" Column="52" />
+      <File FileName="Assets/MondayOFF/Everyday/Modules/Ads/Scripts/Runtime/Manager/AdsManagerImpl.cs" Line="1" Column="1" />
       <File FileName="Assets/MondayOFF/Everyday/Modules/IAP/Scripts/Runtime/IAPManager.cs" Line="64" Column="33" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/GameManager.cs" Line="1057" Column="1" NotebookId="1" />
-      <File FileName="Assets/MondayOFF/Everyday/Modules/IAP/Scripts/Runtime/StoreListener.cs" Line="143" Column="10" NotebookId="1" />
-      <File FileName="Library/PackageCache/com.unity.services.analytics@4.0.1/Runtime/Runtime/Ua2CoreInitializeCallback.cs" Line="47" Column="1" NotebookId="1" />
-      <File FileName="Library/PackageCache/com.unity.services.core@1.4.0/Runtime/Core.Internal/Registry/CoreRegistryInitializer.cs" Line="62" Column="1" NotebookId="1" />
-      <File FileName="Library/PackageCache/com.unity.purchasing@4.5.2/Runtime/Purchasing/UnityPurchasing.cs" Line="18" Column="28" NotebookId="1" />
-      <File FileName="Assets/MondayOFF/Everyday/Modules/Ads/Scripts/Runtime/AdTypes/Banner.cs" Line="27" Column="1" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/GameManager.cs" Line="963" Column="14" NotebookId="1" />
+      <File FileName="Assets/1.Scripts/Spawner.cs" Line="1" Column="1" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e104d2d5-6b2c-4212-b5ec-5575f2869a28" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="93b10972-2aee-4912-bdd6-d1a763bbbfb7" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/chaeyong-un/Desktop/Game_Project/6.PopcornPop/PopcornPop/Assets/1.Scripts/DataManager.cs" relfile="Assets/1.Scripts/DataManager.cs" line="11" column="1" />

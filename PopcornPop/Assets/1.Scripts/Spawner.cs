@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour
     }
     public Obj_Type _obj;
 
-    [SerializeField] Material Base_Mat;
+    [SerializeField] Material[] Base_Mat;
     [SerializeField] Mesh Base_Mesh;
 
     public float Auto_Spawn_Interval = 1f;
@@ -39,6 +39,7 @@ public class Spawner : MonoBehaviour
     // //////////////////////////////
     [Space(10)]
     [Title("Serialize")]
+    [SerializeField] public bool isGold = false;
     [SerializeField] float Auto_Current_Time;
     [SerializeField] Vector3 Default_Dir = new Vector3(-70f, 36f, 0f);
     [SerializeField] Transform Spawn_Pos;
@@ -142,7 +143,7 @@ public class Spawner : MonoBehaviour
 
             if (Current_Tap_Time >= 5f)
             {
-                if (_gamemanager.TapToSpawn_Img.activeSelf == false)
+                if (_gamemanager.TapToSpawn_Img.activeSelf == false && isFever == false && isSuperFever == false)
                 {
                     _gamemanager.TapToSpawn_Img.SetActive(true);
                 }
@@ -315,10 +316,10 @@ public class Spawner : MonoBehaviour
             }
             else
             {
-                _gamemanager._maincam.backgroundColor = _gamemanager.Fever_Color;
                 _stagemanager.Off_Object[3].SetActive(true);
-                _gamemanager.Fever_Img_Group.SetActive(true);
-                _gamemanager.Fever_Effect.SetActive(true);
+                //_gamemanager._maincam.backgroundColor = _gamemanager.Fever_Color;
+                //_gamemanager.Fever_Img_Group.SetActive(true);
+                //_gamemanager.Fever_Effect.SetActive(true);
             }
 
         }
@@ -343,15 +344,18 @@ public class Spawner : MonoBehaviour
                 _popcorn.transform.rotation = Quaternion.Euler(new Vector3(Random.Range(0, 360f), Random.Range(0, 360f), Random.Range(0, 360f)));
                 _popcorn.gameObject.SetActive(true);
 
-
-                if (!_popcorn.GetComponent<Renderer>().material.Equals(Base_Mat))
+                if (isGold == false)
                 {
-                    _popcorn.GetComponent<Renderer>().material = Base_Mat;
+                    if (!_popcorn.GetComponent<Renderer>().material.Equals(Base_Mat[0]))
+                    {
+                        _popcorn.GetComponent<Renderer>().material = Base_Mat[0];
+                    }
                 }
                 else
                 {
-
+                    _popcorn.GetComponent<Renderer>().material = Base_Mat[1];
                 }
+
                 if (!_popcorn.GetComponent<MeshFilter>().sharedMesh.Equals(Base_Mesh))
                 {
                     _popcorn.GetComponent<MeshFilter>().sharedMesh = Base_Mesh;

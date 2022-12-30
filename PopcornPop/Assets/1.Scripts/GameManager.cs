@@ -69,6 +69,7 @@ public class GameManager : MonoBehaviour
 
     [FoldoutGroup("UI")] public Button Setting_Button;
     [FoldoutGroup("UI")] public GameObject Setting_Panel;
+    [FoldoutGroup("UI")] public Sprite[] Upgrade_Img;
     [FoldoutGroup("UI")] public Sprite[] Income_Img;
     [FoldoutGroup("UI")] public GameObject MPS_Panel;
     [FoldoutGroup("UI")] public GameObject TapToSpawn_Img;
@@ -153,6 +154,8 @@ public class GameManager : MonoBehaviour
     GameObject Check_Img;
     Text[] Order_Text;
 
+    // /////////////////////
+    [FoldoutGroup("ETC")] public bool isRV_Hide = true;
 
     /// //////////////////////////////////////
 
@@ -193,7 +196,7 @@ public class GameManager : MonoBehaviour
 
         _maincam = Camera.main;
         Upgrade_Button_Text = new Text[3];
-        RV_Text = new Text[3];
+        RV_Text = new Text[4];
         MPS_Text = new Text[3];
         MPS_value = new double[3];
         MPS_Temp = new double[3];
@@ -369,74 +372,81 @@ public class GameManager : MonoBehaviour
     {
         WaitForSeconds _deltatime = new WaitForSeconds(Time.deltaTime);
 
-        while (true)
+        if (isRV_Hide == true)
         {
-            yield return null; // _deltatime;
-            _PlayTime += Time.deltaTime;
 
-            if (isRV_Visible == false)
+            while (true)
             {
-                RV_Current_Interval += Time.deltaTime;
-                if (RV_Current_Interval >= RV_On_Interval)
+                yield return null; // _deltatime;
+                //_PlayTime += Time.deltaTime;
+
+                if (isRV_Visible == false)
                 {
-                    RV_Current_Interval = 0;
-                    RV_Button_OnOff();
-                }
-            }
-            else if (isRV_Visible == true && isRV_On == false)
-            {
-                RV_Current_Wait_Interval += Time.deltaTime;
-                RV_Button_Group[RV_Current_num].transform.GetChild(1).GetComponent<Image>().fillAmount
-                    = (RV_Off_Interval - RV_Current_Wait_Interval) / RV_Off_Interval;
-
-                RV_Button_Group[RV_Current_num].transform.GetChild(1).GetComponent<Image>().color
-                    = RV_Button_Group[RV_Current_num].transform.GetChild(1).GetComponent<Image>().fillAmount > 0.4
-                    ? RV_Button_Group[RV_Current_num].transform.GetChild(1).GetComponent<Image>().color = RV_Line_Color[0]
-                : RV_Button_Group[RV_Current_num].transform.GetChild(1).GetComponent<Image>().color = RV_Line_Color[1];
-
-
-                if (RV_Current_Wait_Interval >= RV_Off_Interval)
-                {
-                    RV_Current_Wait_Interval = 0;
-                    RV_Button_OnOff();
-                }
-            }
-
-            // update 12.09
-            if (isOrder == false)
-            {
-                Order_Current_time += Time.deltaTime;
-                if (Order_Current_time >= Order_Max_Time)
-                {
-                    Order_Current_time = 0f;
-                    isOrder = true;
-                    Order_Func();
-                }
-            }
-            else
-            {
-                if (Order_Current_Count >= Order_Max_Count)
-                {
-
-                    if (Check_Img.activeSelf == false)
+                    RV_Current_Interval += Time.deltaTime;
+                    if (RV_Current_Interval >= RV_On_Interval)
                     {
-                        Check_Line_Img.DOFillAmount(1, 0.5f).SetEase(Ease.Linear)
-                            .OnComplete(() =>
-                            {
-                                Order_Text[1].gameObject.SetActive(false);
-                                Order_Text[2].gameObject.SetActive(false);
-                                Recive_Button.gameObject.SetActive(true);
-                            }
-                            );
+                        RV_Current_Interval = 0;
+                        RV_Button_OnOff();
                     }
-                    Check_Img.SetActive(true);
+                }
+                else if (isRV_Visible == true && isRV_On == false)
+                {
+                    RV_Current_Wait_Interval += Time.deltaTime;
+                    RV_Button_Group[RV_Current_num].transform.GetChild(1).GetComponent<Image>().fillAmount
+                        = (RV_Off_Interval - RV_Current_Wait_Interval) / RV_Off_Interval;
+
+                    RV_Button_Group[RV_Current_num].transform.GetChild(1).GetComponent<Image>().color
+                        = RV_Button_Group[RV_Current_num].transform.GetChild(1).GetComponent<Image>().fillAmount > 0.4
+                        ? RV_Button_Group[RV_Current_num].transform.GetChild(1).GetComponent<Image>().color = RV_Line_Color[0]
+                    : RV_Button_Group[RV_Current_num].transform.GetChild(1).GetComponent<Image>().color = RV_Line_Color[1];
+
+
+                    if (RV_Current_Wait_Interval >= RV_Off_Interval)
+                    {
+                        RV_Current_Wait_Interval = 0;
+                        RV_Button_OnOff();
+                    }
+                }
+
+                // update 12.09
+                if (isOrder == false)
+                {
+                    Order_Current_time += Time.deltaTime;
+                    if (Order_Current_time >= Order_Max_Time)
+                    {
+                        Order_Current_time = 0f;
+                        isOrder = true;
+                        Order_Func();
+                    }
+                }
+                else
+                {
+                    if (Order_Current_Count >= Order_Max_Count)
+                    {
+
+                        if (Check_Img.activeSelf == false)
+                        {
+                            Check_Line_Img.DOFillAmount(1, 0.5f).SetEase(Ease.Linear)
+                                .OnComplete(() =>
+                                {
+                                    Order_Text[1].gameObject.SetActive(false);
+                                    Order_Text[2].gameObject.SetActive(false);
+                                    Recive_Button.gameObject.SetActive(true);
+                                }
+                                );
+                        }
+                        Check_Img.SetActive(true);
+                    }
                 }
             }
-
-
-
-
-
+        }
+        else
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                DOTween.Sequence(RV_Button_Group[i].GetComponent<RectTransform>().DOLocalMoveX(RV_x - 245f, 0.5f).SetEase(Ease.Linear));
+                RV_Button_Group[i].transform.GetChild(1).GetComponent<Image>().fillAmount = 0f;
+            }
         }
 
     }
@@ -450,6 +460,7 @@ public class GameManager : MonoBehaviour
         while (true)
         {
             yield return null; // _deltatime;
+            _PlayTime += Time.deltaTime;
 
             for (int i = 0; i < 3; i++)
             {
@@ -463,7 +474,8 @@ public class GameManager : MonoBehaviour
 
             RV_Text[0].text = RV_Spawn_Double_bool ? string.Format("00:{0:N0}", RV_Spawn_Double_time) : "Spawn X2";
             RV_Text[1].text = RV_Income_Double_bool ? string.Format("00:{0:N0}", RV_Income_Double_time) : "Income X2";
-            RV_Text[2].text = RV_Super_Fever_bool ? string.Format("00:{0:N0}", RV_Super_Fever_time) : "Super Fever";
+            RV_Text[2].text = RV_Super_Fever_bool ? string.Format("00:{0:N0}", RV_Super_Fever_time) : "Auto Click";
+            RV_Text[3].text = RV_GoldPop_bool ? string.Format("00:{0:N0}", RV_GoldPop_time) : "Gold Pop";
 
             MPS_Text[0].text = string.Format("{0}/s", ToCurrencyString(MPS_value[0]));
             MPS_Text[1].text = string.Format("{0}/s", ToCurrencyString(MPS_value[1]));
@@ -474,7 +486,6 @@ public class GameManager : MonoBehaviour
             Check_Button();
 
             InputKeyFunc();
-
         }
     }
 
@@ -778,17 +789,23 @@ public class GameManager : MonoBehaviour
         {
             if (Money >= Current_Popcorn_Base_Price * MathF.Pow(Current_Popcorn_Upgrade_Scope, Current_Popcorn_Level))  //  Current_Popcorn_Upgrade_Price[Current_Popcorn_Level])
             {
-                Upgrade_Button[0].interactable = true;
+                //Upgrade_Button[0].interactable = true;
+                Upgrade_Button[0].GetComponent<Image>().sprite = Upgrade_Img[0];
+                Upgrade_Button[0].transform.GetChild(2).gameObject.SetActive(false);
             }
             else
             {
-                Upgrade_Button[0].interactable = false;
+                //Upgrade_Button[0].interactable = false;
+                Upgrade_Button[0].GetComponent<Image>().sprite = Upgrade_Img[1];
+                Upgrade_Button[0].transform.GetChild(2).gameObject.SetActive(true);
             }
 
         }
         else
         {
-            Upgrade_Button[0].interactable = false;
+            //Upgrade_Button[0].interactable = false;
+            Upgrade_Button[0].GetComponent<Image>().sprite = Upgrade_Img[1];
+            Upgrade_Button[0].transform.GetChild(2).gameObject.SetActive(false);
         }
 
 
@@ -797,39 +814,49 @@ public class GameManager : MonoBehaviour
 
             if (Money > Current_Income_Upgrade_Base_Price * MathF.Pow(Current_Income_Upgrade_Scope, Current_Income_Level))
             {
-
-                Upgrade_Button[1].interactable = true;
+                //Upgrade_Button[1].interactable = true;
+                Upgrade_Button[1].GetComponent<Image>().sprite = Upgrade_Img[0];
                 Upgrade_Button[1].transform.GetChild(1).GetComponent<Image>().sprite = Income_Img[0];
+                Upgrade_Button[1].transform.GetChild(3).gameObject.SetActive(false);
 
 
             }
             else
             {
-                Upgrade_Button[1].interactable = false;
+                //Upgrade_Button[1].interactable = false;
+                Upgrade_Button[1].GetComponent<Image>().sprite = Upgrade_Img[1];
                 Upgrade_Button[1].transform.GetChild(1).GetComponent<Image>().sprite = Income_Img[1];
+                Upgrade_Button[1].transform.GetChild(3).gameObject.SetActive(true);
             }
         }
         else
         {
-            Upgrade_Button[1].interactable = false;
+            //Upgrade_Button[1].interactable = false;
+            Upgrade_Button[1].GetComponent<Image>().sprite = Upgrade_Img[1];
             Upgrade_Button[1].transform.GetChild(1).GetComponent<Image>().sprite = Income_Img[1];
+            Upgrade_Button[1].transform.GetChild(3).gameObject.SetActive(false);
         }
 
         if (Current_Object_Level < Current_Obj_Max_Level)
         {
             if (Money > Current_Object_Base_Price * MathF.Pow(Current_Object_Upgrade_Scope, Current_Object_Level))
             {
-                Upgrade_Button[2].interactable = true;
+                //Upgrade_Button[2].interactable = true;
+                Upgrade_Button[2].GetComponent<Image>().sprite = Upgrade_Img[0];
+                //Upgrade_Button[2].transform.GetChild(2).gameObject.SetActive(false);
             }
             else
             {
-                Upgrade_Button[2].interactable = false;
+                //Upgrade_Button[2].interactable = false;
+                Upgrade_Button[2].GetComponent<Image>().sprite = Upgrade_Img[1];
+                //Upgrade_Button[2].transform.GetChild(2).gameObject.SetActive(true);
             }
         }
         else
         {
-            Upgrade_Button[2].interactable = false;
-
+            //Upgrade_Button[2].interactable = false;
+            Upgrade_Button[2].GetComponent<Image>().sprite = Upgrade_Img[1];
+            //Upgrade_Button[2].transform.GetChild(2).gameObject.SetActive(true);
         }
 
 
@@ -897,13 +924,32 @@ public class GameManager : MonoBehaviour
         {
             MondayOFF.AdsManager.ShowInterstitial();
         }
+        if (Current_Popcorn_Level < Current_Popcorn_Max_Level)
+        {
+            if (Money >= Current_Popcorn_Base_Price * MathF.Pow(Current_Popcorn_Upgrade_Scope, Current_Popcorn_Level))  //  Current_Popcorn_Upgrade_Price[Current_Popcorn_Level])
+            {
+                Money -= Current_Popcorn_Base_Price * MathF.Pow(Current_Popcorn_Upgrade_Scope, Current_Popcorn_Level);
 
-        Money -= Current_Popcorn_Base_Price * MathF.Pow(Current_Popcorn_Upgrade_Scope, Current_Popcorn_Level);
+                Current_Popcorn_Level++;
+                Current_StageManager.Popcorn_Level = Current_Popcorn_Level;
+                DataManager.instance.Save_Data();
+                Check_Level_Price();
+            }
+            else
+            {
+                AdsManager.ShowRewarded(() =>
+                {
+                    Current_Popcorn_Level++;
+                    Current_StageManager.Popcorn_Level = Current_Popcorn_Level;
+                    DataManager.instance.Save_Data();
+                    Check_Level_Price();
+                    EventTracker.LogCustomEvent("RV", new Dictionary<string, string> { { "RV_Upg_AddPopcorn", "1" } });
+                });
+            }
 
-        Current_Popcorn_Level++;
-        Current_StageManager.Popcorn_Level = Current_Popcorn_Level;
-        DataManager.instance.Save_Data();
-        Check_Level_Price();
+
+        }
+
     }
     public void Income_Upgrade()
     {
@@ -911,14 +957,34 @@ public class GameManager : MonoBehaviour
         {
             MondayOFF.AdsManager.ShowInterstitial();
         }
+        if (Current_Income_Level < Current_Income_Max_Level)
+        {
+            if (Money > Current_Income_Upgrade_Base_Price * MathF.Pow(Current_Income_Upgrade_Scope, Current_Income_Level))
+            {
+                Money -= Current_Income_Upgrade_Base_Price * MathF.Pow(Current_Income_Upgrade_Scope, Current_Income_Level);
+                Current_Income_Level++;
+                Current_StageManager.Income_Level = Current_Income_Level;
+                Current_Up_Income = Current_Income_Level * Current_Up_Income_Base_Price + Current_Up_Income_Base_Price * Mathf.Pow(Current_Up_Income_Scope, Current_Income_Level);
+                DataManager.instance.Save_Data();
+                Check_Level_Price();
+                Stage_Income[Current_Stage_Level] = Current_Up_Income;
 
-        Money -= Current_Income_Upgrade_Base_Price * MathF.Pow(Current_Income_Upgrade_Scope, Current_Income_Level);
-        Current_Income_Level++;
-        Current_StageManager.Income_Level = Current_Income_Level;
-        Current_Up_Income = Current_Income_Level * Current_Up_Income_Base_Price + Current_Up_Income_Base_Price * Mathf.Pow(Current_Up_Income_Scope, Current_Income_Level);
-        DataManager.instance.Save_Data();
-        Check_Level_Price();
-        Stage_Income[Current_Stage_Level] = Current_Up_Income;
+            }
+            else
+            {
+                AdsManager.ShowRewarded(() =>
+                {
+                    Current_Income_Level++;
+                    Current_StageManager.Income_Level = Current_Income_Level;
+                    Current_Up_Income = Current_Income_Level * Current_Up_Income_Base_Price + Current_Up_Income_Base_Price * Mathf.Pow(Current_Up_Income_Scope, Current_Income_Level);
+                    DataManager.instance.Save_Data();
+                    Check_Level_Price();
+                    Stage_Income[Current_Stage_Level] = Current_Up_Income;
+                    EventTracker.LogCustomEvent("RV", new Dictionary<string, string> { { "RV_Upg_Income", "2" } });
+                });
+            }
+        }
+
     }
     public void Obj_Upgrade()
     {
@@ -927,17 +993,26 @@ public class GameManager : MonoBehaviour
             MondayOFF.AdsManager.ShowInterstitial();
         }
 
-        Money -= Current_Object_Base_Price * MathF.Pow(Current_Object_Upgrade_Scope, Current_Object_Level);
-        Current_Object_Level++;
-        Current_StageManager.Object_Level = Current_Object_Level;
-        DataManager.instance.Save_Data();
-        if (Current_Object_Level == Current_Off_Num)
+        if (Current_Object_Level < Current_Obj_Max_Level)
         {
-            Current_Off_Object[0].SetActive(false);
+            if (Money > Current_Object_Base_Price * MathF.Pow(Current_Object_Upgrade_Scope, Current_Object_Level))
+            {
+                Money -= Current_Object_Base_Price * MathF.Pow(Current_Object_Upgrade_Scope, Current_Object_Level);
+                Current_Object_Level++;
+                Current_StageManager.Object_Level = Current_Object_Level;
+                DataManager.instance.Save_Data();
+                if (Current_Object_Level == Current_Off_Num)
+                {
+                    Current_Off_Object[0].SetActive(false);
+                }
+                Current_Add_Object[Current_Object_Level - 1].SetActive(true);
+                Current_Add_Object[Current_Object_Level - 1].transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+                Check_Level_Price();
+
+            }
+
         }
-        Current_Add_Object[Current_Object_Level - 1].SetActive(true);
-        Current_Add_Object[Current_Object_Level - 1].transform.GetChild(0).GetComponent<ParticleSystem>().Play();
-        Check_Level_Price();
+
     }
 
     void Auto_Tap()
@@ -972,9 +1047,11 @@ public class GameManager : MonoBehaviour
         Upgrade_Button[1].onClick.AddListener(() => Income_Upgrade());
         Upgrade_Button[2].onClick.AddListener(() => Obj_Upgrade());
 
+
         RV_Button_Group[0].onClick.AddListener(() => AdsManager.ShowRewarded(() => RV_Spawn_Dobule()));
         RV_Button_Group[1].onClick.AddListener(() => AdsManager.ShowRewarded(() => RV_Income_Double()));
         RV_Button_Group[2].onClick.AddListener(() => AdsManager.ShowRewarded(() => RV_Super_Fever()));
+        RV_Button_Group[3].onClick.AddListener(() => AdsManager.ShowRewarded(() => RV_GoldPop()));
 
 
         Upgrade_Button_Text[0] = Upgrade_Button[0].transform.GetChild(0).GetComponent<Text>();
@@ -986,6 +1063,7 @@ public class GameManager : MonoBehaviour
         RV_Text[0] = RV_Button_Group[0].transform.GetChild(0).GetComponent<Text>();
         RV_Text[1] = RV_Button_Group[1].transform.GetChild(0).GetComponent<Text>();
         RV_Text[2] = RV_Button_Group[2].transform.GetChild(0).GetComponent<Text>();
+        RV_Text[3] = RV_Button_Group[3].transform.GetChild(0).GetComponent<Text>();
 
         NextLevel_Button.onClick.AddListener(() => NextLevel());
         NextLevel_Price_text = NextLevel_Button.transform.GetChild(0).GetComponent<Text>();
@@ -1071,10 +1149,11 @@ public class GameManager : MonoBehaviour
             RV_Button_Group[0].interactable = false;
             DOTween.To(() => 30f, x => RV_Spawn_Double_time = x, 0, 30f).SetEase(Ease.Linear);
 
-            Dictionary<string, string> _dic = new Dictionary<string, string>();
-            _dic.Add(string.Format("RV_Spawn")
-                , string.Format("1"));
-            EventTracker.LogCustomEvent("RV_", _dic);
+            //Dictionary<string, string> _dic = new Dictionary<string, string>();
+            //_dic.Add(string.Format("RV_Spawn")
+            //    , string.Format("1"));
+            //EventTracker.LogCustomEvent("RV_", _dic);
+            EventTracker.LogCustomEvent("RV", new Dictionary<string, string> { { "RV_Spawn", "1" } });
 
         }).AppendInterval(30f)
         .OnComplete(() =>
@@ -1084,7 +1163,7 @@ public class GameManager : MonoBehaviour
             //RV_Button_Group[0].gameObject.SetActive(true);
             RV_Button_Group[0].interactable = true;
             RV_Button_Group[0].transform.GetChild(1).gameObject.SetActive(true);
-            RV_Button_OnOff();
+            //RV_Button_OnOff();
         });
     }
 
@@ -1118,10 +1197,11 @@ public class GameManager : MonoBehaviour
             RV_Button_Group[1].interactable = false;
             DOTween.To(() => 30f, x => RV_Income_Double_time = x, 0, 30f).SetEase(Ease.Linear);
 
-            Dictionary<string, string> _dic = new Dictionary<string, string>();
-            _dic.Add(string.Format("RV_Income")
-                , string.Format("3"));
-            EventTracker.LogCustomEvent("RV_", _dic);
+            //Dictionary<string, string> _dic = new Dictionary<string, string>();
+            //_dic.Add(string.Format("RV_Income")
+            //    , string.Format("3"));
+            //EventTracker.LogCustomEvent("RV_", _dic);
+            EventTracker.LogCustomEvent("RV", new Dictionary<string, string> { { "RV_Income", "3" } });
 
 
         }).AppendInterval(30f)
@@ -1131,7 +1211,7 @@ public class GameManager : MonoBehaviour
             RV_Income_Double_bool = false;
             RV_Button_Group[1].interactable = true;
             RV_Button_Group[1].transform.GetChild(1).gameObject.SetActive(true);
-            RV_Button_OnOff();
+            //RV_Button_OnOff();
         });
     }
 
@@ -1151,10 +1231,11 @@ public class GameManager : MonoBehaviour
             Door_OnOff(true);
             DOTween.To(() => 30f, x => RV_Super_Fever_time = x, 0, 30f).SetEase(Ease.Linear);
 
-            Dictionary<string, string> _dic = new Dictionary<string, string>();
-            _dic.Add(string.Format("RV_SuperFever")
-                , string.Format("2"));
-            EventTracker.LogCustomEvent("RV_", _dic);
+            //Dictionary<string, string> _dic = new Dictionary<string, string>();
+            //_dic.Add(string.Format("RV_SuperFever")
+            //    , string.Format("2"));
+            //EventTracker.LogCustomEvent("RV_", _dic);
+            EventTracker.LogCustomEvent("RV", new Dictionary<string, string> { { "RV_SuperFever", "2" } });
 
         }).AppendInterval(30f)
         .OnComplete(() =>
@@ -1168,9 +1249,38 @@ public class GameManager : MonoBehaviour
 
             RV_Button_Group[2].interactable = true;
             RV_Button_Group[2].transform.GetChild(1).gameObject.SetActive(true);
-            RV_Button_OnOff();
+            //RV_Button_OnOff();
         });
     }
+
+    bool RV_GoldPop_bool;
+    float RV_GoldPop_time;
+    void RV_GoldPop()
+    {
+        RV_GoldPop_bool = true;
+        Current_StageManager._spawner.isGold = true;
+        RV_Button_Group[3].transform.GetChild(1).gameObject.SetActive(false);
+        DOTween.Sequence().AppendCallback(() =>
+        {
+            isRV_On = true;
+            RV_Button_Group[3].interactable = false;
+
+            DOTween.To(() => 30f, x => RV_GoldPop_time = x, 0, 30f).SetEase(Ease.Linear);
+            EventTracker.LogCustomEvent("RV", new Dictionary<string, string> { { "RV_GoldPop", "4" } });
+
+        }).AppendInterval(30f)
+        .OnComplete(() =>
+        {
+            isRV_On = false;
+            RV_GoldPop_bool = false;
+            Current_StageManager._spawner.isGold = false;
+            RV_Button_Group[3].interactable = true;
+            RV_Button_Group[3].transform.GetChild(1).gameObject.SetActive(true);
+            //RV_Button_OnOff();
+        });
+    }
+
+
 
     void NextLevel()
     {
@@ -1181,10 +1291,11 @@ public class GameManager : MonoBehaviour
             EventTracker.ClearStage(Current_Stage_Level + 1);
 
 
-            Dictionary<string, string> _dic = new Dictionary<string, string>();
-            _dic.Add(string.Format("Stage_{0}", Current_Stage_Level + 1)
-                , string.Format("PlayTime:{0:0}s", _PlayTime));
-            EventTracker.LogCustomEvent("Stage_Level,PlayTime", _dic);
+            //Dictionary<string, string> _dic = new Dictionary<string, string>();
+            //_dic.Add(string.Format("Stage_{0}", Current_Stage_Level + 1)
+            //    , string.Format("PlayTime:{0:0}s", _PlayTime));
+            //EventTracker.LogCustomEvent("Stage_Level,PlayTime", _dic);
+            EventTracker.LogCustomEvent("Stage_PlayTime", new Dictionary<string, string> { { (Current_Stage_Level + 1).ToString() + "_Stage", ((int)_PlayTime).ToString() + "s" } });
 
             _PlayTime = 0f;
 
@@ -1376,10 +1487,11 @@ public class GameManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        Dictionary<string, string> _dic = new Dictionary<string, string>();
-        _dic.Add(string.Format("Stage_{0}", Current_Stage_Level + 1)
-            , string.Format("PlayTime:{0:0}s", _PlayTime));
-        EventTracker.LogCustomEvent("Stage_Level,PlayTime", _dic);
+        //Dictionary<string, string> _dic = new Dictionary<string, string>();
+        //_dic.Add(string.Format("Stage_{0}", Current_Stage_Level + 1)
+        //    , string.Format("PlayTime:{0:0}s", _PlayTime));
+        //EventTracker.LogCustomEvent("Stage_Level,PlayTime", _dic);
+        EventTracker.LogCustomEvent("Stage_PlayTime", new Dictionary<string, string> { { (Current_Stage_Level + 1).ToString() + "_Stage", ((int)_PlayTime).ToString() + "s" } });
 
         _PlayTime = 0f;
     }
