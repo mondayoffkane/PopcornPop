@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "LMV500Nb1570277",
+    "m_SelectedDeviceId": "R3CRC0RCGNX",
     "m_SelectedPackage": {
-        "deviceId": "LMV500Nb1570277",
+        "deviceId": "R3CRC0RCGNX",
         "name": "com.mondayoff.popcorn",
-        "processId": 18641,
+        "processId": 26214,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -18,6 +18,30 @@
             "deviceId": "LMV500Nb1570277",
             "name": "com.mondayoff.popcorn",
             "processId": 18641,
+            "exited": false
+        },
+        {
+            "deviceId": "R3CRC0RCGNX",
+            "name": "com.sec.android.app.launcher",
+            "processId": 3456,
+            "exited": false
+        },
+        {
+            "deviceId": "R3CRC0RCGNX",
+            "name": "com.mondayoff.popcorn",
+            "processId": 24773,
+            "exited": true
+        },
+        {
+            "deviceId": "R3CRC0RCGNX",
+            "name": "com.mondayoff.popcorn",
+            "processId": 25494,
+            "exited": true
+        },
+        {
+            "deviceId": "R3CRC0RCGNX",
+            "name": "com.mondayoff.popcorn",
+            "processId": 26214,
             "exited": false
         }
     ],
@@ -72,7 +96,7 @@
         "Behavior": 0
     },
     "m_FilterOptions": {
-        "m_Filter": "",
+        "m_Filter": "every",
         "m_UseRegularExpressions": false,
         "m_MatchCase": false
     },

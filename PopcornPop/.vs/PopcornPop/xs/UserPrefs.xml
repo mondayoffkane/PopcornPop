@@ -1,21 +1,12 @@
 ﻿<Properties StartupConfiguration="{C031E835-6EEA-F012-B4FC-D2BC791B3F1D}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/1.Scripts/Spawner.cs">
-    <Files>
-      <File FileName="Assets/MondayOFF/Everyday/Modules/Ads/Scripts/Runtime/Manager/AdsManager.cs" Line="39" Column="83" />
-      <File FileName="Assets/MondayOFF/Everyday/Modules/Ads/Scripts/Runtime/AdSettings.cs" Line="10" Column="52" />
-      <File FileName="Assets/MondayOFF/Everyday/Modules/Ads/Scripts/Runtime/Manager/AdsManagerImpl.cs" Line="1" Column="1" />
-      <File FileName="Assets/MondayOFF/Everyday/Modules/IAP/Scripts/Runtime/IAPManager.cs" Line="64" Column="33" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/GameManager.cs" Line="963" Column="14" NotebookId="1" />
-      <File FileName="Assets/1.Scripts/Spawner.cs" Line="1" Column="1" NotebookId="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="93b10972-2aee-4912-bdd6-d1a763bbbfb7" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/chaeyong-un/Desktop/Game_Project/6.PopcornPop/PopcornPop/Assets/1.Scripts/DataManager.cs" relfile="Assets/1.Scripts/DataManager.cs" line="11" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/1.Scripts/CustomReviewManager.cs" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="df01518f-a848-49e7-b0d5-fd8ff299c6bd" />
   <MultiItemStartupConfigurations />
 </Properties>

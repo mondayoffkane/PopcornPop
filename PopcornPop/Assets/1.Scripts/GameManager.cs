@@ -81,6 +81,11 @@ public class GameManager : MonoBehaviour
     [FoldoutGroup("UI")] public Button NoAds_Button;
     [FoldoutGroup("UI")] public GameObject NoAds_Panel;
 
+    [FoldoutGroup("UI")] public GameObject Main_Canvas;
+    [FoldoutGroup("UI")] public GameObject Store_Canvas;
+    [FoldoutGroup("UI")] public Button Machine_Button;
+    [FoldoutGroup("UI")] public Button Store_Button;
+
     Text[] Upgrade_Button_Text;
     Text Income_Text;
     Text[] RV_Text;
@@ -101,7 +106,7 @@ public class GameManager : MonoBehaviour
     [FoldoutGroup("Floating_Money")] public int Add_Pool_Size = 50;
     [FoldoutGroup("Floating_Money")] public Transform Floating_Waiting_Pool;
     [FoldoutGroup("Floating_Money")] public Transform Floating_Using_Pool;
-    [FoldoutGroup("Floating_Money")] [ReadOnly] int Floating_Count;
+    [FoldoutGroup("Floating_Money")][ReadOnly] int Floating_Count;
 
     public Spawner _spawner;
     public float Fever_time;
@@ -179,6 +184,9 @@ public class GameManager : MonoBehaviour
     public Color[] RV_Line_Color;
     [SerializeField] bool isRV_On = false;
     [SerializeField] float _PlayTime = 0f;
+
+    public GameObject Store_Cam;
+
     // ===============================================================================================
 
     private void Awake()
@@ -1133,6 +1141,10 @@ public class GameManager : MonoBehaviour
 
         Setting_Panel.transform.GetChild(5).GetComponent<Button>().onClick.AddListener(() => IAPManager.RestorePurchase());
 
+        // 1.6 Store Contents Update
+        Machine_Button.onClick.AddListener(() => StoreCam_OnOff(false));
+        Store_Button.onClick.AddListener(() => StoreCam_OnOff(true));
+
 
     }
 
@@ -1491,7 +1503,8 @@ public class GameManager : MonoBehaviour
         //_dic.Add(string.Format("Stage_{0}", Current_Stage_Level + 1)
         //    , string.Format("PlayTime:{0:0}s", _PlayTime));
         //EventTracker.LogCustomEvent("Stage_Level,PlayTime", _dic);
-        EventTracker.LogCustomEvent("Stage_PlayTime", new Dictionary<string, string> { { (Current_Stage_Level + 1).ToString() + "_Stage", ((int)_PlayTime).ToString() + "s" } });
+        EventTracker.LogCustomEvent("Stage_PlayTime"
+            , new Dictionary<string, string> { { (Current_Stage_Level + 1).ToString() + "_Stage", ((int)_PlayTime).ToString() + "s" } });
 
         _PlayTime = 0f;
     }
@@ -1540,5 +1553,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    public void StoreCam_OnOff(bool isOn)
+    {
+        Store_Cam.SetActive(isOn);
+
+        Main_Canvas.SetActive(!isOn);
+        Store_Canvas.SetActive(isOn);
+
+        //if (isOn)
+        //{
+
+        //}
+        //else
+        //{
+
+        //}
+
+    }
 
 }

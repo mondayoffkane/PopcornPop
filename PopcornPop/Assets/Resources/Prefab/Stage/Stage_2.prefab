@@ -1548,7 +1548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ChangeMat:
-  - {fileID: 2100000, guid: 1cecdf1454a4c4e849d526d9e7edb743, type: 2}
+  - {fileID: 2100000, guid: 864d39cbdf58442d38a4ad5bdd2ffea9, type: 2}
   Floating_Current_time: 0
   Floating_Max_Time: 0.1
   _gamemanager: {fileID: 0}
@@ -1697,8 +1697,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ChangeMat:
-  - {fileID: 2100000, guid: 1cecdf1454a4c4e849d526d9e7edb743, type: 2}
-  - {fileID: 2100000, guid: 2e0eb7546f9af409fa38b69e0f6b9a47, type: 2}
+  - {fileID: 2100000, guid: 864d39cbdf58442d38a4ad5bdd2ffea9, type: 2}
+  - {fileID: 2100000, guid: 0e3bd1e18bcc54cb7a7afbd172064ef1, type: 2}
   - {fileID: 2100000, guid: 0ef56efb579b54f19a3ffa432e23354d, type: 2}
   Floating_Current_time: 0
   Floating_Max_Time: 0.1
@@ -34033,7 +34033,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 2
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.8145778, b: 0, a: 1}
+      maxColor: {r: 0.5568628, g: 0.2901961, b: 0.11372549, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
